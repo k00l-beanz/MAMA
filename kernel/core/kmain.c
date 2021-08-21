@@ -35,6 +35,12 @@ void kmain(void)
    // 0) Initialize Serial I/O 
    // functions to initialize serial I/O can be found in serial.c
    // there are 3 functions to call
+
+   init_serial(COM1);
+   set_serial_in(COM1);
+   set_serial_out(COM1);
+   mpx_init(MODULE_R1);
+
  
    klogv("Starting MPX boot sequence...");
    klogv("Initialized serial I/O on COM1 device...");
@@ -54,7 +60,14 @@ void kmain(void)
    // this keeps track of allocated segments and pages
    klogv("Initializing descriptor tables...");
 
+   init_gdt();
+   init_idt();
 
+   // No place for the programmable interrupt controller so I'm putting it here
+   // with the 32 IRQ
+   init_pic();
+   init_irq();
+   sti();
 
     // 4)  Interrupt vector table --  tables.c
     // this creates and initializes a default interrupt vector table
@@ -70,7 +83,7 @@ void kmain(void)
    // NOTE:  You will only have about 70000 bytes of dynamic memory
    //
    klogv("Initializing virtual memory...");
-
+   init_paging();
 
    // 6) Call YOUR command handler -  interface method
    klogv("Transferring control to commhand...");
