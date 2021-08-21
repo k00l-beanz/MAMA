@@ -88,15 +88,26 @@ int set_serial_in(int device)
   return NO_ERROR;
 }
 
-int *polling(char *buffer, int *count){
-// insert your code to gather keyboard input via the technique of polling.
-// You must validat each key and handle special keys such as delete, back space, and
-// arrow keys
+int *polling(char *buffer, int *count) {
+  // insert your code to gather keyboard input via the technique of polling.
+  // You must validat each key and handle special keys such as delete, back space, and
+  // arrow keys
+  
+  while (1) {
+    if (inb(COM1+5) & 1) {
+      char letter = inb(COM1);
+      *buffer++ = letter;
+      outb(COM1,letter);
+    }
+    
+  }
 
-// remove the following line after implementing your module, this is present
-// just to allow the program to compile before R1 is complete
-strlen(buffer);
 
-return count;
+  // remove the following line after implementing your module, this is present
+  // just to allow the program to compile before R1 is complete
+
+  strlen(buffer);
+
+  return count;
 }
 
