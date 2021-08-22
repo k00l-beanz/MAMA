@@ -71,6 +71,12 @@ int atoi(const char *s)
 
   return res; // return integer
 }
+
+char *itoa(int i) {
+	if(i)
+	return "1";
+	else return "0";
+}
 /*
   Procedure..: strcmp
   Description..: String comparison

@@ -23,6 +23,8 @@
 
 #include "modules/mpx_supt.h"
 
+#include <term/commhand.c>
+
 int comhand();
 
 void kmain(void)
@@ -38,7 +40,7 @@ void kmain(void)
    // there are 3 functions to call
 
    init_serial(COM1);
-   // set_serial_in(COM1);
+   set_serial_in(COM1);
    set_serial_out(COM1);
    mpx_init(MODULE_R1);
 
@@ -89,7 +91,7 @@ void kmain(void)
    // 6) Call YOUR command handler -  interface method
    klogv("Transferring control to commhand...");
    
-   comhand();
+   commhand();
    // serial_println("Hello world");
 
    // 7) System Shutdown on return from your command handler

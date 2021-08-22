@@ -21,16 +21,15 @@ int serial_port_in = 0;
   Procedure..: init_serial
   Description..: Initializes devices for user interaction, logging, ...
 */
-int init_serial(int device)
-{
-  outb(device + 1, 0x00); //disable interrupts
-  outb(device + 3, 0x80); //set line control register
-  outb(device + 0, 115200/9600); //set bsd least sig bit
-  outb(device + 1, 0x00); //brd most significant bit
-  outb(device + 3, 0x03); //lock divisor; 8bits, no parity, one stop
-  outb(device + 2, 0xC7); //enable fifo, clear, 14byte threshold
-  outb(device + 4, 0x0B); //enable interrupts, rts/dsr set
-  (void)inb(device);      //read bit to reset port
+int init_serial(int device) {
+  outb(device + 1, 0x00);          // disable interrupts
+  outb(device + 3, 0x80);          // set line control register
+  outb(device + 0, 115200 / 9600); // set bsd least sig bit
+  outb(device + 1, 0x00);          // brd most significant bit
+  outb(device + 3, 0x03);          // lock divisor; 8bits, no parity, one stop
+  outb(device + 2, 0xC7);          // enable fifo, clear, 14byte threshold
+  outb(device + 4, 0x0B);          // enable interrupts, rts/dsr set
+  (void)inb(device);               // read bit to reset port
   return NO_ERROR;
 }
 
@@ -39,14 +38,13 @@ int init_serial(int device)
   Description..: Writes a message to the active serial output device.
     Appends a newline character.
 */
-int serial_println(const char *msg)
-{
+int serial_println(const char *msg) {
   int i;
-  for(i=0; *(i+msg)!='\0'; i++){
-    outb(serial_port_out,*(i+msg));
+  for (i = 0; *(i + msg) != '\0'; i++) {
+    outb(serial_port_out, *(i + msg));
   }
-  outb(serial_port_out,'\r');
-  outb(serial_port_out,'\n');  
+  outb(serial_port_out, '\r');
+  outb(serial_port_out, '\n');
   return NO_ERROR;
 }
 
@@ -54,13 +52,13 @@ int serial_println(const char *msg)
   Procedure..: serial_print
   Description..: Writes a message to the active serial output device.
 */
-int serial_print(const char *msg)
-{
+int serial_print(const char *msg) {
   int i;
-  for(i=0; *(i+msg)!='\0'; i++){
-    outb(serial_port_out,*(i+msg));
+  for (i = 0; *(i + msg) != '\0'; i++) {
+    outb(serial_port_out, *(i + msg));
   }
-  if (*msg == '\r') outb(serial_port_out,'\n');
+  if (*msg == '\r')
+    outb(serial_port_out, '\n');
   return NO_ERROR;
 }
 
@@ -70,8 +68,7 @@ int serial_print(const char *msg)
     All serial output, such as that from serial_println, will be
     directed to this device.
 */
-int set_serial_out(int device)
-{
+int set_serial_out(int device) {
   serial_port_out = device;
   return NO_ERROR;
 }
@@ -82,32 +79,154 @@ int set_serial_out(int device)
     All serial input, such as console input via a virtual machine,
     QEMU/Bochs/etc, will be directed to this device.
 */
-int set_serial_in(int device)
-{
+int set_serial_in(int device) {
   serial_port_in = device;
   return NO_ERROR;
 }
 
+#define DELETE      0b00001
+#define LEFT_ARROW  0b00010
+#define RIGHT_ARROW 0b00100
+#define UP_ARROW    0b01000
+#define DOWN_ARROW  0b10000
+
+unsigned int consume_special();
+
+// I made a mess of ur polling function I apologize 
 int *polling(char *buffer, int *count) {
-  // insert your code to gather keyboard input via the technique of polling.
-  // You must validat each key and handle special keys such as delete, back space, and
-  // arrow keys
-  
-  while (1) {
-    if (inb(COM1+5) & 1) {
+  int chars_read = 0;
+  int index = 0;
+
+  while (chars_read < *count) {
+    if (inb(COM1 + 5) & 1) {
       char letter = inb(COM1);
-      *buffer++ = letter;
-      outb(COM1,letter);
-    }
+
+      switch (letter) {
+        case '\r':
+        case '\n':
+          // CR and LF count as newlines or 'end of input' chars
+          // null terminate and return, don't add newline to buffer
+          buffer[chars_read] = '\0';
+          return NO_ERROR;
+        case '\b':
+        case 0x7f:
+          // backspace - move index + chars_read back ONLY IF we are not at the
+          // start of the line (don't let the user backspace off the screen)
+          // this case would also be a buffer underflow
+          if (index > 0) {
+            for (int i = index; i < chars_read; i++)
+              buffer[i - 1] = buffer[i];
+            index--;
+            chars_read--;
+  
+	    // adjust visually
+            outb(COM1, '\b');
+            for (int i = index; i < chars_read; i++)
+              outb(COM1, buffer[i]);
+            outb(COM1, ' ');
+            outb(COM1, '\b');
+            for (int i = index; i < chars_read; i++)
+              outb(COM1, '\b');
+          }
+          break;
+        case '\e':
+          // special character sequence - process and handle
+          switch (consume_special()) {
+            case DELETE:
+              // delete - shift all characters in front of the current index back 1 space
+	      // only attempt to do so if we aren't at the end of the line
+              if (index < chars_read) {
+                for (int i = index; i < chars_read - 1; i++)
+                  buffer[i] = buffer[i + 1];
+                chars_read--;
     
+		// adjust visually
+                for (int i = index; i < chars_read; i++)
+                  outb(COM1, buffer[i]);
+                outb(COM1, ' ');
+                outb(COM1, '\b');
+                for (int i = index; i < chars_read; i++)
+                  outb(COM1, '\b');
+              }
+              break;
+            case LEFT_ARROW:
+              // left arrow - move index to the left if it isn't at the start of the line
+              if (index > 0) {
+                index--;
+                outb(COM1, '\b');
+              }
+              break;
+            case RIGHT_ARROW:
+              // right arrow - move index to the right if it isn't at the end of the line
+              if (index < chars_read) {
+                index++;
+                outb(COM1, '\e');
+                outb(COM1, '[');
+                outb(COM1, 'C');
+              }
+              break;
+            case UP_ARROW:
+              // ignore for now - eventually maybe do command history?
+              break;
+            case DOWN_ARROW:
+              // also ignore for now
+              break;
+          }
+          break;
+        default:
+          // anything else just gets added to buffer and printed
+          for (int i = chars_read; i > index; i--)
+            buffer[i] = buffer[i - 1];
+          buffer[index] = letter;
+          outb(COM1, letter);
+          chars_read += 1;
+          index += 1;
+          for (int i = index; i < chars_read; i++)
+            outb(COM1, buffer[i]);
+          for (int i = index; i < chars_read; i++)
+            outb(COM1, '\b');
+      }
+    }
   }
 
-
-  // remove the following line after implementing your module, this is present
-  // just to allow the program to compile before R1 is complete
-
-  strlen(buffer);
-
-  return count;
+  return NO_ERROR;
 }
 
+
+unsigned int consume_special() {
+  unsigned int possibilities = 0b11111;
+
+  int i = 1;
+  while (possibilities != 0) {
+    if (inb(COM1 + 5) & 1) {
+      char c = inb(COM1);
+
+      switch (i) {
+      case 1:
+        if (c != 0x5b) possibilities &= ~DELETE & ~LEFT_ARROW & ~RIGHT_ARROW & ~UP_ARROW & ~DOWN_ARROW;
+        break;
+      case 2:
+        if (c != 0x33) possibilities &= ~DELETE;
+
+        if (c == 'A' && possibilities & UP_ARROW)    return UP_ARROW;
+        if (c == 'B' && possibilities & DOWN_ARROW)  return DOWN_ARROW;
+        if (c == 'C' && possibilities & RIGHT_ARROW) return RIGHT_ARROW;
+        if (c == 'D' && possibilities & LEFT_ARROW)  return LEFT_ARROW;
+
+        possibilities &= ~UP_ARROW & ~DOWN_ARROW & ~RIGHT_ARROW & ~LEFT_ARROW;
+        break;
+      case 3:
+        if (c == 0x7e && possibilities == DELETE) return DELETE;
+
+        possibilities &= ~DELETE;
+        break;
+      default:
+        possibilities = 0;
+      }
+
+      i++;
+    }
+  }
+
+  return 0;
+}

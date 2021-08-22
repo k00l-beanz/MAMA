@@ -59,4 +59,6 @@ char* strtok(char *s1, const char *s2);
 */
 int atoi(const char *s);
 
+char *itoa(int i);
+
 #endif
