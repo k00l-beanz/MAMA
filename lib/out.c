@@ -10,3 +10,7 @@ int println(char *str, int len) {
 	sys_req(WRITE, DEFAULT_DEVICE, "\n", &one);
 	return ret;
 }
+
+int read(char *buf, int len) {
+	return sys_req(READ, DEFAULT_DEVICE, buf, &len);
+}
