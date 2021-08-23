@@ -19,12 +19,12 @@ typedef struct cmd_mapping {
 /* mapping of command names to their associated functions
  * term/commhand.c uses this to find what function should be ran for a given command
  * eventually, this could also provide other information, such as a function to run to print help text for each command
- * I though this would be cleaner than a bunch of hardcoded if(cmd == "help") ... else if(cmd == "shutdown") ... statements
+ * I thought this would be cleaner than a bunch of hardcoded if(cmd == "help") ... else if(cmd == "shutdown") ... statements
  * or a massive switch statement with all the command names and functions hardcoded in
  *
  * For new commands, add another struct with the command name as a string and a pointer to its handler function, like below
  * The function to handle the command has to follow the signature for cmd_func_t, which is basically the following
- * 	int my_handler_func(char *arg_str) { ... }
+ * int my_handler_func(char *arg_str) { ... }
  */
 const cmd_mapping cmd_mappings[] = {
 	{

@@ -1,5 +1,9 @@
 #include <lib/out.c>
 
+/*
+ * Procedure: cmd_help()
+ * Description: Returns syntax for specified command.
+*/
 int cmd_help(char *arg_str) {
 	(void)arg_str;
 

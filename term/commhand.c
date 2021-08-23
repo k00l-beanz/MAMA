@@ -7,6 +7,10 @@ int is_name_char(char);
 void extract_cmd_name(char *, char *, int *);
 cmd_func_t fetch_cmd_handler(char *);
 
+/*
+ * Procedure: commhand()
+ * Description: Takes user input and interprets the command
+*/
 int commhand() {
 	char cmd_str[MAX_CMD_STRING_LEN + 1];
 	char cmd_name[MAX_CMD_NAME_LEN + 1];
@@ -14,18 +18,24 @@ int commhand() {
 
 	int running = 1;
 	
+	/* Driver loop */
 	while(running) {
-		// print prompt and read input
+		/* Prints prompt */
 		display_fg_color(GREEN);
 		print("---> ", 5);
 		display_reset();
 
+		/* Reads in user input */
 		read(cmd_str, MAX_CMD_STRING_LEN);
 		println("", 0);
 
+		/* Extract command name (typically first word) from command string */
 		extract_cmd_name(cmd_str, cmd_name, &cmd_name_len);
 
+
 		cmd_func_t handler = fetch_cmd_handler(cmd_name);
+
+
 		if(handler != NULL) {
 			(*handler)(cmd_str + cmd_name_len);
 		} else {
@@ -33,6 +43,7 @@ int commhand() {
 			println(cmd_name, cmd_name_len);
 		}
 
+		/* Command shutdown kills driver loop */
 		if(strcmp(cmd_name, "shutdown") == 0)
 			running = 0;
 	}
@@ -50,6 +61,11 @@ cmd_func_t fetch_cmd_handler(char *cmd_name) {
 	return NULL;
 }
 
+/*
+ * Procedure: extract_cmd_name
+ * Description: Extracts the command (typically the first word) from the command
+ *  string.
+*/
 void extract_cmd_name(char *cmd_str, char *cmd_name, int *cmd_name_len) {
 	*cmd_name_len = 0;
         for(int i = 0; i < MAX_CMD_NAME_LEN && is_name_char(cmd_str[i]); i++) {
@@ -60,6 +76,10 @@ void extract_cmd_name(char *cmd_str, char *cmd_name, int *cmd_name_len) {
 	cmd_name[*cmd_name_len] = '\0';
 }
 
+/*
+ * Procedure: is_name_char
+ * Description: Checks for invalid characters
+*/
 int is_name_char(char c) {
 	return  (c >= 'a' && c <= 'z') ||
 		(c >= 'A' && c <= 'Z') ||
