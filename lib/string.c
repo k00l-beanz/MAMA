@@ -72,11 +72,43 @@ int atoi(const char *s)
   return res; // return integer
 }
 
-char *itoa(int i) {
-	if(i)
-	return "1";
-	else return "0";
+/*
+ * Procedure: itoa()
+ * Description: Converts 32-bit integer to an array of bytes
+ *   representing the integer.
+*/
+char * itoa(int value) {
+  
+  int sizeValue = value;
+  int length = 1;
+
+  /* Determine the length of the decimal */
+  while (sizeValue /= 10) {
+    length++;
+  }
+  
+  char *digit;
+  char *start; /* Points to the start of the array */
+  
+  /* The array where each ascii value will be stored */
+  char number[64];
+  memset(number,'\0',64);
+
+  /*
+   * This loop iterates backwards in order to write the bytes
+   * in the correct order. 
+  */
+  for (int i = length - 1; i > -1; i--) {
+    int rem = value % 10;
+    value = value / 10;
+    digit = (char *) &rem;
+    number[i] = *digit;
+  }
+
+  start = number;
+  return start;
 }
+
 /*
   Procedure..: strcmp
   Description..: String comparison
