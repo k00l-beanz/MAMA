@@ -92,6 +92,8 @@ int set_serial_in(int device) {
 
 unsigned int consume_special();
 
+#include <term/history.h>
+
 // I made a mess of ur polling function I apologize 
 /* WTF is this Austin!?! Unreadable! jk good job -Maximillian */
 int *polling(char *buffer, int *count) {
@@ -185,10 +187,10 @@ int *polling(char *buffer, int *count) {
 
             /* History with Up and Down arrow keys */
             case UP_ARROW:
-              // ignore for now - eventually maybe do command history?
+              hist_rewind(buffer, &index, &chars_read);
               break;
             case DOWN_ARROW:
-              // also ignore for now
+              hist_forward(buffer, &index, &chars_read);
               break;
           }
           break;

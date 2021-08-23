@@ -1,4 +1,4 @@
-// #include <lib/out.c>
+#include <lib/out.h>
 
 #define START_SEQ "\e["
 
