@@ -4,6 +4,8 @@
 #include "history.c"
 #include "commhand.h"
 #include <lib/out.c>
+#include "dnt/dnt.h"
+
 
 typedef int (*cmd_func_t)(char *);
 
@@ -34,6 +36,22 @@ const cmd_mapping cmd_mappings[] = {
         {
         	"version",
         	&cmd_version
+        },
+        {
+        	"gettime",
+        	&gettime
+        },
+        {
+        	"settime",
+        	&settime
+        },
+        {
+        	"getdate",
+        	&getdate
+        },
+        {
+        	"setdate",
+        	&setdate
         },
         { NULL } // sentinel for end-of-array
 };

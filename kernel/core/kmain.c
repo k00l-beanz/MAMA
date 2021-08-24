@@ -25,8 +25,6 @@
 
 #include <term/commhand.c>
 
-int comhand();
-
 void kmain(void)
 {
    extern uint32_t magic;
@@ -90,8 +88,12 @@ void kmain(void)
 
    // 6) Call YOUR command handler -  interface method
    klogv("Transferring control to commhand...");
-   
-   commhand();
+   //commhand();
+   setdate(2,7,24,21);
+   getdate();
+   //settime(5,23,4);
+   //gettime();
+
    // serial_println("Hello world");
 
    // 7) System Shutdown on return from your command handler
@@ -100,19 +102,4 @@ void kmain(void)
    /* Shutdown Procedure */
    klogv("Shutdown complete. You may now turn off the machine. (QEMU: C-a x)");
    hlt();
-}
-
-int comhand() {
-  char cmdBuffer[100];
-  int bufferSize;
-  int quit = 0;
-
-  while (!quit) {
-    
-    bufferSize = 99;
-    memset(cmdBuffer,'\0',100);
-    sys_req(READ,DEFAULT_DEVICE,cmdBuffer,&bufferSize);
-  }
-
-  return 0;
 }
