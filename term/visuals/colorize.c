@@ -19,7 +19,7 @@ void display_fg_color(enum Color color) {
 	print(START_SEQ, 2);
 	print("3", 1);
 	print_color_code(color);
-	print("m", 1);
+	print(";1m", 1);
 }
 
 void display_bg_color(enum Color color) {

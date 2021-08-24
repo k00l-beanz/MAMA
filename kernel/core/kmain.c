@@ -88,11 +88,7 @@ void kmain(void)
 
    // 6) Call YOUR command handler -  interface method
    klogv("Transferring control to commhand...");
-   //commhand();
-   setdate(2,7,24,21);
-   getdate();
-   //settime(5,23,4);
-   //gettime();
+   commhand();
 
    // serial_println("Hello world");
 
