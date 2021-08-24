@@ -3,6 +3,9 @@
 #include "visuals/colorize.c"
 #include "history.c"
 #include "commhand.h"
+#include "commands.h"
+#include "visuals/syntax.h"
+#include "visuals/hints.h"
 #include <lib/out.c>
 
 typedef int (*cmd_func_t)(char *);
@@ -31,6 +34,10 @@ const cmd_mapping cmd_mappings[] = {
                 "shutdown",
                 &cmd_shutdown
         },
+	{
+		"echo",
+		&cmd_echo
+	},
         { NULL } // sentinel for end-of-array
 };
 
@@ -43,6 +50,8 @@ cmd_func_t fetch_cmd_handler(char *);
  * Description: Takes user input and interprets the command
 */
 int commhand() {
+	syntax_init();
+
 	char cmd_name[MAX_CMD_NAME_LEN + 1];
 	int cmd_name_len = 0;
 
@@ -52,13 +61,14 @@ int commhand() {
 	while(running) {
 		/* Prints prompt */
 		display_fg_color(GREEN);
-		print("---> ", 5);
+		print("~--> ", 5);
 		display_reset();
 
 		/* Reads in user input */
 		char *cmd_str = hist_next_frame();
 		read(cmd_str, MAX_CMD_STRING_LEN);
 		println("", 0);
+		display_reset();
 
 		/* Extract command name (typically first word) from command string */
 		extract_cmd_name(cmd_str, cmd_name, &cmd_name_len);
