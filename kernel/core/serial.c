@@ -93,6 +93,8 @@ int set_serial_in(int device) {
 unsigned int consume_special();
 
 #include <term/history.h>
+#include <term/visuals/syntax.h>
+#include <term/visuals/syntax.c>
 
 // I made a mess of ur polling function I apologize 
 /* WTF is this Austin!?! Unreadable! jk good job -Maximillian */
@@ -133,8 +135,10 @@ int *polling(char *buffer, int *count) {
   
 	          // adjust visually
             outb(COM1, '\b');
-            for ( i = index; i < chars_read; i++)
+            for (i = index; i < chars_read; i++) {
+	      syntax_handle_char(buffer[i], i);
               outb(COM1, buffer[i]);
+	    }
             outb(COM1, ' ');
             outb(COM1, '\b');
             for ( i = index; i < chars_read; i++)
@@ -157,9 +161,11 @@ int *polling(char *buffer, int *count) {
                   buffer[i] = buffer[i + 1];
                 chars_read--;
     
-		            /* adjust visually */
-                for ( i = index; i < chars_read; i++)
-                  outb(COM1, buffer[i]);
+                /* adjust visually */
+                for (i = index; i < chars_read; i++) {
+                  syntax_handle_char(buffer[i], i);
+		  outb(COM1, buffer[i]);
+		}
                 outb(COM1, ' ');
                 outb(COM1, '\b');
                 for (i = index; i < chars_read; i++)
@@ -204,12 +210,15 @@ int *polling(char *buffer, int *count) {
           for ( i = chars_read; i > index; i--)
             buffer[i] = buffer[i - 1];
           buffer[index] = letter;
+	  syntax_handle_char(letter, index);
           outb(COM1, letter);
           chars_read += 1;
           index += 1;
-          for ( i = index; i < chars_read; i++)
+          for (i = index; i < chars_read; i++) {
+            syntax_handle_char(buffer[i], i);
             outb(COM1, buffer[i]);
-          for ( i = index; i < chars_read; i++)
+	  }
+          for (i = index; i < chars_read; i++)
             outb(COM1, '\b');
       }
     }

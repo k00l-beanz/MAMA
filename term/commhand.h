@@ -5,10 +5,6 @@
 #ifndef COMMHAND_H
 #define COMMHAND_H
 
-#include "cmds/help.c"
-#include "cmds/shutdown.c"
-#include "cmds/version.c"
-
 #define MAX_CMD_STRING_LEN 100
 #define MAX_CMD_NAME_LEN 30
 #define MAX_CMD_HIST_LEN 20
