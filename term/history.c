@@ -28,7 +28,8 @@ void hist_forward(char *internal_buf, int *internal_index, int *internal_buf_len
 		// feel like there's a duplicate entry in the queue
 		if(cmd_hist_current_index == cmd_hist_most_recent_index) {
 			cursor_left(*internal_index);
-			for(int i = 0; i < *internal_buf_len; i++)
+			int i;
+			for( i = 0; i < *internal_buf_len; i++)
 				print(" ", 1);
 			cursor_left(*internal_buf_len);
 
@@ -64,7 +65,8 @@ void write_hist_to_buf(char *buf, int *index, int *len) {
 	// adjust visually
         cursor_left(orig_index);
 	print(buf, *len);
-	for(int i = 0; i < orig_buf_len - *len; i++)
+	
+	for( i = 0; i < orig_buf_len - *len; i++)
 		print(" ", 1);
 	cursor_left(orig_buf_len - *len);
 

@@ -31,6 +31,10 @@ const cmd_mapping cmd_mappings[] = {
                 "shutdown",
                 &cmd_shutdown
         },
+        {
+        	"version",
+        	&cmd_version
+        },
         { NULL } // sentinel for end-of-array
 };
 
@@ -101,7 +105,8 @@ cmd_func_t fetch_cmd_handler(char *cmd_name) {
 */
 void extract_cmd_name(char *cmd_str, char *cmd_name, int *cmd_name_len) {
 	*cmd_name_len = 0;
-        for(int i = 0; i < MAX_CMD_NAME_LEN && is_name_char(cmd_str[i]); i++) {
+	int i;
+        for(i = 0; i < MAX_CMD_NAME_LEN && is_name_char(cmd_str[i]); i++) {
                 *cmd_name_len += 1;
 		cmd_name[i] = cmd_str[i];
 	}
