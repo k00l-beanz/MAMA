@@ -104,7 +104,7 @@ int *polling(char *buffer, int *count) {
   while (chars_read < *count) {
     if (inb(COM1 + 5) & 1) { /* If there is incoming data */
       char letter = inb(COM1); /* Holds individual letter */
-
+	int i;
       switch (letter) {
         /* Return Key */
         case '\r':
@@ -125,18 +125,19 @@ int *polling(char *buffer, int *count) {
            * this case would also be a buffer underflow.
           */
           if (index > 0) {
-            for (int i = index; i < chars_read; i++)
+          
+            for ( i = index; i < chars_read; i++)
               buffer[i - 1] = buffer[i];
             index--;
             chars_read--;
   
 	          // adjust visually
             outb(COM1, '\b');
-            for (int i = index; i < chars_read; i++)
+            for ( i = index; i < chars_read; i++)
               outb(COM1, buffer[i]);
             outb(COM1, ' ');
             outb(COM1, '\b');
-            for (int i = index; i < chars_read; i++)
+            for ( i = index; i < chars_read; i++)
               outb(COM1, '\b');
           }
           break;
@@ -151,16 +152,17 @@ int *polling(char *buffer, int *count) {
 	             * only attempt to do so if we aren't at the end of the line
               */
               if (index < chars_read) {
-                for (int i = index; i < chars_read - 1; i++)
+              
+                for ( i = index; i < chars_read - 1; i++)
                   buffer[i] = buffer[i + 1];
                 chars_read--;
     
 		            /* adjust visually */
-                for (int i = index; i < chars_read; i++)
+                for ( i = index; i < chars_read; i++)
                   outb(COM1, buffer[i]);
                 outb(COM1, ' ');
                 outb(COM1, '\b');
-                for (int i = index; i < chars_read; i++)
+                for (i = index; i < chars_read; i++)
                   outb(COM1, '\b');
               }
               break;
@@ -198,15 +200,16 @@ int *polling(char *buffer, int *count) {
         /* Everything else */
         default:
           // anything else just gets added to buffer and printed
-          for (int i = chars_read; i > index; i--)
+          
+          for ( i = chars_read; i > index; i--)
             buffer[i] = buffer[i - 1];
           buffer[index] = letter;
           outb(COM1, letter);
           chars_read += 1;
           index += 1;
-          for (int i = index; i < chars_read; i++)
+          for ( i = index; i < chars_read; i++)
             outb(COM1, buffer[i]);
-          for (int i = index; i < chars_read; i++)
+          for ( i = index; i < chars_read; i++)
             outb(COM1, '\b');
       }
     }

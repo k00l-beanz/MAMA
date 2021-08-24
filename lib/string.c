@@ -98,7 +98,8 @@ char * itoa(int value) {
    * This loop iterates backwards in order to write the bytes
    * in the correct order. 
   */
-  for (int i = length - 1; i > -1; i--) {
+  int i;
+  for ( i = length - 1; i > -1; i--) {
     int rem = value % 10;
     value = value / 10;
     digit = (char *) &rem;
