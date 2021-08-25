@@ -115,7 +115,10 @@ int commhand() {
 }
 
 
-
+/*
+ * Procedure: fetch_cmd_handler
+ * Description: Returns the associated command handler (as a function pointer) for the specified command
+ */
 cmd_func_t fetch_cmd_handler(char *cmd_name) {	
 	int i = 0;
 	while(cmd_mappings[i].cmd_name != NULL) {
