@@ -1,0 +1,21 @@
+Doxygen exe is located in MAMA/docs/build/bin
+
+./doxygen Doxyfile
+
+This will write all the docs to MAMAM/doc/html
+The basic syntax to writting documents for your methods is:
+
+/**
+ * Brief explanation
+ * 
+ * Detailed explaination
+ *
+ * @param param_1
+ * @param param_2
+ *
+ * @return Return stuff
+*/  
+
+For constants, variables, structs and other stuff:
+
+/// Brief explanation
