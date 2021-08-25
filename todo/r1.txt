@@ -1,0 +1,16 @@
+
+Obtain, build, and boot the core of the MPX Project [x]
+Set up communications with MPX (using serial communications), and system calls via sys_req [x]
+Implement: []
+	version []
+	help (for each function)
+		help		[]
+		settime		[]
+		gettime		[]
+		setdate		[]
+		getdate		[]
+	getdate [x]
+	setdate [x] ~
+	gettime [x]
+	settime [x]
+

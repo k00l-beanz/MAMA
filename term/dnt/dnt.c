@@ -7,7 +7,7 @@ int setdate(char * date) {
   char *sep = ".";
 
   char *token = strtok(date,sep);
-  dayOfWeek = atoi(token);
+  dayOfWeek = atoi(token); // day of week
 
   /* Extract rest of date */
   for (i = 0; i < 3; i++) { 

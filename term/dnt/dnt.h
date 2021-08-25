@@ -15,7 +15,7 @@
  * setDateInMemory. The basic syntax is dayoftheweek.month.day.year
  * Days of the week are inputed as decimal with Sunday being 1, Monday being
  * 2. Month is similar with January being 1, February being 2 and so on.
- * Ex:    Tuesday.August.24.21 = 2.3.24.21
+ * Ex:    Tuesday.August.24.21 = 3.3.24.21
  * 
  * @param date The parameter that is passed with setdate. This 
  *             string is parsed and each segment is converted to
@@ -125,7 +125,7 @@ unsigned int BCDtoI(unsigned char value);
  * 
  * Converts a masked integer into an unmasked string
  * month. The months are January to December and are
- * 0 to 11 respectivley.
+ * 1 to 12 respectivley.
  * 1 = January
  * 2 = February
  * ...
@@ -142,7 +142,7 @@ char * intToMonth(int value);
  * 
  * Converts a masked integer into an unmasked string
  * day of the week. The days of the week are Sunday to 
- * Saturday and are 0 to 6 respectivley.
+ * Saturday and are 1 to 7 respectivley.
  * 1 = Sunday
  * 2 = Monday
  * ...
