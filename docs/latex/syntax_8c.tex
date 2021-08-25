@@ -1,0 +1,75 @@
+\hypertarget{syntax_8c}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/term/visuals/syntax.c File Reference}
+\label{syntax_8c}\index{/home/maximillian/Desktop/MAMA/term/visuals/syntax.c@{/home/maximillian/Desktop/MAMA/term/visuals/syntax.c}}
+{\ttfamily \#include \char`\"{}syntax.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../commhand.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}colorize.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hints.\+c\char`\"{}}\newline
+{\ttfamily \#include $<$include/string.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{syntax_8c_aaed43064814c2ef42729e71bbadcf73c}{switch\+\_\+to}} (enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}}, int, int)
+\item 
+void \mbox{\hyperlink{syntax_8c_a39318f833f527bd72fe820ed4c7b97d1}{color\+\_\+for}} (enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}})
+\item 
+void \mbox{\hyperlink{syntax_8c_aa9d6b8916489bef5584d7eca99fc6d87}{get\+\_\+state\+\_\+at}} (int, int $\ast$)
+\item 
+void \mbox{\hyperlink{syntax_8c_a8982d81a1ac7f95d9c633772f4b9c910}{syntax\+\_\+init}} ()
+\item 
+void \mbox{\hyperlink{syntax_8c_a5d0d3fecb83c8763320c153deb0c7b29}{syntax\+\_\+handle\+\_\+char}} (char c, int index)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}} \mbox{\hyperlink{syntax_8c_ab89bad94c0c01115a8fe6f4a7dbc0d6f}{states}} \mbox{[}\mbox{\hyperlink{syntax_8h_a5b4d7047959ad40783bdc010e10b86dd}{MAX\+\_\+\+SYNTAX\+\_\+\+SWITCHES}}\mbox{]}
+\item 
+int \mbox{\hyperlink{syntax_8c_a30d4d1c39337175e8ca12046c7563a2f}{switch\+\_\+indexes}} \mbox{[}\mbox{\hyperlink{syntax_8h_a5b4d7047959ad40783bdc010e10b86dd}{MAX\+\_\+\+SYNTAX\+\_\+\+SWITCHES}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{syntax_8c_a39318f833f527bd72fe820ed4c7b97d1}\label{syntax_8c_a39318f833f527bd72fe820ed4c7b97d1}} 
+\index{syntax.c@{syntax.c}!color\_for@{color\_for}}
+\index{color\_for@{color\_for}!syntax.c@{syntax.c}}
+\doxysubsubsection{\texorpdfstring{color\_for()}{color\_for()}}
+{\footnotesize\ttfamily void color\+\_\+for (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}}}]{state }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{syntax_8c_aa9d6b8916489bef5584d7eca99fc6d87}\label{syntax_8c_aa9d6b8916489bef5584d7eca99fc6d87}} 
+\index{syntax.c@{syntax.c}!get\_state\_at@{get\_state\_at}}
+\index{get\_state\_at@{get\_state\_at}!syntax.c@{syntax.c}}
+\doxysubsubsection{\texorpdfstring{get\_state\_at()}{get\_state\_at()}}
+{\footnotesize\ttfamily void get\+\_\+state\+\_\+at (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int $\ast$}]{index\+\_\+of\+\_\+state\+\_\+in\+\_\+record }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{syntax_8c_aaed43064814c2ef42729e71bbadcf73c}\label{syntax_8c_aaed43064814c2ef42729e71bbadcf73c}} 
+\index{syntax.c@{syntax.c}!switch\_to@{switch\_to}}
+\index{switch\_to@{switch\_to}!syntax.c@{syntax.c}}
+\doxysubsubsection{\texorpdfstring{switch\_to()}{switch\_to()}}
+{\footnotesize\ttfamily void switch\+\_\+to (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}}}]{state,  }\item[{int}]{index,  }\item[{int}]{record\+\_\+index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{syntax_8c_a5d0d3fecb83c8763320c153deb0c7b29}\label{syntax_8c_a5d0d3fecb83c8763320c153deb0c7b29}} 
+\index{syntax.c@{syntax.c}!syntax\_handle\_char@{syntax\_handle\_char}}
+\index{syntax\_handle\_char@{syntax\_handle\_char}!syntax.c@{syntax.c}}
+\doxysubsubsection{\texorpdfstring{syntax\_handle\_char()}{syntax\_handle\_char()}}
+{\footnotesize\ttfamily void syntax\+\_\+handle\+\_\+char (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{syntax_8c_a8982d81a1ac7f95d9c633772f4b9c910}\label{syntax_8c_a8982d81a1ac7f95d9c633772f4b9c910}} 
+\index{syntax.c@{syntax.c}!syntax\_init@{syntax\_init}}
+\index{syntax\_init@{syntax\_init}!syntax.c@{syntax.c}}
+\doxysubsubsection{\texorpdfstring{syntax\_init()}{syntax\_init()}}
+{\footnotesize\ttfamily void syntax\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{syntax_8c_ab89bad94c0c01115a8fe6f4a7dbc0d6f}\label{syntax_8c_ab89bad94c0c01115a8fe6f4a7dbc0d6f}} 
+\index{syntax.c@{syntax.c}!states@{states}}
+\index{states@{states}!syntax.c@{syntax.c}}
+\doxysubsubsection{\texorpdfstring{states}{states}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}} states\mbox{[}\mbox{\hyperlink{syntax_8h_a5b4d7047959ad40783bdc010e10b86dd}{MAX\+\_\+\+SYNTAX\+\_\+\+SWITCHES}}\mbox{]}}
+
+\mbox{\Hypertarget{syntax_8c_a30d4d1c39337175e8ca12046c7563a2f}\label{syntax_8c_a30d4d1c39337175e8ca12046c7563a2f}} 
+\index{syntax.c@{syntax.c}!switch\_indexes@{switch\_indexes}}
+\index{switch\_indexes@{switch\_indexes}!syntax.c@{syntax.c}}
+\doxysubsubsection{\texorpdfstring{switch\_indexes}{switch\_indexes}}
+{\footnotesize\ttfamily int switch\+\_\+indexes\mbox{[}\mbox{\hyperlink{syntax_8h_a5b4d7047959ad40783bdc010e10b86dd}{MAX\+\_\+\+SYNTAX\+\_\+\+SWITCHES}}\mbox{]}}
+

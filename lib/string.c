@@ -87,7 +87,7 @@ char * itoa(int value) {
     length++;
   }
   
-  char *digit;
+  char digit;
   char *start; /* Points to the start of the array */
   
   /* The array where each ascii value will be stored */
@@ -102,8 +102,8 @@ char * itoa(int value) {
   for ( i = length - 1; i > -1; i--) {
     int rem = value % 10;
     value = value / 10;
-    digit = (char *) &rem;
-    number[i] = *digit;
+    digit = rem + '0';
+    number[i] = digit;
   }
 
   start = number;

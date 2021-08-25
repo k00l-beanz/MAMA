@@ -1,12 +1,6 @@
 
 #include "dnt.h"
 
-/*
- * Procedure: setdate()
- * Description: Set the system date.
- *  Syntax: DayOfWeek.Month.Day.Year
- *  Ex:     Tuesday.August.24.21
-*/
 int setdate(char * date) {
   int i;
   int dayOfWeek, month, day, year;
@@ -32,18 +26,13 @@ int setdate(char * date) {
 
   setDateInMemory(dayOfWeek, month, day, year);
 
-  return 0;
+  return 1;
 }
 
-/*
- * Procedure: setDateinMemory()
- * Description: Set the date in memory.
- * #TODO: Error Handling
-*/
-void setDateInMemory(unsigned int dayOfWeek, unsigned int month, unsigned int day, unsigned int year) {
+int setDateInMemory(unsigned int dayOfWeek, unsigned int month, unsigned int day, unsigned int year) {
   /* Verify that the user entered a date that is w/i bounds */
   if ((year > MAX_YEAR) || (month > MAX_MONTH) || (day > MAX_DAY) || (dayOfWeek > MAX_DAY_OF_WEEK)) {
-    return;
+    return 0;
   }
 
   unsigned char BCDyear, BCDmonth, BCDday, BCDdayOfWeek;
@@ -67,6 +56,8 @@ void setDateInMemory(unsigned int dayOfWeek, unsigned int month, unsigned int da
   outb(0x70,0x06);
   BCDdayOfWeek = ItoBCD(dayOfWeek);
   outb(0x71,BCDdayOfWeek);
+
+  return 1;
 }
 
 int getdate(char * p) {
@@ -75,32 +66,33 @@ int getdate(char * p) {
   char output[100];
   char *comma = ", ";
   char *twenty = "20";
-  char *NL = "\n";
+  char *NL = "\n", *space = " ";
   int year, month, day, dayOfWeek;
 
   memset(output,'\0',100);
 
   /* Get day of week */
   outb(0x70,0x06);
-  dayOfWeek = BCDtoI((unsigned char) inb(0x71));
+  dayOfWeek = BCDtoI(inb(0x71));
   strcat(output,intToDayOfWeek(dayOfWeek));
   strcat(output,comma);
   
   /* Get month */
   outb(0x70, 0x08);
-  month = BCDtoI((unsigned char) inb(0x71));
+  month = BCDtoI(inb(0x71));
   strcat(output,intToMonth(month));
+  strcat(output,space);
 
   /* Get day */
   outb(0x70,0x07);
-  day = BCDtoI((unsigned char) inb(0x71));
+  day = BCDtoI(inb(0x71));
   strcat(output,itoa(day));
   strcat(output,comma);
   strcat(output,twenty);
 
   /* Get year */
   outb(0x70,0x09);
-  year = BCDtoI((unsigned char) inb(0x71));
+  year = BCDtoI(inb(0x71));
   strcat(output,itoa(year));
 
   strcat(output,NL);
@@ -110,12 +102,6 @@ int getdate(char * p) {
   return 0;
 }
 
-/*
- * Procedure: settime()
- * Description: Set the system time
- * Syntax:  Hour.Minute.Second
- * Ex:      18.58.12
-*/
 int settime(char * time) {
   int i, hour, minute, second;
   char *token, *sep = ".";
@@ -139,11 +125,6 @@ int settime(char * time) {
   return 0;
 }
 
-/*
- * Procedure setTimeInMemory()
- * Description: Set the system time in memory
- * #TODO: Error Handling
-*/
 void setTimeInMemory(unsigned int hour, unsigned int minute, unsigned int second) {
   unsigned char BCDhour, BCDminute, BCDsecond;
 
@@ -173,10 +154,6 @@ void setTimeInMemory(unsigned int hour, unsigned int minute, unsigned int second
 
 }
 
-/*
- * Procedure: gettime()
- * Description: Get the system time.
-*/
 int gettime(char * p) {
   (void) p;
 
@@ -189,21 +166,20 @@ int gettime(char * p) {
 
   // Hours
   outb(0x70, 0x04);
-  hour = BCDtoI((unsigned char) inb(0x71));
+  hour = BCDtoI(inb(0x71));
   strcat(output,itoa(hour));
   strcat(output,semi);
 
   // Minutes
   outb(0x70,0x02);
-  minute = BCDtoI((unsigned char) inb(0x71));
+  minute = BCDtoI(inb(0x71));
   strcat(output,itoa(minute));
   strcat(output,semi);
 
   // Seconds
   outb(0x70,0x00);
-  second = BCDtoI((unsigned char) inb(0x71));
+  second = BCDtoI(inb(0x71));
   strcat(output,itoa(second));
-  strcat(output,semi);
 
   strcat(output,NL);
   sys_req(WRITE,DEFAULT_DEVICE,output,&hour);
@@ -211,29 +187,14 @@ int gettime(char * p) {
   return 0;
 }
 
-/*
- * Procedure: ItoBCD()
- * Description: Converts 32-bit int into 8-bit BCD
-*/
 unsigned char ItoBCD(unsigned int value) {
   return (unsigned char) ((value / 10) << 4) | (value % 10);
 }
 
-/*
- * Procedure: BCDtoI()
- * Description: Converts 8-bit BCD into 32-bit int
-*/
 unsigned int BCDtoI(unsigned char value) {
   return (unsigned int) (((value >> 4) * 10) + (value & 0x0F));
 }
 
-/*
- * Procedure: getMonth()
- * Description: Convert int representation of month
- *  to a name.
- *  0 = January
- *  11 = December 
-*/
 char * intToMonth(int value) {
   char * month;
   switch(value) {
@@ -278,13 +239,6 @@ char * intToMonth(int value) {
   return month;
 }
 
-/*
- * Procedure: intToDayOfWeek()
- * Description: Convert int representation of day of the week
- *  to a name.
- *  0 = January
- *  11 = December
-*/
 char * intToDayOfWeek(int value) {
   char *dayOfWeek;
   switch(value) {
@@ -316,10 +270,6 @@ char * intToDayOfWeek(int value) {
   return dayOfWeek;
 }
 
-/*
- * Procedure: dayOfWeekToInt()
- * Description: Converts user input dayofweek to int
-*/
 int dayOfWeekToInt(char * dayofweek) {
   if (strcmp(dayofweek,"Sunday") == 0) {
     return 0;
@@ -346,10 +296,6 @@ int dayOfWeekToInt(char * dayofweek) {
   return -1;
 }
 
-/*
- * Procedure: monthToInt()
- * Description: Converts user supplied month to int
-*/
 int monthToInt(char * dayofweek) {
   if (strcmp(dayofweek,"January") == 0) {
     return 0;

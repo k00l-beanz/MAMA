@@ -1,101 +1,200 @@
-#define MAX_HOURS 23
-#define MAX_MINUTES 59
-#define MAX_SECONDS 59
+#define MAX_HOURS 23        /// The largest value that the user can set their hours to
+#define MAX_MINUTES 59      /// The largest value that the user can set their minutes to
+#define MAX_SECONDS 59      /// The largest value that the user can set their seconds to
 
-#define MAX_YEAR 99
-#define MAX_MONTH 12
-#define MAX_DAY 31
-#define MAX_DAY_OF_WEEK 6
+#define MAX_YEAR 99         /// The largest value that the user can set their year to
+#define MAX_MONTH 12        /// The largest value that the user can set their month to
+#define MAX_DAY 31          /// The largest value that the user can set their day to
+#define MAX_DAY_OF_WEEK 6   /// The largest value that the user can set their day of the week to
 
-/*
- * Procedure: setdate()
- * Description: Set the system date.
- *  Syntax: DayOfWeek.Month.Day.Year
- *  Ex:     Tuesday.August.24.21
- *  #TODO: Error Handling
-*/
+/**
+ * Sets the date of the system
+ * 
+ * Parses the parameter to setdate, breaking the parameter
+ * into dayofweek, Month, day and year before passing it to
+ * setDateInMemory. Converts strings (Tuesday, July, etc.) 
+ * into their 32-int before calling setDateInMemory.
+ * The input syntax
+ * is DayOfWeek.Month.Day.Year
+ * Ex:    Tuesday.August.24.21
+ * 
+ * @param date The parameter that is passed with setdate. This 
+ *             string is parsed and each segment is converted to
+ *             a 32-bit int.
+ * @return Returns 0 upon success, -1 upon error
+ */
 int setdate(char * date);
 
-/*
- * Procedure: setDateinMemory()
- * Description: Set the date in memory.
+/**
+ * Sets the date in memory
+ * 
+ * Sets the date in memory by assigning the values to the
+ * appropriate places in memory. This method is called by the
+ * setdate method.
+ * 
+ * @param dayOfWeek The day of the week (0 = Sunday ... 6 = Saturday)
+ * @param month The month (0 = January ... 11 = December)
+ * @param day The day in the month. Can be between 0 and 32
+ * @param year The current year. This is a 2-digit number
+ * 
+ * @return Returns 0 upon success, -1 upon error
 */
-void setDateInMemory(unsigned int dayOfWeek, unsigned int month, unsigned int day, unsigned int year);
+int setDateInMemory(unsigned int dayOfWeek, unsigned int month, unsigned int day, unsigned int year);
 
-/*
- * Procedure: getdate()
- * Description: Get the system date
+/**
+ * Gets the date of the system
+ * 
+ * Returns a string that represents the current
+ * date of the system. This is in the format
+ * DayOfWeek, Month Day, Year
+ * Ex:      Wednesday, August 25, 2021
+ * 
+ * @param p Empty paremeter that is required to call this method. Does
+ *          not do anything.
+ * @return Returns 0 upon success, -1 upon error
 */
 int getdate(char * p);
 
-/*
- * Procedure: settime()
- * Description: Set the system time
- * Syntax:  Hour.Minute.Second
- * Ex:      18.58.12
- * #TODO: Error Handling
+/**
+ * Sets the time of the system
+ * 
+ * Takes the parameter which will be parsed and into
+ * 32-bit int (later converted to BCD) and sets it into memory.
+ * The syntax is Hour.Minute.Second
+ * Ex:      10.23.00
+ * 
+ * @param The parameter passed with the settime call
+ * 
+ * @return Returns 0 upon success, -1 upon error
 */
 int settime(char * time);
 
-/*
- * Procedure setTimeInMemory()
- * Descriptoin: Set the system time in memory
+/**
+ * Sets the time into memory
+ * 
+ * This method is called by the settime method. Writes the data into memory. First converts 
+ * all parameter from 32-bit int to 8-bit BCD and then writes to the appropriate address.
+ * 
+ * @param hour 32-bit int hour
+ * @param minute 32-bit int minute
+ * @param second 32-bit int second
+ * 
+ * @return Returns 0 upon success, -1 upon error
 */
 void setTimeInMemory(unsigned int hour, unsigned int minute, unsigned int second);
 
-/*
- * Procedure: gettime()
- * Description: Get the system time.
+/**
+ * Gets the system time
+ *
+ * Gets the system time from memory by reading from the corresponding
+ * memory address. Time will be writtin to the interface in the syntax of
+ * Hour:Minute:Second
+ * Ex:      10:06:23
+ *
+ * @param Empty parameter that does not do anything. Required in order to
+ *        call from commhand
+ * @return Returns 0 upon success, -1 upon error
 */
 int gettime(char * p);
 
-/*
- * Procedure: ItoBCD()
- * Description: Converts 32-bit int into 8-bit BCD
+/**
+ * Converts 32-bit integer to 8-bit BCD
+ * 
+ * Uses basic arithmetic and bit shifting to convert from 
+ * 32-bit integer to 8-bit BCD.
+ * 
+ * @param value The 32-bit integer that is converted to BCD
+ * 
+ * @return 8-bit BCD number as an unsigned char
 */
 unsigned char ItoBCD(unsigned int value);
 
-/*
- * Procedure: BCDtoI()
- * Description: Converts 8-bit BCD into 32-bit int
+/**
+ * Converts 8-bit BCD to 32-bit integer
+ * 
+ * Converts an 8-bit BCD unsigned char to a 
+ * 32-bit unsigned integer.
+ * 
+ * @param value 8-bit BCD value that will be converted to 32-bit int
+ * 
+ * @return Returns 32-bit unsigned int
 */
 unsigned int BCDtoI(unsigned char value);
 
-/*
- * Procedure: intToMonth()
- * Description: Convert int representation of month
- *  to a name.
- *  0 = January
- *  11 = December 
+/**
+ * Converts integer to a string month.
+ * 
+ * Converts a masked integer into an unmasked string
+ * month. The months are January to December and are
+ * 0 to 11 respectivley.
+ * 0 = January
+ * 1 = February
+ * ...
+ * 11 = December
+ * 
+ * @param value The masked month
+ * 
+ * @return Returns unmasked string month
 */
 char * intToMonth(int value);
 
-/*
- * Procedure: intToDayOfWeek()
- * Description: Convert int representation of day of the week
- *  to a name.
- *  0 = January
- *  11 = December
+/**
+ * Converts integer to string day of the week
+ * 
+ * Converts a masked integer into an unmasked string
+ * day of the week. The days of the week are Sunday to 
+ * Saturday and are 0 to 6 respectivley.
+ * 0 = Sunday
+ * 1 = Monday
+ * ...
+ * 6 = Saturday
+ * 
+ * @param value The masked integer value of month
+ * 
+ * @return Returns the unasked string value of month
 */
 char * intToDayOfWeek(int value);
 
-/*
- * Procedure: dayOfWeekToInt()
- * Description: Converts user input dayofweek to int
+/**
+ * Converts day of the week to integer
+ * 
+ * Masks the string day of the week to an integer 
+ * representing the day of the week.
+ * Sunday = 0
+ * Monday = 1
+ * ...
+ * Saturday = 6
+ * 
+ * @param dayofweek the unasked string day of the week
+ * 
+ * @return Returns the masked integer day of the week
 */
 int dayOfWeekToInt(char * dayofweek);
 
-/*
- * Procedure: monthToInt()
- * Description: Converts user supplied month to int
+/**
+ * Converts unmasked month to masked int
+ * 
+ * Converts string month into a masked integer
+ * month.
+ * January = 0
+ * February = 1
+ * ...
+ * December = 12
+ * 
+ * @param month The unmasked string month
+ * 
+ * @return Returns masked integer month
 */
 int monthToInt(char * month);
 
-/*
- * Procedure: getMonth()
- * Description: Convert int representation of month
- *  to a name.
- *  0 = January
- *  11 = December 
+/**
+ * Converts masked int into string month
+ * 
+ * Converts the masked integer value of month and
+ * converts it into an unmasked string of month
+ * 
+ * @param value Masked integer month
+ * 
+ * @return Returns unmasked string of month
 */
 char * intToMonth(int value);
