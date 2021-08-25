@@ -9,7 +9,7 @@ int print(char *str, int len) {
 }
 
 /*
- * Procedure: print()
+ * Procedure: printc()
  * Description: Write a single character to serial output
  */
 int printc(char c) {

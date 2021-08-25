@@ -12,6 +12,10 @@ void switch_to(enum SyntaxState, int, int);
 void color_for(enum SyntaxState);
 void get_state_at(int, int *);
 
+/*
+ * Procedure: syntax_init
+ * Description: Initializes internal data structures needed for syntax highlighting
+ */
 void syntax_init() {
 	states[0] = CMD_NAME;
 	switch_indexes[0] = 0;
@@ -23,9 +27,11 @@ void syntax_init() {
 	}
 }
 
+/*
+ * Procedure: syntax_handle_char
+ * Description: Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index
+ */
 void syntax_handle_char(char c, int index) {
-	// return; /* TODO: finish syntax highlighting */
-
 	int record_index;
 	get_state_at(index, &record_index);
 	if(switch_indexes[record_index] == index && record_index != 0) {
@@ -96,6 +102,10 @@ void syntax_handle_char(char c, int index) {
 	}
 }
 
+/*
+ * Procedure: switch_to
+ * Description: Switches to the specified syntax state. Used internally by syntax_handle_char
+ */
 void switch_to(enum SyntaxState state, int index, int record_index) {
 	if(record_index + 1 < MAX_SYNTAX_SWITCHES) {
 		record_index++;
@@ -106,6 +116,10 @@ void switch_to(enum SyntaxState state, int index, int record_index) {
 	}
 }
 
+/*
+ * Procedure: color_for
+ * Description: Prints the ANSI color code for the specified syntax state. Used internally by syntax_handle_char
+ */
 void color_for(enum SyntaxState state) {
 	switch(state) {
 		case DOUBLE_QUOTE_STRING:
@@ -133,6 +147,10 @@ void color_for(enum SyntaxState state) {
 	}
 }
 
+/*
+ * Procedure: get_state_at
+ * Description: Retrieves the index in the switches and switch_indexes data structures corresponding to the specified cursor index. Used internally by syntax_handle_char
+ */
 void get_state_at(int index, int *index_of_state_in_record) {
 	int i;
 	*index_of_state_in_record = 0;
