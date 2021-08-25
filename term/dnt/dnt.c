@@ -7,14 +7,14 @@ int setdate(char * date) {
   char *sep = ".";
 
   char *token = strtok(date,sep);
-  dayOfWeek = dayOfWeekToInt(token);
+  dayOfWeek = atoi(token);
 
   /* Extract rest of date */
   for (i = 0; i < 3; i++) { 
     token = strtok(NULL,sep);
 
     if (i == 0) { // Month
-      month = monthToInt(token);
+      month = atoi(token);
     }
     else if (i == 1) { // Day
       day = atoi(token);
@@ -198,40 +198,40 @@ unsigned int BCDtoI(unsigned char value) {
 char * intToMonth(int value) {
   char * month;
   switch(value) {
-    case 0:
+    case 1:
       month = "January";
       break;
-    case 1:
+    case 2:
       month = "February";
       break;
-    case 2:
+    case 3:
       month = "March";
       break;
-    case 3:
+    case 4:
       month = "April";
       break;
-    case 4:
+    case 5:
       month = "May";
       break;
-    case 5:
+    case 6:
       month = "June";
       break;
-    case 6:
+    case 7:
       month = "July";
       break;
-    case 7:
+    case 8:
       month = "August";
       break;
-    case 8:
+    case 9:
       month = "September";
       break;
-    case 9:
+    case 10:
       month = "October";
       break;
-    case 10:
+    case 11:
       month = "November";
       break;
-    case 11:
+    case 12:
       month = "December";
       break;
     default:
@@ -243,25 +243,25 @@ char * intToMonth(int value) {
 char * intToDayOfWeek(int value) {
   char *dayOfWeek;
   switch(value) {
-    case 0:
+    case 1:
       dayOfWeek = "Sunday";
       break;
-    case 1:
+    case 2:
       dayOfWeek = "Monday";
       break;
-    case 2:
+    case 3:
       dayOfWeek = "Tuesday";
       break;
-    case 3:
+    case 4:
       dayOfWeek = "Wednesday";
       break;
-    case 4:
+    case 5:
       dayOfWeek = "Thursday";
       break;
-    case 5:
+    case 6:
       dayOfWeek = "Friday";
       break;
-    case 6:
+    case 7:
       dayOfWeek = "Saturday";
       break;
     default:
@@ -271,69 +271,3 @@ char * intToDayOfWeek(int value) {
   return dayOfWeek;
 }
 
-int dayOfWeekToInt(char * dayofweek) {
-  if (strcmp(dayofweek,"Sunday") == 0) {
-    return 0;
-  }
-  else if (strcmp(dayofweek,"Monday") == 0) {
-    return 1;
-  }
-  else if (strcmp(dayofweek,"Tuesday") == 0) {
-    return 2;
-  }
-  else if (strcmp(dayofweek,"Wednesday") == 0) {
-    return 3;
-  }
-  else if (strcmp(dayofweek,"Thursday") == 0) {
-    return 4;
-  }
-  else if (strcmp(dayofweek,"Friday") == 0) {
-    return 5;
-  }
-  else if (strcmp(dayofweek,"Saturday") == 0) {
-    return 6;
-  }
-
-  return -1;
-}
-
-int monthToInt(char * dayofweek) {
-  if (strcmp(dayofweek,"January") == 0) {
-    return 0;
-  }
-  else if (strcmp(dayofweek,"February") == 0) {
-    return 1;
-  }
-  else if (strcmp(dayofweek,"March") == 0) {
-    return 2;
-  }
-  else if (strcmp(dayofweek,"April") == 0) {
-    return 3;
-  }
-  else if (strcmp(dayofweek,"May") == 0) {
-    return 4;
-  }
-  else if (strcmp(dayofweek,"June") == 0) {
-    return 5;
-  }
-  else if (strcmp(dayofweek,"July") == 0) {
-    return 6;
-  }
-  else if (strcmp(dayofweek,"August") == 0) {
-    return 7;
-  }
-  else if (strcmp(dayofweek,"September") == 0) {
-    return 8;
-  }
-  else if (strcmp(dayofweek,"October") == 0) {
-    return 9;
-  }
-  else if (strcmp(dayofweek,"November") == 0) {
-    return 10;
-  }
-  else if (strcmp(dayofweek,"December") == 0) {
-    return 11;
-  }
-
-  return -1;
-}

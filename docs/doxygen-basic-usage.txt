@@ -19,3 +19,7 @@ The basic syntax to writting documents for your methods is:
 For constants, variables, structs and other stuff:
 
 /// Brief explanation
+
+A small note: In the Doxyfile, there is a bunch of configurations such as where to read the source files and where to write the docs to. Right now they are
+specific to my machine so if you want to generate your own results you'll need to change these. Or you can just message me and I'll generate the docs for you.
+Your call.

@@ -12,11 +12,10 @@
  * 
  * Parses the parameter to setdate, breaking the parameter
  * into dayofweek, Month, day and year before passing it to
- * setDateInMemory. Converts strings (Tuesday, July, etc.) 
- * into their 32-int before calling setDateInMemory.
- * The input syntax
- * is DayOfWeek.Month.Day.Year
- * Ex:    Tuesday.August.24.21
+ * setDateInMemory. The basic syntax is dayoftheweek.month.day.year
+ * Days of the week are inputed as decimal with Sunday being 1, Monday being
+ * 2. Month is similar with January being 1, February being 2 and so on.
+ * Ex:    Tuesday.August.24.21 = 2.3.24.21
  * 
  * @param date The parameter that is passed with setdate. This 
  *             string is parsed and each segment is converted to
@@ -32,8 +31,8 @@ int setdate(char * date);
  * appropriate places in memory. This method is called by the
  * setdate method.
  * 
- * @param dayOfWeek The day of the week (0 = Sunday ... 6 = Saturday)
- * @param month The month (0 = January ... 11 = December)
+ * @param dayOfWeek The day of the week (1 = Sunday ... 7 = Saturday)
+ * @param month The month (1 = January ... 12 = December)
  * @param day The day in the month. Can be between 0 and 32
  * @param year The current year. This is a 2-digit number
  * 
@@ -127,10 +126,10 @@ unsigned int BCDtoI(unsigned char value);
  * Converts a masked integer into an unmasked string
  * month. The months are January to December and are
  * 0 to 11 respectivley.
- * 0 = January
- * 1 = February
+ * 1 = January
+ * 2 = February
  * ...
- * 11 = December
+ * 13 = December
  * 
  * @param value The masked month
  * 
@@ -144,48 +143,16 @@ char * intToMonth(int value);
  * Converts a masked integer into an unmasked string
  * day of the week. The days of the week are Sunday to 
  * Saturday and are 0 to 6 respectivley.
- * 0 = Sunday
- * 1 = Monday
+ * 1 = Sunday
+ * 2 = Monday
  * ...
- * 6 = Saturday
+ * 7 = Saturday
  * 
  * @param value The masked integer value of month
  * 
  * @return Returns the unasked string value of month
 */
 char * intToDayOfWeek(int value);
-
-/**
- * Converts day of the week to integer
- * 
- * Masks the string day of the week to an integer 
- * representing the day of the week.
- * Sunday = 0
- * Monday = 1
- * ...
- * Saturday = 6
- * 
- * @param dayofweek the unasked string day of the week
- * 
- * @return Returns the masked integer day of the week
-*/
-int dayOfWeekToInt(char * dayofweek);
-
-/**
- * Converts unmasked month to masked int
- * 
- * Converts string month into a masked integer
- * month.
- * January = 0
- * February = 1
- * ...
- * December = 12
- * 
- * @param month The unmasked string month
- * 
- * @return Returns masked integer month
-*/
-int monthToInt(char * month);
 
 /**
  * Converts masked int into string month
