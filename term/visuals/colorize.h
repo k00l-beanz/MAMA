@@ -14,6 +14,7 @@ enum Color {
 
 void display_fg_color(enum Color);
 void display_bg_color(enum Color);
+void display_italicize();
 void display_reset();
 
 #endif

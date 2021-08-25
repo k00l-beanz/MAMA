@@ -33,6 +33,10 @@ void display_reset() {
 	print("\e[0m", 4);
 }
 
+void display_italicize() {
+	print("\e[3m", 3);
+}
+
 void print_color_code(enum Color color) {
 	switch(color) {
 		case BLACK:

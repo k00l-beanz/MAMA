@@ -233,6 +233,7 @@ char * intToMonth(int value) {
       break;
     case 11:
       month = "December";
+      break;
     default:
       month = "";
   }

@@ -9,6 +9,18 @@ int print(char *str, int len) {
 }
 
 /*
+ * Procedure: print()
+ * Description: Write a single character to serial output
+ */
+int printc(char c) {
+	char str[2];
+	str[0] = c;
+	str[1] = '\0';
+	int one = 1;
+	return sys_req(WRITE, DEFAULT_DEVICE, str, &one);	
+}
+
+/*
  * Procedure: println()
  * Description: Writes *str to serial output. Appends newline
  *  to the end.

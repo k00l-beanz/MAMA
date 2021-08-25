@@ -1,5 +1,6 @@
 #include "commhand.h"
 #include "visuals/cursor.c"
+#include "visuals/syntax.h"
 #include <lib/out.h>
 
 static char cmd_hist[MAX_CMD_HIST_LEN][MAX_CMD_STRING_LEN + 1];
@@ -64,9 +65,14 @@ void write_hist_to_buf(char *buf, int *index, int *len) {
 
 	// adjust visually
         cursor_left(orig_index);
-	print(buf, *len);
 	
-	for( i = 0; i < orig_buf_len - *len; i++)
+	// there's probably a more efficient way to do this, but for now this makes history play nice with syntax highlighting
+	for(i = 0; i < *len; i++) {
+		syntax_handle_char(buf[i], i);
+		printc(buf[i]);
+	}
+	
+	for(i = 0; i < orig_buf_len - *len; i++)
 		print(" ", 1);
 	cursor_left(orig_buf_len - *len);
 
