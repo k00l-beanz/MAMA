@@ -95,6 +95,18 @@ int commhand() {
 		/* Extract command name (typically first word) from command string */
 		extract_cmd_name(cmd_str, cmd_name, &cmd_name_len);
 
+		/* 
+		 * This if-stmt prevents the "Unrecognized command: " block below when the user
+		 * just hits return. Hope this doesn't break anything....
+		 * 
+		 * Sorry Austin I couldn't figure out how to integrate this into your if-else block 
+		 * below so I did this in kind of a trivial way. You are more than welcome to implement
+		 * this better if you'd like.
+		*/
+		if (strcmp(cmd_name,"") == 0) {
+			continue;
+		}
+
 
 		cmd_func_t handler = fetch_cmd_handler(cmd_name);
 

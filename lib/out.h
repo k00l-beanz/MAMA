@@ -14,12 +14,25 @@
 int cmd_help(char * command);
 
 /**
- * Help message for gettime
+ * Help message for gettime() method
  * 
- * Prints out the help message for gettime
- * 
+ * Prints out the name, usage, and description for the gettime() method.
 */
-void gettimehelp();
+void gettimeHelp();
+
+/**
+ * Help message for settime() method
+ * 
+ * Prints out the name, usage, and description for the settime() method.
+*/
+void settimeHelp();
+
+/**
+ * Help message for the getdate() method
+ * 
+ * Prints out the name, usage, and description for the getdate() method. 
+*/
+void getdateHelp();
 
 int print(char *, int);
 int printc(char);
