@@ -2,26 +2,40 @@
 #include "dnt.h"
 
 int setdate(char * date) {
-  int i;
+  int params = 1;
   int dayOfWeek, month, day, year;
   char *sep = ".";
 
   char *token = strtok(date,sep);
   dayOfWeek = atoi(token); // day of week
 
-  /* Extract rest of date */
-  for (i = 0; i < 3; i++) { 
+  /*
+  if (sizeof(token) != sizeof(char *)) {
+    print("Error: Incorrect Format. See help pages for more information\n",61);
+    return -1;
+  }
+  */
+
+  while (token != NULL) {
     token = strtok(NULL,sep);
 
-    if (i == 0) { // Month
-      month = atoi(token);
+    switch (params) {
+      case 1:
+        month = atoi(token);
+      case 2:
+        day = atoi(token);
+      case 3:
+        year = atoi(token);
+      default:
+        break;
     }
-    else if (i == 1) { // Day
-      day = atoi(token);
-    }
-    else if (i == 2) { // Year
-      year = atoi(token);
-    }
+
+    params++;
+  }
+
+  if (params != 5) {
+    print("Error: Incorrect format. See help page for more information\n",61);
+    return -1;
   }
 
   setDateInMemory(dayOfWeek, month, day, year);
@@ -29,9 +43,10 @@ int setdate(char * date) {
   return 1;
 }
 
-int setDateInMemory(unsigned int dayOfWeek, unsigned int month, unsigned int day, unsigned int year) {
+int setDateInMemory(int dayOfWeek,int month,int day,int year) {
   /* Verify that the user entered a date that is w/i bounds */
-  if ((year > MAX_YEAR) || (month > MAX_MONTH) || (day > MAX_DAY) || (dayOfWeek > MAX_DAY_OF_WEEK)) {
+  if ((year > MAX_YEAR || year < MIN) || (month > MAX_MONTH || month < MIN) || (day > MAX_DAY || day < MIN) || (dayOfWeek > MAX_DAY_OF_WEEK || dayOfWeek < MIN)) {
+    print("Error: Date is not within bounds. See help page for more information.\n",63);
     return 0;
   }
 
@@ -103,21 +118,30 @@ int getdate(char * p) {
 }
 
 int settime(char * time) {
-  int i, hour, minute, second;
+  int params = 1, hour, minute, second;
   char *token, *sep = ".";
 
   token = strtok(time,sep);
   hour = atoi(token);
 
-  for (i = 0; i < 2; i++) {
+  while (token != NULL) {
     token = strtok(NULL,sep);
 
-    if (i == 0) {
-      minute = atoi(token);
+    switch (params) {
+      case 1:
+        minute = atoi(token);
+      case 2:
+        second = atoi(token);
+      default:
+        break;
     }
-    else if (i == 1) {
-      second = atoi(token);
-    }
+
+    params++;
+  }
+
+  if (params != 4) {
+    print("Error: Incorrect format. See help page for more information.\n",61);
+    return -1;
   }
 
   setTimeInMemory(hour, minute, second);
@@ -125,13 +149,14 @@ int settime(char * time) {
   return 0;
 }
 
-void setTimeInMemory(unsigned int hour, unsigned int minute, unsigned int second) {
+void setTimeInMemory(int hour, int minute, int second) {
   unsigned char BCDhour, BCDminute, BCDsecond;
 
   cli();
 
   // Verify that the user entered time that is w/i bounds
-  if ((hour > MAX_HOURS) || (minute > MAX_MINUTES) || (second > MAX_SECONDS)) {
+  if ((hour > MAX_HOURS || hour < MIN) || (minute > MAX_MINUTES || minute < MIN) || (second > MAX_SECONDS || second < MIN)) {
+    print("Error: Time is not within bounds. See help page for more information.\n",70);
     return;
   }
 

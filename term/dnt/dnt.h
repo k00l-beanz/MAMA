@@ -7,6 +7,8 @@
 #define MAX_DAY 31          /// The largest value that the user can set their day to
 #define MAX_DAY_OF_WEEK 6   /// The largest value that the user can set their day of the week to
 
+#define MIN 0
+
 /**
  * Sets the date of the system
  * 
@@ -20,7 +22,7 @@
  * @param date The parameter that is passed with setdate. This 
  *             string is parsed and each segment is converted to
  *             a 32-bit int.
- * @return Returns 0 upon success, -1 upon error
+ * @return Returns 1 upon success, -1 upon error
  */
 int setdate(char * date);
 
@@ -38,7 +40,7 @@ int setdate(char * date);
  * 
  * @return Returns 0 upon success, -1 upon error
 */
-int setDateInMemory(unsigned int dayOfWeek, unsigned int month, unsigned int day, unsigned int year);
+int setDateInMemory(int dayOfWeek,int month,int day,int year);
 
 /**
  * Gets the date of the system
@@ -80,7 +82,7 @@ int settime(char * time);
  * 
  * @return Returns 0 upon success, -1 upon error
 */
-void setTimeInMemory(unsigned int hour, unsigned int minute, unsigned int second);
+void setTimeInMemory(int hour, int minute, int second);
 
 /**
  * Gets the system time

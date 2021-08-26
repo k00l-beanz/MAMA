@@ -56,6 +56,12 @@ void helpHelp();
 */
 void shutdownHelp();
 
+/**
+ * Displays a list of common system commands
+ * 
+ * Displays a list of common system commands for the user.
+*/
+void helpList();
 
 int print(char *, int);
 int printc(char);

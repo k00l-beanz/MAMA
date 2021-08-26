@@ -8,6 +8,7 @@
 #include "visuals/hints.h"
 #include <lib/out.c>
 #include "dnt/dnt.c"
+#include "ascii/mama.c"
 
 
 typedef int (*cmd_func_t)(char *);
@@ -78,6 +79,8 @@ int commhand() {
 	int cmd_name_len = 0;
 
 	int running = 1;
+
+	mama();
 	
 	/* Driver loop */
 	while(running) {

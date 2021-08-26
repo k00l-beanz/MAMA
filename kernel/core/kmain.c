@@ -13,16 +13,13 @@
 #include <stdint.h>
 #include <string.h>
 #include <system.h>
-
 #include <core/io.h>
 #include <core/serial.h>
 #include <core/tables.h>
 #include <core/interrupts.h>
 #include <mem/heap.h>
 #include <mem/paging.h>
-
 #include "modules/mpx_supt.h"
-
 #include <term/commhand.c>
 
 void kmain(void)

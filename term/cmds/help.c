@@ -27,11 +27,26 @@ int cmd_help(char *command) {
 		shutdownHelp();
 		return 1;
 	}
+	else if (strcmp(command, " list") == 0) {
+		helpList();
+		return 1;
+	}
 	else {
-		print("Trying to get help with a command?\nType: help [COMMAND]\n",56);
+		print("Trying to get help with a command?\nType: help [COMMAND]\nTo see a list of common commands, Type: help list\n",106);
 	}
 
 	return 1;
+}
+
+void helpList() {
+	print("------------ ------------\n"
+		  "| SYSTEM   | | TIME     |\n"
+		  "------------ ------------\n"
+		  "| help     | | getdate  |\n"
+		  "| shutdown | | setdate  |\n"
+		  "------------ | gettime  |\n"
+		  			   "\t     | settime  |\n"
+			 		   "\t     ------------\n",191);
 }
 
 void shutdownHelp() {
@@ -62,7 +77,8 @@ void setdateHelp() {
 		  "USAGE\n\t"
 		  "setdate [DAYOFWEEK.MONTH.DAY.YEAR]\n\n"
 		  "DESCRIPTION\n\t"
-		  "Set the date of the system. Months and days of the week correspond to decimal values. See Table 1 and Table 2 below for the correct mapping.\n\n"
+		  "Set the date of the system. Months and days of the week correspond to decimal values. See Table 1 and Table 2 below for the correct mapping.\n\t"
+		  "The maximum value for day and year are 31 and 99 respectively\n\n"
 		  "TABLE 1: MONTHS\t\tTABLE 2: DAYS OF WEEK\n"
 		  "--------------------\t-------------------\n"
 		  "| January\t1  |\t| Sunday\t1 |\n"
@@ -81,7 +97,7 @@ void setdateHelp() {
 		  "EXAMPLE\n\t"
 		  "Thursday, August 26, 2021\n\t"
 		  "DAY OF WEEK = 5 MONTH = 8 DAY = 26 YEAR = 21\n\t"
-		  "setdate 5.8.26.21\n\n",710);
+		  "setdate 5.8.26.21\n\n",773);
 }
 
 void getdateHelp() {
