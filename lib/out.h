@@ -14,39 +14,47 @@
 int cmd_help(char * command);
 
 /**
- * Help message for gettime() method
+ * Help page for gettime() method
  * 
  * Prints out the name, usage, return and description for the gettime() method.
 */
 void gettimeHelp();
 
 /**
- * Help message for settime() method
+ * Help page for settime() method
  * 
  * Prints out the name, usage, and description for the settime() method.
 */
 void settimeHelp();
 
 /**
- * Help message for the getdate() method
+ * Help page for the getdate() method
  * 
  * Prints out the name, usage, return and description for the getdate() method. 
 */
 void getdateHelp();
 
 /**
- * Help message for the setdate() method
+ * Help page for the setdate() method
  * 
  * Prints out the name, usage, and description for the setdate() method.
 */
 void setdateHelp();
 
 /**
- * Help message for the help command
+ * Help page for the help command
  * 
  * Prints out the name, usage, return and description for the help command. 
 */
-void helHelp();
+void helpHelp();
+
+/**
+ * Help page for the shutdown command
+ * 
+ * Prints out the name, usage, and description for the shutdown system command. 
+ *
+*/
+void shutdownHelp();
 
 
 int print(char *, int);

@@ -90,8 +90,6 @@ void kmain(void)
    klogv("Transferring control to commhand...");
    commhand();
 
-   // serial_println("Hello world");
-
    // 7) System Shutdown on return from your command handler
    klogv("Starting system shutdown procedure...");
 

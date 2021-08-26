@@ -20,7 +20,11 @@ int cmd_help(char *command) {
 		return 1;
 	}
 	else if (strcmp(command, " help") == 0) {
-		//helpHelp();
+		helpHelp();
+		return 1;
+	}
+	else if (strcmp(command, " shutdown") == 0) {
+		shutdownHelp();
 		return 1;
 	}
 	else {
@@ -30,11 +34,27 @@ int cmd_help(char *command) {
 	return 1;
 }
 
-/*
-void helpHelp() {
-	print()
+void shutdownHelp() {
+	print("NAME\n\t"
+		  "shutdown\n\n"
+		  "USAGE\n\t"
+		  "shutdown\n\n"
+		  "DESCRIPTION\n\t"
+		  "Shutdown the system. This will ask for confirmation before shutting down.\n\n",121);
 }
-*/
+
+void helpHelp() {
+	print("NAME\n\t"
+		  "help\n\n"
+		  "USAGE\n\t"
+		  "help [COMMAND]\n\n"
+		  "DESCRIPTION\n\t"
+		  "See the help pages for the specified command\n\nRETURN\n\t"
+		  "The help page for the inputed command\n\n"
+		  "EXAMPLE\n\t"
+		  "help shutdown.\n\n",166);
+}
+
 
 void setdateHelp() {
 	print("NAME\n\t"

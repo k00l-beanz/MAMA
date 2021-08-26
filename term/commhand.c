@@ -119,8 +119,17 @@ int commhand() {
 		}
 
 		/* Command shutdown kills driver loop */
-		if(strcmp(cmd_name, "shutdown") == 0)
-			running = 0;
+		if(strcmp(cmd_name, "shutdown") == 0) {
+
+			/* Confirmation to shutdown the system */
+			println("Are you sure you'd like to shutdown the system? [y/n]",53);
+			read(cmd_str,2);
+			if (strcmp(cmd_str,"y") == 0) {
+				running = 0;
+				display_reset();
+			}
+			println("",0);
+		}
 	}
 
 	return 0;
