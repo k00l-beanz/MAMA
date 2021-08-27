@@ -91,9 +91,11 @@ int commhand() {
 
 		/* Reads in user input */
 		char *cmd_str = hist_next_frame();
+		syntax_enable_highlighting();
 		read(cmd_str, MAX_CMD_STRING_LEN);
 		println("", 0);
 		display_reset();
+		syntax_disable_highlighting();
 
 		/* Extract command name (typically first word) from command string */
 		extract_cmd_name(cmd_str, cmd_name, &cmd_name_len);
@@ -113,25 +115,17 @@ int commhand() {
 
 		cmd_func_t handler = fetch_cmd_handler(cmd_name);
 
-
+		int cmd_exit_code;
 		if(handler != NULL) {
-			(*handler)(cmd_str + cmd_name_len);
+			cmd_exit_code = (*handler)(cmd_str + cmd_name_len);
 		} else {
 			print("Unrecognized command: ", 22);
 			println(cmd_name, cmd_name_len);
 		}
 
 		/* Command shutdown kills driver loop */
-		if(strcmp(cmd_name, "shutdown") == 0) {
-
-			/* Confirmation to shutdown the system */
-			println("Are you sure you'd like to shutdown the system? [y/n]",53);
-			read(cmd_str,2);
-			if (strcmp(cmd_str,"y") == 0) {
-				running = 0;
-				display_reset();
-			}
-			println("",0);
+		if(strcmp(cmd_name, "shutdown") == 0 && cmd_exit_code == 0) {
+			running = 0;
 		}
 	}
 

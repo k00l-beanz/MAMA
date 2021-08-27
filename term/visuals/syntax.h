@@ -22,6 +22,8 @@ enum SyntaxState {
 #define SYNTAX_COLOR_DEFAULT WHITE
 
 void syntax_init();
+void syntax_enable_highlighting();
+void syntax_disable_highlighting();
 void syntax_handle_char(char, int);
 
 #endif

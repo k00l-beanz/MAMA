@@ -8,6 +8,8 @@ enum SyntaxState states[MAX_SYNTAX_SWITCHES];
 int switch_indexes[MAX_SYNTAX_SWITCHES];
 int newest_switch;
 
+int enabled = 0;
+
 void switch_to(enum SyntaxState, int, int);
 void color_for(enum SyntaxState);
 void get_state_at(int, int *);
@@ -27,11 +29,23 @@ void syntax_init() {
 	}
 }
 
+void syntax_enable_highlighting() {
+	enabled = 1;
+}
+
+void syntax_disable_highlighting() {
+	enabled = 0;
+	color_for(DEFAULT);
+}
+
 /*
  * Procedure: syntax_handle_char
  * Description: Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index
  */
 void syntax_handle_char(char c, int index) {
+	if(!enabled)
+		return;
+
 	int record_index;
 	get_state_at(index, &record_index);
 	if(switch_indexes[record_index] == index && record_index != 0) {

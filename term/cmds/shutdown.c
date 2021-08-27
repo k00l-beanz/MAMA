@@ -1,9 +1,21 @@
+#include <lib/out.h>
+
 /*
  * Procedure: cmd_shutdown()
  * Description: Shutdown application
- * #TODO Confirm shutdown
 */
 int cmd_shutdown(char *arg_str) {
 	(void)arg_str;
-	return 0;
+
+	/* Confirmation to shutdown the system */
+	println("Are you sure you'd like to shutdown the system? [y/n]",53);
+
+	char *input = "\0\0\0";
+	read(input, 2);
+	println("", 0);
+
+	if (strcmp(input, "y") == 0) {
+		return 0;
+	}
+	return 1;
 }
