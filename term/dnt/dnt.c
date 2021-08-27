@@ -1,6 +1,8 @@
 
 #include "dnt.h"
 
+int daysInMonth(int, int);
+
 int setdate(char * date) {
   int params = 1;
   int month, day, year;
@@ -36,14 +38,16 @@ int setdate(char * date) {
     return -1;
   }
 
-  setDateInMemory(0, month, day, year);
+  setDateInMemory(month, day, year);
 
   return 1;
 }
 
-int setDateInMemory(int dayOfWeek,int month,int day,int year) {
+int setDateInMemory(int month,int day,int year) {
   /* Verify that the user entered a date that is w/i bounds */
-  if ((year > MAX_YEAR || year < MIN_YEAR) || (month > MAX_MONTH || month < MIN) || (day > MAX_DAY || day < MIN) || (dayOfWeek > MAX_DAY_OF_WEEK || dayOfWeek < MIN)) {
+  if (year  > MAX_YEAR  || year  < MIN_YEAR  ||
+      month > MAX_MONTH || month < MIN_MONTH ||
+      day   > daysInMonth(month, year) || day < MIN_DAY) {
     print("Error: Date is not within bounds. See help page for more information.\n",63);
     return 0;
   }
@@ -56,30 +60,8 @@ int setDateInMemory(int dayOfWeek,int month,int day,int year) {
     else
       day_of_week += DAYS_IN_YEAR;
   }
-  for(i = 1; i < month; i++) {
-    switch(i) {
-      case 1:
-      case 3:
-      case 5:
-      case 7:
-      case 8:
-      case 10:
-      case 12:
-        day_of_week += 31;
-        break;
-      case 4:
-      case 6:
-      case 9:
-      case 11:
-        day_of_week += 30;
-        break;
-      case 2:
-        if(year % 4 == 0)
-          day_of_week += 29;
-        else
-          day_of_week += 28;
-        break;
-    }
+  for(i = EPOCH_FIRST_MONTH_OF_YEAR; i < month; i++) {
+    day_of_week += daysInMonth(month, year);
   }
   for(i = EPOCH_FIRST_DAY_OF_YEAR; i < day; i++) {
     day_of_week++;
@@ -330,5 +312,30 @@ char * intToDayOfWeek(int value) {
   }
 
   return dayOfWeek;
+}
+
+int daysInMonth(int month, int year) {
+switch(month) {
+      case 1:
+      case 3:
+      case 5:
+      case 7:
+      case 8:
+      case 10:
+      case 12:
+        return 31;
+      case 4:
+      case 6:
+      case 9:
+      case 11:
+        return 30;
+      case 2:
+        if(year % 4 == 0)
+          return 29;
+        else
+          return 28;
+        break;
+    }
+return -1; // will never happen
 }
 
