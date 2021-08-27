@@ -8,6 +8,7 @@
 #include "visuals/hints.h"
 #include <lib/out.c>
 #include "dnt/dnt.c"
+#include "utils.h"
 #include "ascii/mama.c"
 
 
@@ -30,12 +31,12 @@ typedef struct cmd_mapping {
  */
 const cmd_mapping cmd_mappings[] = {
         {
-                "help",
-                &cmd_help
+            "help",
+            &cmd_help
         },
         {
-                "shutdown",
-                &cmd_shutdown
+            "shutdown",
+            &cmd_shutdown
         },
         {
         	"version",
@@ -57,15 +58,15 @@ const cmd_mapping cmd_mappings[] = {
         	"setdate",
         	&setdate
         },
-	{
-		"echo",
-		&cmd_echo
-	},
+		{
+			"echo",
+			&cmd_echo
+		},
         { NULL } // sentinel for end-of-array
 };
 
 int is_name_char(char);
-void extract_cmd_name(char *, char *, int *);
+void extract_cmd_name(char *, char *, int *, int *);
 cmd_func_t fetch_cmd_handler(char *);
 
 /*
@@ -98,7 +99,8 @@ int commhand() {
 		syntax_disable_highlighting();
 
 		/* Extract command name (typically first word) from command string */
-		extract_cmd_name(cmd_str, cmd_name, &cmd_name_len);
+		int args_start_index;
+		extract_cmd_name(cmd_str, cmd_name, &cmd_name_len, &args_start_index);
 
 		/* 
 		 * This if-stmt prevents the "Unrecognized command: " block below when the user
@@ -107,17 +109,37 @@ int commhand() {
 		 * Sorry Austin I couldn't figure out how to integrate this into your if-else block 
 		 * below so I did this in kind of a trivial way. You are more than welcome to implement
 		 * this better if you'd like.
+		 *
+		 * I modified this slightly to make a distinction between just hitting return and entering a bad
+		 * command name
 		*/
-		if (strcmp(cmd_name,"") == 0) {
-			continue;
+		if (cmd_name[0] == '\0') {
+			if(cmd_str[args_start_index] == '\0') {
+				/* Prevents the "Unrecognized command: " block below when the user just hits enter 
+				 * or enters only whitespace.
+				 * Don't add these entries to the command history.
+				*/
+				hist_discard_last_frame();
+				continue;
+			} else {
+				/* Prints a prompt if the user entered something that doesn't contain a command name
+				 * but also isn't just whitespace. An example would be inputting "."
+				*/
+				println("Bad syntax. Command string must start with a command name", 57);
+				continue;
+			}
 		}
-
 
 		cmd_func_t handler = fetch_cmd_handler(cmd_name);
 
 		int cmd_exit_code;
 		if(handler != NULL) {
-			cmd_exit_code = (*handler)(cmd_str + cmd_name_len);
+			char args[MAX_CMD_STRING_LEN];
+			/* command handlers get a copy of the arguments string so that they are
+			 * free to modify it without affecting the command history
+			*/
+			strcpy(args, cmd_str + args_start_index);
+			cmd_exit_code = (*handler)(args);
 		} else {
 			print("Unrecognized command: ", 22);
 			println(cmd_name, cmd_name_len);
@@ -152,24 +174,17 @@ cmd_func_t fetch_cmd_handler(char *cmd_name) {
  * Description: Extracts the command (typically the first word) from the command
  *  string.
 */
-void extract_cmd_name(char *cmd_str, char *cmd_name, int *cmd_name_len) {
+void extract_cmd_name(char *cmd_str, char *cmd_name, int *cmd_name_len, int *args_start_index) {
+	int ws_skip_len = 0;
+	while(isspace(cmd_str + ws_skip_len))
+		ws_skip_len++;
 	*cmd_name_len = 0;
-	int i;
-        for(i = 0; i < MAX_CMD_NAME_LEN && is_name_char(cmd_str[i]); i++) {
-                *cmd_name_len += 1;
-		cmd_name[i] = cmd_str[i];
+    int i;
+	for(i = 0; i < MAX_CMD_NAME_LEN && is_name_char(cmd_str[ws_skip_len + i]); i++) {
+        *cmd_name_len += 1;
+		cmd_name[i] = cmd_str[ws_skip_len + i];
 	}
 
 	cmd_name[*cmd_name_len] = '\0';
-}
-
-/*
- * Procedure: is_name_char
- * Description: Checks for invalid characters
-*/
-int is_name_char(char c) {
-	return  (c >= 'a' && c <= 'z') ||
-		(c >= 'A' && c <= 'Z') ||
-		(c >= '0' && c <= '9') ||
-		(c == '_');
+	*args_start_index = *cmd_name_len + ws_skip_len;
 }

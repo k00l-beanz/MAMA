@@ -8,6 +8,7 @@ static int cmd_hist_most_recent_index = -1; // will be set properly on first cal
 static int cmd_hist_current_index = 0;
 static int cmd_hist_oldest_index = 0;
 static int initialized = 0;
+static int last_frame_discarded = 0;
 
 int circular_next_index(int);
 int circular_prev_index(int);
@@ -41,6 +42,10 @@ void hist_forward(char *internal_buf, int *internal_index, int *internal_buf_len
 			write_hist_to_buf(internal_buf, internal_index, internal_buf_len);
 		}
 	}
+}
+
+void hist_discard_last_frame() {
+	last_frame_discarded = 1;
 }
 
 void write_hist_to_buf(char *buf, int *index, int *len) {
@@ -79,6 +84,12 @@ void write_hist_to_buf(char *buf, int *index, int *len) {
 }
 
 char *hist_next_frame() {
+	if(last_frame_discarded) {
+		last_frame_discarded = 0;
+		cmd_hist_current_index = cmd_hist_most_recent_index;
+		return cmd_hist[cmd_hist_most_recent_index];
+	}
+
 	cmd_hist_most_recent_index = circular_next_index(cmd_hist_most_recent_index);
 	cmd_hist_current_index = cmd_hist_most_recent_index;
 	if(cmd_hist_oldest_index == cmd_hist_most_recent_index && initialized)

@@ -2,6 +2,7 @@
 #include "../commhand.h"
 #include "colorize.h"
 #include "hints.c"
+#include "../utils.c"
 #include <include/string.h>
 
 enum SyntaxState states[MAX_SYNTAX_SWITCHES];
@@ -19,7 +20,7 @@ void get_state_at(int, int *);
  * Description: Initializes internal data structures needed for syntax highlighting
  */
 void syntax_init() {
-	states[0] = CMD_NAME;
+	states[0] = CMD_NAME_OR_LEADING_WHITESPACE;
 	switch_indexes[0] = 0;
 	newest_switch = 0;
 	int i; // >:(
@@ -99,8 +100,20 @@ void syntax_handle_char(char c, int index) {
 			case PARAM_NAME:
 				switch_to(PARAM_VALUE, index, record_index);
 				break;
+			case CMD_NAME_OR_LEADING_WHITESPACE:
+				color_for(cur_state);
+				break;
 			default:
 				switch_to(DEFAULT, index, record_index);
+				break;
+		}
+	} else if(is_name_char(c)) {
+		switch(cur_state) {
+			case CMD_NAME_OR_LEADING_WHITESPACE:
+				switch_to(CMD_NAME, index, record_index);
+				break;
+			default:
+				color_for(cur_state);
 				break;
 		}
 	} else {
@@ -152,6 +165,7 @@ void color_for(enum SyntaxState state) {
 			display_fg_color(SYNTAX_COLOR_PARAM_VALUE);
 			break;
 		case CMD_NAME:
+		case CMD_NAME_OR_LEADING_WHITESPACE:
 			display_fg_color(SYNTAX_COLOR_CMD_NAME);
 			break;
 		case DEFAULT:
