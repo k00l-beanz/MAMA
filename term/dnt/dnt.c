@@ -3,11 +3,11 @@
 
 int setdate(char * date) {
   int params = 1;
-  int dayOfWeek, month, day, year;
+  int month, day, year;
   char *sep = ".";
 
   char *token = strtok(date,sep);
-  dayOfWeek = atoi(token); // day of week
+  month = atoi(token);
 
   /*
   if (sizeof(token) != sizeof(char *)) {
@@ -21,10 +21,8 @@ int setdate(char * date) {
 
     switch (params) {
       case 1:
-        month = atoi(token);
-      case 2:
         day = atoi(token);
-      case 3:
+      case 2:
         year = atoi(token);
       default:
         break;
@@ -33,22 +31,60 @@ int setdate(char * date) {
     params++;
   }
 
-  if (params != 5) {
+  if (params != 4) {
     print("Error: Incorrect format. See help page for more information\n",61);
     return -1;
   }
 
-  setDateInMemory(dayOfWeek, month, day, year);
+  setDateInMemory(0, month, day, year);
 
   return 1;
 }
 
 int setDateInMemory(int dayOfWeek,int month,int day,int year) {
   /* Verify that the user entered a date that is w/i bounds */
-  if ((year > MAX_YEAR || year < MIN) || (month > MAX_MONTH || month < MIN) || (day > MAX_DAY || day < MIN) || (dayOfWeek > MAX_DAY_OF_WEEK || dayOfWeek < MIN)) {
+  if ((year > MAX_YEAR || year < MIN_YEAR) || (month > MAX_MONTH || month < MIN) || (day > MAX_DAY || day < MIN) || (dayOfWeek > MAX_DAY_OF_WEEK || dayOfWeek < MIN)) {
     print("Error: Date is not within bounds. See help page for more information.\n",63);
     return 0;
   }
+
+  int day_of_week = EPOCH_FIRST_DAY_OF_WEEK_OF_YEAR;
+  int i;
+  for(i = EPOCH_YEAR; i < year; i++) {
+    if(i % 4 == 0)
+      day_of_week += DAYS_IN_LEAP_YEAR;
+    else
+      day_of_week += DAYS_IN_YEAR;
+  }
+  for(i = 1; i < month; i++) {
+    switch(i) {
+      case 1:
+      case 3:
+      case 5:
+      case 7:
+      case 8:
+      case 10:
+      case 12:
+        day_of_week += 31;
+        break;
+      case 4:
+      case 6:
+      case 9:
+      case 11:
+        day_of_week += 30;
+        break;
+      case 2:
+        if(year % 4 == 0)
+          day_of_week += 29;
+        else
+          day_of_week += 28;
+        break;
+    }
+  }
+  for(i = EPOCH_FIRST_DAY_OF_YEAR; i < day; i++) {
+    day_of_week++;
+  }
+  day_of_week = (day_of_week - 1) % 7 + 1;
 
   unsigned char BCDyear, BCDmonth, BCDday, BCDdayOfWeek;
 
@@ -69,7 +105,7 @@ int setDateInMemory(int dayOfWeek,int month,int day,int year) {
 
   /* Set day of week */
   outb(0x70,0x06);
-  BCDdayOfWeek = ItoBCD(dayOfWeek);
+  BCDdayOfWeek = ItoBCD(day_of_week);
   outb(0x71,BCDdayOfWeek);
 
   return 1;

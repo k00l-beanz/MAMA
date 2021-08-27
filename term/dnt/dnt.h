@@ -2,10 +2,19 @@
 #define MAX_MINUTES 59      /// The largest value that the user can set their minutes to
 #define MAX_SECONDS 59      /// The largest value that the user can set their seconds to
 
-#define MAX_YEAR 99         /// The largest value that the user can set their year to
+#define MAX_YEAR 99       /// The largest value that the user can set their year to
 #define MAX_MONTH 12        /// The largest value that the user can set their month to
 #define MAX_DAY 31          /// The largest value that the user can set their day to
 #define MAX_DAY_OF_WEEK 6   /// The largest value that the user can set their day of the week to
+
+#define MIN_YEAR 10
+
+#define EPOCH_YEAR 1970
+#define EPOCH_FIRST_DAY_OF_YEAR 1
+#define EPOCH_FIRST_MONTH_OF_YEAR 1
+#define EPOCH_FIRST_DAY_OF_WEEK_OF_YEAR 5
+#define DAYS_IN_YEAR 365
+#define DAYS_IN_LEAP_YEAR 366
 
 #define MIN 0
 
