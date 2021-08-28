@@ -27,7 +27,8 @@ void cursor_right(int steps) {
 void cursor_down(int steps) {
 	int i;
 	for(i = 0; i < steps; i++)
-		print("\e[B", 3);
+		println("", 0);
+		//print("\e[B", 3);
 }
 
 /*

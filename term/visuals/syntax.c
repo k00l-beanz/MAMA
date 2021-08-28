@@ -93,18 +93,20 @@ void syntax_handle_char(char c, int index) {
 		}
 	} else if(isspace(&c)) {
 		switch(cur_state) {
-			case DOUBLE_QUOTE_STRING:
-			case SINGLE_QUOTE_STRING:
-				color_for(cur_state);
-				break;
 			case PARAM_NAME:
 				switch_to(PARAM_VALUE, index, record_index);
 				break;
-			case CMD_NAME_OR_LEADING_WHITESPACE:
-				color_for(cur_state);
-				break;
-			default:
+			case CMD_NAME:
+			case PARAM_VALUE:
+			case DOUBLE_QUOTE_STRING_END_QUOTE:
+			case SINGLE_QUOTE_STRING_END_QUOTE:
 				switch_to(DEFAULT, index, record_index);
+			case DOUBLE_QUOTE_STRING:
+			case SINGLE_QUOTE_STRING:
+			case CMD_NAME_OR_LEADING_WHITESPACE:
+			case DEFAULT:
+			default:
+				color_for(cur_state);
 				break;
 		}
 	} else if(is_name_char(c)) {
