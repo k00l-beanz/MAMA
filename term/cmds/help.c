@@ -31,11 +31,19 @@ int cmd_help(char *command) {
 		helpList();
 		return 1;
 	}
+	else if (strcmp(command, " version") == 0) {
+		versionHelp();
+		return 1;
+	}
 	else {
 		print("Trying to get help with a command?\nType: help [COMMAND]\nTo see a list of common commands, Type: help list\n",106);
 	}
 
 	return 1;
+}
+
+void versionHelp() {
+	print("NAME\n\tversion\n\nUSAGE\n\tversion\n\nDESCRIPTION\n\tDisplay the current version of the system\n\nRETURN\n\tCurrent version of the system\n\n",126);
 }
 
 void helpList() {
@@ -79,21 +87,21 @@ void setdateHelp() {
 		  "DESCRIPTION\n\t"
 		  "Set the date of the system. Months and days of the week correspond to decimal values. See Table 1 and Table 2 below for the correct mapping.\n\t"
 		  "The maximum value for day and year are 31 and 99 respectively\n\n"
-		  "TABLE 1: MONTHS\t\tTABLE 2: DAYS OF WEEK\n"
-		  "--------------------\t-------------------\n"
-		  "| January\t1  |\t| Sunday\t1 |\n"
-		  "| February\t2  |\t| Monday\t2 |\n"
-		  "| March\t\t3  |\t| Tuesday\t3 |\n"
-		  "| April\t\t4  |\t| Wednesday\t4 |\n"
-		  "| May\t\t5  |\t| Thursday\t5 |\n"
-		  "| June\t\t6  |\t| Friday\t6 |\n"
-		  "| July\t\t7  |\t| Saturday\t7 |\n"
-		  "| August\t8  |\t-------------------\n"
-		  "| September\t9  |\n"
-		  "| October\t10 |\n"
-		  "| November\t11 |\n"
-		  "| December\t12 |\n"
-		  "--------------------\n\n"
+		  "\tTABLE 1: MONTHS\n"
+		  "\t--------------------\n"
+		  "\t| January\t1  |\n"
+		  "\t| February\t2  |\n"
+		  "\t| March\t\t3  |\n"
+		  "\t| April\t\t4  |\n"
+		  "\t| May\t\t5  |\n"
+		  "\t| June\t\t6  |\n"
+		  "\t| July\t\t7  |\n"
+		  "\t| August\t8  |\n"
+		  "\t| September\t9  |\n"
+		  "\t| October\t10 |\n"
+		  "\t| November\t11 |\n"
+		  "\t| December\t12 |\n"
+		  "\t--------------------\n\n"
 		  "EXAMPLE\n\t"
 		  "Thursday, August 26, 2021\n\t"
 		  "DAY OF WEEK = 5 MONTH = 8 DAY = 26 YEAR = 21\n\t"

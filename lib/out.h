@@ -63,6 +63,14 @@ void shutdownHelp();
 */
 void helpList();
 
+/**
+ * Help page for the version command
+ * 
+ * Displays the current verson of the system. 
+ * 
+*/
+void versionHelp();
+
 int print(char *, int);
 int printc(char);
 int println(char *, int);
