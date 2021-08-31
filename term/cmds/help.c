@@ -51,9 +51,9 @@ void helpList() {
 		  "| SYSTEM   | | TIME     |\n"
 		  "------------ ------------\n"
 		  "| help     | | getdate  |\n"
-		  "| shutdown | | setdate  |\n"
-		  "------------ | gettime  |\n"
-		  			   "\t     | settime  |\n"
+		  "| version  | | setdate  |\n"
+		  "| shutdown | | gettime  |\n"
+		   "------------ | settime  |\n"
 			 		   "\t     ------------\n",191);
 }
 
@@ -75,7 +75,7 @@ void helpHelp() {
 		  "See the help pages for the specified command\n\nRETURN\n\t"
 		  "The help page for the inputed command\n\n"
 		  "EXAMPLE\n\t"
-		  "help shutdown.\n\n",166);
+		  "help shutdown\n\n",166);
 }
 
 
@@ -83,10 +83,10 @@ void setdateHelp() {
 	print("NAME\n\t"
 		  "setdate\n\n"
 		  "USAGE\n\t"
-		  "setdate [DAYOFWEEK.MONTH.DAY.YEAR]\n\n"
+		  "setdate [MONTH.DAY.YEAR]\n\n"
 		  "DESCRIPTION\n\t"
-		  "Set the date of the system. Months and days of the week correspond to decimal values. See Table 1 and Table 2 below for the correct mapping.\n\t"
-		  "The maximum value for day and year are 31 and 99 respectively\n\n"
+		  "Set the date of the system. Months and days of the week correspond to decimal values. See Table 1 below for the correct mapping.\n\t"
+		  "The maximum value for day and year are 31 and 99 respectively while the minimum year is 10 (2010).\n\n"
 		  "\tTABLE 1: MONTHS\n"
 		  "\t--------------------\n"
 		  "\t| January\t1  |\n"
@@ -104,8 +104,8 @@ void setdateHelp() {
 		  "\t--------------------\n\n"
 		  "EXAMPLE\n\t"
 		  "Thursday, August 26, 2021\n\t"
-		  "DAY OF WEEK = 5 MONTH = 8 DAY = 26 YEAR = 21\n\t"
-		  "setdate 5.8.26.21\n\n",773);
+		  "MONTH = 8 DAY = 26 YEAR = 21\n\t"
+		  "setdate 8.26.21\n\n",773);
 }
 
 void getdateHelp() {
@@ -143,6 +143,7 @@ void settimeHelp() {
 		  "Set the time of the system. Since time is displayed in military time the maximum value for HOUR you can set is 23.\n\t"
 		  "Both MINUTE and SECOND have a maximum value of 59.\n\n"
 		  "EXAMPLE\n\t"
+		  "22:13:34\n\t"
 		  "HOUR = 22 MINUTE = 13 SECOND = 34\n\t"
 		  "settime 22.13.34\n\n",289);
 }
