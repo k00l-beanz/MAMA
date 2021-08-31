@@ -4,7 +4,7 @@
 #include "history.c"
 #include "commhand.h"
 #include "commands.h"
-#include "visuals/syntax.h"
+#include "visuals/syntax_highlight.h"
 #include "visuals/hints.h"
 #include <lib/out.c>
 #include "dnt/dnt.c"
@@ -82,7 +82,7 @@ int commhand() {
 	int running = 1;
 
 	mama();
-	
+
 	/* Driver loop */
 	while(running) {
 		/* Prints prompt */

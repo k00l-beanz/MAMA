@@ -1,6 +1,6 @@
 #include "commhand.h"
 #include "visuals/cursor.c"
-#include "visuals/syntax.h"
+#include "visuals/syntax_highlight.h"
 #include <lib/out.h>
 
 static char cmd_hist[MAX_CMD_HIST_LEN][MAX_CMD_STRING_LEN + 1];

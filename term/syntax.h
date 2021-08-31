@@ -1,0 +1,20 @@
+#ifndef SYNTAX_H
+#define SYNTAX_H
+
+enum SyntaxState {
+	CMD_NAME_OR_LEADING_WHITESPACE,
+	CMD_NAME,
+	PARAM_NAME,
+	PARAM_VALUE,
+	UNNAMED_ARG,
+	DOUBLE_QUOTE_STRING,
+	DOUBLE_QUOTE_STRING_END_QUOTE,
+	SINGLE_QUOTE_STRING,
+	SINGLE_QUOTE_STRING_END_QUOTE,
+	END_OF_INPUT,
+	DEFAULT
+};
+
+int changes_state(char, enum SyntaxState, enum SyntaxState *);
+
+#endif

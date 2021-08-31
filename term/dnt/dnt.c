@@ -24,8 +24,10 @@ int setdate(char * date) {
     switch (params) {
       case 1:
         day = atoi(token);
+	break;
       case 2:
         year = atoi(token);
+	break;
       default:
         break;
     }
@@ -148,8 +150,10 @@ int settime(char * time) {
     switch (params) {
       case 1:
         minute = atoi(token);
+	break;
       case 2:
         second = atoi(token);
+	break;
       default:
         break;
     }
