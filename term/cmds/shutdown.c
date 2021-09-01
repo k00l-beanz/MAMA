@@ -1,9 +1,12 @@
 #include <lib/out.h>
 
-/*
- * Procedure: cmd_shutdown()
- * Description: Shutdown application
-*/
+/**
+ * Handler for calls to the shutdown command. Prompts for user confirmation before shutting the system down.
+ *
+ * @param arg_str The arguments passed to the shutdown command. Unused by the handler.
+ *
+ * @return The exit code of the command, indicating whether or not the user confirmed the request to shutdown the system. Returns 0 if the user confirmed the request, 1 otherwise.
+ */
 int cmd_shutdown(char *arg_str) {
 	(void)arg_str;
 

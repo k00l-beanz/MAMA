@@ -1,8 +1,9 @@
 #include <lib/out.h>
 
-/*
- * Procedure: cursor_left
- * Description: Moves the visual cursor to the left a specified number of steps
+/**
+ * Moves the visual cursor to the left a specified number of steps.
+ *
+ * @param steps The number of steps to move the cursor to the left.
  */
 void cursor_left(int steps) {
 	int i;
@@ -10,9 +11,10 @@ void cursor_left(int steps) {
 		print("\b", 1);
 }
 
-/*
- * Procedure: cursor_right
- * Description: Moves the visual cursor to the right a specified number of steps
+/**
+ * Moves the visual cursor to the right a specified number of steps.
+ *
+ * @param steps The number of steps to move the cursor to the right.
  */
 void cursor_right(int steps) {
 	int i;
@@ -20,9 +22,10 @@ void cursor_right(int steps) {
 		print("\e[C", 3);
 }
 
-/*
- * Procedure: cursor_down
- * Description: Moves the visual cursor down a specified number of steps
+/**
+ * Moves the visual cursor down a specified number of steps.
+ *
+ * @param steps The number of steps to move the cursor down.
  */
 void cursor_down(int steps) {
 	int i;
@@ -31,9 +34,10 @@ void cursor_down(int steps) {
 		//print("\e[B", 3);
 }
 
-/*
- * Procedure: cursor_up
- * Description: Moves the visual cursor up a specified number of steps
+/**
+ * Moves the visual cursor up a specified number of steps.
+ *
+ * @param steps The number of steps to move the cursor up.
  */
 void cursor_up(int steps) {
 	int i;
@@ -41,9 +45,8 @@ void cursor_up(int steps) {
 		print("\e[A", 3);
 }
 
-/*
- * Procedure: cursor_return
- * Description: Moves the visual cursor to the beginning of the line
+/**
+ * Moves the visual cursor to the beginning of the line.
  */
 void cursor_return() {
 	print("\b\r", 2);

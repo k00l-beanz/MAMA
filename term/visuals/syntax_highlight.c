@@ -7,19 +7,18 @@
 #include "../utils.c"
 #include <include/string.h>
 
-enum SyntaxState states[MAX_SYNTAX_SWITCHES];
-int switch_indexes[MAX_SYNTAX_SWITCHES];
-int newest_switch;
+enum SyntaxState states[MAX_SYNTAX_SWITCHES]; /// Array of all the states the cursor has been in as the user has typed. Entries correspond to entries in switch_indexes.
+int switch_indexes[MAX_SYNTAX_SWITCHES]; /// Array of indexes the cursor was at when the corresponding syntax state in states was switched to.
+int newest_switch; /// The largest and most recent valid index in states and switch_indexes.
 
-int enabled = 0;
+int enabled = 0; /// Whether or not syntax highlighting is enabled as the user types.
 
 void switch_to(enum SyntaxState, int, int);
 void color_for(enum SyntaxState);
 void get_state_at(int, int *);
 
-/*
- * Procedure: syntax_init
- * Description: Initializes internal data structures needed for syntax highlighting
+/**
+ * Initializes internal data structures needed for syntax highlighting.
  */
 void syntax_init() {
 	states[0] = CMD_NAME_OR_LEADING_WHITESPACE;
@@ -32,18 +31,26 @@ void syntax_init() {
 	}
 }
 
+/**
+ * Enables syntax highlighting as the user types.
+ */
 void syntax_enable_highlighting() {
 	enabled = 1;
 }
 
+/**
+ * Disables syntax highlighting as the user types.
+ */
 void syntax_disable_highlighting() {
 	enabled = 0;
 	color_for(DEFAULT);
 }
 
-/*
- * Procedure: syntax_handle_char
- * Description: Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index
+/**
+ * Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index.
+ *
+ * @param c The next character that will be output to the screen.
+ * @param index The index of the cursor.
  */
 void syntax_handle_char(char c, int index) {
 	if(!enabled)
@@ -65,9 +72,12 @@ void syntax_handle_char(char c, int index) {
 	}
 }
 
-/*
- * Procedure: switch_to
- * Description: Switches to the specified syntax state. Used internally by syntax_handle_char
+/**
+ * Switches to the specified syntax state. Used internally by syntax_handle_char.
+ *
+ * @param state The syntax state being switched to.
+ * @param index The index in the user's input at which this switch occurs.
+ * @param record_index The index in the internal data structures states and switch_indexes at which to write this switch to.
  */
 void switch_to(enum SyntaxState state, int index, int record_index) {
 	if(record_index + 1 < MAX_SYNTAX_SWITCHES) {
@@ -79,9 +89,10 @@ void switch_to(enum SyntaxState state, int index, int record_index) {
 	}
 }
 
-/*
- * Procedure: color_for
- * Description: Prints the ANSI color code for the specified syntax state. Used internally by syntax_handle_char
+/**
+ * Prints the ANSI color code for the specified syntax state. Used internally by syntax_handle_char.
+ *
+ * @param state The syntax state for which to print the correct color code to the terminal for.
  */
 void color_for(enum SyntaxState state) {
 	switch(state) {
@@ -111,9 +122,11 @@ void color_for(enum SyntaxState state) {
 	}
 }
 
-/*
- * Procedure: get_state_at
- * Description: Retrieves the index in the switches and switch_indexes data structures corresponding to the specified cursor index. Used internally by syntax_handle_char
+/**
+ * Retrieves the index in the states and switch_indexes data structures corresponding to the specified cursor index. Used internally by syntax_handle_char.
+ *
+ * @param index The index of the cursor.
+ * @param index_of_state_in_record A pointer to the index in the states and switch_indexes data structures corresponding to the specified cursor index. Will be updated to point to the correct index in the data structures.
  */
 void get_state_at(int index, int *index_of_state_in_record) {
 	int i;

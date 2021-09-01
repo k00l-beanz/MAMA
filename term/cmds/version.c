@@ -1,9 +1,12 @@
 #include <lib/out.h>
 
-/*
- * Procedure: cmd_version()
- * Description: Returns syntax for specified command.
-*/
+/**
+ * Handler for the version command. Prints the current version of the operating system.
+ *
+ * @param arg_str The arguments passed to the version command. Unused by the handler.
+ *
+ * @return The exit code of the command, always 0.
+ */
 int cmd_version(char *arg_str) {
 	(void)arg_str;
 	
