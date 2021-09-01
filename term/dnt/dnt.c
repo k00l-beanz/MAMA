@@ -102,7 +102,7 @@ int getdate(char * p) {
   char *NL = "\n", *space = " ";
   int year, month, day, dayOfWeek;
 
-  memset(output,'\0',100);
+  memset(output,'\0',30);
 
   /* Get day of week */
   outb(0x70,0x06);
