@@ -1,6 +1,13 @@
 #include "syntax.h"
 #include "utils.h"
 
+int changes_state(char, enum SyntaxState, enum SyntaxState *);
+
+enum SyntaxState get_state(char c, enum SyntaxState cur_state) {
+	changes_state(c, cur_state, &cur_state);
+	return cur_state;
+}
+
 int changes_state(char c, enum SyntaxState cur_state, enum SyntaxState *next_state) {
 	if(c == '"') {
 		switch(cur_state) {
@@ -29,7 +36,6 @@ int changes_state(char c, enum SyntaxState cur_state, enum SyntaxState *next_sta
 			case DEFAULT:
 			case DOUBLE_QUOTE_STRING_END_QUOTE:
 			case SINGLE_QUOTE_STRING_END_QUOTE:
-			case PARAM_VALUE:
 				*next_state = PARAM_NAME;
 				return 1;
 			default:
@@ -38,8 +44,6 @@ int changes_state(char c, enum SyntaxState cur_state, enum SyntaxState *next_sta
 	} else if(isspace(&c)) {
 		switch(cur_state) {
 			case PARAM_NAME:
-				*next_state = PARAM_VALUE;
-				return 1;
 			case CMD_NAME:
 			case PARAM_VALUE:
 			case DOUBLE_QUOTE_STRING_END_QUOTE:
@@ -58,6 +62,11 @@ int changes_state(char c, enum SyntaxState cur_state, enum SyntaxState *next_sta
 			case CMD_NAME_OR_LEADING_WHITESPACE:
 				*next_state = CMD_NAME;
 				return 1;
+			case DOUBLE_QUOTE_STRING_END_QUOTE:
+			case SINGLE_QUOTE_STRING_END_QUOTE:
+			case DEFAULT:
+				*next_state = PARAM_VALUE;
+				return 1;
 			default:
 				return 0;
 		}
@@ -68,7 +77,8 @@ int changes_state(char c, enum SyntaxState cur_state, enum SyntaxState *next_sta
 		switch(cur_state) {
 			case DOUBLE_QUOTE_STRING_END_QUOTE:
 			case SINGLE_QUOTE_STRING_END_QUOTE:
-				*next_state = DEFAULT;
+			case DEFAULT:
+				*next_state = PARAM_VALUE;
 				return 1;
 			default:
 				return 0;

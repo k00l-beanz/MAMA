@@ -5,5 +5,6 @@
 #include "cmds/shutdown.c"
 #include "cmds/echo.c"
 #include "cmds/version.c"
+#include "cmds/argtest.c"
 
 #endif

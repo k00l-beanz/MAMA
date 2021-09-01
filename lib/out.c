@@ -1,4 +1,5 @@
 #include <modules/mpx_supt.h>
+#include <stdarg.h>
 
 /*
  * Procedure: print()
@@ -30,6 +31,53 @@ int println(char *str, int len) {
 	int one = 1;
 	sys_req(WRITE, DEFAULT_DEVICE, "\n", &one);
 	return ret;
+}
+
+/* Basic implementation of printf.
+ * Will probably mess up if you don't give it the right number of arguments, so don't do that.
+ */
+void printf(char *str, ...) {
+	va_list args;
+	va_start(args, str);
+	
+	int len = strlen(str);
+	char buf[len + 1];
+
+	int i, j;
+	for(i = 0, j = 0; str[i] != '\0'; i++) {
+		if(str[i] != '%') {
+			buf[j] = str[i];
+			j++;
+		} else {
+			buf[j] = '\0';
+			print(buf, j);
+			j = 0;
+			
+			i++;
+			
+			switch(str[i]) {
+				case 'i':
+					print(itoa(va_arg(args, int)), 1);
+					break;
+				case 's':
+					print(va_arg(args, char *), 1);
+					break;
+				case 'c':
+					printc(va_arg(args, int));
+					break;
+				case '%':
+					printc('%');
+					break;
+				default:
+					printf("Illegal format string %%%c\n", str[i]);
+					return;
+			}
+		}
+	}
+	buf[j] = '\0';
+	print(buf, j);
+
+	va_end(args);
 }
 
 /*

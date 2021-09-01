@@ -74,6 +74,7 @@ void versionHelp();
 int print(char *, int);
 int printc(char);
 int println(char *, int);
+void printf(char *, ...);
 int read(char *, int);
 
 #endif

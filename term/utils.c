@@ -12,5 +12,6 @@ int is_name_char(char c) {
 }
 
 void skip_ws(char **c) {
-	while(isspace(*c++));
+	while(isspace(*c))
+			(*c)++;
 }

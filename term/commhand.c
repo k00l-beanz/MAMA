@@ -62,6 +62,10 @@ const cmd_mapping cmd_mappings[] = {
 			"echo",
 			&cmd_echo
 		},
+	{
+		"arg-test",
+		&cmd_argtest
+	},
         { NULL } // sentinel for end-of-array
 };
 

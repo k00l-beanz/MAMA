@@ -6,7 +6,6 @@ enum SyntaxState {
 	CMD_NAME,
 	PARAM_NAME,
 	PARAM_VALUE,
-	UNNAMED_ARG,
 	DOUBLE_QUOTE_STRING,
 	DOUBLE_QUOTE_STRING_END_QUOTE,
 	SINGLE_QUOTE_STRING,
@@ -15,6 +14,7 @@ enum SyntaxState {
 	DEFAULT
 };
 
+enum SyntaxState get_state(char, enum SyntaxState);
 int changes_state(char, enum SyntaxState, enum SyntaxState *);
 
 #endif
