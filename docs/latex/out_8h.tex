@@ -3,6 +3,24 @@
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+int \mbox{\hyperlink{out_8h_a661b124ed07b449986d880d2fcaa77a1}{cmd\+\_\+help}} (char $\ast$command)
+\item 
+void \mbox{\hyperlink{out_8h_a31b0d4a8a8716551c8dc1d023bca5e03}{gettime\+Help}} ()
+\item 
+void \mbox{\hyperlink{out_8h_a5a956b160019b4313969c519f81bbd42}{settime\+Help}} ()
+\item 
+void \mbox{\hyperlink{out_8h_af5a3edef6ac29bfbdb319c3f40a2eb21}{getdate\+Help}} ()
+\item 
+void \mbox{\hyperlink{out_8h_ac31bb0433b495333969da693abe7d331}{setdate\+Help}} ()
+\item 
+void \mbox{\hyperlink{out_8h_a9924d78384ecf8f75b3caea1b9f5ca62}{help\+Help}} ()
+\item 
+void \mbox{\hyperlink{out_8h_aa97bc30be7d475525757cccca69f4182}{shutdown\+Help}} ()
+\item 
+void \mbox{\hyperlink{out_8h_aa465326b4dc7e036140d58b3432a6910}{help\+List}} ()
+\item 
+void \mbox{\hyperlink{out_8h_a6cd078828b9b430112c8f28038ac99f0}{version\+Help}} ()
+\item 
 int \mbox{\hyperlink{out_8h_abe8ba30d6193e7ea636a2f1cdf6d1cb8}{print}} (char $\ast$, int)
 \item 
 int \mbox{\hyperlink{out_8h_a341c434ba353b6aaac38d7d980491cf2}{printc}} (char)
@@ -14,7 +32,57 @@ int \mbox{\hyperlink{out_8h_a9812cbe800ae3bc77f8ec34cb3d4575f}{read}} (char $\as
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{out_8h_abe8ba30d6193e7ea636a2f1cdf6d1cb8}\label{out_8h_abe8ba30d6193e7ea636a2f1cdf6d1cb8}} 
+\mbox{\Hypertarget{out_8h_a661b124ed07b449986d880d2fcaa77a1}\label{out_8h_a661b124ed07b449986d880d2fcaa77a1}} 
+\index{out.h@{out.h}!cmd\_help@{cmd\_help}}
+\index{cmd\_help@{cmd\_help}!out.h@{out.h}}
+\doxysubsubsection{\texorpdfstring{cmd\_help()}{cmd\_help()}}
+{\footnotesize\ttfamily int cmd\+\_\+help (\begin{DoxyParamCaption}\item[{char $\ast$}]{command }\end{DoxyParamCaption})}
+
+Prints help message for command
+
+Prints out a help message and basic syntax for a specific command
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & Command which the user needs basic information and syntax for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 upon success, -\/1 upon error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{out_8h_af5a3edef6ac29bfbdb319c3f40a2eb21}\label{out_8h_af5a3edef6ac29bfbdb319c3f40a2eb21}} 
+\index{out.h@{out.h}!getdateHelp@{getdateHelp}}
+\index{getdateHelp@{getdateHelp}!out.h@{out.h}}
+\doxysubsubsection{\texorpdfstring{getdateHelp()}{getdateHelp()}}
+{\footnotesize\ttfamily void getdate\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Help page for the \mbox{\hyperlink{dnt_8c_a1b6c333c9d6fb565020fcb5de3d2b90d}{getdate()}} method
+
+Prints out the name, usage, return and description for the \mbox{\hyperlink{dnt_8c_a1b6c333c9d6fb565020fcb5de3d2b90d}{getdate()}} method. \mbox{\Hypertarget{out_8h_a31b0d4a8a8716551c8dc1d023bca5e03}\label{out_8h_a31b0d4a8a8716551c8dc1d023bca5e03}} 
+\index{out.h@{out.h}!gettimeHelp@{gettimeHelp}}
+\index{gettimeHelp@{gettimeHelp}!out.h@{out.h}}
+\doxysubsubsection{\texorpdfstring{gettimeHelp()}{gettimeHelp()}}
+{\footnotesize\ttfamily void gettime\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Help page for \mbox{\hyperlink{dnt_8c_a8adbb1f302ef7d45187a37bec630abcd}{gettime()}} method
+
+Prints out the name, usage, return and description for the \mbox{\hyperlink{dnt_8c_a8adbb1f302ef7d45187a37bec630abcd}{gettime()}} method. \mbox{\Hypertarget{out_8h_a9924d78384ecf8f75b3caea1b9f5ca62}\label{out_8h_a9924d78384ecf8f75b3caea1b9f5ca62}} 
+\index{out.h@{out.h}!helpHelp@{helpHelp}}
+\index{helpHelp@{helpHelp}!out.h@{out.h}}
+\doxysubsubsection{\texorpdfstring{helpHelp()}{helpHelp()}}
+{\footnotesize\ttfamily void help\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Help page for the help command
+
+Prints out the name, usage, return and description for the help command. \mbox{\Hypertarget{out_8h_aa465326b4dc7e036140d58b3432a6910}\label{out_8h_aa465326b4dc7e036140d58b3432a6910}} 
+\index{out.h@{out.h}!helpList@{helpList}}
+\index{helpList@{helpList}!out.h@{out.h}}
+\doxysubsubsection{\texorpdfstring{helpList()}{helpList()}}
+{\footnotesize\ttfamily void help\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Displays a list of common system commands
+
+Displays a list of common system commands for the user. \mbox{\Hypertarget{out_8h_abe8ba30d6193e7ea636a2f1cdf6d1cb8}\label{out_8h_abe8ba30d6193e7ea636a2f1cdf6d1cb8}} 
 \index{out.h@{out.h}!print@{print}}
 \index{print@{print}!out.h@{out.h}}
 \doxysubsubsection{\texorpdfstring{print()}{print()}}
@@ -38,3 +106,36 @@ int \mbox{\hyperlink{out_8h_a9812cbe800ae3bc77f8ec34cb3d4575f}{read}} (char $\as
 \doxysubsubsection{\texorpdfstring{read()}{read()}}
 {\footnotesize\ttfamily int read (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{int}]{len }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{out_8h_ac31bb0433b495333969da693abe7d331}\label{out_8h_ac31bb0433b495333969da693abe7d331}} 
+\index{out.h@{out.h}!setdateHelp@{setdateHelp}}
+\index{setdateHelp@{setdateHelp}!out.h@{out.h}}
+\doxysubsubsection{\texorpdfstring{setdateHelp()}{setdateHelp()}}
+{\footnotesize\ttfamily void setdate\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Help page for the \mbox{\hyperlink{dnt_8c_ab434e4f99f9d3687be837492216455d5}{setdate()}} method
+
+Prints out the name, usage, and description for the \mbox{\hyperlink{dnt_8c_ab434e4f99f9d3687be837492216455d5}{setdate()}} method. \mbox{\Hypertarget{out_8h_a5a956b160019b4313969c519f81bbd42}\label{out_8h_a5a956b160019b4313969c519f81bbd42}} 
+\index{out.h@{out.h}!settimeHelp@{settimeHelp}}
+\index{settimeHelp@{settimeHelp}!out.h@{out.h}}
+\doxysubsubsection{\texorpdfstring{settimeHelp()}{settimeHelp()}}
+{\footnotesize\ttfamily void settime\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Help page for \mbox{\hyperlink{dnt_8c_a486f150e717e9d85dc522465496ef1a3}{settime()}} method
+
+Prints out the name, usage, and description for the \mbox{\hyperlink{dnt_8c_a486f150e717e9d85dc522465496ef1a3}{settime()}} method. \mbox{\Hypertarget{out_8h_aa97bc30be7d475525757cccca69f4182}\label{out_8h_aa97bc30be7d475525757cccca69f4182}} 
+\index{out.h@{out.h}!shutdownHelp@{shutdownHelp}}
+\index{shutdownHelp@{shutdownHelp}!out.h@{out.h}}
+\doxysubsubsection{\texorpdfstring{shutdownHelp()}{shutdownHelp()}}
+{\footnotesize\ttfamily void shutdown\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Help page for the shutdown command
+
+Prints out the name, usage, and description for the shutdown system command. \mbox{\Hypertarget{out_8h_a6cd078828b9b430112c8f28038ac99f0}\label{out_8h_a6cd078828b9b430112c8f28038ac99f0}} 
+\index{out.h@{out.h}!versionHelp@{versionHelp}}
+\index{versionHelp@{versionHelp}!out.h@{out.h}}
+\doxysubsubsection{\texorpdfstring{versionHelp()}{versionHelp()}}
+{\footnotesize\ttfamily void version\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Help page for the version command
+
+Displays the current verson of the system. 

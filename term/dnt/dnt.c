@@ -1,8 +1,6 @@
 
 #include "dnt.h"
 
-int daysInMonth(int, int);
-
 int setdate(char * date) {
   int params = 1;
   int month, day, year;
@@ -98,7 +96,7 @@ int setDateInMemory(int month,int day,int year) {
 int getdate(char * p) {
   (void) p;
 
-  char output[100];
+  char output[30];
   char *comma = ", ";
   char *twenty = "20";
   char *NL = "\n", *space = " ";
@@ -134,7 +132,7 @@ int getdate(char * p) {
 
   sys_req(WRITE,DEFAULT_DEVICE,output,&year);
 
-  return 0;
+  return 1;
 }
 
 int settime(char * time) {
@@ -168,7 +166,7 @@ int settime(char * time) {
 
   setTimeInMemory(hour, minute, second);
 
-  return 0;
+  return 1;
 }
 
 void setTimeInMemory(int hour, int minute, int second) {
@@ -231,7 +229,7 @@ int gettime(char * p) {
   strcat(output,NL);
   sys_req(WRITE,DEFAULT_DEVICE,output,&hour);
 
-  return 0;
+  return 1;
 }
 
 unsigned char ItoBCD(unsigned int value) {
@@ -319,27 +317,27 @@ char * intToDayOfWeek(int value) {
 }
 
 int daysInMonth(int month, int year) {
-switch(month) {
-      case 1:
-      case 3:
-      case 5:
-      case 7:
-      case 8:
-      case 10:
-      case 12:
-        return 31;
-      case 4:
-      case 6:
-      case 9:
-      case 11:
-        return 30;
-      case 2:
-        if(year % 4 == 0)
-          return 29;
-        else
-          return 28;
-        break;
-    }
-return -1; // will never happen
+  switch(month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+          return 31;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+          return 30;
+        case 2:
+          if(year % 4 == 0)
+            return 29;
+          else
+            return 28;
+          break;
+      }
+  return -1; // will never happen
 }
 

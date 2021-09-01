@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['dayofweektoint_0',['dayOfWeekToInt',['../dnt_8h.html#ab31775545e0a7607deba36aafa1f8dec',1,'dayOfWeekToInt(char *dayofweek):&#160;dnt.c'],['../dnt_8c.html#ab31775545e0a7607deba36aafa1f8dec',1,'dayOfWeekToInt(char *dayofweek):&#160;dnt.c']]],
+  ['daysinmonth_0',['daysInMonth',['../dnt_8h.html#aea60a64a6b1b56aafc34d2b157768751',1,'daysInMonth(int month, int year):&#160;dnt.c'],['../dnt_8c.html#aea60a64a6b1b56aafc34d2b157768751',1,'daysInMonth(int month, int year):&#160;dnt.c']]],
   ['debug_1',['debug',['../interrupts_8c.html#a0d0105433f9c65c14928027b3f0966b7',1,'interrupts.c']]],
   ['device_5fnot_5favailable_2',['device_not_available',['../interrupts_8c.html#abe88cd1dcc26cb58ee785c714e016f72',1,'interrupts.c']]],
   ['display_5fbg_5fcolor_3',['display_bg_color',['../colorize_8c.html#a0d7d87bd7cd4cb68b5fe30ff46db5e3d',1,'display_bg_color(enum Color color):&#160;colorize.c'],['../colorize_8h.html#ab4be218dbeddd95d2ff86d7e952d4f51',1,'display_bg_color(enum Color):&#160;colorize.c']]],

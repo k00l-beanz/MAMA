@@ -10,6 +10,8 @@
 {\ttfamily \#include \char`\"{}visuals/hints.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$lib/out.\+c$>$}\newline
 {\ttfamily \#include \char`\"{}dnt/dnt.\+c\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ascii/mama.\+c\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,7 +29,7 @@ typedef struct \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} \mbox{\hy
 \item 
 int \mbox{\hyperlink{commhand_8c_a2f4ba017d1252af62b83584e64cee010}{is\+\_\+name\+\_\+char}} (char)
 \item 
-void \mbox{\hyperlink{commhand_8c_ab681b7bbb508301d21f29bbcdb23dcaf}{extract\+\_\+cmd\+\_\+name}} (char $\ast$, char $\ast$, int $\ast$)
+void \mbox{\hyperlink{commhand_8c_a2cc0cebdb010b00580b45be948f88261}{extract\+\_\+cmd\+\_\+name}} (char $\ast$, char $\ast$, int $\ast$, int $\ast$)
 \item 
 \mbox{\hyperlink{commhand_8c_a94081df0b3154edd3c47c2ef2f4aadcc}{cmd\+\_\+func\+\_\+t}} \mbox{\hyperlink{commhand_8c_a47c794d5c09edf314e8aa3280b425235}{fetch\+\_\+cmd\+\_\+handler}} (char $\ast$)
 \item 
@@ -62,11 +64,11 @@ const \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} \mbox{\hyperlink{c
 \doxysubsubsection{\texorpdfstring{commhand()}{commhand()}}
 {\footnotesize\ttfamily int commhand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{commhand_8c_ab681b7bbb508301d21f29bbcdb23dcaf}\label{commhand_8c_ab681b7bbb508301d21f29bbcdb23dcaf}} 
+\mbox{\Hypertarget{commhand_8c_a2cc0cebdb010b00580b45be948f88261}\label{commhand_8c_a2cc0cebdb010b00580b45be948f88261}} 
 \index{commhand.c@{commhand.c}!extract\_cmd\_name@{extract\_cmd\_name}}
 \index{extract\_cmd\_name@{extract\_cmd\_name}!commhand.c@{commhand.c}}
 \doxysubsubsection{\texorpdfstring{extract\_cmd\_name()}{extract\_cmd\_name()}}
-{\footnotesize\ttfamily void extract\+\_\+cmd\+\_\+name (\begin{DoxyParamCaption}\item[{char $\ast$}]{cmd\+\_\+str,  }\item[{char $\ast$}]{cmd\+\_\+name,  }\item[{int $\ast$}]{cmd\+\_\+name\+\_\+len }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void extract\+\_\+cmd\+\_\+name (\begin{DoxyParamCaption}\item[{char $\ast$}]{cmd\+\_\+str,  }\item[{char $\ast$}]{cmd\+\_\+name,  }\item[{int $\ast$}]{cmd\+\_\+name\+\_\+len,  }\item[{int $\ast$}]{args\+\_\+start\+\_\+index }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{commhand_8c_a47c794d5c09edf314e8aa3280b425235}\label{commhand_8c_a47c794d5c09edf314e8aa3280b425235}} 
 \index{commhand.c@{commhand.c}!fetch\_cmd\_handler@{fetch\_cmd\_handler}}
