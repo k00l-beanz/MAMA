@@ -21,21 +21,27 @@
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}} \{ \newline
-\mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83aeb55efc71570e1830a0070d06af683b4}{CMD\+\_\+\+NAME}}
+\mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83a34d0593ff40f9bfd598cf63104c18a96}{CMD\+\_\+\+NAME\+\_\+\+OR\+\_\+\+LEADING\+\_\+\+WHITESPACE}}
+, \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83aeb55efc71570e1830a0070d06af683b4}{CMD\+\_\+\+NAME}}
 , \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83aa88076262efd878ec9b974554cdcc7d5}{PARAM\+\_\+\+NAME}}
 , \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83a1c85eab78873293d0782d092daeb6f88}{PARAM\+\_\+\+VALUE}}
-, \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83ae7db3de1e657bbe2e8259e7ca2d9793c}{DOUBLE\+\_\+\+QUOTE\+\_\+\+STRING}}
 , \newline
-\mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83a242f8b0468adf6dc6dd3519ddd37ed04}{DOUBLE\+\_\+\+QUOTE\+\_\+\+STRING\+\_\+\+END\+\_\+\+QUOTE}}
+\mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83ae7db3de1e657bbe2e8259e7ca2d9793c}{DOUBLE\+\_\+\+QUOTE\+\_\+\+STRING}}
+, \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83a242f8b0468adf6dc6dd3519ddd37ed04}{DOUBLE\+\_\+\+QUOTE\+\_\+\+STRING\+\_\+\+END\+\_\+\+QUOTE}}
 , \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83ac1a06c479e02a744bff8252ce0b988e5}{SINGLE\+\_\+\+QUOTE\+\_\+\+STRING}}
 , \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83ad584f45ce95cbda27206bc3a7a7e0c61}{SINGLE\+\_\+\+QUOTE\+\_\+\+STRING\+\_\+\+END\+\_\+\+QUOTE}}
-, \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83a88ec7d5086d2469ba843c7fcceade8a6}{DEFAULT}}
+, \newline
+\mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83a88ec7d5086d2469ba843c7fcceade8a6}{DEFAULT}}
  \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{syntax_8h_a8982d81a1ac7f95d9c633772f4b9c910}{syntax\+\_\+init}} ()
+\item 
+void \mbox{\hyperlink{syntax_8h_aae9e3cd30ba3fa463d856cf5e3e2e603}{syntax\+\_\+enable\+\_\+highlighting}} ()
+\item 
+void \mbox{\hyperlink{syntax_8h_a071979ddc6be81df5ef330aff3244d8f}{syntax\+\_\+disable\+\_\+highlighting}} ()
 \item 
 void \mbox{\hyperlink{syntax_8h_a483c96861e05c886bf7f62caeed249b4}{syntax\+\_\+handle\+\_\+char}} (char, int)
 \end{DoxyCompactItemize}
@@ -94,6 +100,10 @@ void \mbox{\hyperlink{syntax_8h_a483c96861e05c886bf7f62caeed249b4}{syntax\+\_\+h
 {\footnotesize\ttfamily enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}}}
 
 \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_NAME\_OR\_LEADING\_WHITESPACE@{CMD\_NAME\_OR\_LEADING\_WHITESPACE}!syntax.h@{syntax.h}}\index{syntax.h@{syntax.h}!CMD\_NAME\_OR\_LEADING\_WHITESPACE@{CMD\_NAME\_OR\_LEADING\_WHITESPACE}}}\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83a34d0593ff40f9bfd598cf63104c18a96}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83a34d0593ff40f9bfd598cf63104c18a96}} 
+CMD\+\_\+\+NAME\+\_\+\+OR\+\_\+\+LEADING\+\_\+\+WHITESPACE&\\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_NAME@{CMD\_NAME}!syntax.h@{syntax.h}}\index{syntax.h@{syntax.h}!CMD\_NAME@{CMD\_NAME}}}\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83aeb55efc71570e1830a0070d06af683b4}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83aeb55efc71570e1830a0070d06af683b4}} 
 CMD\+\_\+\+NAME&\\
 \hline
@@ -130,6 +140,18 @@ DEFAULT&\\
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{syntax_8h_a071979ddc6be81df5ef330aff3244d8f}\label{syntax_8h_a071979ddc6be81df5ef330aff3244d8f}} 
+\index{syntax.h@{syntax.h}!syntax\_disable\_highlighting@{syntax\_disable\_highlighting}}
+\index{syntax\_disable\_highlighting@{syntax\_disable\_highlighting}!syntax.h@{syntax.h}}
+\doxysubsubsection{\texorpdfstring{syntax\_disable\_highlighting()}{syntax\_disable\_highlighting()}}
+{\footnotesize\ttfamily void syntax\+\_\+disable\+\_\+highlighting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{syntax_8h_aae9e3cd30ba3fa463d856cf5e3e2e603}\label{syntax_8h_aae9e3cd30ba3fa463d856cf5e3e2e603}} 
+\index{syntax.h@{syntax.h}!syntax\_enable\_highlighting@{syntax\_enable\_highlighting}}
+\index{syntax\_enable\_highlighting@{syntax\_enable\_highlighting}!syntax.h@{syntax.h}}
+\doxysubsubsection{\texorpdfstring{syntax\_enable\_highlighting()}{syntax\_enable\_highlighting()}}
+{\footnotesize\ttfamily void syntax\+\_\+enable\+\_\+highlighting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{syntax_8h_a483c96861e05c886bf7f62caeed249b4}\label{syntax_8h_a483c96861e05c886bf7f62caeed249b4}} 
 \index{syntax.h@{syntax.h}!syntax\_handle\_char@{syntax\_handle\_char}}
 \index{syntax\_handle\_char@{syntax\_handle\_char}!syntax.h@{syntax.h}}

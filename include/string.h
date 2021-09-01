@@ -59,6 +59,17 @@ char* strtok(char *s1, const char *s2);
 */
 int atoi(const char *s);
 
+/**
+ * Converts 32-bit integer to an array of 8-bit characters
+ * 
+ * Converts an integer data type by breaking it down into its 
+ * individual digits. Digits are stored individually into a character
+ * array.
+ * 
+ * @param i Integer that will be converted into ascii
+ * 
+ * @return Returns a pointer to the start of the array of character bytes 
+*/
 char *itoa(int i);
 
 #endif

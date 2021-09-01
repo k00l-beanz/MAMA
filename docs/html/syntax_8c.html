@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4a1518cd4b67abd82ce2d0f4e4527373.html">term</a></li><li class="navelem"><a class="el" href="dir_bcd4a6e08b1abd1b53243c5f4c6e8e4c.html">visuals</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_e04ae2849dfa520b4ee2c9f7e9ff15de.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_d8ae19e325e7e682baaf160c25ea8d2e.html">MAMA</a></li><li class="navelem"><a class="el" href="dir_81368d1c3c7e98235ca50ef9a1b62846.html">term</a></li><li class="navelem"><a class="el" href="dir_1fe4311eb8151ef22bc5dd8491aae16f.html">visuals</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -77,6 +77,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="commhand_8h_source.html">../commhand.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="colorize_8h_source.html">colorize.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="hints_8c.html">hints.c</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utils_8c.html">../utils.c</a>&quot;</code><br />
 <code>#include &lt;<a class="el" href="string_8h_source.html">include/string.h</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -89,6 +90,10 @@ Functions</h2></td></tr>
 <tr class="separator:aa9d6b8916489bef5584d7eca99fc6d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8982d81a1ac7f95d9c633772f4b9c910"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a8982d81a1ac7f95d9c633772f4b9c910">syntax_init</a> ()</td></tr>
 <tr class="separator:a8982d81a1ac7f95d9c633772f4b9c910"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae9e3cd30ba3fa463d856cf5e3e2e603"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#aae9e3cd30ba3fa463d856cf5e3e2e603">syntax_enable_highlighting</a> ()</td></tr>
+<tr class="separator:aae9e3cd30ba3fa463d856cf5e3e2e603"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a071979ddc6be81df5ef330aff3244d8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a071979ddc6be81df5ef330aff3244d8f">syntax_disable_highlighting</a> ()</td></tr>
+<tr class="separator:a071979ddc6be81df5ef330aff3244d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d0d3fecb83c8763320c153deb0c7b29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a5d0d3fecb83c8763320c153deb0c7b29">syntax_handle_char</a> (char c, int index)</td></tr>
 <tr class="separator:a5d0d3fecb83c8763320c153deb0c7b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -100,6 +105,8 @@ Variables</h2></td></tr>
 <tr class="separator:a30d4d1c39337175e8ca12046c7563a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e565f2eef0f1b48072d99211313e1d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a2e565f2eef0f1b48072d99211313e1d2">newest_switch</a></td></tr>
 <tr class="separator:a2e565f2eef0f1b48072d99211313e1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03e6cca0c879c0443efb431c30c14f76"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a03e6cca0c879c0443efb431c30c14f76">enabled</a> = 0</td></tr>
+<tr class="separator:a03e6cca0c879c0443efb431c30c14f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a39318f833f527bd72fe820ed4c7b97d1" name="a39318f833f527bd72fe820ed4c7b97d1"></a>
@@ -182,6 +189,40 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a071979ddc6be81df5ef330aff3244d8f" name="a071979ddc6be81df5ef330aff3244d8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a071979ddc6be81df5ef330aff3244d8f">&#9670;&nbsp;</a></span>syntax_disable_highlighting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void syntax_disable_highlighting </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae9e3cd30ba3fa463d856cf5e3e2e603" name="aae9e3cd30ba3fa463d856cf5e3e2e603"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae9e3cd30ba3fa463d856cf5e3e2e603">&#9670;&nbsp;</a></span>syntax_enable_highlighting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void syntax_enable_highlighting </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5d0d3fecb83c8763320c153deb0c7b29" name="a5d0d3fecb83c8763320c153deb0c7b29"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5d0d3fecb83c8763320c153deb0c7b29">&#9670;&nbsp;</a></span>syntax_handle_char()</h2>
 
@@ -228,6 +269,20 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a03e6cca0c879c0443efb431c30c14f76" name="a03e6cca0c879c0443efb431c30c14f76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03e6cca0c879c0443efb431c30c14f76">&#9670;&nbsp;</a></span>enabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int enabled = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a2e565f2eef0f1b48072d99211313e1d2" name="a2e565f2eef0f1b48072d99211313e1d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2e565f2eef0f1b48072d99211313e1d2">&#9670;&nbsp;</a></span>newest_switch</h2>
 

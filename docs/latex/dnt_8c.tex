@@ -6,13 +6,13 @@
 \item 
 int \mbox{\hyperlink{dnt_8c_ab434e4f99f9d3687be837492216455d5}{setdate}} (char $\ast$date)
 \item 
-int \mbox{\hyperlink{dnt_8c_a5b1c4e19111c99b765569bf771400abe}{set\+Date\+In\+Memory}} (unsigned int day\+Of\+Week, unsigned int month, unsigned int day, unsigned int year)
+int \mbox{\hyperlink{dnt_8c_a0977b9d4967b5c76520da73ce07cc180}{set\+Date\+In\+Memory}} (int month, int day, int year)
 \item 
 int \mbox{\hyperlink{dnt_8c_a1b6c333c9d6fb565020fcb5de3d2b90d}{getdate}} (char $\ast$p)
 \item 
 int \mbox{\hyperlink{dnt_8c_a486f150e717e9d85dc522465496ef1a3}{settime}} (char $\ast$time)
 \item 
-void \mbox{\hyperlink{dnt_8c_acaeac126d108e5fc889be858ba049a33}{set\+Time\+In\+Memory}} (unsigned int hour, unsigned int minute, unsigned int second)
+void \mbox{\hyperlink{dnt_8c_af5a6a624923447ee9d56401abc4962d3}{set\+Time\+In\+Memory}} (int hour, int minute, int second)
 \item 
 int \mbox{\hyperlink{dnt_8c_a8adbb1f302ef7d45187a37bec630abcd}{gettime}} (char $\ast$p)
 \item 
@@ -24,9 +24,7 @@ char $\ast$ \mbox{\hyperlink{dnt_8c_ac69caa79c44abf14cb2484e0b4e6c8db}{int\+To\+
 \item 
 char $\ast$ \mbox{\hyperlink{dnt_8c_a3610dc3b9c692a029fccae0faf859533}{int\+To\+Day\+Of\+Week}} (int value)
 \item 
-int \mbox{\hyperlink{dnt_8c_ab31775545e0a7607deba36aafa1f8dec}{day\+Of\+Week\+To\+Int}} (char $\ast$dayofweek)
-\item 
-int \mbox{\hyperlink{dnt_8c_af612d274d4b3d3eb581f994c1165df99}{month\+To\+Int}} (char $\ast$dayofweek)
+int \mbox{\hyperlink{dnt_8c_aea60a64a6b1b56aafc34d2b157768751}{days\+In\+Month}} (int month, int year)
 \end{DoxyCompactItemize}
 
 
@@ -49,23 +47,25 @@ Converts an 8-\/bit BCD unsigned char to a 32-\/bit unsigned integer.
 \begin{DoxyReturn}{Returns}
 Returns 32-\/bit unsigned int 
 \end{DoxyReturn}
-\mbox{\Hypertarget{dnt_8c_ab31775545e0a7607deba36aafa1f8dec}\label{dnt_8c_ab31775545e0a7607deba36aafa1f8dec}} 
-\index{dnt.c@{dnt.c}!dayOfWeekToInt@{dayOfWeekToInt}}
-\index{dayOfWeekToInt@{dayOfWeekToInt}!dnt.c@{dnt.c}}
-\doxysubsubsection{\texorpdfstring{dayOfWeekToInt()}{dayOfWeekToInt()}}
-{\footnotesize\ttfamily int day\+Of\+Week\+To\+Int (\begin{DoxyParamCaption}\item[{char $\ast$}]{dayofweek }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{dnt_8c_aea60a64a6b1b56aafc34d2b157768751}\label{dnt_8c_aea60a64a6b1b56aafc34d2b157768751}} 
+\index{dnt.c@{dnt.c}!daysInMonth@{daysInMonth}}
+\index{daysInMonth@{daysInMonth}!dnt.c@{dnt.c}}
+\doxysubsubsection{\texorpdfstring{daysInMonth()}{daysInMonth()}}
+{\footnotesize\ttfamily int days\+In\+Month (\begin{DoxyParamCaption}\item[{int}]{month,  }\item[{int}]{year }\end{DoxyParamCaption})}
 
-Converts day of the week to integer
+Calculates the number of days in a month
 
-Masks the string day of the week to an integer representing the day of the week. Sunday = 0 Monday = 1 ... Saturday = 6
+Calculates the number of days in the month based upon which month it is. If year is divisible by four then it is a leap year and will add 1 day for February for a total of 29 days. Otherwise, February will be 28 days.
 
 
 \begin{DoxyParams}{Parameters}
-{\em dayofweek} & the unasked string day of the week\\
+{\em month} & The month in the year (January = 1...December = 12) \\
+\hline
+{\em year} & The year that was being set\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Returns the masked integer day of the week 
+Returns the number of days in the month 
 \end{DoxyReturn}
 \mbox{\Hypertarget{dnt_8c_a1b6c333c9d6fb565020fcb5de3d2b90d}\label{dnt_8c_a1b6c333c9d6fb565020fcb5de3d2b90d}} 
 \index{dnt.c@{dnt.c}!getdate@{getdate}}
@@ -83,7 +83,7 @@ Returns a string that represents the current date of the system. This is in the 
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Returns 0 upon success, -\/1 upon error 
+Returns 1 upon success, -\/1 upon error 
 \end{DoxyReturn}
 \mbox{\Hypertarget{dnt_8c_a8adbb1f302ef7d45187a37bec630abcd}\label{dnt_8c_a8adbb1f302ef7d45187a37bec630abcd}} 
 \index{dnt.c@{dnt.c}!gettime@{gettime}}
@@ -101,7 +101,7 @@ Gets the system time from memory by reading from the corresponding memory addres
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Returns 0 upon success, -\/1 upon error 
+Returns 1 upon success, -\/1 upon error 
 \end{DoxyReturn}
 \mbox{\Hypertarget{dnt_8c_a3610dc3b9c692a029fccae0faf859533}\label{dnt_8c_a3610dc3b9c692a029fccae0faf859533}} 
 \index{dnt.c@{dnt.c}!intToDayOfWeek@{intToDayOfWeek}}
@@ -111,7 +111,7 @@ Returns 0 upon success, -\/1 upon error
 
 Converts integer to string day of the week
 
-Converts a masked integer into an unmasked string day of the week. The days of the week are Sunday to Saturday and are 0 to 6 respectivley. 0 = Sunday 1 = Monday ... 6 = Saturday
+Converts a masked integer into an unmasked string day of the week. The days of the week are Sunday to Saturday and are 1 to 7 respectivley. 1 = Sunday 2 = Monday ... 7 = Saturday
 
 
 \begin{DoxyParams}{Parameters}
@@ -157,24 +157,6 @@ Uses basic arithmetic and bit shifting to convert from 32-\/bit integer to 8-\/b
 \begin{DoxyReturn}{Returns}
 8-\/bit BCD number as an unsigned char 
 \end{DoxyReturn}
-\mbox{\Hypertarget{dnt_8c_af612d274d4b3d3eb581f994c1165df99}\label{dnt_8c_af612d274d4b3d3eb581f994c1165df99}} 
-\index{dnt.c@{dnt.c}!monthToInt@{monthToInt}}
-\index{monthToInt@{monthToInt}!dnt.c@{dnt.c}}
-\doxysubsubsection{\texorpdfstring{monthToInt()}{monthToInt()}}
-{\footnotesize\ttfamily int month\+To\+Int (\begin{DoxyParamCaption}\item[{char $\ast$}]{month }\end{DoxyParamCaption})}
-
-Converts unmasked month to masked int
-
-Converts string month into a masked integer month. January = 0 February = 1 ... December = 12
-
-
-\begin{DoxyParams}{Parameters}
-{\em month} & The unmasked string month\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Returns masked integer month 
-\end{DoxyReturn}
 \mbox{\Hypertarget{dnt_8c_ab434e4f99f9d3687be837492216455d5}\label{dnt_8c_ab434e4f99f9d3687be837492216455d5}} 
 \index{dnt.c@{dnt.c}!setdate@{setdate}}
 \index{setdate@{setdate}!dnt.c@{dnt.c}}
@@ -183,21 +165,21 @@ Returns masked integer month
 
 Sets the date of the system
 
-Parses the parameter to setdate, breaking the parameter into dayofweek, Month, day and year before passing it to set\+Date\+In\+Memory. Converts strings (Tuesday, July, etc.) into their 32-\/int before calling set\+Date\+In\+Memory. The input syntax is Day\+Of\+Week.\+Month.\+Day.\+Year Ex\+: Tuesday.\+August.\+24.\+21
+Parses the parameter to setdate, breaking the parameter into month, day and year before passing it to set\+Date\+In\+Memory. The basic syntax is month.\+day.\+year
 
 
 \begin{DoxyParams}{Parameters}
-{\em date} & The parameter that is passed with setdate. This string is parsed and each segment is converted to a 32-\/bit int. \\
+{\em date} & The parameter that is passed with setdate. This string is parsed and each segment is converted to a 32-\/bit int.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Returns 0 upon success, -\/1 upon error 
+Returns 1 upon success, -\/1 upon error 
 \end{DoxyReturn}
-\mbox{\Hypertarget{dnt_8c_a5b1c4e19111c99b765569bf771400abe}\label{dnt_8c_a5b1c4e19111c99b765569bf771400abe}} 
+\mbox{\Hypertarget{dnt_8c_a0977b9d4967b5c76520da73ce07cc180}\label{dnt_8c_a0977b9d4967b5c76520da73ce07cc180}} 
 \index{dnt.c@{dnt.c}!setDateInMemory@{setDateInMemory}}
 \index{setDateInMemory@{setDateInMemory}!dnt.c@{dnt.c}}
 \doxysubsubsection{\texorpdfstring{setDateInMemory()}{setDateInMemory()}}
-{\footnotesize\ttfamily int set\+Date\+In\+Memory (\begin{DoxyParamCaption}\item[{unsigned int}]{day\+Of\+Week,  }\item[{unsigned int}]{month,  }\item[{unsigned int}]{day,  }\item[{unsigned int}]{year }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int set\+Date\+In\+Memory (\begin{DoxyParamCaption}\item[{int}]{month,  }\item[{int}]{day,  }\item[{int}]{year }\end{DoxyParamCaption})}
 
 Sets the date in memory
 
@@ -205,9 +187,7 @@ Sets the date in memory by assigning the values to the appropriate places in mem
 
 
 \begin{DoxyParams}{Parameters}
-{\em day\+Of\+Week} & The day of the week (0 = Sunday ... 6 = Saturday) \\
-\hline
-{\em month} & The month (0 = January ... 11 = December) \\
+{\em month} & The month (1 = January ... 12 = December) \\
 \hline
 {\em day} & The day in the month. Can be between 0 and 32 \\
 \hline
@@ -215,7 +195,7 @@ Sets the date in memory by assigning the values to the appropriate places in mem
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Returns 0 upon success, -\/1 upon error 
+Returns 1 upon success, -\/1 upon error 
 \end{DoxyReturn}
 \mbox{\Hypertarget{dnt_8c_a486f150e717e9d85dc522465496ef1a3}\label{dnt_8c_a486f150e717e9d85dc522465496ef1a3}} 
 \index{dnt.c@{dnt.c}!settime@{settime}}
@@ -225,7 +205,7 @@ Returns 0 upon success, -\/1 upon error
 
 Sets the time of the system
 
-Takes the parameter which will be parsed and into 32-\/bit int (later converted to BCD) and sets it into memory. The syntax is Hour.\+Minute.\+Second Ex\+: 10.\+23.\+00
+Takes the parameter which will be parsed into 32-\/bit int (later converted to BCD) and sets it into memory. The syntax is Hour.\+Minute.\+Second Ex\+: 10.\+23.\+00
 
 
 \begin{DoxyParams}{Parameters}
@@ -233,13 +213,13 @@ Takes the parameter which will be parsed and into 32-\/bit int (later converted 
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Returns 0 upon success, -\/1 upon error 
+Returns 1 upon success, -\/1 upon error 
 \end{DoxyReturn}
-\mbox{\Hypertarget{dnt_8c_acaeac126d108e5fc889be858ba049a33}\label{dnt_8c_acaeac126d108e5fc889be858ba049a33}} 
+\mbox{\Hypertarget{dnt_8c_af5a6a624923447ee9d56401abc4962d3}\label{dnt_8c_af5a6a624923447ee9d56401abc4962d3}} 
 \index{dnt.c@{dnt.c}!setTimeInMemory@{setTimeInMemory}}
 \index{setTimeInMemory@{setTimeInMemory}!dnt.c@{dnt.c}}
 \doxysubsubsection{\texorpdfstring{setTimeInMemory()}{setTimeInMemory()}}
-{\footnotesize\ttfamily void set\+Time\+In\+Memory (\begin{DoxyParamCaption}\item[{unsigned int}]{hour,  }\item[{unsigned int}]{minute,  }\item[{unsigned int}]{second }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void set\+Time\+In\+Memory (\begin{DoxyParamCaption}\item[{int}]{hour,  }\item[{int}]{minute,  }\item[{int}]{second }\end{DoxyParamCaption})}
 
 Sets the time into memory
 
@@ -251,9 +231,6 @@ This method is called by the settime method. Writes the data into memory. First 
 \hline
 {\em minute} & 32-\/bit int minute \\
 \hline
-{\em second} & 32-\/bit int second\\
+{\em second} & 32-\/bit int second \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Returns 0 upon success, -\/1 upon error 
-\end{DoxyReturn}

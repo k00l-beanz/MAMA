@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['write_5fgdt_5fptr_0',['write_gdt_ptr',['../tables_8c.html#ab603373c64fb0a6d51482121d0800be4',1,'tables.c']]],
-  ['write_5fhist_5fto_5fbuf_1',['write_hist_to_buf',['../history_8c.html#a5ba78997ba4c60bdbacf3d37631b43d6',1,'history.c']]],
-  ['write_5fidt_5fptr_2',['write_idt_ptr',['../tables_8c.html#a77fec66a455d3275b67be5c3d7868555',1,'tables.c']]]
+  ['versionhelp_0',['versionHelp',['../out_8h.html#a6cd078828b9b430112c8f28038ac99f0',1,'versionHelp():&#160;help.c'],['../term_2cmds_2help_8c.html#a6cd078828b9b430112c8f28038ac99f0',1,'versionHelp():&#160;help.c']]],
+  ['versionos_1',['versionOs',['../help_8c.html#a1a2c9893c7db2d78213c4fe2a77d81ba',1,'help.c']]]
 ];

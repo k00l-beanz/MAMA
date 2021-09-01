@@ -86,7 +86,7 @@ void setdateHelp() {
 		  "setdate [MONTH.DAY.YEAR]\n\n"
 		  "DESCRIPTION\n\t"
 		  "Set the date of the system. Months and days of the week correspond to decimal values. See Table 1 below for the correct mapping.\n\t"
-		  "The maximum value for day and year are 31 and 99 respectively while the minimum year is 10 (2010).\n\n"
+		  "The maximum value for day and year are 31 and 99 (2099) respectively while the minimum year is 10 (2010).\n\n"
 		  "\tTABLE 1: MONTHS\n"
 		  "\t--------------------\n"
 		  "\t| January\t1  |\n"

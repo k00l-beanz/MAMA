@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4a1518cd4b67abd82ce2d0f4e4527373.html">term</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_e04ae2849dfa520b4ee2c9f7e9ff15de.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_d8ae19e325e7e682baaf160c25ea8d2e.html">MAMA</a></li><li class="navelem"><a class="el" href="dir_81368d1c3c7e98235ca50ef9a1b62846.html">term</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -85,6 +85,8 @@ $(function() {
 <code>#include &quot;<a class="el" href="hints_8h_source.html">visuals/hints.h</a>&quot;</code><br />
 <code>#include &lt;<a class="el" href="out_8c.html">lib/out.c</a>&gt;</code><br />
 <code>#include &quot;<a class="el" href="dnt_8c.html">dnt/dnt.c</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mama_8c.html">ascii/mama.c</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -102,8 +104,8 @@ Typedefs</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a2f4ba017d1252af62b83584e64cee010"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#a2f4ba017d1252af62b83584e64cee010">is_name_char</a> (char)</td></tr>
 <tr class="separator:a2f4ba017d1252af62b83584e64cee010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab681b7bbb508301d21f29bbcdb23dcaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#ab681b7bbb508301d21f29bbcdb23dcaf">extract_cmd_name</a> (char *, char *, int *)</td></tr>
-<tr class="separator:ab681b7bbb508301d21f29bbcdb23dcaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cc0cebdb010b00580b45be948f88261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#a2cc0cebdb010b00580b45be948f88261">extract_cmd_name</a> (char *, char *, int *, int *)</td></tr>
+<tr class="separator:a2cc0cebdb010b00580b45be948f88261"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47c794d5c09edf314e8aa3280b425235"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commhand_8c.html#a94081df0b3154edd3c47c2ef2f4aadcc">cmd_func_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#a47c794d5c09edf314e8aa3280b425235">fetch_cmd_handler</a> (char *)</td></tr>
 <tr class="separator:a47c794d5c09edf314e8aa3280b425235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14d85617242501c323a203ee196d3efa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#a14d85617242501c323a203ee196d3efa">commhand</a> ()</td></tr>
@@ -161,8 +163,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ab681b7bbb508301d21f29bbcdb23dcaf" name="ab681b7bbb508301d21f29bbcdb23dcaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab681b7bbb508301d21f29bbcdb23dcaf">&#9670;&nbsp;</a></span>extract_cmd_name()</h2>
+<a id="a2cc0cebdb010b00580b45be948f88261" name="a2cc0cebdb010b00580b45be948f88261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cc0cebdb010b00580b45be948f88261">&#9670;&nbsp;</a></span>extract_cmd_name()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -183,7 +185,13 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>cmd_name_len</em>&#160;</td>
+          <td class="paramname"><em>cmd_name_len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>args_start_index</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

@@ -42,8 +42,20 @@ char $\ast$ \mbox{\hyperlink{string_8c_aeed5147fce5c2f7c690dbec0941482f4}{strtok
 \index{string.c@{string.c}!itoa@{itoa}}
 \index{itoa@{itoa}!string.c@{string.c}}
 \doxysubsubsection{\texorpdfstring{itoa()}{itoa()}}
-{\footnotesize\ttfamily char $\ast$ itoa (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily char $\ast$ itoa (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
 
+Converts 32-\/bit integer to an array of 8-\/bit characters
+
+Converts an integer data type by breaking it down into its individual digits. Digits are stored individually into a character array.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Integer that will be converted into ascii\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a pointer to the start of the array of character bytes 
+\end{DoxyReturn}
 \mbox{\Hypertarget{string_8c_a313175102214d45434bf045db18dddf0}\label{string_8c_a313175102214d45434bf045db18dddf0}} 
 \index{string.c@{string.c}!memset@{memset}}
 \index{memset@{memset}!string.c@{string.c}}

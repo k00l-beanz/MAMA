@@ -1,37 +1,51 @@
-#define MAX_HOURS 23        /// The largest value that the user can set their hours to
-#define MAX_MINUTES 59      /// The largest value that the user can set their minutes to
-#define MAX_SECONDS 59      /// The largest value that the user can set their seconds to
+/// The largest value that the user can set their hours to
+#define MAX_HOURS 23
+/// The largest value that the user can set their minutes to
+#define MAX_MINUTES 59
+/// The largest value that the user can set their seconds to
+#define MAX_SECONDS 59
 
-#define MAX_YEAR 99       /// The largest value that the user can set their year to
-#define MAX_MONTH 12        /// The largest value that the user can set their month to
-#define MAX_DAY 31          /// The largest value that the user can set their day to
+/// The largest value that the user can set their year to
+#define MAX_YEAR 99
+/// The largest value that the user can set their month to
+#define MAX_MONTH 12
+/// The largest value that the user can set their day to
+#define MAX_DAY 31          
 
+/// Minimum year that can be set in memory
 #define MIN_YEAR 10
+/// Minimum month that can be set in memory
 #define MIN_MONTH 1
-#define MIN_DAY 1
+/// Minimum day that can be set in memory
+#define MIN_DAY 1           
 
+/// Unix Epoch year
 #define EPOCH_YEAR 1970
+/// Unix Epoch first day of the year
 #define EPOCH_FIRST_DAY_OF_YEAR 1
+/// Unix Epoch first month of the year
 #define EPOCH_FIRST_MONTH_OF_YEAR 1
+/// Unix Epoch first day of the week in the year
 #define EPOCH_FIRST_DAY_OF_WEEK_OF_YEAR 5
+/// Number of days in a normal year
 #define DAYS_IN_YEAR 365
+/// Number of days in a leap year
 #define DAYS_IN_LEAP_YEAR 366
 
-#define MIN 0
+/// Minimum value that can be set for hours, minutes, and seconds 
+#define MIN 0 
 
 /**
  * Sets the date of the system
  * 
  * Parses the parameter to setdate, breaking the parameter
- * into dayofweek, Month, day and year before passing it to
- * setDateInMemory. The basic syntax is dayoftheweek.month.day.year
- * Days of the week are inputed as decimal with Sunday being 1, Monday being
- * 2. Month is similar with January being 1, February being 2 and so on.
- * Ex:    Tuesday.August.24.21 = 3.3.24.21
+ * into month, day and year before passing it to
+ * setDateInMemory. The basic syntax is month.day.year
  * 
  * @param date The parameter that is passed with setdate. This 
  *             string is parsed and each segment is converted to
  *             a 32-bit int.
+ * 
  * @return Returns 1 upon success, -1 upon error
  */
 int setdate(char * date);
@@ -43,12 +57,11 @@ int setdate(char * date);
  * appropriate places in memory. This method is called by the
  * setdate method.
  * 
- * @param dayOfWeek The day of the week (1 = Sunday ... 7 = Saturday)
  * @param month The month (1 = January ... 12 = December)
  * @param day The day in the month. Can be between 0 and 32
  * @param year The current year. This is a 2-digit number
  * 
- * @return Returns 0 upon success, -1 upon error
+ * @return Returns 1 upon success, -1 upon error
 */
 int setDateInMemory(int month,int day,int year);
 
@@ -62,21 +75,21 @@ int setDateInMemory(int month,int day,int year);
  * 
  * @param p Empty paremeter that is required to call this method. Does
  *          not do anything.
- * @return Returns 0 upon success, -1 upon error
+ * @return Returns 1 upon success, -1 upon error
 */
 int getdate(char * p);
 
 /**
  * Sets the time of the system
  * 
- * Takes the parameter which will be parsed and into
+ * Takes the parameter which will be parsed into
  * 32-bit int (later converted to BCD) and sets it into memory.
  * The syntax is Hour.Minute.Second
  * Ex:      10.23.00
  * 
  * @param The parameter passed with the settime call
  * 
- * @return Returns 0 upon success, -1 upon error
+ * @return Returns 1 upon success, -1 upon error
 */
 int settime(char * time);
 
@@ -89,8 +102,6 @@ int settime(char * time);
  * @param hour 32-bit int hour
  * @param minute 32-bit int minute
  * @param second 32-bit int second
- * 
- * @return Returns 0 upon success, -1 upon error
 */
 void setTimeInMemory(int hour, int minute, int second);
 
@@ -104,7 +115,7 @@ void setTimeInMemory(int hour, int minute, int second);
  *
  * @param Empty parameter that does not do anything. Required in order to
  *        call from commhand
- * @return Returns 0 upon success, -1 upon error
+ * @return Returns 1 upon success, -1 upon error
 */
 int gettime(char * p);
 
@@ -177,3 +188,19 @@ char * intToDayOfWeek(int value);
  * @return Returns unmasked string of month
 */
 char * intToMonth(int value);
+
+/**
+ * Calculates the number of days in a month
+ * 
+ * Calculates the number of days in the month based upon
+ * which month it is. If year is divisible by four then it 
+ * is a leap year and will add 1 day for February for a
+ * total of 29 days. Otherwise, February will be 28 days.
+ * 
+ * @param month The month in the year (January = 1...December = 12)
+ * @param year The year that was being set
+ * 
+ * @return Returns the number of days in the month
+ * 
+*/
+int daysInMonth(int month, int year);
