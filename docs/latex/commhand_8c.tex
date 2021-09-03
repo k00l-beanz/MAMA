@@ -6,7 +6,7 @@
 {\ttfamily \#include \char`\"{}history.\+c\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}commhand.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}commands.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}visuals/syntax.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}visuals/syntax\+\_\+highlight.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}visuals/hints.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$lib/out.\+c$>$}\newline
 {\ttfamily \#include \char`\"{}dnt/dnt.\+c\char`\"{}}\newline
@@ -82,6 +82,16 @@ const \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} \mbox{\hyperlink{c
 \doxysubsubsection{\texorpdfstring{is\_name\_char()}{is\_name\_char()}}
 {\footnotesize\ttfamily int is\+\_\+name\+\_\+char (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
 
+Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The character to test. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the specified character c is valid in an identifier, false otherwise. 
+\end{DoxyReturn}
 
 
 \doxysubsection{Variable Documentation}

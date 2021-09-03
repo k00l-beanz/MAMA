@@ -18,15 +18,42 @@ char $\ast$ \mbox{\hyperlink{history_8h_a89f377730416439788a796f46a97a883}{hist\
 \doxysubsubsection{\texorpdfstring{hist\_forward()}{hist\_forward()}}
 {\footnotesize\ttfamily void hist\+\_\+forward (\begin{DoxyParamCaption}\item[{char $\ast$}]{internal\+\_\+buf,  }\item[{int $\ast$}]{internal\+\_\+index,  }\item[{int $\ast$}]{internal\+\_\+buf\+\_\+len }\end{DoxyParamCaption})}
 
+Moves forwards 1 entry in the user\textquotesingle{}s command history.
+
+
+\begin{DoxyParams}{Parameters}
+{\em internal\+\_\+buf} & The buffer managed by low-\/level read operations containing user input from the terminal. Contents will be overwritten with the next entry in the user\textquotesingle{}s command history. \\
+\hline
+{\em internal\+\_\+index} & A pointer to the position of the cursor, managed by low-\/level read operations. The cursor position will be adjusted to point to the end of the line. \\
+\hline
+{\em internal\+\_\+buf\+\_\+len} & A pointer to the length of the buffer containing user input to the terminal. Will be adjusted to contain the length of the history entry being written to the buffer. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{history_8h_a89f377730416439788a796f46a97a883}\label{history_8h_a89f377730416439788a796f46a97a883}} 
 \index{history.h@{history.h}!hist\_next\_frame@{hist\_next\_frame}}
 \index{hist\_next\_frame@{hist\_next\_frame}!history.h@{history.h}}
 \doxysubsubsection{\texorpdfstring{hist\_next\_frame()}{hist\_next\_frame()}}
 {\footnotesize\ttfamily char $\ast$ hist\+\_\+next\+\_\+frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Requests a buffer to write user input to that will become the most recent entry in the user\textquotesingle{}s command history.
+
+\begin{DoxyReturn}{Returns}
+A pointer to the first slot in a character buffer representing the next entry in the user\textquotesingle{}s command history. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{history_8h_afb28ea5314ca9ca2a7cae0d962a6675f}\label{history_8h_afb28ea5314ca9ca2a7cae0d962a6675f}} 
 \index{history.h@{history.h}!hist\_rewind@{hist\_rewind}}
 \index{hist\_rewind@{hist\_rewind}!history.h@{history.h}}
 \doxysubsubsection{\texorpdfstring{hist\_rewind()}{hist\_rewind()}}
 {\footnotesize\ttfamily void hist\+\_\+rewind (\begin{DoxyParamCaption}\item[{char $\ast$}]{internal\+\_\+buf,  }\item[{int $\ast$}]{internal\+\_\+index,  }\item[{int $\ast$}]{internal\+\_\+buf\+\_\+len }\end{DoxyParamCaption})}
 
+Moves backwards 1 entry in the user\textquotesingle{}s command history.
+
+
+\begin{DoxyParams}{Parameters}
+{\em internal\+\_\+buf} & The buffer managed by low-\/level read operations containing user input from the terminal. Contents will be overwritten with the previous entry in the user\textquotesingle{}s command history. \\
+\hline
+{\em internal\+\_\+index} & A pointer to the position of the cursor, managed by low-\/level read operations. The cursor position will be adjusted to point to the end of the line. \\
+\hline
+{\em internal\+\_\+buf\+\_\+len} & A pointer to the length of the buffer containing user input to the terminal. Will be adjusted to contain the length of the history entry being written to the buffer. \\
+\hline
+\end{DoxyParams}

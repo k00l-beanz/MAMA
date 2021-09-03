@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['green_0',['GREEN',['../colorize_8c.html#ab87bacfdad76e61b9412d7124be44c1caa60bd322f93178d68184e30e162571ca',1,'GREEN():&#160;colorize.c'],['../colorize_8h.html#ab87bacfdad76e61b9412d7124be44c1caa60bd322f93178d68184e30e162571ca',1,'GREEN():&#160;colorize.h']]]
+  ['end_5fof_5finput_0',['END_OF_INPUT',['../syntax_8h.html#af33280939207bc6f00c4b91581c64e83a0e3733a4d13a591724fae5c6c951c832',1,'syntax.h']]]
 ];

@@ -1,0 +1,24 @@
+\hypertarget{args_8h_source}{}\doxysection{args.\+h}
+\label{args_8h_source}\index{/home/maximillian/Desktop/MAMA/term/args.h@{/home/maximillian/Desktop/MAMA/term/args.h}}
+\mbox{\hyperlink{args_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef ARGS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define ARGS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structparsed__args}{parsed\_args}} \{}
+\DoxyCodeLine{5     \textcolor{keywordtype}{int} \mbox{\hyperlink{structparsed__args_ade0889eea194c73f55eba0af1d874eca}{flag\_count}};}
+\DoxyCodeLine{6     \textcolor{keywordtype}{int} \mbox{\hyperlink{structparsed__args_a900e8a1aef5d99920479254f50c5cb9c}{named\_arg\_count}};}
+\DoxyCodeLine{7     \textcolor{keywordtype}{int} \mbox{\hyperlink{structparsed__args_af1e8a6b4d0b6ee5fcd9bfa283d054d14}{unnamed\_arg\_count}};}
+\DoxyCodeLine{8     \textcolor{keywordtype}{int} \mbox{\hyperlink{structparsed__args_a594f8a99b00ed0a47e754888d35f40e0}{unnamed\_args\_used\_so\_far}};}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \textcolor{keywordtype}{char} \mbox{\hyperlink{structparsed__args_acddfaeda83e2d16d5b3b3f97b4afcc46}{flags}}[\mbox{\hyperlink{commhand_8h_ad4e3080f84edda2813fc7dd30edc588a}{MAX\_CMD\_FLAG\_COUNT}}][\mbox{\hyperlink{commhand_8h_a796ccd8c5ddd4108f1f932358b423c5b}{MAX\_CMD\_ARG\_NAME\_LEN}} + 1];}
+\DoxyCodeLine{11     \textcolor{keywordtype}{char} \mbox{\hyperlink{structparsed__args_a0638499b83b47de252322ae65ffdacbf}{named\_arg\_names}}[\mbox{\hyperlink{commhand_8h_ada1dd5cd1b1e9f3a051ec08a53059b95}{MAX\_CMD\_NAMED\_ARG\_COUNT}}][\mbox{\hyperlink{commhand_8h_a796ccd8c5ddd4108f1f932358b423c5b}{MAX\_CMD\_ARG\_NAME\_LEN}} + 1];}
+\DoxyCodeLine{12     \textcolor{keywordtype}{char} \mbox{\hyperlink{structparsed__args_aa5004f4b06b69cce5df93db223ea9a9d}{named\_arg\_values}}[\mbox{\hyperlink{commhand_8h_ada1dd5cd1b1e9f3a051ec08a53059b95}{MAX\_CMD\_NAMED\_ARG\_COUNT}}][\mbox{\hyperlink{commhand_8h_a8417b6b0c592e3dd11cdfd4a830c614b}{MAX\_CMD\_ARG\_VALUE\_LEN}} + 1];}
+\DoxyCodeLine{13     \textcolor{keywordtype}{char} \mbox{\hyperlink{structparsed__args_a9dc57d74cc66cb48d6ddfd48057707e6}{unnamed\_args}}[\mbox{\hyperlink{commhand_8h_a06b00647553de5769229a2e5ac9f8bfe}{MAX\_CMD\_UNNAMED\_ARG\_COUNT}}][\mbox{\hyperlink{commhand_8h_a8417b6b0c592e3dd11cdfd4a830c614b}{MAX\_CMD\_ARG\_VALUE\_LEN}} + 1];}
+\DoxyCodeLine{14 \} \mbox{\hyperlink{args_8h_a3cb4a7422a42c4a1273bdfa9f9b10c13}{parsed\_args}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keywordtype}{int} \mbox{\hyperlink{args_8h_acdc40c8bed4fe8ba9694dae67cc4e06f}{parse\_args}}(\textcolor{keywordtype}{char} *, \mbox{\hyperlink{structparsed__args}{parsed\_args}} *);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -95,6 +95,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Handler for calls to the shutdown command. Prompts for user confirmation before shutting the system down.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg_str</td><td>The arguments passed to the shutdown command. Unused by the handler.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The exit code of the command, indicating whether or not the user confirmed the request to shutdown the system. Returns 0 if the user confirmed the request, 1 otherwise. </dd></dl>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MAMA: /home/maximillian/Desktop/MAMA/term/visuals/syntax.c File Reference</title>
+<title>MAMA: /home/maximillian/Desktop/MAMA/term/syntax.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,174 +63,34 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_e04ae2849dfa520b4ee2c9f7e9ff15de.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_d8ae19e325e7e682baaf160c25ea8d2e.html">MAMA</a></li><li class="navelem"><a class="el" href="dir_81368d1c3c7e98235ca50ef9a1b62846.html">term</a></li><li class="navelem"><a class="el" href="dir_1fe4311eb8151ef22bc5dd8491aae16f.html">visuals</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_e04ae2849dfa520b4ee2c9f7e9ff15de.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_d8ae19e325e7e682baaf160c25ea8d2e.html">MAMA</a></li><li class="navelem"><a class="el" href="dir_81368d1c3c7e98235ca50ef9a1b62846.html">term</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">syntax.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="syntax_8h_source.html">syntax.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="commhand_8h_source.html">../commhand.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="colorize_8h_source.html">colorize.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="hints_8c.html">hints.c</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="utils_8c.html">../utils.c</a>&quot;</code><br />
-<code>#include &lt;<a class="el" href="string_8h_source.html">include/string.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aaed43064814c2ef42729e71bbadcf73c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#aaed43064814c2ef42729e71bbadcf73c">switch_to</a> (enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>, int, int)</td></tr>
-<tr class="separator:aaed43064814c2ef42729e71bbadcf73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39318f833f527bd72fe820ed4c7b97d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a39318f833f527bd72fe820ed4c7b97d1">color_for</a> (enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>)</td></tr>
-<tr class="separator:a39318f833f527bd72fe820ed4c7b97d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9d6b8916489bef5584d7eca99fc6d87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#aa9d6b8916489bef5584d7eca99fc6d87">get_state_at</a> (int, int *)</td></tr>
-<tr class="separator:aa9d6b8916489bef5584d7eca99fc6d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8982d81a1ac7f95d9c633772f4b9c910"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a8982d81a1ac7f95d9c633772f4b9c910">syntax_init</a> ()</td></tr>
-<tr class="separator:a8982d81a1ac7f95d9c633772f4b9c910"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae9e3cd30ba3fa463d856cf5e3e2e603"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#aae9e3cd30ba3fa463d856cf5e3e2e603">syntax_enable_highlighting</a> ()</td></tr>
-<tr class="separator:aae9e3cd30ba3fa463d856cf5e3e2e603"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a071979ddc6be81df5ef330aff3244d8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a071979ddc6be81df5ef330aff3244d8f">syntax_disable_highlighting</a> ()</td></tr>
-<tr class="separator:a071979ddc6be81df5ef330aff3244d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d0d3fecb83c8763320c153deb0c7b29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a5d0d3fecb83c8763320c153deb0c7b29">syntax_handle_char</a> (char c, int index)</td></tr>
-<tr class="separator:a5d0d3fecb83c8763320c153deb0c7b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ab89bad94c0c01115a8fe6f4a7dbc0d6f"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#ab89bad94c0c01115a8fe6f4a7dbc0d6f">states</a> [<a class="el" href="syntax_8h.html#a5b4d7047959ad40783bdc010e10b86dd">MAX_SYNTAX_SWITCHES</a>]</td></tr>
-<tr class="separator:ab89bad94c0c01115a8fe6f4a7dbc0d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30d4d1c39337175e8ca12046c7563a2f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a30d4d1c39337175e8ca12046c7563a2f">switch_indexes</a> [<a class="el" href="syntax_8h.html#a5b4d7047959ad40783bdc010e10b86dd">MAX_SYNTAX_SWITCHES</a>]</td></tr>
-<tr class="separator:a30d4d1c39337175e8ca12046c7563a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e565f2eef0f1b48072d99211313e1d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a2e565f2eef0f1b48072d99211313e1d2">newest_switch</a></td></tr>
-<tr class="separator:a2e565f2eef0f1b48072d99211313e1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03e6cca0c879c0443efb431c30c14f76"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a03e6cca0c879c0443efb431c30c14f76">enabled</a> = 0</td></tr>
-<tr class="separator:a03e6cca0c879c0443efb431c30c14f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a968837195fdbd4c36319b8a28cb5bbc7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a968837195fdbd4c36319b8a28cb5bbc7">changes_state</a> (char, enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>, enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a> *)</td></tr>
+<tr class="separator:a968837195fdbd4c36319b8a28cb5bbc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fdb9b4b03628198cd78d508b907a25f"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax_8c.html#a1fdb9b4b03628198cd78d508b907a25f">get_state</a> (char c, enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a> <a class="el" href="args_8c.html#ad47888f61a3a0dce7169657be375dc1a">cur_state</a>)</td></tr>
+<tr class="separator:a1fdb9b4b03628198cd78d508b907a25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a39318f833f527bd72fe820ed4c7b97d1" name="a39318f833f527bd72fe820ed4c7b97d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39318f833f527bd72fe820ed4c7b97d1">&#9670;&nbsp;</a></span>color_for()</h2>
+<a id="a968837195fdbd4c36319b8a28cb5bbc7" name="a968837195fdbd4c36319b8a28cb5bbc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a968837195fdbd4c36319b8a28cb5bbc7">&#9670;&nbsp;</a></span>changes_state()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void color_for </td>
-          <td>(</td>
-          <td class="paramtype">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>&#160;</td>
-          <td class="paramname"><em>state</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa9d6b8916489bef5584d7eca99fc6d87" name="aa9d6b8916489bef5584d7eca99fc6d87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9d6b8916489bef5584d7eca99fc6d87">&#9670;&nbsp;</a></span>get_state_at()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void get_state_at </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>index_of_state_in_record</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaed43064814c2ef42729e71bbadcf73c" name="aaed43064814c2ef42729e71bbadcf73c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaed43064814c2ef42729e71bbadcf73c">&#9670;&nbsp;</a></span>switch_to()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void switch_to </td>
-          <td>(</td>
-          <td class="paramtype">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>&#160;</td>
-          <td class="paramname"><em>state</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>record_index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a071979ddc6be81df5ef330aff3244d8f" name="a071979ddc6be81df5ef330aff3244d8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a071979ddc6be81df5ef330aff3244d8f">&#9670;&nbsp;</a></span>syntax_disable_highlighting()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void syntax_disable_highlighting </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aae9e3cd30ba3fa463d856cf5e3e2e603" name="aae9e3cd30ba3fa463d856cf5e3e2e603"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae9e3cd30ba3fa463d856cf5e3e2e603">&#9670;&nbsp;</a></span>syntax_enable_highlighting()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void syntax_enable_highlighting </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5d0d3fecb83c8763320c153deb0c7b29" name="a5d0d3fecb83c8763320c153deb0c7b29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d0d3fecb83c8763320c153deb0c7b29">&#9670;&nbsp;</a></span>syntax_handle_char()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void syntax_handle_char </td>
+          <td class="memname">int changes_state </td>
           <td>(</td>
           <td class="paramtype">char&#160;</td>
           <td class="paramname"><em>c</em>, </td>
@@ -238,8 +98,14 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramtype">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>&#160;</td>
+          <td class="paramname"><em>cur_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a> *&#160;</td>
+          <td class="paramname"><em>next_state</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -251,74 +117,28 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a8982d81a1ac7f95d9c633772f4b9c910" name="a8982d81a1ac7f95d9c633772f4b9c910"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8982d81a1ac7f95d9c633772f4b9c910">&#9670;&nbsp;</a></span>syntax_init()</h2>
+<a id="a1fdb9b4b03628198cd78d508b907a25f" name="a1fdb9b4b03628198cd78d508b907a25f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fdb9b4b03628198cd78d508b907a25f">&#9670;&nbsp;</a></span>get_state()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void syntax_init </td>
+          <td class="memname">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a> get_state </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>&#160;</td>
+          <td class="paramname"><em>cur_state</em>&#160;</td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a03e6cca0c879c0443efb431c30c14f76" name="a03e6cca0c879c0443efb431c30c14f76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03e6cca0c879c0443efb431c30c14f76">&#9670;&nbsp;</a></span>enabled</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">int enabled = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2e565f2eef0f1b48072d99211313e1d2" name="a2e565f2eef0f1b48072d99211313e1d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e565f2eef0f1b48072d99211313e1d2">&#9670;&nbsp;</a></span>newest_switch</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int newest_switch</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab89bad94c0c01115a8fe6f4a7dbc0d6f" name="ab89bad94c0c01115a8fe6f4a7dbc0d6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab89bad94c0c01115a8fe6f4a7dbc0d6f">&#9670;&nbsp;</a></span>states</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a> states[<a class="el" href="syntax_8h.html#a5b4d7047959ad40783bdc010e10b86dd">MAX_SYNTAX_SWITCHES</a>]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a30d4d1c39337175e8ca12046c7563a2f" name="a30d4d1c39337175e8ca12046c7563a2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30d4d1c39337175e8ca12046c7563a2f">&#9670;&nbsp;</a></span>switch_indexes</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int switch_indexes[<a class="el" href="syntax_8h.html#a5b4d7047959ad40783bdc010e10b86dd">MAX_SYNTAX_SWITCHES</a>]</td>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

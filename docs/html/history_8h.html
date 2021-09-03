@@ -116,6 +116,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Moves forwards 1 entry in the user's command history.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">internal_buf</td><td>The buffer managed by low-level read operations containing user input from the terminal. Contents will be overwritten with the next entry in the user's command history. </td></tr>
+    <tr><td class="paramname">internal_index</td><td>A pointer to the position of the cursor, managed by low-level read operations. The cursor position will be adjusted to point to the end of the line. </td></tr>
+    <tr><td class="paramname">internal_buf_len</td><td>A pointer to the length of the buffer containing user input to the terminal. Will be adjusted to contain the length of the history entry being written to the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -133,6 +142,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Requests a buffer to write user input to that will become the most recent entry in the user's command history.</p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the first slot in a character buffer representing the next entry in the user's command history. </dd></dl>
 
 </div>
 </div>
@@ -167,6 +178,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Moves backwards 1 entry in the user's command history.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">internal_buf</td><td>The buffer managed by low-level read operations containing user input from the terminal. Contents will be overwritten with the previous entry in the user's command history. </td></tr>
+    <tr><td class="paramname">internal_index</td><td>A pointer to the position of the cursor, managed by low-level read operations. The cursor position will be adjusted to point to the end of the line. </td></tr>
+    <tr><td class="paramname">internal_buf_len</td><td>A pointer to the length of the buffer containing user input to the terminal. Will be adjusted to contain the length of the history entry being written to the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

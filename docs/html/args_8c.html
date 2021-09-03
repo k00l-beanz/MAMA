@@ -67,9 +67,351 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">args.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="commhand_8h_source.html">commhand.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="args_8h_source.html">args.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="syntax_8h_source.html">syntax.h</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="out_8h_source.html">lib/out.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="string_8h_source.html">include/string.h</a>&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a0ffd8fd11e841e4782910e78711aebe5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#a0ffd8fd11e841e4782910e78711aebe5">MAX_PARSE_STACK_SIZE</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a0ffd8fd11e841e4782910e78711aebe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a6665bcb29bd854bd8343e00686d3722b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#a6665bcb29bd854bd8343e00686d3722b">get_token</a> (char **, char *, int)</td></tr>
+<tr class="separator:a6665bcb29bd854bd8343e00686d3722b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ab176223790fbcc85e664dd8262ba46"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#a9ab176223790fbcc85e664dd8262ba46">stack_empty</a> ()</td></tr>
+<tr class="separator:a9ab176223790fbcc85e664dd8262ba46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41c74798015553d4022d2ffcedae138e"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#a41c74798015553d4022d2ffcedae138e">stack_peek</a> ()</td></tr>
+<tr class="separator:a41c74798015553d4022d2ffcedae138e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6f6bf06ce4ca91542c45a2b94cc028a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#af6f6bf06ce4ca91542c45a2b94cc028a">stack_push</a> (enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>)</td></tr>
+<tr class="separator:af6f6bf06ce4ca91542c45a2b94cc028a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fb0d77d46fca442308a594c029bb623"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#a8fb0d77d46fca442308a594c029bb623">stack_pop</a> ()</td></tr>
+<tr class="separator:a8fb0d77d46fca442308a594c029bb623"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cb832e1dc869736cd79e94770587d4e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#a4cb832e1dc869736cd79e94770587d4e">parse_args</a> (char *arg_str, <a class="el" href="structparsed__args.html">parsed_args</a> *args)</td></tr>
+<tr class="separator:a4cb832e1dc869736cd79e94770587d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab5cb37daa27a21e9a724fc3c7116b3c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#aab5cb37daa27a21e9a724fc3c7116b3c">named_arg</a> (<a class="el" href="structparsed__args.html">parsed_args</a> *args, char *arg_name, char **arg_val)</td></tr>
+<tr class="separator:aab5cb37daa27a21e9a724fc3c7116b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e646d339c958582b4cea1c9ccbe20d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#ab3e646d339c958582b4cea1c9ccbe20d">flag</a> (<a class="el" href="structparsed__args.html">parsed_args</a> *args, char *flag_name)</td></tr>
+<tr class="separator:ab3e646d339c958582b4cea1c9ccbe20d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab20b340816a71f3368f6dd610678f8d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#ab20b340816a71f3368f6dd610678f8d8">next_unnamed_arg</a> (<a class="el" href="structparsed__args.html">parsed_args</a> *args, char **arg_val)</td></tr>
+<tr class="separator:ab20b340816a71f3368f6dd610678f8d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a0cbfbd3cc488b3f61610314bd848cf03"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#a0cbfbd3cc488b3f61610314bd848cf03">parse_stack</a> [<a class="el" href="args_8c.html#a0ffd8fd11e841e4782910e78711aebe5">MAX_PARSE_STACK_SIZE</a>]</td></tr>
+<tr class="separator:a0cbfbd3cc488b3f61610314bd848cf03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac80d2e8d634bda960452fbb6e9f5f7d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#ac80d2e8d634bda960452fbb6e9f5f7d9">stack_size</a> = 0</td></tr>
+<tr class="separator:ac80d2e8d634bda960452fbb6e9f5f7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbc486ac0bfaa0e3815cd0a79280490d"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#afbc486ac0bfaa0e3815cd0a79280490d">last_state</a></td></tr>
+<tr class="separator:afbc486ac0bfaa0e3815cd0a79280490d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad47888f61a3a0dce7169657be375dc1a"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#ad47888f61a3a0dce7169657be375dc1a">cur_state</a></td></tr>
+<tr class="separator:ad47888f61a3a0dce7169657be375dc1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a0ffd8fd11e841e4782910e78711aebe5" name="a0ffd8fd11e841e4782910e78711aebe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ffd8fd11e841e4782910e78711aebe5">&#9670;&nbsp;</a></span>MAX_PARSE_STACK_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_PARSE_STACK_SIZE&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ab3e646d339c958582b4cea1c9ccbe20d" name="ab3e646d339c958582b4cea1c9ccbe20d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3e646d339c958582b4cea1c9ccbe20d">&#9670;&nbsp;</a></span>flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int flag </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structparsed__args.html">parsed_args</a> *&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>flag_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6665bcb29bd854bd8343e00686d3722b" name="a6665bcb29bd854bd8343e00686d3722b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6665bcb29bd854bd8343e00686d3722b">&#9670;&nbsp;</a></span>get_token()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int get_token </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>arg_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>token</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_token_len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab5cb37daa27a21e9a724fc3c7116b3c" name="aab5cb37daa27a21e9a724fc3c7116b3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab5cb37daa27a21e9a724fc3c7116b3c">&#9670;&nbsp;</a></span>named_arg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int named_arg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structparsed__args.html">parsed_args</a> *&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>arg_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>arg_val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab20b340816a71f3368f6dd610678f8d8" name="ab20b340816a71f3368f6dd610678f8d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab20b340816a71f3368f6dd610678f8d8">&#9670;&nbsp;</a></span>next_unnamed_arg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int next_unnamed_arg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structparsed__args.html">parsed_args</a> *&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>arg_val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4cb832e1dc869736cd79e94770587d4e" name="a4cb832e1dc869736cd79e94770587d4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cb832e1dc869736cd79e94770587d4e">&#9670;&nbsp;</a></span>parse_args()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int parse_args </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>arg_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structparsed__args.html">parsed_args</a> *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ab176223790fbcc85e664dd8262ba46" name="a9ab176223790fbcc85e664dd8262ba46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ab176223790fbcc85e664dd8262ba46">&#9670;&nbsp;</a></span>stack_empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int stack_empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41c74798015553d4022d2ffcedae138e" name="a41c74798015553d4022d2ffcedae138e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41c74798015553d4022d2ffcedae138e">&#9670;&nbsp;</a></span>stack_peek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a> stack_peek </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8fb0d77d46fca442308a594c029bb623" name="a8fb0d77d46fca442308a594c029bb623"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fb0d77d46fca442308a594c029bb623">&#9670;&nbsp;</a></span>stack_pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stack_pop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6f6bf06ce4ca91542c45a2b94cc028a" name="af6f6bf06ce4ca91542c45a2b94cc028a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6f6bf06ce4ca91542c45a2b94cc028a">&#9670;&nbsp;</a></span>stack_push()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stack_push </td>
+          <td>(</td>
+          <td class="paramtype">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ad47888f61a3a0dce7169657be375dc1a" name="ad47888f61a3a0dce7169657be375dc1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad47888f61a3a0dce7169657be375dc1a">&#9670;&nbsp;</a></span>cur_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a> cur_state</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afbc486ac0bfaa0e3815cd0a79280490d" name="afbc486ac0bfaa0e3815cd0a79280490d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbc486ac0bfaa0e3815cd0a79280490d">&#9670;&nbsp;</a></span>last_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a> last_state</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cbfbd3cc488b3f61610314bd848cf03" name="a0cbfbd3cc488b3f61610314bd848cf03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cbfbd3cc488b3f61610314bd848cf03">&#9670;&nbsp;</a></span>parse_stack</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a> parse_stack[<a class="el" href="args_8c.html#a0ffd8fd11e841e4782910e78711aebe5">MAX_PARSE_STACK_SIZE</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac80d2e8d634bda960452fbb6e9f5f7d9" name="ac80d2e8d634bda960452fbb6e9f5f7d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80d2e8d634bda960452fbb6e9f5f7d9">&#9670;&nbsp;</a></span>stack_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int stack_size = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

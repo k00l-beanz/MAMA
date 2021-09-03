@@ -72,11 +72,14 @@ $(function() {
   <div class="headertitle"><div class="title">utils.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
+<div class="textblock"><code>#include &lt;<a class="el" href="string_8h_source.html">include/string.h</a>&gt;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a347a8e5864fe871ff6b10c0052630980"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8c.html#a347a8e5864fe871ff6b10c0052630980">is_name_char</a> (char c)</td></tr>
 <tr class="separator:a347a8e5864fe871ff6b10c0052630980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc629b1fcab2bf6c4303dd5fcbcf1ac3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8c.html#acc629b1fcab2bf6c4303dd5fcbcf1ac3">skip_ws</a> (char **c)</td></tr>
+<tr class="separator:acc629b1fcab2bf6c4303dd5fcbcf1ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a347a8e5864fe871ff6b10c0052630980" name="a347a8e5864fe871ff6b10c0052630980"></a>
@@ -94,6 +97,39 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>The character to test. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the specified character c is valid in an identifier, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="acc629b1fcab2bf6c4303dd5fcbcf1ac3" name="acc629b1fcab2bf6c4303dd5fcbcf1ac3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc629b1fcab2bf6c4303dd5fcbcf1ac3">&#9670;&nbsp;</a></span>skip_ws()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void skip_ws </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Moves the specified pointer to a character buffer forward until it points to the next non-whitespace character.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>A pointer to a pointer to an entry in a character buffer. Will be modified to point to the next non-whitespace character in the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

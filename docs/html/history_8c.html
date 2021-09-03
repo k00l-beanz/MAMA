@@ -74,12 +74,13 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="commhand_8h_source.html">commhand.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cursor_8c.html">visuals/cursor.c</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="syntax_8h_source.html">visuals/syntax.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="syntax__highlight_8h_source.html">visuals/syntax_highlight.h</a>&quot;</code><br />
 <code>#include &lt;<a class="el" href="out_8h_source.html">lib/out.h</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1a4c5f12484bf92370d49bf3864abdfc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="history_8c.html#a1a4c5f12484bf92370d49bf3864abdfc">circular_next_index</a> (int)</td></tr>
+<tr class="memdesc:a1a4c5f12484bf92370d49bf3864abdfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not the most recent entry in the user's command history has been discarded by calling hist_discard_last_frame.  <a href="history_8c.html#a1a4c5f12484bf92370d49bf3864abdfc">More...</a><br /></td></tr>
 <tr class="separator:a1a4c5f12484bf92370d49bf3864abdfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d8ab02da702516820018e1c99f101a8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="history_8c.html#a3d8ab02da702516820018e1c99f101a8">circular_prev_index</a> (int)</td></tr>
 <tr class="separator:a3d8ab02da702516820018e1c99f101a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,6 +112,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Whether or not the most recent entry in the user's command history has been discarded by calling hist_discard_last_frame. </p>
+<p >Returns the index immediately following the specified index in cmd_hist, an array-based circular queue containing entries in the user's command history.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>An index in cmd_hist.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the slot immediately following the slot at index i in cmd_hist. </dd></dl>
+
 </div>
 </div>
 <a id="a3d8ab02da702516820018e1c99f101a8" name="a3d8ab02da702516820018e1c99f101a8"></a>
@@ -128,6 +139,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Returns the index immediately preceding the specified index in cmd_hist, an array-based circular queue containing entries in the user's command history.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>An index in cmd_hist.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the slot immediately preceding the slot at index i in cmd_hist. </dd></dl>
 
 </div>
 </div>
@@ -145,6 +164,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Removes the most recent command input from the user from the user's command history. </p>
 
 </div>
 </div>
@@ -179,6 +199,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Moves forwards 1 entry in the user's command history.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">internal_buf</td><td>The buffer managed by low-level read operations containing user input from the terminal. Contents will be overwritten with the next entry in the user's command history. </td></tr>
+    <tr><td class="paramname">internal_index</td><td>A pointer to the position of the cursor, managed by low-level read operations. The cursor position will be adjusted to point to the end of the line. </td></tr>
+    <tr><td class="paramname">internal_buf_len</td><td>A pointer to the length of the buffer containing user input to the terminal. Will be adjusted to contain the length of the history entry being written to the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -196,6 +225,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Requests a buffer to write user input to that will become the most recent entry in the user's command history.</p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the first slot in a character buffer representing the next entry in the user's command history. </dd></dl>
 
 </div>
 </div>
@@ -230,6 +261,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Moves backwards 1 entry in the user's command history.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">internal_buf</td><td>The buffer managed by low-level read operations containing user input from the terminal. Contents will be overwritten with the previous entry in the user's command history. </td></tr>
+    <tr><td class="paramname">internal_index</td><td>A pointer to the position of the cursor, managed by low-level read operations. The cursor position will be adjusted to point to the end of the line. </td></tr>
+    <tr><td class="paramname">internal_buf_len</td><td>A pointer to the length of the buffer containing user input to the terminal. Will be adjusted to contain the length of the history entry being written to the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -264,6 +304,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Writes the history entry pointed to by cmd_hist_current_index to the specified buffer and prints the new buffer to the terminal. Used internally by hist_rewind and hist_forward.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buf</td><td>The buffer to write the current history entry to. </td></tr>
+    <tr><td class="paramname">index</td><td>A pointer to the position of the cursor in the user's terminal. </td></tr>
+    <tr><td class="paramname">len</td><td>A pointer to the length of the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -7,6 +7,8 @@ var searchData=
   ['string_2eh_4',['string.h',['../string_8h.html',1,'']]],
   ['syntax_2ec_5',['syntax.c',['../syntax_8c.html',1,'']]],
   ['syntax_2eh_6',['syntax.h',['../syntax_8h.html',1,'']]],
-  ['system_2ec_7',['system.c',['../system_8c.html',1,'']]],
-  ['system_2eh_8',['system.h',['../system_8h.html',1,'']]]
+  ['syntax_5fhighlight_2ec_7',['syntax_highlight.c',['../syntax__highlight_8c.html',1,'']]],
+  ['syntax_5fhighlight_2eh_8',['syntax_highlight.h',['../syntax__highlight_8h.html',1,'']]],
+  ['system_2ec_9',['system.c',['../system_8c.html',1,'']]],
+  ['system_2eh_10',['system.h',['../system_8h.html',1,'']]]
 ];

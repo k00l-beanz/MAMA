@@ -1,9 +1,12 @@
 \hypertarget{utils_8c}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/term/utils.c File Reference}
 \label{utils_8c}\index{/home/maximillian/Desktop/MAMA/term/utils.c@{/home/maximillian/Desktop/MAMA/term/utils.c}}
+{\ttfamily \#include $<$include/string.\+h$>$}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{utils_8c_a347a8e5864fe871ff6b10c0052630980}{is\+\_\+name\+\_\+char}} (char c)
+\item 
+void \mbox{\hyperlink{utils_8c_acc629b1fcab2bf6c4303dd5fcbcf1ac3}{skip\+\_\+ws}} (char $\ast$$\ast$c)
 \end{DoxyCompactItemize}
 
 
@@ -14,3 +17,26 @@ int \mbox{\hyperlink{utils_8c_a347a8e5864fe871ff6b10c0052630980}{is\+\_\+name\+\
 \doxysubsubsection{\texorpdfstring{is\_name\_char()}{is\_name\_char()}}
 {\footnotesize\ttfamily int is\+\_\+name\+\_\+char (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
 
+Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The character to test. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the specified character c is valid in an identifier, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8c_acc629b1fcab2bf6c4303dd5fcbcf1ac3}\label{utils_8c_acc629b1fcab2bf6c4303dd5fcbcf1ac3}} 
+\index{utils.c@{utils.c}!skip\_ws@{skip\_ws}}
+\index{skip\_ws@{skip\_ws}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{skip\_ws()}{skip\_ws()}}
+{\footnotesize\ttfamily void skip\+\_\+ws (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{c }\end{DoxyParamCaption})}
+
+Moves the specified pointer to a character buffer forward until it points to the next non-\/whitespace character.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & A pointer to a pointer to an entry in a character buffer. Will be modified to point to the next non-\/whitespace character in the buffer. \\
+\hline
+\end{DoxyParams}
