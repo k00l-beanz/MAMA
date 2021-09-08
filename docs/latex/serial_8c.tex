@@ -106,6 +106,20 @@ int \mbox{\hyperlink{serial_8c_a1a756238531fc5bf1096f89dc18e835e}{serial\+\_\+po
 \doxysubsubsection{\texorpdfstring{polling()}{polling()}}
 {\footnotesize\ttfamily int $\ast$ polling (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{int $\ast$}]{count }\end{DoxyParamCaption})}
 
+Serially poll characters from command line
+
+Polls input from keyboard and interprets each character individually as it is entered from the keyboard.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Space allocated for single line on the command line \\
+\hline
+{\em count} & Size of the space allocated\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, -\/1 upon error 
+\end{DoxyReturn}
 \mbox{\Hypertarget{serial_8c_a995827efcd4dcfb780c9fbb9645410a4}\label{serial_8c_a995827efcd4dcfb780c9fbb9645410a4}} 
 \index{serial.c@{serial.c}!serial\_print@{serial\_print}}
 \index{serial\_print@{serial\_print}!serial.c@{serial.c}}

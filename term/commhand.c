@@ -73,9 +73,13 @@ int is_name_char(char);
 void extract_cmd_name(char *, char *, int *, int *);
 cmd_func_t fetch_cmd_handler(char *);
 
-/*
- * Procedure: commhand()
- * Description: Takes user input and interprets the command
+/**
+ * Displays command line and interprets inputted commands
+ * 
+ * Parses through the input that was polled from the command line
+ * and interprets the command that was inputted (typically the first word)
+ * 
+ * @return Returns 0 upon success, -1 upon error
 */
 int commhand() {
 	syntax_init();

@@ -95,6 +95,19 @@ unsigned int consume_special();
 
 // I made a mess of ur polling function I apologize 
 /* WTF is this Austin!?! Unreadable! jk good job -Maximillian */
+
+/**
+ * Serially poll characters from command line
+ * 
+ * Polls input from keyboard and interprets each character individually
+ * as it is entered from the keyboard.
+ * 
+ * @param buffer Space allocated for single line on the command line
+ * @param count Size of the space allocated
+ * 
+ * @return Returns 0 upon success, -1 upon error
+ * 
+*/
 int *polling(char *buffer, int *count) {
 	int chars_read = 0;
 	int index = 0;

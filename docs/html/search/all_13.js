@@ -1,13 +1,11 @@
 var searchData=
 [
-  ['u16int_0',['u16int',['../system_8h.html#a863d9497073aad2b991aeab2211d87af',1,'system.h']]],
-  ['u32int_1',['u32int',['../system_8h.html#a757de76cafbcddaac0d1632902fe4cb8',1,'system.h']]],
-  ['u8int_2',['u8int',['../system_8h.html#a1026e682ffdadc1701c42cd44ce9efcf',1,'system.h']]],
-  ['unnamed_5farg_5fcount_3',['unnamed_arg_count',['../structparsed__args.html#af1e8a6b4d0b6ee5fcd9bfa283d054d14',1,'parsed_args']]],
-  ['unnamed_5fargs_4',['unnamed_args',['../structparsed__args.html#a9dc57d74cc66cb48d6ddfd48057707e6',1,'parsed_args']]],
-  ['unnamed_5fargs_5fused_5fso_5ffar_5',['unnamed_args_used_so_far',['../structparsed__args.html#a594f8a99b00ed0a47e754888d35f40e0',1,'parsed_args']]],
-  ['up_5farrow_6',['UP_ARROW',['../serial_8c.html#ad315ce436b88e78c266532e4714dd197',1,'serial.c']]],
-  ['usermode_7',['usermode',['../structpage__entry.html#a2beafd3900a1f36f09af9c35a9a14f18',1,'page_entry']]],
-  ['utils_2ec_8',['utils.c',['../utils_8c.html',1,'']]],
-  ['utils_2eh_9',['utils.h',['../utils_8h.html',1,'']]]
+  ['table_0',['table',['../structindex__table.html#ae69e0312bad59289ac303989d06c565d',1,'index_table']]],
+  ['table_5fsize_1',['TABLE_SIZE',['../heap_8h.html#a032503e76d6f69bc67e99e909c8125da',1,'heap.h']]],
+  ['tables_2',['tables',['../structpage__dir.html#ac89434e3fccabfe9481ea77fdda82faf',1,'page_dir']]],
+  ['tables_2ec_3',['tables.c',['../tables_8c.html',1,'']]],
+  ['tables_2eh_4',['tables.h',['../tables_8h.html',1,'']]],
+  ['tables_5fphys_5',['tables_phys',['../structpage__dir.html#a7336b695acaf516613dda626129129d0',1,'page_dir']]],
+  ['tail_6',['tail',['../structpcb__queue__t.html#a209cb91ee9849b21e3099ff1b7b12c1d',1,'pcb_queue_t']]],
+  ['true_7',['TRUE',['../mpx__supt_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d',1,'mpx_supt.h']]]
 ];

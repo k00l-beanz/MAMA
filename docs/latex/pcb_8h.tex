@@ -1,0 +1,228 @@
+\hypertarget{pcb_8h}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/pcb/pcb.h File Reference}
+\label{pcb_8h}\index{/home/maximillian/Desktop/MAMA/pcb/pcb.h@{/home/maximillian/Desktop/MAMA/pcb/pcb.h}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Process Control Block Structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structpcb__queue__t}{pcb\+\_\+queue\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+Master\char`\"{} controller of the PCB queue \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structpcb__node__t}{pcb\+\_\+node\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Individual PCB nodes. Each PCB is associated with one node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\+\_\+t}} \{ \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7a072e0cd7f1d7ef55560e1836929dde83}{SYS\+\_\+\+PROCESS}}
+, \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7a241e8ba97c5a6b68b13a60bb16235b85}{APPLICATION}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of process classes. Can be either application process or system process. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64}{pcb\+\_\+queue\+\_\+order\+\_\+t}} \{ \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a117d4e929adf16e40bd27b3e7c7cee51}{PRIORITY}}
+, \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a7795ebef271efe70b28f37deb9a07a83}{FIFO}}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of Queue Ordering. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}{p\+\_\+state\+\_\+t}} \{ \newline
+\mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa6564f2f3e15be06b670547bbcaaf0798}{READY}}
+, \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304}{RUNNING}}
+, \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa376c1b6a3f75d283a2efacf737438d61}{BLOCKED}}
+, \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1c2114335a42993ac5cc5dbf65f83d41}{SUSPENDED}}
+, \newline
+\mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa0432f0e991d7467234d5704f63c84b12}{N\+\_\+\+SUSPENDED}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of process states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$ \mbox{\hyperlink{pcb_8h_a43b976f98a334dd955ebb9ec324a118d}{allocate\+PCB}} ()
+\item 
+int \mbox{\hyperlink{pcb_8h_a810cec8bb6005272411a9beb07a1ecd4}{free\+PCB}} (\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$freed\+\_\+pcb)
+\item 
+\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$ \mbox{\hyperlink{pcb_8h_acaa0cf954120232564214dd290eb6fd2}{setup\+PCB}} (char $\ast$name, \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\+\_\+t}} process\+\_\+class, int priority)
+\item 
+\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$ \mbox{\hyperlink{pcb_8h_a1fa60245485ed68db75b4626b44681ae}{find\+PCB}} (char $\ast$name)
+\item 
+void \mbox{\hyperlink{pcb_8h_ab1acabf0f5bcfbe0a7135dba1cf367b3}{insert\+PCB}} (\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$pcb)
+\item 
+int \mbox{\hyperlink{pcb_8h_a699935a9f062569a0ca42dd52171813b}{remove\+PCB}} (\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$pcb)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}} 
+\index{pcb.h@{pcb.h}!p\_state\_t@{p\_state\_t}}
+\index{p\_state\_t@{p\_state\_t}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{p\_state\_t}{p\_state\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}{p\+\_\+state\+\_\+t}}}
+
+
+
+Types of process states. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{READY@{READY}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!READY@{READY}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa6564f2f3e15be06b670547bbcaaf0798}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa6564f2f3e15be06b670547bbcaaf0798}} 
+READY&Ready State. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RUNNING@{RUNNING}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!RUNNING@{RUNNING}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304}} 
+RUNNING&Running State. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLOCKED@{BLOCKED}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!BLOCKED@{BLOCKED}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa376c1b6a3f75d283a2efacf737438d61}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa376c1b6a3f75d283a2efacf737438d61}} 
+BLOCKED&Blocked State. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUSPENDED@{SUSPENDED}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!SUSPENDED@{SUSPENDED}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1c2114335a42993ac5cc5dbf65f83d41}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1c2114335a42993ac5cc5dbf65f83d41}} 
+SUSPENDED&Suspended State. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\_SUSPENDED@{N\_SUSPENDED}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!N\_SUSPENDED@{N\_SUSPENDED}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa0432f0e991d7467234d5704f63c84b12}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa0432f0e991d7467234d5704f63c84b12}} 
+N\+\_\+\+SUSPENDED&Not Suspended State. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}\label{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}} 
+\index{pcb.h@{pcb.h}!pc\_t@{pc\_t}}
+\index{pc\_t@{pc\_t}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{pc\_t}{pc\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\+\_\+t}}}
+
+
+
+Types of process classes. Can be either application process or system process. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYS\_PROCESS@{SYS\_PROCESS}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!SYS\_PROCESS@{SYS\_PROCESS}}}\mbox{\Hypertarget{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7a072e0cd7f1d7ef55560e1836929dde83}\label{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7a072e0cd7f1d7ef55560e1836929dde83}} 
+SYS\+\_\+\+PROCESS&System Process. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{APPLICATION@{APPLICATION}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!APPLICATION@{APPLICATION}}}\mbox{\Hypertarget{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7a241e8ba97c5a6b68b13a60bb16235b85}\label{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7a241e8ba97c5a6b68b13a60bb16235b85}} 
+APPLICATION&Application Process. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64}\label{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64}} 
+\index{pcb.h@{pcb.h}!pcb\_queue\_order\_t@{pcb\_queue\_order\_t}}
+\index{pcb\_queue\_order\_t@{pcb\_queue\_order\_t}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{pcb\_queue\_order\_t}{pcb\_queue\_order\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64}{pcb\+\_\+queue\+\_\+order\+\_\+t}}}
+
+
+
+Type of Queue Ordering. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRIORITY@{PRIORITY}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!PRIORITY@{PRIORITY}}}\mbox{\Hypertarget{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a117d4e929adf16e40bd27b3e7c7cee51}\label{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a117d4e929adf16e40bd27b3e7c7cee51}} 
+PRIORITY&Priority Queue (Ready) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FIFO@{FIFO}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!FIFO@{FIFO}}}\mbox{\Hypertarget{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a7795ebef271efe70b28f37deb9a07a83}\label{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a7795ebef271efe70b28f37deb9a07a83}} 
+FIFO&FIFO Queue (Blocked) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pcb_8h_a43b976f98a334dd955ebb9ec324a118d}\label{pcb_8h_a43b976f98a334dd955ebb9ec324a118d}} 
+\index{pcb.h@{pcb.h}!allocatePCB@{allocatePCB}}
+\index{allocatePCB@{allocatePCB}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{allocatePCB()}{allocatePCB()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$ allocate\+PCB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Allocate memory for a new PCB
+
+Allocates memory for a new PCB in the stack and performs actions to initialize PCB
+
+\begin{DoxyReturn}{Returns}
+Pointer to newly created PCB, NULL otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_8h_a1fa60245485ed68db75b4626b44681ae}\label{pcb_8h_a1fa60245485ed68db75b4626b44681ae}} 
+\index{pcb.h@{pcb.h}!findPCB@{findPCB}}
+\index{findPCB@{findPCB}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{findPCB()}{findPCB()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$ find\+PCB (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+Searches for PCB
+
+Given a PCB name, will search all queues for a process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the PCB being searched\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns pointer to PCB upon success, NULL if PCB was not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_8h_a810cec8bb6005272411a9beb07a1ecd4}\label{pcb_8h_a810cec8bb6005272411a9beb07a1ecd4}} 
+\index{pcb.h@{pcb.h}!freePCB@{freePCB}}
+\index{freePCB@{freePCB}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{freePCB()}{freePCB()}}
+{\footnotesize\ttfamily int free\+PCB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$}]{freed\+\_\+pcb }\end{DoxyParamCaption})}
+
+Free\textquotesingle{}s memory associated with PCB
+
+Free\textquotesingle{}s the memory associated with the PCB such as the stack and the PCB itself
+
+
+\begin{DoxyParams}{Parameters}
+{\em freed\+\_\+pcb} & Pointer to the PCB being freed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1 upon success, 0 upon error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_8h_ab1acabf0f5bcfbe0a7135dba1cf367b3}\label{pcb_8h_ab1acabf0f5bcfbe0a7135dba1cf367b3}} 
+\index{pcb.h@{pcb.h}!insertPCB@{insertPCB}}
+\index{insertPCB@{insertPCB}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{insertPCB()}{insertPCB()}}
+{\footnotesize\ttfamily void insert\+PCB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$}]{pcb }\end{DoxyParamCaption})}
+
+Insert PCB into queue
+
+Inserts a PCB into the appropriate queueu
+
+
+\begin{DoxyParams}{Parameters}
+{\em pcb} & Pointer to the PCB being inserted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{pcb_8h_a699935a9f062569a0ca42dd52171813b}\label{pcb_8h_a699935a9f062569a0ca42dd52171813b}} 
+\index{pcb.h@{pcb.h}!removePCB@{removePCB}}
+\index{removePCB@{removePCB}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{removePCB()}{removePCB()}}
+{\footnotesize\ttfamily int remove\+PCB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$}]{pcb }\end{DoxyParamCaption})}
+
+Removes PCB from Queue
+
+Removes specified PCB from queue it is stored in.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pcb} & Pointer to the PCB being removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1 upon success, 0 upon error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_8h_acaa0cf954120232564214dd290eb6fd2}\label{pcb_8h_acaa0cf954120232564214dd290eb6fd2}} 
+\index{pcb.h@{pcb.h}!setupPCB@{setupPCB}}
+\index{setupPCB@{setupPCB}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{setupPCB()}{setupPCB()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$ setup\+PCB (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{\mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\+\_\+t}}}]{process\+\_\+class,  }\item[{int}]{priority }\end{DoxyParamCaption})}
+
+Creates a PCB
+
+Allocates and fill memory associated with the PCB being created. This is accomplished by calling \mbox{\hyperlink{pcb_8h_a43b976f98a334dd955ebb9ec324a118d}{allocate\+PCB()}} to initialize the memory and the fills the data with the parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the PCB \\
+\hline
+{\em process\+\_\+class} & Type of process being created \\
+\hline
+{\em priority} & The priority of the PCB being created\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns pointer to PCB upon success, NULL otherwise 
+\end{DoxyReturn}

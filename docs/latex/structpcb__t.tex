@@ -1,0 +1,97 @@
+\hypertarget{structpcb__t}{}\doxysection{pcb\+\_\+t Struct Reference}
+\label{structpcb__t}\index{pcb\_t@{pcb\_t}}
+
+
+Process Control Block Structure.  
+
+
+
+
+{\ttfamily \#include $<$pcb.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{structpcb__t_a5ced28bb1b1935b05919ab19be7714d9}{pcb\+\_\+name}} \mbox{[}32\mbox{]}
+\begin{DoxyCompactList}\small\item\em PCB Name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\+\_\+t}} \mbox{\hyperlink{structpcb__t_a803025284a386441582859fe6e09f942}{process\+\_\+class}}
+\begin{DoxyCompactList}\small\item\em Process Class. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structpcb__t_ad70cf1a6bd13085e99d0cce7eae3afc9}{priority}}
+\begin{DoxyCompactList}\small\item\em Priority of PCB. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}{p\+\_\+state\+\_\+t}} \mbox{\hyperlink{structpcb__t_ab7ee82eadd5772320f8936f073071ba5}{process\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em State of the PCB. \end{DoxyCompactList}\item 
+unsigned char $\ast$ \mbox{\hyperlink{structpcb__t_afbbe90b3bbb33bfe4b910db8aa28622f}{stack\+\_\+top}}
+\begin{DoxyCompactList}\small\item\em Top of the Stack. Set equal to the stack base + size of the stack. \end{DoxyCompactList}\item 
+unsigned char $\ast$ \mbox{\hyperlink{structpcb__t_ae9d8c2776f1e412e99261063c1d9621f}{stack\+\_\+bottom}}
+\begin{DoxyCompactList}\small\item\em Beginning of the Stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Process Control Block Structure. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structpcb__t_a5ced28bb1b1935b05919ab19be7714d9}\label{structpcb__t_a5ced28bb1b1935b05919ab19be7714d9}} 
+\index{pcb\_t@{pcb\_t}!pcb\_name@{pcb\_name}}
+\index{pcb\_name@{pcb\_name}!pcb\_t@{pcb\_t}}
+\doxysubsubsection{\texorpdfstring{pcb\_name}{pcb\_name}}
+{\footnotesize\ttfamily char pcb\+\_\+t\+::pcb\+\_\+name\mbox{[}32\mbox{]}}
+
+
+
+PCB Name. 
+
+\mbox{\Hypertarget{structpcb__t_ad70cf1a6bd13085e99d0cce7eae3afc9}\label{structpcb__t_ad70cf1a6bd13085e99d0cce7eae3afc9}} 
+\index{pcb\_t@{pcb\_t}!priority@{priority}}
+\index{priority@{priority}!pcb\_t@{pcb\_t}}
+\doxysubsubsection{\texorpdfstring{priority}{priority}}
+{\footnotesize\ttfamily int pcb\+\_\+t\+::priority}
+
+
+
+Priority of PCB. 
+
+\mbox{\Hypertarget{structpcb__t_a803025284a386441582859fe6e09f942}\label{structpcb__t_a803025284a386441582859fe6e09f942}} 
+\index{pcb\_t@{pcb\_t}!process\_class@{process\_class}}
+\index{process\_class@{process\_class}!pcb\_t@{pcb\_t}}
+\doxysubsubsection{\texorpdfstring{process\_class}{process\_class}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\+\_\+t}} pcb\+\_\+t\+::process\+\_\+class}
+
+
+
+Process Class. 
+
+\mbox{\Hypertarget{structpcb__t_ab7ee82eadd5772320f8936f073071ba5}\label{structpcb__t_ab7ee82eadd5772320f8936f073071ba5}} 
+\index{pcb\_t@{pcb\_t}!process\_state@{process\_state}}
+\index{process\_state@{process\_state}!pcb\_t@{pcb\_t}}
+\doxysubsubsection{\texorpdfstring{process\_state}{process\_state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}{p\+\_\+state\+\_\+t}} pcb\+\_\+t\+::process\+\_\+state}
+
+
+
+State of the PCB. 
+
+\mbox{\Hypertarget{structpcb__t_ae9d8c2776f1e412e99261063c1d9621f}\label{structpcb__t_ae9d8c2776f1e412e99261063c1d9621f}} 
+\index{pcb\_t@{pcb\_t}!stack\_bottom@{stack\_bottom}}
+\index{stack\_bottom@{stack\_bottom}!pcb\_t@{pcb\_t}}
+\doxysubsubsection{\texorpdfstring{stack\_bottom}{stack\_bottom}}
+{\footnotesize\ttfamily unsigned char$\ast$ pcb\+\_\+t\+::stack\+\_\+bottom}
+
+
+
+Beginning of the Stack. 
+
+\mbox{\Hypertarget{structpcb__t_afbbe90b3bbb33bfe4b910db8aa28622f}\label{structpcb__t_afbbe90b3bbb33bfe4b910db8aa28622f}} 
+\index{pcb\_t@{pcb\_t}!stack\_top@{stack\_top}}
+\index{stack\_top@{stack\_top}!pcb\_t@{pcb\_t}}
+\doxysubsubsection{\texorpdfstring{stack\_top}{stack\_top}}
+{\footnotesize\ttfamily unsigned char$\ast$ pcb\+\_\+t\+::stack\+\_\+top}
+
+
+
+Top of the Stack. Set equal to the stack base + size of the stack. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/maximillian/\+Desktop/\+MAMA/pcb/\mbox{\hyperlink{pcb_8h}{pcb.\+h}}\end{DoxyCompactItemize}
