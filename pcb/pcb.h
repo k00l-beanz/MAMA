@@ -14,10 +14,10 @@ typedef enum {
 /// Type of Queue Ordering
 typedef enum {
 	/// Priority Queue (Ready)
-	PRIORITY,
+	READY,
 
 	/// FIFO Queue (Blocked)
-	FIFO
+	BLOCKED
 } pcb_queue_order_t;
 
 /// Types of process states.
