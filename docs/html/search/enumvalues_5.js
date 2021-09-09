@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fifo_0',['FIFO',['../pcb_8h.html#ab4997200d0dfc40cf82ea4983950ae64a7795ebef271efe70b28f37deb9a07a83',1,'pcb.h']]]
+  ['green_0',['GREEN',['../colorize_8c.html#ab87bacfdad76e61b9412d7124be44c1caa60bd322f93178d68184e30e162571ca',1,'GREEN():&#160;colorize.c'],['../colorize_8h.html#ab87bacfdad76e61b9412d7124be44c1caa60bd322f93178d68184e30e162571ca',1,'GREEN():&#160;colorize.h']]]
 ];

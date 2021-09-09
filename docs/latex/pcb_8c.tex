@@ -1,3 +1,45 @@
 \hypertarget{pcb_8c}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/pcb/pcb.c File Reference}
 \label{pcb_8c}\index{/home/maximillian/Desktop/MAMA/pcb/pcb.c@{/home/maximillian/Desktop/MAMA/pcb/pcb.c}}
 {\ttfamily \#include \char`\"{}pcb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mpx\+\_\+supt.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$ \mbox{\hyperlink{pcb_8c_a43b976f98a334dd955ebb9ec324a118d}{allocate\+PCB}} ()
+\item 
+int \mbox{\hyperlink{pcb_8c_ad70b9648d1bd52cd26da4f857343b6b9}{free\+PCB}} (\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$pcb)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pcb_8c_a43b976f98a334dd955ebb9ec324a118d}\label{pcb_8c_a43b976f98a334dd955ebb9ec324a118d}} 
+\index{pcb.c@{pcb.c}!allocatePCB@{allocatePCB}}
+\index{allocatePCB@{allocatePCB}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{allocatePCB()}{allocatePCB()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$ allocate\+PCB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Allocate memory for a new PCB
+
+Allocates memory for a new PCB in the stack and performs actions to initialize PCB
+
+\begin{DoxyReturn}{Returns}
+Pointer to newly created PCB, NULL otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_8c_ad70b9648d1bd52cd26da4f857343b6b9}\label{pcb_8c_ad70b9648d1bd52cd26da4f857343b6b9}} 
+\index{pcb.c@{pcb.c}!freePCB@{freePCB}}
+\index{freePCB@{freePCB}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{freePCB()}{freePCB()}}
+{\footnotesize\ttfamily int free\+PCB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$}]{freed\+\_\+pcb }\end{DoxyParamCaption})}
+
+Free\textquotesingle{}s memory associated with PCB
+
+Free\textquotesingle{}s the memory associated with the PCB such as the stack and the PCB itself
+
+
+\begin{DoxyParams}{Parameters}
+{\em freed\+\_\+pcb} & Pointer to the PCB being freed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1 upon success, 0 upon error 
+\end{DoxyReturn}

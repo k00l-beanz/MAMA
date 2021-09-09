@@ -9,6 +9,11 @@ struct \mbox{\hyperlink{structpcb__queue__t}{pcb\+\_\+queue\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em \char`\"{}\+Master\char`\"{} controller of the PCB queue \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structpcb__node__t}{pcb\+\_\+node\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Individual PCB nodes. Each PCB is associated with one node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pcb_8h_ae961ab635f1033c6535fe97e3bdbd815}{MAXIMUM\+\_\+\+STACK\+\_\+\+SIZE}}~1024
+\begin{DoxyCompactList}\small\item\em The maximum size the stack can be. May change. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,14 +21,14 @@ enum \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\+\_\+t}} \{ \
 , \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7a241e8ba97c5a6b68b13a60bb16235b85}{APPLICATION}}
  \}
 \begin{DoxyCompactList}\small\item\em Types of process classes. Can be either application process or system process. \end{DoxyCompactList}\item 
-enum \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64}{pcb\+\_\+queue\+\_\+order\+\_\+t}} \{ \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a117d4e929adf16e40bd27b3e7c7cee51}{PRIORITY}}
-, \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a7795ebef271efe70b28f37deb9a07a83}{FIFO}}
+enum \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64}{pcb\+\_\+queue\+\_\+order\+\_\+t}} \{ \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98}{READY}}
+, \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519}{BLOCKED}}
  \}
 \begin{DoxyCompactList}\small\item\em Type of Queue Ordering. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}{p\+\_\+state\+\_\+t}} \{ \newline
-\mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa6564f2f3e15be06b670547bbcaaf0798}{READY}}
+\mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98}{READY}}
 , \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304}{RUNNING}}
-, \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa376c1b6a3f75d283a2efacf737438d61}{BLOCKED}}
+, \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519}{BLOCKED}}
 , \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1c2114335a42993ac5cc5dbf65f83d41}{SUSPENDED}}
 , \newline
 \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa0432f0e991d7467234d5704f63c84b12}{N\+\_\+\+SUSPENDED}}
@@ -46,6 +51,19 @@ int \mbox{\hyperlink{pcb_8h_a699935a9f062569a0ca42dd52171813b}{remove\+PCB}} (\m
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pcb_8h_ae961ab635f1033c6535fe97e3bdbd815}\label{pcb_8h_ae961ab635f1033c6535fe97e3bdbd815}} 
+\index{pcb.h@{pcb.h}!MAXIMUM\_STACK\_SIZE@{MAXIMUM\_STACK\_SIZE}}
+\index{MAXIMUM\_STACK\_SIZE@{MAXIMUM\_STACK\_SIZE}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{MAXIMUM\_STACK\_SIZE}{MAXIMUM\_STACK\_SIZE}}
+{\footnotesize\ttfamily \#define MAXIMUM\+\_\+\+STACK\+\_\+\+SIZE~1024}
+
+
+
+The maximum size the stack can be. May change. 
+
+
+
 \doxysubsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}} 
 \index{pcb.h@{pcb.h}!p\_state\_t@{p\_state\_t}}
@@ -58,16 +76,16 @@ int \mbox{\hyperlink{pcb_8h_a699935a9f062569a0ca42dd52171813b}{remove\+PCB}} (\m
 Types of process states. 
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{READY@{READY}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!READY@{READY}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa6564f2f3e15be06b670547bbcaaf0798}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa6564f2f3e15be06b670547bbcaaf0798}} 
-READY&Ready State. \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{READY@{READY}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!READY@{READY}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98}} 
+READY&Priority Queue (Ready) Ready State. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{RUNNING@{RUNNING}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!RUNNING@{RUNNING}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304}} 
 RUNNING&Running State. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{BLOCKED@{BLOCKED}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!BLOCKED@{BLOCKED}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa376c1b6a3f75d283a2efacf737438d61}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa376c1b6a3f75d283a2efacf737438d61}} 
-BLOCKED&Blocked State. \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLOCKED@{BLOCKED}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!BLOCKED@{BLOCKED}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519}} 
+BLOCKED&FIFO Queue (Blocked) Blocked State. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SUSPENDED@{SUSPENDED}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!SUSPENDED@{SUSPENDED}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1c2114335a42993ac5cc5dbf65f83d41}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1c2114335a42993ac5cc5dbf65f83d41}} 
@@ -110,12 +128,12 @@ APPLICATION&Application Process. \\
 Type of Queue Ordering. 
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{PRIORITY@{PRIORITY}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!PRIORITY@{PRIORITY}}}\mbox{\Hypertarget{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a117d4e929adf16e40bd27b3e7c7cee51}\label{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a117d4e929adf16e40bd27b3e7c7cee51}} 
-PRIORITY&Priority Queue (Ready) \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{READY@{READY}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!READY@{READY}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98}} 
+READY&Priority Queue (Ready) Ready State. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{FIFO@{FIFO}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!FIFO@{FIFO}}}\mbox{\Hypertarget{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a7795ebef271efe70b28f37deb9a07a83}\label{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a7795ebef271efe70b28f37deb9a07a83}} 
-FIFO&FIFO Queue (Blocked) \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLOCKED@{BLOCKED}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!BLOCKED@{BLOCKED}}}\mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519}} 
+BLOCKED&FIFO Queue (Blocked) Blocked State. \\
 \hline
 
 \end{DoxyEnumFields}

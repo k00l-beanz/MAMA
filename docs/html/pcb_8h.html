@@ -69,6 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">pcb.h File Reference</div></div>
@@ -89,6 +90,12 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Individual PCB nodes. Each PCB is associated with one node.  <a href="structpcb__node__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ae961ab635f1033c6535fe97e3bdbd815"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_8h.html#ae961ab635f1033c6535fe97e3bdbd815">MAXIMUM_STACK_SIZE</a>&#160;&#160;&#160;1024</td></tr>
+<tr class="memdesc:ae961ab635f1033c6535fe97e3bdbd815"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum size the stack can be. May change.  <a href="pcb_8h.html#ae961ab635f1033c6535fe97e3bdbd815">More...</a><br /></td></tr>
+<tr class="separator:ae961ab635f1033c6535fe97e3bdbd815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a0bc95aebf3f3f0fc84812a0da250cbb7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_8h.html#a0bc95aebf3f3f0fc84812a0da250cbb7">pc_t</a> { <a class="el" href="pcb_8h.html#a0bc95aebf3f3f0fc84812a0da250cbb7a072e0cd7f1d7ef55560e1836929dde83">SYS_PROCESS</a>
@@ -96,15 +103,15 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a0bc95aebf3f3f0fc84812a0da250cbb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Types of process classes. Can be either application process or system process.  <a href="pcb_8h.html#a0bc95aebf3f3f0fc84812a0da250cbb7">More...</a><br /></td></tr>
 <tr class="separator:a0bc95aebf3f3f0fc84812a0da250cbb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4997200d0dfc40cf82ea4983950ae64"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_8h.html#ab4997200d0dfc40cf82ea4983950ae64">pcb_queue_order_t</a> { <a class="el" href="pcb_8h.html#ab4997200d0dfc40cf82ea4983950ae64a117d4e929adf16e40bd27b3e7c7cee51">PRIORITY</a>
-, <a class="el" href="pcb_8h.html#ab4997200d0dfc40cf82ea4983950ae64a7795ebef271efe70b28f37deb9a07a83">FIFO</a>
+<tr class="memitem:ab4997200d0dfc40cf82ea4983950ae64"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_8h.html#ab4997200d0dfc40cf82ea4983950ae64">pcb_queue_order_t</a> { <a class="el" href="pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98">READY</a>
+, <a class="el" href="pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519">BLOCKED</a>
  }</td></tr>
 <tr class="memdesc:ab4997200d0dfc40cf82ea4983950ae64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of Queue Ordering.  <a href="pcb_8h.html#ab4997200d0dfc40cf82ea4983950ae64">More...</a><br /></td></tr>
 <tr class="separator:ab4997200d0dfc40cf82ea4983950ae64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f8f003be709b151ad2f3ccaaacac31f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31f">p_state_t</a> { <br />
-&#160;&#160;<a class="el" href="pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa6564f2f3e15be06b670547bbcaaf0798">READY</a>
+&#160;&#160;<a class="el" href="pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98">READY</a>
 , <a class="el" href="pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304">RUNNING</a>
-, <a class="el" href="pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa376c1b6a3f75d283a2efacf737438d61">BLOCKED</a>
+, <a class="el" href="pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519">BLOCKED</a>
 , <a class="el" href="pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa1c2114335a42993ac5cc5dbf65f83d41">SUSPENDED</a>
 , <br />
 &#160;&#160;<a class="el" href="pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa0432f0e991d7467234d5704f63c84b12">N_SUSPENDED</a>
@@ -128,6 +135,23 @@ Functions</h2></td></tr>
 <tr class="memitem:a699935a9f062569a0ca42dd52171813b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_8h.html#a699935a9f062569a0ca42dd52171813b">removePCB</a> (<a class="el" href="structpcb__t.html">pcb_t</a> *pcb)</td></tr>
 <tr class="separator:a699935a9f062569a0ca42dd52171813b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ae961ab635f1033c6535fe97e3bdbd815" name="ae961ab635f1033c6535fe97e3bdbd815"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae961ab635f1033c6535fe97e3bdbd815">&#9670;&nbsp;</a></span>MAXIMUM_STACK_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAXIMUM_STACK_SIZE&#160;&#160;&#160;1024</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The maximum size the stack can be. May change. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a4f8f003be709b151ad2f3ccaaacac31f" name="a4f8f003be709b151ad2f3ccaaacac31f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f8f003be709b151ad2f3ccaaacac31f">&#9670;&nbsp;</a></span>p_state_t</h2>
@@ -143,11 +167,13 @@ Functions</h2></td></tr>
 
 <p>Types of process states. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4f8f003be709b151ad2f3ccaaacac31fa6564f2f3e15be06b670547bbcaaf0798" name="a4f8f003be709b151ad2f3ccaaacac31fa6564f2f3e15be06b670547bbcaaf0798"></a>READY&#160;</td><td class="fielddoc"><p >Ready State. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98" name="a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98"></a>READY&#160;</td><td class="fielddoc"><p >Priority Queue (Ready) </p>
+<p >Ready State. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304" name="a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304"></a>RUNNING&#160;</td><td class="fielddoc"><p >Running State. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a4f8f003be709b151ad2f3ccaaacac31fa376c1b6a3f75d283a2efacf737438d61" name="a4f8f003be709b151ad2f3ccaaacac31fa376c1b6a3f75d283a2efacf737438d61"></a>BLOCKED&#160;</td><td class="fielddoc"><p >Blocked State. </p>
+<tr><td class="fieldname"><a id="a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519" name="a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519"></a>BLOCKED&#160;</td><td class="fielddoc"><p >FIFO Queue (Blocked) </p>
+<p >Blocked State. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a4f8f003be709b151ad2f3ccaaacac31fa1c2114335a42993ac5cc5dbf65f83d41" name="a4f8f003be709b151ad2f3ccaaacac31fa1c2114335a42993ac5cc5dbf65f83d41"></a>SUSPENDED&#160;</td><td class="fielddoc"><p >Suspended State. </p>
 </td></tr>
@@ -193,9 +219,11 @@ Functions</h2></td></tr>
 
 <p>Type of Queue Ordering. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab4997200d0dfc40cf82ea4983950ae64a117d4e929adf16e40bd27b3e7c7cee51" name="ab4997200d0dfc40cf82ea4983950ae64a117d4e929adf16e40bd27b3e7c7cee51"></a>PRIORITY&#160;</td><td class="fielddoc"><p >Priority Queue (Ready) </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98" name="a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98"></a>READY&#160;</td><td class="fielddoc"><p >Priority Queue (Ready) </p>
+<p >Ready State. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ab4997200d0dfc40cf82ea4983950ae64a7795ebef271efe70b28f37deb9a07a83" name="ab4997200d0dfc40cf82ea4983950ae64a7795ebef271efe70b28f37deb9a07a83"></a>FIFO&#160;</td><td class="fielddoc"><p >FIFO Queue (Blocked) </p>
+<tr><td class="fieldname"><a id="a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519" name="a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519"></a>BLOCKED&#160;</td><td class="fielddoc"><p >FIFO Queue (Blocked) </p>
+<p >Blocked State. </p>
 </td></tr>
 </table>
 

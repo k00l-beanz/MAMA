@@ -3,81 +3,84 @@
 \mbox{\hyperlink{pcb_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
-\DoxyCodeLine{2 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define MAXIMUM\_STACK\_SIZE 1024}}
 \DoxyCodeLine{3 }
-\DoxyCodeLine{6 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
-\DoxyCodeLine{8     \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7a072e0cd7f1d7ef55560e1836929dde83}{SYS\_PROCESS}},}
-\DoxyCodeLine{9     }
-\DoxyCodeLine{11     \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7a241e8ba97c5a6b68b13a60bb16235b85}{APPLICATION}}}
-\DoxyCodeLine{12 \} \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\_t}};}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{15 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
-\DoxyCodeLine{17     \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a117d4e929adf16e40bd27b3e7c7cee51}{PRIORITY}},}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{20     \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64a7795ebef271efe70b28f37deb9a07a83}{FIFO}}}
-\DoxyCodeLine{21 \} \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64}{pcb\_queue\_order\_t}};}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{24 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
-\DoxyCodeLine{26     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa6564f2f3e15be06b670547bbcaaf0798}{READY}},}
-\DoxyCodeLine{27     }
-\DoxyCodeLine{29     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304}{RUNNING}},}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 }
+\DoxyCodeLine{9 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{11     \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7a072e0cd7f1d7ef55560e1836929dde83}{SYS\_PROCESS}},}
+\DoxyCodeLine{12     }
+\DoxyCodeLine{14     \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7a241e8ba97c5a6b68b13a60bb16235b85}{APPLICATION}}}
+\DoxyCodeLine{15 \} \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\_t}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{18 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{20     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98}{READY}},}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{23     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519}{BLOCKED}}}
+\DoxyCodeLine{24 \} \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64}{pcb\_queue\_order\_t}};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{27 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{29     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda3b98}{READY}},}
 \DoxyCodeLine{30     }
-\DoxyCodeLine{32     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa376c1b6a3f75d283a2efacf737438d61}{BLOCKED}},}
+\DoxyCodeLine{32     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304}{RUNNING}},}
 \DoxyCodeLine{33     }
-\DoxyCodeLine{35     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1c2114335a42993ac5cc5dbf65f83d41}{SUSPENDED}},}
+\DoxyCodeLine{35     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1fa519}{BLOCKED}},}
 \DoxyCodeLine{36     }
-\DoxyCodeLine{38     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa0432f0e991d7467234d5704f63c84b12}{N\_SUSPENDED}}}
-\DoxyCodeLine{39 \} \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}{p\_state\_t}};}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{42 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{44     \textcolor{keywordtype}{char} pcb\_name[32];          \textcolor{comment}{// Can change size in the future}}
-\DoxyCodeLine{45     }
-\DoxyCodeLine{47     \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\_t}} \mbox{\hyperlink{structpcb__t_a803025284a386441582859fe6e09f942}{process\_class}};}
+\DoxyCodeLine{38     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa1c2114335a42993ac5cc5dbf65f83d41}{SUSPENDED}},}
+\DoxyCodeLine{39     }
+\DoxyCodeLine{41     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa0432f0e991d7467234d5704f63c84b12}{N\_SUSPENDED}}}
+\DoxyCodeLine{42 \} \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}{p\_state\_t}};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{45 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{47     \textcolor{keywordtype}{char} pcb\_name[32];          \textcolor{comment}{// Can change size in the future}}
 \DoxyCodeLine{48     }
-\DoxyCodeLine{50     \textcolor{keywordtype}{int} \mbox{\hyperlink{structpcb__t_ad70cf1a6bd13085e99d0cce7eae3afc9}{priority}};               \textcolor{comment}{// Haven't decided wheter 0=lower priority or 9=lower priority. TODO}}
+\DoxyCodeLine{50     \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\_t}} \mbox{\hyperlink{structpcb__t_aa5e3afcd172233ca8a765d34812df2af}{pcb\_process\_class}};}
 \DoxyCodeLine{51     }
-\DoxyCodeLine{53     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}{p\_state\_t}} \mbox{\hyperlink{structpcb__t_ab7ee82eadd5772320f8936f073071ba5}{process\_state}};}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55     \textcolor{comment}{// NOTE: Every character in the stack should be initialized to NULL}}
-\DoxyCodeLine{56     \textcolor{comment}{// TODO: Determine what the stack size should be}}
-\DoxyCodeLine{58 \textcolor{comment}{}    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} * \mbox{\hyperlink{structpcb__t_afbbe90b3bbb33bfe4b910db8aa28622f}{stack\_top}}; }
-\DoxyCodeLine{59     }
-\DoxyCodeLine{61     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} * \mbox{\hyperlink{structpcb__t_ae9d8c2776f1e412e99261063c1d9621f}{stack\_bottom}};}
-\DoxyCodeLine{62 \} \mbox{\hyperlink{structpcb__t}{pcb\_t}};}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{65 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{67     \textcolor{keywordtype}{int} \mbox{\hyperlink{structpcb__queue__t_a56727eb494d44ad1ff581eefcb17bba8}{count}};     }
-\DoxyCodeLine{68 }
-\DoxyCodeLine{70     \mbox{\hyperlink{structpcb__node__t}{pcb\_node\_t}} *\mbox{\hyperlink{structpcb__queue__t_a7c1a193a23c8205c2074bb4f7a6533f3}{head}}; }
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} \mbox{\hyperlink{structpcb__t_af5c8b4442df8d3c627432e3a1fc15bee}{pcb\_priority}};               \textcolor{comment}{// Haven't decided wheter 0=lower priority or 9=lower priority. TODO}}
+\DoxyCodeLine{54     }
+\DoxyCodeLine{56     \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}{p\_state\_t}} \mbox{\hyperlink{structpcb__t_a8b67913bc445cf23ba96a8957c05ef39}{pcb\_process\_state}};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{comment}{// NOTE: Every character in the stack should be initialized to NULL}}
+\DoxyCodeLine{59     \textcolor{comment}{// TODO: Determine what the stack size should be}}
+\DoxyCodeLine{61 \textcolor{comment}{}    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} * \mbox{\hyperlink{structpcb__t_adcf122862b0e63be98592b87314df3c9}{pcb\_stack\_top}}; }
+\DoxyCodeLine{62     }
+\DoxyCodeLine{64     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} * \mbox{\hyperlink{structpcb__t_a19ab7b4c65dbfee35eeedf988ced3356}{pcb\_stack\_bottom}};}
+\DoxyCodeLine{65 \} \mbox{\hyperlink{structpcb__t}{pcb\_t}};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{68 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} \mbox{\hyperlink{structpcb__queue__t_ab456f2f7d75e54d9b1132a3f1460650d}{pcbq\_count}};   }
 \DoxyCodeLine{71 }
-\DoxyCodeLine{73     \mbox{\hyperlink{structpcb__node__t}{pcb\_node\_t}} *\mbox{\hyperlink{structpcb__queue__t_a209cb91ee9849b21e3099ff1b7b12c1d}{tail}}; }
+\DoxyCodeLine{73     \mbox{\hyperlink{structpcb__node__t}{pcb\_node\_t}} *\mbox{\hyperlink{structpcb__queue__t_ab59c51a504ec9246824f6c8c840acef2}{pcbq\_head}}; }
 \DoxyCodeLine{74 }
-\DoxyCodeLine{76     \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64}{pcb\_queue\_order\_t}} \mbox{\hyperlink{structpcb__queue__t_a84892051b7dfdd13b0403b0edbab07a6}{queue\_order}};}
-\DoxyCodeLine{77 \} \mbox{\hyperlink{structpcb__queue__t}{pcb\_queue\_t}};}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{80 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{82     \textcolor{keyword}{struct }\mbox{\hyperlink{structpcb__node__t}{pcb\_node\_t}} *\mbox{\hyperlink{structpcb__node__t_a1238b3263eb2dee26a5da644058d1286}{next\_pcb}};}
-\DoxyCodeLine{83 }
-\DoxyCodeLine{85     \textcolor{keyword}{struct }\mbox{\hyperlink{structpcb__node__t}{pcb\_node\_t}} *\mbox{\hyperlink{structpcb__node__t_a28cf3fdf445d08871c144eff22eef22d}{prev\_pcb}};}
+\DoxyCodeLine{76     \mbox{\hyperlink{structpcb__node__t}{pcb\_node\_t}} *\mbox{\hyperlink{structpcb__queue__t_aaf71e4c8a62db2968dd08565c869af02}{pcbq\_tail}}; }
+\DoxyCodeLine{77 }
+\DoxyCodeLine{79     \mbox{\hyperlink{pcb_8h_ab4997200d0dfc40cf82ea4983950ae64}{pcb\_queue\_order\_t}} \mbox{\hyperlink{structpcb__queue__t_a84892051b7dfdd13b0403b0edbab07a6}{queue\_order}};}
+\DoxyCodeLine{80 \} \mbox{\hyperlink{structpcb__queue__t}{pcb\_queue\_t}};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{83 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{85     \textcolor{keyword}{struct }\mbox{\hyperlink{structpcb__node__t}{pcb\_node\_t}} *\mbox{\hyperlink{structpcb__node__t_ad2e917d6060ef03f7fd5af96f9f15f56}{pcbn\_next\_pcb}};}
 \DoxyCodeLine{86 }
-\DoxyCodeLine{88     \mbox{\hyperlink{structpcb__t}{pcb\_t}} *\mbox{\hyperlink{structpcb__node__t_a612c6011328676a11dbde85e223e3b68}{pcb}};}
-\DoxyCodeLine{89 \} \mbox{\hyperlink{structpcb__node__t}{pcb\_node\_t}};}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{91 }
-\DoxyCodeLine{92 }
+\DoxyCodeLine{88     \textcolor{keyword}{struct }\mbox{\hyperlink{structpcb__node__t}{pcb\_node\_t}} *\mbox{\hyperlink{structpcb__node__t_a6a0232c74cd9d5b044035289f9c5d025}{pcbn\_prev\_pcb}};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{91     \mbox{\hyperlink{structpcb__t}{pcb\_t}} *\mbox{\hyperlink{structpcb__node__t_a612c6011328676a11dbde85e223e3b68}{pcb}};}
+\DoxyCodeLine{92 \} \mbox{\hyperlink{structpcb__node__t}{pcb\_node\_t}};}
 \DoxyCodeLine{93 }
 \DoxyCodeLine{94 }
 \DoxyCodeLine{95 }
-\DoxyCodeLine{106 \mbox{\hyperlink{structpcb__t}{pcb\_t}} * \mbox{\hyperlink{pcb_8h_a43b976f98a334dd955ebb9ec324a118d}{allocatePCB}}();}
-\DoxyCodeLine{107 }
-\DoxyCodeLine{117 \textcolor{keywordtype}{int} \mbox{\hyperlink{pcb_8h_a810cec8bb6005272411a9beb07a1ecd4}{freePCB}}(\mbox{\hyperlink{structpcb__t}{pcb\_t}} * freed\_pcb);}
-\DoxyCodeLine{118 }
-\DoxyCodeLine{133 \mbox{\hyperlink{structpcb__t}{pcb\_t}} * \mbox{\hyperlink{pcb_8h_acaa0cf954120232564214dd290eb6fd2}{setupPCB}}(\textcolor{keywordtype}{char} * name, \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\_t}} process\_class, \textcolor{keywordtype}{int} priority);}
-\DoxyCodeLine{134 }
-\DoxyCodeLine{145 \mbox{\hyperlink{structpcb__t}{pcb\_t}} * \mbox{\hyperlink{pcb_8h_a1fa60245485ed68db75b4626b44681ae}{findPCB}}(\textcolor{keywordtype}{char} * name);}
-\DoxyCodeLine{146 }
-\DoxyCodeLine{154 \textcolor{keywordtype}{void} \mbox{\hyperlink{pcb_8h_ab1acabf0f5bcfbe0a7135dba1cf367b3}{insertPCB}}(\mbox{\hyperlink{structpcb__t}{pcb\_t}} * \mbox{\hyperlink{structpcb__node__t_a612c6011328676a11dbde85e223e3b68}{pcb}});}
-\DoxyCodeLine{155 }
-\DoxyCodeLine{166 \textcolor{keywordtype}{int} \mbox{\hyperlink{pcb_8h_a699935a9f062569a0ca42dd52171813b}{removePCB}}(\mbox{\hyperlink{structpcb__t}{pcb\_t}} * \mbox{\hyperlink{structpcb__node__t_a612c6011328676a11dbde85e223e3b68}{pcb}});}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 }
+\DoxyCodeLine{109 \mbox{\hyperlink{structpcb__t}{pcb\_t}} * \mbox{\hyperlink{pcb_8h_a43b976f98a334dd955ebb9ec324a118d}{allocatePCB}}();}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{120 \textcolor{keywordtype}{int} \mbox{\hyperlink{pcb_8h_a810cec8bb6005272411a9beb07a1ecd4}{freePCB}}(\mbox{\hyperlink{structpcb__t}{pcb\_t}} * freed\_pcb);}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{136 \mbox{\hyperlink{structpcb__t}{pcb\_t}} * \mbox{\hyperlink{pcb_8h_acaa0cf954120232564214dd290eb6fd2}{setupPCB}}(\textcolor{keywordtype}{char} * name, \mbox{\hyperlink{pcb_8h_a0bc95aebf3f3f0fc84812a0da250cbb7}{pc\_t}} process\_class, \textcolor{keywordtype}{int} priority);}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{148 \mbox{\hyperlink{structpcb__t}{pcb\_t}} * \mbox{\hyperlink{pcb_8h_a1fa60245485ed68db75b4626b44681ae}{findPCB}}(\textcolor{keywordtype}{char} * name);}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{157 \textcolor{keywordtype}{void} \mbox{\hyperlink{pcb_8h_ab1acabf0f5bcfbe0a7135dba1cf367b3}{insertPCB}}(\mbox{\hyperlink{structpcb__t}{pcb\_t}} * \mbox{\hyperlink{structpcb__node__t_a612c6011328676a11dbde85e223e3b68}{pcb}});}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{169 \textcolor{keywordtype}{int} \mbox{\hyperlink{pcb_8h_a699935a9f062569a0ca42dd52171813b}{removePCB}}(\mbox{\hyperlink{structpcb__t}{pcb\_t}} * \mbox{\hyperlink{structpcb__node__t_a612c6011328676a11dbde85e223e3b68}{pcb}});}
 
 \end{DoxyCode}

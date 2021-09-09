@@ -77,12 +77,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a1238b3263eb2dee26a5da644058d1286"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structpcb__node__t.html">pcb_node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpcb__node__t.html#a1238b3263eb2dee26a5da644058d1286">next_pcb</a></td></tr>
-<tr class="memdesc:a1238b3263eb2dee26a5da644058d1286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the Next PCB.  <a href="structpcb__node__t.html#a1238b3263eb2dee26a5da644058d1286">More...</a><br /></td></tr>
-<tr class="separator:a1238b3263eb2dee26a5da644058d1286"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28cf3fdf445d08871c144eff22eef22d"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structpcb__node__t.html">pcb_node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpcb__node__t.html#a28cf3fdf445d08871c144eff22eef22d">prev_pcb</a></td></tr>
-<tr class="memdesc:a28cf3fdf445d08871c144eff22eef22d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the Previous PCB.  <a href="structpcb__node__t.html#a28cf3fdf445d08871c144eff22eef22d">More...</a><br /></td></tr>
-<tr class="separator:a28cf3fdf445d08871c144eff22eef22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2e917d6060ef03f7fd5af96f9f15f56"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structpcb__node__t.html">pcb_node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpcb__node__t.html#ad2e917d6060ef03f7fd5af96f9f15f56">pcbn_next_pcb</a></td></tr>
+<tr class="memdesc:ad2e917d6060ef03f7fd5af96f9f15f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the Next PCB.  <a href="structpcb__node__t.html#ad2e917d6060ef03f7fd5af96f9f15f56">More...</a><br /></td></tr>
+<tr class="separator:ad2e917d6060ef03f7fd5af96f9f15f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a0232c74cd9d5b044035289f9c5d025"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structpcb__node__t.html">pcb_node_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpcb__node__t.html#a6a0232c74cd9d5b044035289f9c5d025">pcbn_prev_pcb</a></td></tr>
+<tr class="memdesc:a6a0232c74cd9d5b044035289f9c5d025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the Previous PCB.  <a href="structpcb__node__t.html#a6a0232c74cd9d5b044035289f9c5d025">More...</a><br /></td></tr>
+<tr class="separator:a6a0232c74cd9d5b044035289f9c5d025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a612c6011328676a11dbde85e223e3b68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpcb__t.html">pcb_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpcb__node__t.html#a612c6011328676a11dbde85e223e3b68">pcb</a></td></tr>
 <tr class="memdesc:a612c6011328676a11dbde85e223e3b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to PCB.  <a href="structpcb__node__t.html#a612c6011328676a11dbde85e223e3b68">More...</a><br /></td></tr>
 <tr class="separator:a612c6011328676a11dbde85e223e3b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -90,22 +90,6 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Individual PCB nodes. Each PCB is associated with one node. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a1238b3263eb2dee26a5da644058d1286" name="a1238b3263eb2dee26a5da644058d1286"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1238b3263eb2dee26a5da644058d1286">&#9670;&nbsp;</a></span>next_pcb</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct <a class="el" href="structpcb__node__t.html">pcb_node_t</a>* pcb_node_t::next_pcb</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Pointer to the Next PCB. </p>
-
-</div>
-</div>
 <a id="a612c6011328676a11dbde85e223e3b68" name="a612c6011328676a11dbde85e223e3b68"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a612c6011328676a11dbde85e223e3b68">&#9670;&nbsp;</a></span>pcb</h2>
 
@@ -122,14 +106,30 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a28cf3fdf445d08871c144eff22eef22d" name="a28cf3fdf445d08871c144eff22eef22d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28cf3fdf445d08871c144eff22eef22d">&#9670;&nbsp;</a></span>prev_pcb</h2>
+<a id="ad2e917d6060ef03f7fd5af96f9f15f56" name="ad2e917d6060ef03f7fd5af96f9f15f56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2e917d6060ef03f7fd5af96f9f15f56">&#9670;&nbsp;</a></span>pcbn_next_pcb</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="structpcb__node__t.html">pcb_node_t</a>* pcb_node_t::prev_pcb</td>
+          <td class="memname">struct <a class="el" href="structpcb__node__t.html">pcb_node_t</a>* pcb_node_t::pcbn_next_pcb</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to the Next PCB. </p>
+
+</div>
+</div>
+<a id="a6a0232c74cd9d5b044035289f9c5d025" name="a6a0232c74cd9d5b044035289f9c5d025"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a0232c74cd9d5b044035289f9c5d025">&#9670;&nbsp;</a></span>pcbn_prev_pcb</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structpcb__node__t.html">pcb_node_t</a>* pcb_node_t::pcbn_prev_pcb</td>
         </tr>
       </table>
 </div><div class="memdoc">

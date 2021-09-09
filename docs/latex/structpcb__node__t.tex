@@ -12,9 +12,9 @@ Individual PCB nodes. Each PCB is associated with one node.
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structpcb__node__t}{pcb\+\_\+node\+\_\+t}} $\ast$ \mbox{\hyperlink{structpcb__node__t_a1238b3263eb2dee26a5da644058d1286}{next\+\_\+pcb}}
+struct \mbox{\hyperlink{structpcb__node__t}{pcb\+\_\+node\+\_\+t}} $\ast$ \mbox{\hyperlink{structpcb__node__t_ad2e917d6060ef03f7fd5af96f9f15f56}{pcbn\+\_\+next\+\_\+pcb}}
 \begin{DoxyCompactList}\small\item\em Pointer to the Next PCB. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structpcb__node__t}{pcb\+\_\+node\+\_\+t}} $\ast$ \mbox{\hyperlink{structpcb__node__t_a28cf3fdf445d08871c144eff22eef22d}{prev\+\_\+pcb}}
+struct \mbox{\hyperlink{structpcb__node__t}{pcb\+\_\+node\+\_\+t}} $\ast$ \mbox{\hyperlink{structpcb__node__t_a6a0232c74cd9d5b044035289f9c5d025}{pcbn\+\_\+prev\+\_\+pcb}}
 \begin{DoxyCompactList}\small\item\em Pointer to the Previous PCB. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$ \mbox{\hyperlink{structpcb__node__t_a612c6011328676a11dbde85e223e3b68}{pcb}}
 \begin{DoxyCompactList}\small\item\em Pointer to PCB. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -24,16 +24,6 @@ struct \mbox{\hyperlink{structpcb__node__t}{pcb\+\_\+node\+\_\+t}} $\ast$ \mbox{
 Individual PCB nodes. Each PCB is associated with one node. 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{structpcb__node__t_a1238b3263eb2dee26a5da644058d1286}\label{structpcb__node__t_a1238b3263eb2dee26a5da644058d1286}} 
-\index{pcb\_node\_t@{pcb\_node\_t}!next\_pcb@{next\_pcb}}
-\index{next\_pcb@{next\_pcb}!pcb\_node\_t@{pcb\_node\_t}}
-\doxysubsubsection{\texorpdfstring{next\_pcb}{next\_pcb}}
-{\footnotesize\ttfamily struct \mbox{\hyperlink{structpcb__node__t}{pcb\+\_\+node\+\_\+t}}$\ast$ pcb\+\_\+node\+\_\+t\+::next\+\_\+pcb}
-
-
-
-Pointer to the Next PCB. 
-
 \mbox{\Hypertarget{structpcb__node__t_a612c6011328676a11dbde85e223e3b68}\label{structpcb__node__t_a612c6011328676a11dbde85e223e3b68}} 
 \index{pcb\_node\_t@{pcb\_node\_t}!pcb@{pcb}}
 \index{pcb@{pcb}!pcb\_node\_t@{pcb\_node\_t}}
@@ -44,11 +34,21 @@ Pointer to the Next PCB.
 
 Pointer to PCB. 
 
-\mbox{\Hypertarget{structpcb__node__t_a28cf3fdf445d08871c144eff22eef22d}\label{structpcb__node__t_a28cf3fdf445d08871c144eff22eef22d}} 
-\index{pcb\_node\_t@{pcb\_node\_t}!prev\_pcb@{prev\_pcb}}
-\index{prev\_pcb@{prev\_pcb}!pcb\_node\_t@{pcb\_node\_t}}
-\doxysubsubsection{\texorpdfstring{prev\_pcb}{prev\_pcb}}
-{\footnotesize\ttfamily struct \mbox{\hyperlink{structpcb__node__t}{pcb\+\_\+node\+\_\+t}}$\ast$ pcb\+\_\+node\+\_\+t\+::prev\+\_\+pcb}
+\mbox{\Hypertarget{structpcb__node__t_ad2e917d6060ef03f7fd5af96f9f15f56}\label{structpcb__node__t_ad2e917d6060ef03f7fd5af96f9f15f56}} 
+\index{pcb\_node\_t@{pcb\_node\_t}!pcbn\_next\_pcb@{pcbn\_next\_pcb}}
+\index{pcbn\_next\_pcb@{pcbn\_next\_pcb}!pcb\_node\_t@{pcb\_node\_t}}
+\doxysubsubsection{\texorpdfstring{pcbn\_next\_pcb}{pcbn\_next\_pcb}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structpcb__node__t}{pcb\+\_\+node\+\_\+t}}$\ast$ pcb\+\_\+node\+\_\+t\+::pcbn\+\_\+next\+\_\+pcb}
+
+
+
+Pointer to the Next PCB. 
+
+\mbox{\Hypertarget{structpcb__node__t_a6a0232c74cd9d5b044035289f9c5d025}\label{structpcb__node__t_a6a0232c74cd9d5b044035289f9c5d025}} 
+\index{pcb\_node\_t@{pcb\_node\_t}!pcbn\_prev\_pcb@{pcbn\_prev\_pcb}}
+\index{pcbn\_prev\_pcb@{pcbn\_prev\_pcb}!pcb\_node\_t@{pcb\_node\_t}}
+\doxysubsubsection{\texorpdfstring{pcbn\_prev\_pcb}{pcbn\_prev\_pcb}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structpcb__node__t}{pcb\+\_\+node\+\_\+t}}$\ast$ pcb\+\_\+node\+\_\+t\+::pcbn\+\_\+prev\+\_\+pcb}
 
 
 
