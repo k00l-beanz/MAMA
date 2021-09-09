@@ -1,3 +1,6 @@
+/// The maximum size the stack can be. May change
+#define MAXIMUM_STACK_SIZE 1024
+
 /**********************/
 /***** Structures *****/
 /**********************/
@@ -44,33 +47,33 @@ typedef struct {
 	char pcb_name[32]; 			// Can change size in the future
 	
 	/// Process Class
-	pc_t process_class;
+	pc_t pcb_process_class;
 	
 	/// Priority of PCB
-	int priority; 				// Haven't decided wheter 0=lower priority or 9=lower priority. TODO
+	int pcb_priority; 				// Haven't decided wheter 0=lower priority or 9=lower priority. TODO
 	
 	/// State of the PCB
-	p_state_t process_state;
+	p_state_t pcb_process_state;
 
 	// NOTE: Every character in the stack should be initialized to NULL
 	// TODO: Determine what the stack size should be
 	/// Top of the Stack. Set equal to the stack base + size of the stack
-	unsigned char * stack_top; 
+	unsigned char * pcb_stack_top; 
 	
 	/// Beginning of the Stack
-	unsigned char * stack_bottom;
+	unsigned char * pcb_stack_bottom;
 } pcb_t;
 
 /// "Master" controller of the PCB queue
 typedef struct {
 	/// Number of PCB's currently in the queue
-	int count; 	
+	int pcbq_count; 	
 
 	/// Head of the PCB queue
-	pcb_node_t *head; 
+	pcb_node_t *pcbq_head; 
 
 	/// Tail of the PCB queue
-	pcb_node_t *tail; 
+	pcb_node_t *pcbq_tail; 
 
 	/// Queue order of the Master controller
 	pcb_queue_order_t queue_order;
@@ -79,10 +82,10 @@ typedef struct {
 /// Individual PCB nodes. Each PCB is associated with one node.
 typedef struct {
 	/// Pointer to the Next PCB
-	struct pcb_node_t *next_pcb;
+	struct pcb_node_t *pcbn_next_pcb;
 
 	/// Pointer to the Previous PCB
-	struct pcb_node_t *prev_pcb;
+	struct pcb_node_t *pcbn_prev_pcb;
 
 	/// Pointer to PCB
 	pcb_t *pcb;
