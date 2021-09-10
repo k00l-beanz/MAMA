@@ -1,20 +1,20 @@
 Internal Functions
-	AllocatePCB []
-	FreePCB []
-	FindPCB []
-	SetupPCB []
-	InsertPCB []
-	RemovePCB []
+	AllocatePCB [] maximillian
+	FreePCB [] maximillian
+	FindPCB [] maximillian
+	SetupPCB [] maximillian
+	InsertPCB [] Austin
+	RemovePCB [] Austin
 
 User Commands
-	Suspend []
-	Resume []
-	Set Priority []
-	Show PCB []
-	Show all processes []
-	Show ready processes []
-	Show block processes []
-	CreatePCB []
-	DeletePCB []
-	Block []
-	Unblock []
+	Suspend [] Austin
+	Resume [] Austin
+	Set Priority [] Abdullah
+	Show PCB [] Abdullah
+	Show all processes [] Abdullah
+	Show ready processes [] Abdullah
+	Show block processes [] Mohammad
+	CreatePCB [] Mohammad
+	DeletePCB [] Mohammad
+	Block [] Mohammad
+	Unblock [] Maximillian
