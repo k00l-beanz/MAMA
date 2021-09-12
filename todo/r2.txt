@@ -1,6 +1,6 @@
 Internal Functions
 	AllocatePCB [] maximillian
-	FreePCB [] maximillian
+	FreePCB [x] maximillian
 	FindPCB [] maximillian
 	SetupPCB [] maximillian
 	InsertPCB [] Austin

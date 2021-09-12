@@ -1,6 +1,9 @@
 /// The maximum size the stack can be. May change
 #define MAXIMUM_STACK_SIZE 1024
 
+#define MAX_PRIORITY 9
+#define MIN_PRIORITY 0
+
 /**********************/
 /***** Structures *****/
 /**********************/
@@ -167,3 +170,118 @@ void insertPCB(pcb_t * pcb);
  * @return Returns 1 upon success, 0 upon error
 */
 int removePCB(pcb_t * pcb);
+
+/**
+ * Create a pCB
+ * 
+ * Creates a new, unique PCB in memory.  
+ * 
+ * @param name Give name of the PCB
+ * @param process_class The type of process class that will be used
+ * @param priority Priority of the PCB
+*/
+void createPCB(char * name, pc_t process_class, int priority);
+
+/**
+ * Delete PCB
+ * 
+ * Will remove a PCB from the appropriate queue 
+ * and free all associated memory. Will find the PCB 
+ * in the queue, unlink it and free it.
+ * 
+ * @param name Name of the PCB to delete
+ * 
+*/
+void deletePCB(char * name);
+
+/**
+ * Set PCB state to blocked
+ * 
+ * Find the PCB name in queue and sets
+ * its state to blocked and reinserts it into
+ * the appropriate queue.
+ * 
+ * @param name Name of PCB to block
+*/
+void blockPCB(char * name);
+
+/**
+ * Set PCB state to unblocked
+ * 
+ * Sets PCB state into unblocked and
+ * reinserts it into the appropriate queue
+ * 
+ * @param name Name of the PCB to unblock 
+*/
+void unblockPCB(char * name);
+
+/**
+ * Set PCB state to suspended
+ * 
+ * Places a PCB state into suspended
+ * and reinserts into appropriate queue
+ * 
+ * @param name Name of PCB to suspend
+*/
+void suspendPCB(char * name);
+
+/**
+ * Set PCB state to resume
+ * 
+ * Places a PCB into a not suspended state
+ * and reinserts into the appropriate queue
+ * 
+ * @param name Name of PCB to resume 
+ * 
+*/
+void resumePCB(char * name);
+
+/**
+ * Set a new priority to a PCB
+ * 
+ * Sets a PCB's priority and reinserts the process into
+ * the correct place in the correct queue
+ * 
+ * @param name Name of PCB that will have it's priority changed
+ * @param priority The new priority that will be set in the PCB 
+*/
+void setPriority(char * name, int priority);
+
+/**
+ * Show informatino of PCB
+ * 
+ * Display information of the PCB. The information
+ * that is displayed is: Process Name, Class, State,
+ * Suspended Status and Priority 
+ * 
+ * @param name Name of PCB to have its information displayed
+*/
+void showPCB(char * name);
+
+/**
+ * Show PCBs in ready queue
+ * 
+ * Display information for each PCB in the ready queue.
+ * The information that is displayed is: Process Name, Class,
+ * State, Suspended Status, Priority
+*/
+void showReady();
+
+/**
+ * Show PCBs in blocked queue
+ * 
+ * Display information for each PCB in the blocked queue.
+ * The information that is displayed is: Process Name, Class,
+ * State, Suspended Status, Priority.
+ * 
+*/
+void showBlocked();
+
+/**
+ * Show all PCBs
+ * 
+ * Display information for each PCB in the ready and blocked queue.
+ * The information that is displayed is: Process Name, Class,
+ * State, Suspended Status, Priority. 
+*/
+void showAll();

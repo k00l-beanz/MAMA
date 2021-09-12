@@ -37,7 +37,7 @@ void kmain(void)
    init_serial(COM1);
    set_serial_in(COM1);
    set_serial_out(COM1);
-   mpx_init(MODULE_R1);
+   mpx_init(MODULE_R2);
 
  
    klogv("Starting MPX boot sequence...");
