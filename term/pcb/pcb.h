@@ -1,7 +1,9 @@
 /// The maximum size the stack can be. May change
 #define MAXIMUM_STACK_SIZE 1024
 
+/// Maximum priority a PCB can be given
 #define MAX_PRIORITY 9
+/// Minimum priority a PCB can be given
 #define MIN_PRIORITY 0
 
 /**********************/
@@ -53,13 +55,11 @@ typedef struct {
 	pc_t pcb_process_class;
 	
 	/// Priority of PCB
-	int pcb_priority; 				// Haven't decided wheter 0=lower priority or 9=lower priority. TODO
+	int pcb_priority;
 	
 	/// State of the PCB
 	p_state_t pcb_process_state;
 
-	// NOTE: Every character in the stack should be initialized to NULL
-	// TODO: Determine what the stack size should be
 	/// Top of the Stack. Set equal to the stack base + size of the stack
 	unsigned char * pcb_stack_top; 
 	
