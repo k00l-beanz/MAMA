@@ -11,6 +11,7 @@
 #include "utils.h"
 #include "ascii/mama.c"
 
+#include "pcb/pcb.c"
 
 typedef int (*cmd_func_t)(char *);
 

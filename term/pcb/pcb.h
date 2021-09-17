@@ -1,10 +1,13 @@
 /// The maximum size the stack can be. May change
-#define MAXIMUM_STACK_SIZE 1024
+#define MAX_STACK_SIZE 1024
 
 /// Maximum priority a PCB can be given
 #define MAX_PRIORITY 9
 /// Minimum priority a PCB can be given
 #define MIN_PRIORITY 0
+
+/// Maximum name size that can be given to a pcb
+#define MAX_NAME_SIZE 32
 
 /**********************/
 /***** Structures *****/
@@ -22,10 +25,10 @@ typedef enum {
 /// Type of Queue Ordering
 typedef enum {
 	/// Priority Queue (Ready)
-	READY,
+	READY_Q,
 
 	/// FIFO Queue (Blocked)
-	BLOCKED
+	BLOCKED_Q
 } pcb_queue_order_t;
 
 /// Types of process states.
@@ -45,6 +48,7 @@ typedef enum {
 	/// Not Suspended State
 	N_SUSPENDED
 } p_state_t;
+
 
 /// Process Control Block Structure
 typedef struct {
@@ -67,6 +71,18 @@ typedef struct {
 	unsigned char * pcb_stack_bottom;
 } pcb_t;
 
+/// Individual PCB nodes. Each PCB is associated with one node.
+typedef struct {
+    /// Pointer to the Next PCB
+    struct pcb_node_t *pcbn_next_pcb;
+
+    /// Pointer to the Previous PCB
+    struct pcb_node_t *pcbn_prev_pcb;
+
+    /// Pointer to PCB
+    pcb_t *pcb;
+} pcb_node_t;
+
 /// "Master" controller of the PCB queue
 typedef struct {
 	/// Number of PCB's currently in the queue
@@ -81,19 +97,6 @@ typedef struct {
 	/// Queue order of the Master controller
 	pcb_queue_order_t queue_order;
 } pcb_queue_t;
-
-/// Individual PCB nodes. Each PCB is associated with one node.
-typedef struct {
-	/// Pointer to the Next PCB
-	struct pcb_node_t *pcbn_next_pcb;
-
-	/// Pointer to the Previous PCB
-	struct pcb_node_t *pcbn_prev_pcb;
-
-	/// Pointer to PCB
-	pcb_t *pcb;
-} pcb_node_t;
-
 
 
 /****************************/
@@ -153,7 +156,7 @@ pcb_t * findPCB(char * name);
 /**
  * Insert PCB into queue
  * 
- * Inserts a PCB into the appropriate queueu
+ * Inserts a PCB into the appropriate queue
  * 
  * @param pcb Pointer to the PCB being inserted
 */
