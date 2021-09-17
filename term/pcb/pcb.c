@@ -5,7 +5,12 @@
 #include <include/string.h>
 #include <lib/out.h>
 
-pcb_queue_t *pcb_queues[4];
+/*
+	We are going to have two queues for right now. One will be priority 
+	and the other will be FIFO.
+
+*/
+pcb_queue_t * pcb_queues[2];
 
 
 /********************************************************/
@@ -114,40 +119,76 @@ void insertPCB(pcb_t * pcb) {
 /*************** User Command stuff here ****************/
 /********************************************************/
 
-// void createPCB(char * argv[], int argc)
 
-void createpcb() {
-	return;
-}
-void createPCB(char * name, pc_t process_class, int priority) {
+int createPCB(char * args) {
+	// The format of createpcb is : pcb_name.pcb_process_class.pcb_priority
+	// So like... first_pcb_block.APPLICATION.3
+
+	char * name;
+	char * token;
+	int priority, params = 1;
+	pc_t process_class;
+
+	token = strtok(args,".");
+	name = token;
+
+	/** Parse the user input **/
+	while (token != NULL) {
+		token = strtok(NULL,".");
+
+		switch (params) {
+			case 1:
+				process_class = (pc_t) token;
+				break;
+			case 2:
+				priority = atoi(token);
+				break;
+			default:
+				break;
+		}
+
+		params++;
+	}
+
+	/** Error Handling **/
+	/* Check for correct number of parameters */
+	if (params == 1) {
+		print("Usage: createpcb [NAME.PROCESS_CLASS.PRIORITY]\n",47);
+		return 0;
+	}
+	else if (params != 4) {
+		print("Error: Wrong amount of parameters\n",27);
+		return 0;
+	}
 
 	/* Check name for size and whether it exists in a PCB already */
 	if (strlen(name) > MAX_NAME_SIZE || name == NULL) {
-		// Print error message here
-		return;
+		print("Error: Name of the PCB is too long\n",35);
+		return 0;
 	} 
 	else if (findPCB(name) != NULL) {
-		// Error message here
-		return;
+		print("Error: PCB with that name already exists\n",41);
+		return 0;
 	}
 
 	/* Check whether priority is out of bounds */
 	if (priority > MAX_PRIORITY || priority < MIN_PRIORITY) {
-		// Error message here
-		return;
+		print("Error: Specified priority is out of bounds\n",43);
+		return 0;
 	}
 
 	/* Check whether this is a valid process class */
-	if (process_class != SYS_PROCESS || process_class != SYS_PROCESS) {
-		// Error message here
-		return;
+	if (process_class != SYS_PROCESS || process_class != APPLICATION) {
+		print("Error: Specified process class does not exist\n",46);
+		return 0;
 	}
+	
 
-	//pcb_t * pcb = setupPCB(name, process_class, priority);
+	/* Create the PCB */
+	pcb_t *pcb = allocatePCB(name, process_class, priority);
 
-	// Insert into appropriate queue
+	/* Insert into PCB queue */
+	insertPCB(pcb);
 
-	// Successful message here
-	return;
+	return 0;
 }
-

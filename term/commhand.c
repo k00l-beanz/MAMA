@@ -63,6 +63,10 @@ const cmd_mapping cmd_mappings[] = {
 			"echo",
 			&cmd_echo
 		},
+		{
+			"createpcb",
+			&createPCB
+		},
 	{
 		"arg-test",
 		&cmd_argtest
@@ -90,6 +94,7 @@ int commhand() {
 
 	int running = 1;
 
+	/* MAMA ascii art */
 	mama();
 
 	/* Driver loop */

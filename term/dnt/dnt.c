@@ -22,10 +22,10 @@ int setdate(char * date) {
     switch (params) {
       case 1:
         day = atoi(token);
-	break;
+	      break;
       case 2:
         year = atoi(token);
-	break;
+	      break;
       default:
         break;
     }

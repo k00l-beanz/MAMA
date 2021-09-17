@@ -9,9 +9,9 @@
 /// Maximum name size that can be given to a pcb
 #define MAX_NAME_SIZE 32
 
-/**********************/
-/***** Structures *****/
-/**********************/
+/********************************************/
+/**************** Structures ****************/
+/********************************************/
 
 /// Types of process classes. Can be either application process or system process.
 typedef enum {
@@ -25,10 +25,10 @@ typedef enum {
 /// Type of Queue Ordering
 typedef enum {
 	/// Priority Queue (Ready)
-	READY_Q,
+	PRIORITY,
 
 	/// FIFO Queue (Blocked)
-	BLOCKED_Q
+	FIFO
 } pcb_queue_order_t;
 
 /// Types of process states.
@@ -84,7 +84,7 @@ typedef struct {
 } pcb_node_t;
 
 /// "Master" controller of the PCB queue
-typedef struct {
+typedef struct pcb_queue {
 	/// Number of PCB's currently in the queue
 	int pcbq_count; 	
 
@@ -99,9 +99,10 @@ typedef struct {
 } pcb_queue_t;
 
 
-/****************************/
-/***** Function Headers *****/
-/****************************/
+
+/********************************************/
+/************ Function Headers **************/
+/********************************************/
 
 /**
  * Allocate memory for a new PCB
@@ -174,16 +175,32 @@ void insertPCB(pcb_t * pcb);
 */
 int removePCB(pcb_t * pcb);
 
+
 /**
- * Create a pCB
+ * Create a PCB
  * 
  * Creates a new, unique PCB in memory.  
  * 
  * @param name Give name of the PCB
  * @param process_class The type of process class that will be used
  * @param priority Priority of the PCB
+ * 
+ * @return Returns 1 upon success, Otherwise 0
 */
-void createPCB(char * name, pc_t process_class, int priority);
+int createPCB(char * user_input);
+
+/**
+ * Create a PCB in memory
+ * 
+ * This is the backend method to the createPCB method.
+ * 
+ * @param name Give name of the PCB
+ * @param process_class The type of process class that will be used
+ * @param priority Priority of the PCB
+
+void createPCBinMemory(char * name, pc_t process_class, int priority);
+*/
+
 
 /**
  * Delete PCB
