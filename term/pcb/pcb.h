@@ -13,15 +13,6 @@
 /**************** Structures ****************/
 /********************************************/
 
-/// Types of process classes. Can be either application process or system process.
-typedef enum {
-	/// System Process
-	SYS_PROCESS,
-	
-	/// Application Process
-	APPLICATION
-} pc_t;
-
 /// Type of Queue Ordering
 typedef enum {
 	/// Priority Queue (Ready)
@@ -36,17 +27,8 @@ typedef enum {
 	/// Ready State
 	READY,
 	
-	/// Running State
-	RUNNING,
-	
-	/// Blocked State
-	BLOCKED,
-	
 	/// Suspended State
 	SUSPENDED,
-	
-	/// Not Suspended State
-	N_SUSPENDED
 } p_state_t;
 
 
@@ -56,7 +38,7 @@ typedef struct {
 	char pcb_name[32]; 			// Can change size in the future
 	
 	/// Process Class
-	pc_t pcb_process_class;
+	int pcb_process_class;     // I've decided that process class will be an int. SYS_PROCESS = 0, APPLICATION = 1
 	
 	/// Priority of PCB
 	int pcb_priority;
@@ -105,6 +87,15 @@ typedef struct pcb_queue {
 /********************************************/
 
 /**
+ * Initialize PCB Queue
+ * 
+ * Initialize the PCB queue's by assigning values for the two
+ * queues that exist. This method is called upon startup in the 
+ * commhand 
+*/
+void initPCB();
+
+/**
  * Allocate memory for a new PCB
  * 
  * Allocates memory for a new PCB in 
@@ -140,7 +131,7 @@ int freePCB(pcb_t * freed_pcb);
  * 
  * @return Returns pointer to PCB upon success, NULL otherwise 
 */
-pcb_t * setupPCB(char * name, pc_t process_class, int priority);
+pcb_t * setupPCB(char * name, int process_class, int priority);
 
 /**
  * Searches for PCB

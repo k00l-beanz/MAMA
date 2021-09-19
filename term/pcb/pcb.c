@@ -6,16 +6,28 @@
 #include <lib/out.h>
 
 /*
-	We are going to have two queues for right now. One will be priority 
-	and the other will be FIFO.
+	We are going to have two queues for right now.
 
 */
-pcb_queue_t * pcb_queues[2];
+pcb_queue_t * priority_queue;
+pcb_queue_t * fifo_queue;
 
 
 /********************************************************/
 /****************** Backend stuff here ******************/
 /********************************************************/
+
+void initPCB() {
+	   priority_queue->pcbq_count = 0;
+	   priority_queue->pcbq_head = NULL;
+	   priority_queue->pcbq_tail = NULL;
+	   priority_queue->queue_order = PRIORITY;
+
+	   fifo_queue->pcbq_count = 0;
+	   fifo_queue->pcbq_head = NULL;
+	   fifo_queue->pcbq_tail = NULL;
+	   fifo_queue->queue_order = FIFO;
+}
 
 pcb_t * allocatePCB() {
 	/* Initialize PCB */
@@ -46,7 +58,7 @@ int freePCB(pcb_t * pcb) {
 	return free;
 }
 
-pcb_t * setupPCB(char * name, pc_t process_class, int priority) {
+pcb_t * setupPCB(char * name, int process_class, int priority) {
 
 	/* PCB name can only be 32 bytes long too */
 	if (strlen(name) > MAX_NAME_SIZE) {
@@ -64,7 +76,7 @@ pcb_t * setupPCB(char * name, pc_t process_class, int priority) {
 	}
 
 	/* Ensure process class is SYS_PROCESS or APPLICATION */
-	if (process_class != SYS_PROCESS || process_class != APPLICATION) {
+	if (process_class != 0 || process_class != 1) {
 		print("Unknown process class\n",22);
 		return NULL;
 	}
@@ -105,13 +117,25 @@ pcb_t * findPCB(char * name) {
 }
 
 void insertPCB(pcb_t * pcb) {
-
+	/* Got carried away when writing createPCB and started writing this.
+		Started it for you Austin */
 	if (pcb == NULL) {
 		return;
 	}
 
-	
+	/*
+	switch (pcb->pcb_process_state) {
+		case READY:
 
+			break;
+		case SUSPENDED:
+
+			break;
+		default:
+			break;
+
+	}
+	*/
 	return;
 }
 
@@ -119,15 +143,14 @@ void insertPCB(pcb_t * pcb) {
 /*************** User Command stuff here ****************/
 /********************************************************/
 
-
 int createPCB(char * args) {
 	// The format of createpcb is : pcb_name.pcb_process_class.pcb_priority
-	// So like... first_pcb_block.APPLICATION.3
+	// So like... first_pcb_block.0.3
 
 	char * name;
 	char * token;
 	int priority, params = 1;
-	pc_t process_class;
+	int process_class;
 
 	token = strtok(args,".");
 	name = token;
@@ -138,7 +161,7 @@ int createPCB(char * args) {
 
 		switch (params) {
 			case 1:
-				process_class = (pc_t) token;
+				process_class = atoi(token);
 				break;
 			case 2:
 				priority = atoi(token);
@@ -166,10 +189,10 @@ int createPCB(char * args) {
 		print("Error: Name of the PCB is too long\n",35);
 		return 0;
 	} 
-	else if (findPCB(name) != NULL) {
+	/*else if (findPCB(name) != NULL) { Enable this when findPCB has been written
 		print("Error: PCB with that name already exists\n",41);
 		return 0;
-	}
+	} */
 
 	/* Check whether priority is out of bounds */
 	if (priority > MAX_PRIORITY || priority < MIN_PRIORITY) {
@@ -177,11 +200,14 @@ int createPCB(char * args) {
 		return 0;
 	}
 
+
 	/* Check whether this is a valid process class */
-	if (process_class != SYS_PROCESS || process_class != APPLICATION) {
+	/*	I have no idea why this doesn't work so I removed it temporarily for debugging.
+	if (process_class != 0 || process_class != 1) {
 		print("Error: Specified process class does not exist\n",46);
 		return 0;
 	}
+	*/
 	
 
 	/* Create the PCB */

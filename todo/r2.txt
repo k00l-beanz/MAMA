@@ -1,8 +1,8 @@
 Internal Functions
-	AllocatePCB [] maximillian
+	AllocatePCB [x] maximillian
 	FreePCB [x] maximillian
-	FindPCB [] maximillian
-	SetupPCB [] maximillian
+	FindPCB [] Mohammad
+	SetupPCB [x] maximillian
 	InsertPCB [] Austin
 	RemovePCB [] Austin
 
@@ -14,7 +14,7 @@ User Commands
 	Show all processes [] Abdullah
 	Show ready processes [] Abdullah
 	Show block processes [] Mohammad
-	CreatePCB [] Mohammad
+	CreatePCB [] Maximillian 
 	DeletePCB [] Mohammad
 	Block [] Mohammad
 	Unblock [] Maximillian

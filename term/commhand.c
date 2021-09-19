@@ -97,6 +97,9 @@ int commhand() {
 	/* MAMA ascii art */
 	mama();
 
+	/* Initialize PCB */
+	initPCB();
+
 	/* Driver loop */
 	while(running) {
 		/* Prints prompt */
