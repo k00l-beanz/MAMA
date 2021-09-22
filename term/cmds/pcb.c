@@ -35,19 +35,19 @@ int cmd_pcb_show(char *args) {
 	switch(pcb->pcb_process_state) {
 		case READY:
 			display_fg_color(GREEN);
-			print("READY", 5);
+			println("READY", 5);
 			break;
 		case SUSPENDED:
 			display_fg_color(YELLOW);
-			print("SUSPENDED", 9);
+			println("SUSPENDED", 9);
 			break;
 		// TODO: add colors and text for other states
 	}
 	display_reset();
 	
-	printf("   Proc ID: %i", 0); // TODO: placeholder until/if process id is added
-	printf("     Class: %s", pcb->pcb_process_class == 0 ? "SYS_PROCESS" : "APPLICATION");
-	printf("  Priority: %i [%s]", pcb->pcb_priority, "PLACEHOLDER");
+	printf("   Proc ID: %i\n", 0); // TODO: placeholder until/if process id is added
+	printf("     Class: %s\n", pcb->pcb_process_class == 0 ? "SYS_PROCESS" : "APPLICATION");
+	printf("  Priority: %i [%s]\n", pcb->pcb_priority, "PLACEHOLDER");
 
 	return 0;
 }

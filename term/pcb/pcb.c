@@ -39,7 +39,7 @@ pcb_t * allocatePCB() {
 
 	/* Beginning of the stack (BP) */
 	pcb->pcb_stack_bottom = (unsigned char *) sys_alloc_mem(MAX_STACK_SIZE);
-	if (pcb->pcb_stack_top == NULL) {
+	if (pcb->pcb_stack_bottom == NULL) {
 		return NULL;
 	}
 
@@ -59,28 +59,6 @@ int freePCB(pcb_t * pcb) {
 }
 
 pcb_t * setupPCB(char * name, int process_class, int priority) {
-
-	/* PCB name can only be 32 bytes long too */
-	if (strlen(name) > MAX_NAME_SIZE) {
-		print("PCB name too long. Please use a shorter name\n",45);
-		return NULL;
-	} else if (findPCB(name) != NULL) { /* PCB name cannot already exist */
-		print("PCB name already in use. Please use a different name\n",53);
-		return NULL;
-	}
-
-	/* Can only have a priority level from 0 to 9 */
-	if (priority > MAX_PRIORITY || priority < MIN_PRIORITY) {
-		print("PCB priority out of range\n",26);
-		return NULL;
-	}
-
-	/* Ensure process class is SYS_PROCESS or APPLICATION */
-	if (process_class != 0 || process_class != 1) {
-		print("Unknown process class\n",22);
-		return NULL;
-	}
-
 	pcb_t *pcb = allocatePCB();
 	
 	if (pcb == NULL) {
@@ -92,13 +70,6 @@ pcb_t * setupPCB(char * name, int process_class, int priority) {
 	pcb->pcb_process_class = process_class;
 	pcb->pcb_priority = priority;
 	pcb->pcb_process_state = READY;
-	
-	if(pcb == NULL) {
-		println("pcb is null before insertPCB function call", 1);
-	}
-
-	// TODO: this call might be better suited in the caller to setupPCB rather than here
-	insertPCB(pcb);
 
 	return pcb;
 }
@@ -125,20 +96,15 @@ pcb_t * findPCB(char * name) {
 
 int insertPCB(pcb_t * pcb) {
 	if (pcb == NULL) {
-		println("pcb is null immediately inside insertPCB - thats not good", 1);
 		return 1;
 	}
-
-	println("insertPCB actually got called??", 1);
 
 	pcb_queue_t *queue;
 	switch (pcb->pcb_process_state) {
 		case READY:
-			println("priority queue boiz", 1);
 			queue = priority_queue;
 			break;
 		case SUSPENDED:
-			println("fifo_queue queue boiz", 1);
 			queue = fifo_queue;
 			break;
 		default:
@@ -234,7 +200,7 @@ int createPCB(char * args) {
 		print("Error: Name of the PCB is too long\n",35);
 		return 0;
 	} 
-	/*else if (findPCB(name) != NULL) { Enable this when findPCB has been written
+	/*else if (findPCB(name) != NULL) { TODO: Enable this when findPCB has been written
 		print("Error: PCB with that name already exists\n",41);
 		return 0;
 	} */
@@ -245,18 +211,14 @@ int createPCB(char * args) {
 		return 0;
 	}
 
-
-	/* Check whether this is a valid process class */
-	/*	I have no idea why this doesn't work so I removed it temporarily for debugging.
-	if (process_class != 0 || process_class != 1) {
-		print("Error: Specified process class does not exist\n",46);
+	if (process_class != 0 && process_class != 1) {
+		printf("Error: Specified process class %i does not exist\n", process_class);
 		return 0;
 	}
-	*/
 	
 
 	/* Create the PCB */
-	pcb_t *pcb = allocatePCB(name, process_class, priority);
+	pcb_t *pcb = setupPCB(name, process_class, priority);
 
 	/* Insert into PCB queue */
 	insertPCB(pcb);
