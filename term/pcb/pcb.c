@@ -93,50 +93,95 @@ pcb_t * setupPCB(char * name, int process_class, int priority) {
 	pcb->pcb_priority = priority;
 	pcb->pcb_process_state = READY;
 	
+	if(pcb == NULL) {
+		println("pcb is null before insertPCB function call", 1);
+	}
+
+	// TODO: this call might be better suited in the caller to setupPCB rather than here
+	insertPCB(pcb);
+
 	return pcb;
 }
 
 pcb_t * findPCB(char * name) {
-	/* Check for valid name */
-	if (strlen(name) > MAX_NAME_SIZE || name == NULL) {
-		// TODO Error message here
-		return NULL;
-	}
+    /* Check for valid name */
+    if (strlen(name) > MAX_NAME_SIZE || name == NULL) {
+        // TODO Error message here
+        return NULL;
+    }
 
-	// Iterate through each PCB queues
-	// Iterate through selected PCB queue
-	// If strcmp(name,pcb->pcb_name)
-	// return pcb
-	//
-	// return NULL
+    // Iterate through each PCB queues
+    // Iterate through selected PCB queue
+    // If strcmp(name,pcb->pcb_name)
+    // return pcb
+    //
+    // return NULL
 
-	// temporary
-	pcb_t * pcb = allocatePCB();
-	return pcb;
-	
+    // temporary
+    pcb_t * pcb = allocatePCB();
+    return pcb;
+    
 }
 
-void insertPCB(pcb_t * pcb) {
-	/* Got carried away when writing createPCB and started writing this.
-		Started it for you Austin */
+int insertPCB(pcb_t * pcb) {
 	if (pcb == NULL) {
-		return;
+		println("pcb is null immediately inside insertPCB - thats not good", 1);
+		return 1;
 	}
 
-	/*
+	println("insertPCB actually got called??", 1);
+
+	pcb_queue_t *queue;
 	switch (pcb->pcb_process_state) {
 		case READY:
-
+			println("priority queue boiz", 1);
+			queue = priority_queue;
 			break;
 		case SUSPENDED:
-
+			println("fifo_queue queue boiz", 1);
+			queue = fifo_queue;
 			break;
 		default:
-			break;
+			return 1;
 
 	}
-	*/
-	return;
+
+	if(queue->pcbq_head == NULL) {
+		// queue is empty - set this pcb as head and tail
+		pcb_node_t *inserted_node = (pcb_node_t *)sys_alloc_mem(sizeof(pcb_node_t));
+		// null next and prev nodes for new node
+		inserted_node->pcbn_next_pcb = NULL;
+		inserted_node->pcbn_prev_pcb = NULL;
+		inserted_node->pcb = pcb;
+		queue->pcbq_head = inserted_node;
+		queue->pcbq_tail = inserted_node;
+		return 0;
+	}
+
+	pcb_node_t *node;
+	if(queue->queue_order == PRIORITY) {
+		// PRIORITY queue - insert after all pcbs of greater or equal priority and before all pcbs of lesser priority
+		while(node->pcbn_next_pcb != NULL && node->pcbn_next_pcb->pcb->pcb_priority >= pcb->pcb_priority)
+			node = node->pcbn_next_pcb;
+	} else {
+		// FIFO - insert at end
+		node = queue->pcbq_tail;
+	}
+
+	// doubly linked lists sure are fun
+	pcb_node_t *inserted_node = (pcb_node_t *)sys_alloc_mem(sizeof(pcb_node_t));
+	inserted_node->pcbn_next_pcb = node->pcbn_next_pcb;
+	inserted_node->pcbn_prev_pcb = node;
+	inserted_node->pcb = pcb;
+	node->pcbn_next_pcb = inserted_node;
+	if(inserted_node->pcbn_next_pcb != NULL) {
+		// node was inserted somewhere in middle of queue - need to update next node's prev pointer
+		inserted_node->pcbn_next_pcb->pcbn_prev_pcb = inserted_node;
+	} else {
+		// node was inserted at end of queue - need to update queue's tail
+		queue->pcbq_tail = inserted_node;
+	}
+	return 0;
 }
 
 /********************************************************/

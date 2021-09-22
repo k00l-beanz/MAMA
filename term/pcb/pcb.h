@@ -57,7 +57,7 @@ typedef struct {
 } pcb_t;
 
 /// Individual PCB nodes. Each PCB is associated with one node.
-typedef struct {
+typedef struct pcb_node_t {
     /// Pointer to the Next PCB
     struct pcb_node_t *pcbn_next_pcb;
 
@@ -154,8 +154,10 @@ pcb_t * findPCB(char * name);
  * Inserts a PCB into the appropriate queue
  * 
  * @param pcb Pointer to the PCB being inserted
+ *
+ * @return 0 on success, 1 on error
 */
-void insertPCB(pcb_t * pcb);
+int insertPCB(pcb_t * pcb);
 
 /**
  * Removes PCB from Queue
