@@ -105,9 +105,11 @@ int insertPCB(pcb_t * pcb) {
 	pcb_queue_t *queue;
 	switch (pcb->pcb_process_state) {
 		case READY:
+		case SUSPENDED_READY:
 			queue = priority_queue;
 			break;
-		case SUSPENDED:
+		case BLOCKED:
+		case SUSPENDED_BLOCKED:
 			queue = fifo_queue;
 			break;
 		default:

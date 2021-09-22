@@ -27,13 +27,21 @@ typedef enum {
 
 /// Types of process states.
 typedef enum {
+    /// Running State
+    RUNNING,
+
 	/// Ready State
 	READY,
 	
-	/// Suspended State
-	SUSPENDED,
-} p_state_t;
+	/// Blocked State
+	BLOCKED,
 
+    /// Suspended Ready State
+    SUSPENDED_READY,
+
+    /// Suspended Blocked State
+    SUSPENDED_BLOCKED
+} p_state_t;
 
 /// Process Control Block Structure
 typedef struct {
