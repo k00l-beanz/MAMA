@@ -67,6 +67,10 @@ const cmd_mapping cmd_mappings[] = {
 			"createpcb",
 			&createPCB
 		},
+		{
+			"showpcb",
+			&cmd_pcb_show
+		},
 	{
 		"arg-test",
 		&cmd_argtest

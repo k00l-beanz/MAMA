@@ -22,7 +22,10 @@ enum SyntaxState stack_peek();
 void stack_push(enum SyntaxState);
 void stack_pop();
 
-int parse_args(char *arg_str, parsed_args *args) {
+// returned args needs freed when done with
+// TODO: free allocated mem before returning null
+parsed_args *parse_args(char *arg_str) {
+	parsed_args *args = (parsed_args *)sys_alloc_mem(sizeof(parsed_args));
 	skip_ws(&arg_str);
 	
 	// The only lexeme we have to store and use a lookahead to figure out what to do with is PARAM_NAME,
@@ -36,18 +39,18 @@ int parse_args(char *arg_str, parsed_args *args) {
 	
 	int running = 1;
 	while(running) {
-		print("arg_str is pointing to ", 1);
-		printc(*arg_str);
-		printc('\n');
+		//print("arg_str is pointing to ", 1);
+		//printc(*arg_str);
+		//printc('\n');
 		switch(cur_state) {
 			case PARAM_NAME:
-				println("Switched to state PARAM_NAME", 1);
+				//println("Switched to state PARAM_NAME", 1);
 				if(stack_peek() == PARAM_NAME) {
 					if(args->flag_count >= MAX_CMD_FLAG_COUNT) {
 						print("Bad syntax: commands containing more than ", 1);
 						print(itoa(MAX_CMD_FLAG_COUNT), 1);
 						print(" flags are not supported.\n", 1);
-						return 0;
+						return NULL;
 					}
 					
 					strcpy(args->flags[args->flag_count++], last_token);
@@ -61,13 +64,13 @@ int parse_args(char *arg_str, parsed_args *args) {
 					print("Bad syntax: argument names longer than ", 1);
 					print(itoa(MAX_CMD_ARG_NAME_LEN), 1);
 					print(" characters are not supported.\n", 1);
-					return 0;
+					return NULL;
 				}
 
 				break;
 			case DOUBLE_QUOTE_STRING:
 			case SINGLE_QUOTE_STRING:
-				println("Switched to state STRING", 1);
+				//println("Switched to state STRING", 1);
 				arg_str++; // skip first quote
 
 				if(stack_peek() == PARAM_NAME) {
@@ -75,34 +78,34 @@ int parse_args(char *arg_str, parsed_args *args) {
 						print("Bad syntax: argument values longer than ", 1);
 						print(itoa(MAX_CMD_ARG_VALUE_LEN), 1);
 						print(" characters are not supported.\n", 1);
-						return 0;
+						return NULL;
 					}
 				} else {
 					if(args->unnamed_arg_count >= MAX_CMD_UNNAMED_ARG_COUNT) {
 						print("Bad syntax: commands containing more than ", 1);
 						print(itoa(MAX_CMD_UNNAMED_ARG_COUNT), 1);
 						print(" unnamed arguments are not supported.\n", 1);
-						return 0;
+						return NULL;
 					}
 					
 					if(!get_token(&arg_str, args->unnamed_args[args->unnamed_arg_count++], MAX_CMD_ARG_VALUE_LEN)) {
 						print("Bad syntax: argument values longer than ", 1);
 						print(itoa(MAX_CMD_ARG_VALUE_LEN), 1);
 						print(" characters are not supported.\n", 1);
-						return 0;
+						return NULL;
 					}
 				}
 
 				stack_push(cur_state);
 				break;
 			case PARAM_VALUE:
-				println("Switched to state PARAM_VALUE", 1);
+				//println("Switched to state PARAM_VALUE", 1);
 				if(stack_peek() == PARAM_NAME) {
 					if(args->named_arg_count >= MAX_CMD_NAMED_ARG_COUNT) {
 						print("Bad syntax: commands containing more than ", 1);
 						print(itoa(MAX_CMD_NAMED_ARG_COUNT), 1);
 						print(" named arguments are not supported.\n", 1);
-						return 0;
+						return NULL;
 					} else {
 						strcpy(args->named_arg_names[args->named_arg_count++], last_token);
 					}
@@ -111,7 +114,7 @@ int parse_args(char *arg_str, parsed_args *args) {
 						print("Bad syntax: argument values longer than ", 1);
 						print(itoa(MAX_CMD_ARG_VALUE_LEN), 1);
 						print(" characters are not supported.\n", 1);
-						return 0;
+						return NULL;
 					}
 					
 					stack_pop();
@@ -120,21 +123,21 @@ int parse_args(char *arg_str, parsed_args *args) {
 						print("Bad syntax: commands containing more than ", 1);
 						print(itoa(MAX_CMD_UNNAMED_ARG_COUNT), 1);
 						print(" unnamed arguments are not supported.\n", 1);
-						return 0;
+						return NULL;
 					}
 					
 					if(!get_token(&arg_str, args->unnamed_args[args->unnamed_arg_count++], MAX_CMD_ARG_VALUE_LEN)) {
 						print("Bad syntax: argument values longer than ", 1);
 						print(itoa(MAX_CMD_ARG_VALUE_LEN), 1);
 						print(" characters are not supported.\n", 1);
-						return 0;
+						return NULL;
 					}
 				}
 
 				break;
 			case SINGLE_QUOTE_STRING_END_QUOTE:
 			case DOUBLE_QUOTE_STRING_END_QUOTE:
-				println("Switched to state STRING_END_QUOTE", 1);
+				//println("Switched to state STRING_END_QUOTE", 1);
 				/* Skip the closing quote for strings and just adjust the last and current state, no need to consume a token */
 				stack_pop();
 				if(stack_peek() == PARAM_NAME) {
@@ -146,22 +149,22 @@ int parse_args(char *arg_str, parsed_args *args) {
 				cur_state = get_state(*arg_str, cur_state);
 				break;
 			case DEFAULT:
-				println("Switched to state DEFAULT", 1);
+				//println("Switched to state DEFAULT", 1);
 				skip_ws(&arg_str);
 				last_state = DEFAULT;
 				cur_state = get_state(*arg_str, cur_state);
 				break;
 			case END_OF_INPUT:
-				println("Switched to state END_OF_INPUT", 1);
+				//println("Switched to state END_OF_INPUT", 1);
 				if(stack_peek() == DOUBLE_QUOTE_STRING || stack_peek() == SINGLE_QUOTE_STRING) {
 					println("Bad syntax: unterminated quoted string.", 1);
-					return 0;
+					return NULL;
 				} else if(stack_peek() == PARAM_NAME) {
 					if(args->flag_count >= MAX_CMD_FLAG_COUNT) {
 						print("Bad syntax: commands containing more than ", 1);
 						print(itoa(MAX_CMD_FLAG_COUNT), 1);
 						print(" flags are not supported.\n", 1);
-						return 0;
+						return NULL;
 					}
 
 					strcpy(args->flags[args->flag_count++], last_token);
@@ -173,10 +176,10 @@ int parse_args(char *arg_str, parsed_args *args) {
 			default:
 				/* This should never happen, but for completeness and to avoid compile errors is included */
 				println("Bad syntax: unexpected lexeme or state in arguments string", 1);
-				return 0;
+				return NULL;
 		}
 	}
-	return 1;
+	return args;
 }
 
 
@@ -185,15 +188,15 @@ int get_token(char **arg_str, char *token, int max_token_len) {
 	
 	int i = 0;
 	while(!changes_state(**arg_str, cur_state, &cur_state) && i < max_token_len) {
-		print("Character ", 1);
-		printc(**arg_str);
-		println(" didn't change state, writing to token buf", 1);
+		//print("Character ", 1);
+		//printc(**arg_str);
+		//println(" didn't change state, writing to token buf", 1);
 		token[i++] = *((*arg_str)++);
 	}
 	token[i] = '\0';
 	
-	print("Consumed token ", 1);
-	println(token, 1);
+	//print("Consumed token ", 1);
+	//println(token, 1);
 	
 	if(i >= max_token_len)
 		return 0;

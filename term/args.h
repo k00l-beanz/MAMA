@@ -13,6 +13,6 @@ typedef struct parsed_args {
 	char unnamed_args[MAX_CMD_UNNAMED_ARG_COUNT][MAX_CMD_ARG_VALUE_LEN + 1];
 } parsed_args;
 
-int parse_args(char *, parsed_args *);
+parsed_args *parse_args(char *);
 
 #endif

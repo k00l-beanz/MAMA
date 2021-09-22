@@ -1,3 +1,6 @@
+#ifndef PCB_H
+#define PCB_H
+
 /// The maximum size the stack can be. May change
 #define MAX_STACK_SIZE 1024
 
@@ -296,3 +299,5 @@ void showBlocked();
  * State, Suspended Status, Priority. 
 */
 void showAll();
+
+#endif

@@ -6,5 +6,6 @@
 #include "cmds/echo.c"
 #include "cmds/version.c"
 #include "cmds/argtest.c"
+#include "cmds/pcb.c"
 
 #endif
