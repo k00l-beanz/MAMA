@@ -71,6 +71,14 @@ const cmd_mapping cmd_mappings[] = {
 			"showpcb",
 			&cmd_pcb_show
 		},
+		{
+			"suspend",
+			&cmd_pcb_suspend
+		},
+		{
+			"resume",
+			&cmd_pcb_resume
+		},
 	{
 		"arg-test",
 		&cmd_argtest

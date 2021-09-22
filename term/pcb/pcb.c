@@ -154,6 +154,56 @@ int insertPCB(pcb_t * pcb) {
 	return 0;
 }
 
+int removePCB(pcb_t * pcb) {
+	if (pcb == NULL) {
+		return 1;
+	}
+
+	pcb_queue_t *queue;
+	switch (pcb->pcb_process_state) {
+		case READY:
+		case SUSPENDED_READY:
+			queue = priority_queue;
+			break;
+		case BLOCKED:
+		case SUSPENDED_BLOCKED:
+			queue = fifo_queue;
+			break;
+		default:
+			return 1;
+	}
+
+	pcb_node_t *node = queue->pcbq_head; // the node to remove
+	while(node != NULL) {
+		if(node->pcb == pcb)
+			break;
+		node = node->pcbn_next_pcb;
+	}
+	if(node == NULL)
+		return 1; // queue but is supposed to contain this PCB but doesn't - this shouldn't happen, but if it does it's an error
+
+	if(node->pcbn_prev_pcb != NULL) {
+		// node being removed had at least 1 node before it
+		node->pcbn_prev_pcb->pcbn_next_pcb = node->pcbn_next_pcb;
+	} else {
+		// node being removed was head - adjust queue head pointer
+		queue->pcbq_head = node->pcbn_next_pcb;
+	}
+
+	if(node->pcbn_next_pcb != NULL) {
+		// node being removed had at least 1 node after it
+		node->pcbn_next_pcb->pcbn_prev_pcb = node->pcbn_prev_pcb;
+	} else {
+		// node being removed was tail - adjust queue tail pointer
+		queue->pcbq_tail = node->pcbn_prev_pcb;
+	}
+	
+	// node is no longer needed and is not accessible - node can be freed
+	sys_free_mem(node);
+	
+	return 0;
+}
+
 /********************************************************/
 /*************** User Command stuff here ****************/
 /********************************************************/

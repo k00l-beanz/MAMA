@@ -2,11 +2,6 @@
 #include <term/args.h>
 #include <term/pcb/pcb.h>
 
-int cmd_pcb_resume(char *args) {
-	(void)args;
-	return 0;
-}
-
 int cmd_pcb_set_priority(char *args) {
 	(void)args;
 	return 0;
@@ -37,19 +32,19 @@ int cmd_pcb_show(char *args) {
 			display_fg_color(GREEN);
 			printf("READY");
 			display_reset();
-			printf("(not suspended)\n");
+			printf(" (not suspended)\n");
 			break;
 		case BLOCKED:
 			display_fg_color(YELLOW);
 			printf("BLOCKED");
 			display_reset();
-			printf("(not suspended)\n");
+			printf(" (not suspended)\n");
 			break;
 		case SUSPENDED_READY:
 			display_fg_color(RED);
 			printf("READY");
 			display_reset();
-			printf("(");
+			printf(" (");
 			display_fg_color(RED);
 			printf("SUSPENDED");
 			display_reset();
@@ -59,7 +54,7 @@ int cmd_pcb_show(char *args) {
 			display_fg_color(RED);
 			printf("BLOCKED");
 			display_reset();
-			printf("(");
+			printf(" (");
 			display_fg_color(RED);
 			printf("SUSPENDED");
 			display_reset();
@@ -119,6 +114,34 @@ int cmd_pcb_suspend(char *args) {
 			break;
 		default:
 			return 1;
+	}
+	return insertPCB(pcb);
+}
+
+int cmd_pcb_resume(char *args) {
+	char *pcb_name;
+
+	if(!next_unnamed_arg(parse_args(args), &pcb_name)) {
+		printf("Bad usage: PCB name not provided\n");
+		return 1;
+	}
+
+	pcb_t *pcb = findPCB(pcb_name);
+	if(pcb == NULL) {
+		printf("Error: PCB not found\n");
+		return 1;
+	}
+
+	removePCB(pcb);
+	switch(pcb->pcb_process_state) {
+		case SUSPENDED_READY:
+			pcb->pcb_process_state = READY;
+			break;
+		case SUSPENDED_BLOCKED:
+			pcb->pcb_process_state = BLOCKED;
+			break;
+		default:
+			return 0; // do nothing if PCB isn't suspended
 	}
 	return insertPCB(pcb);
 }
