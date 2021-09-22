@@ -1,7 +1,7 @@
 Internal Functions
 	AllocatePCB [x] maximillian
 	FreePCB [x] maximillian
-	FindPCB [] Mohammad
+	FindPCB [x] Mohammad
 	SetupPCB [x] maximillian
 	InsertPCB [] Austin
 	RemovePCB [] Austin

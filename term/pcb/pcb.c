@@ -86,15 +86,20 @@ pcb_t * findPCB(char * name) {
 
     // Iterate through each PCB queues
     // Iterate through selected PCB queue
-    // If strcmp(name,pcb->pcb_name)
-    // return pcb
-    //
-    // return NULL
+    pcb_node_t *cur_node = priority_queue->pcbq_head;
+    while(cur_node != NULL) {
+        if(strcmp(cur_node->pcb->pcb_name, name) == 0)
+            return cur_node->pcb;
+        cur_node = cur_node->pcbn_next_pcb;
+    }
+    cur_node = fifo_queue->pcbq_head;
+    while(cur_node != NULL) {
+        if(strcmp(cur_node->pcb->pcb_name, name) == 0)
+            return cur_node->pcb;
+        cur_node = cur_node->pcbn_next_pcb;
+    }
 
-    // temporary
-    pcb_t * pcb = allocatePCB();
-    return pcb;
-    
+    return NULL;
 }
 
 int insertPCB(pcb_t * pcb) {
