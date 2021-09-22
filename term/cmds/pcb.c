@@ -31,7 +31,7 @@ int cmd_pcb_show(char *args) {
 		return 1;
 	}
 
-	printf("%s - ", pcb->pcb_name);
+	printf("Process %s - ", pcb->pcb_name);
 	switch(pcb->pcb_process_state) {
 		case READY:
 			display_fg_color(GREEN);

@@ -4,13 +4,16 @@
 #include <modules/mpx_supt.h>
 #include <include/string.h>
 #include <lib/out.h>
+#include <term/utils.h>
 
 /*
 	We are going to have two queues for right now.
 
 */
-pcb_queue_t * priority_queue;
-pcb_queue_t * fifo_queue;
+pcb_queue_t p_queue;
+pcb_queue_t f_queue;
+pcb_queue_t * priority_queue = &p_queue;
+pcb_queue_t * fifo_queue = &f_queue;
 
 
 /********************************************************/
@@ -109,7 +112,6 @@ int insertPCB(pcb_t * pcb) {
 			break;
 		default:
 			return 1;
-
 	}
 
 	if(queue->pcbq_head == NULL) {
@@ -163,6 +165,7 @@ int createPCB(char * args) {
 	int priority, params = 1;
 	int process_class;
 
+	skip_ws(&args);
 	token = strtok(args,".");
 	name = token;
 
