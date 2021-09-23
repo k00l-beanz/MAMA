@@ -3,12 +3,12 @@ Internal Functions
 	FreePCB [x] maximillian
 	FindPCB [x] Mohammad
 	SetupPCB [x] maximillian
-	InsertPCB [] Austin
-	RemovePCB [] Austin
+	InsertPCB [X] Austin
+	RemovePCB [X] Austin
 
 User Commands
-	Suspend [] Austin
-	Resume [] Austin
+	Suspend [X] Austin
+	Resume [X] Austin
 	Set Priority [] Abdullah
 	Show PCB [] Abdullah
 	Show all processes [] Abdullah
@@ -18,3 +18,21 @@ User Commands
 	DeletePCB [] Mohammad
 	Block [] Mohammad
 	Unblock [] Maximillian
+
+[] Suspend help page
+[] Resume help page
+[] SetPriority help page
+[] showPCB help page
+[] show all processes cmd help page
+[] show ready processes cmd help page
+[] show blocked processes cmd help page
+[] createPCB help page
+[] deletePCB help page
+[] block help page
+[] unblock help page
+[] Update `help list` table
+[] Update user manual
+[] Update programmer's manual
+[] update WhoDidWhat.md
+[] Fix R1 time rollover/0 min display issue
+[] Fix R1 date component set order issue
