@@ -10,10 +10,13 @@ int cmd_pcb_set_priority(char *args) {
 int cmd_pcb_show(char *args) {
 	char *pcb_name;
 
-	if(!next_unnamed_arg(parse_args(args), &pcb_name)) {
+	parsed_args *parsed_args = parse_args(args);
+	if(!next_unnamed_arg(parsed_args, &pcb_name)) {
 		println("Bad usage: PCB name not provided", 32);
+		sys_free_mem(parsed_args);
 		return 1;
 	}
+	sys_free_mem(parsed_args);
 
 	pcb_t *pcb = findPCB(pcb_name);
 	if(pcb == NULL) {
@@ -64,7 +67,18 @@ int cmd_pcb_show(char *args) {
 	
 	printf("   Proc ID: %i\n", 0); // TODO: placeholder until/if process id is added
 	printf("     Class: %s\n", pcb->pcb_process_class == 0 ? "SYS_PROCESS" : "APPLICATION");
-	printf("  Priority: %i [%s]\n", pcb->pcb_priority, "PLACEHOLDER");
+	char *priority_str;
+	if(pcb->pcb_priority < 3)
+		priority_str = "LOW";
+	else if(pcb->pcb_priority < 6)
+		priority_str = "MEDIUM";
+	else if(pcb->pcb_priority < 8)
+		priority_str = "HIGH";
+	else if(pcb->pcb_priority < 9)
+		priority_str = "CRITICAL";
+	else
+		priority_str = "MAXIMUM";
+	printf("  Priority: %i [%s]\n", pcb->pcb_priority, priority_str);
 
 	return 0;
 }
@@ -90,10 +104,13 @@ int cmd_pcb_show_all(char *args) {
 int cmd_pcb_suspend(char *args) {
 	char *pcb_name;
 
-	if(!next_unnamed_arg(parse_args(args), &pcb_name)) {
+	parsed_args *parsed_args = parse_args(args);
+	if(!next_unnamed_arg(parsed_args, &pcb_name)) {
 		printf("Bad usage: PCB name not provided\n");
+		sys_free_mem(parsed_args);
 		return 1;
 	}
+	sys_free_mem(parsed_args);
 
 	pcb_t *pcb = findPCB(pcb_name);
 	if(pcb == NULL) {
@@ -121,10 +138,13 @@ int cmd_pcb_suspend(char *args) {
 int cmd_pcb_resume(char *args) {
 	char *pcb_name;
 
-	if(!next_unnamed_arg(parse_args(args), &pcb_name)) {
+	parsed_args *parsed_args = parse_args(args);
+	if(!next_unnamed_arg(parsed_args, &pcb_name)) {
 		printf("Bad usage: PCB name not provided\n");
+		sys_free_mem(parsed_args);
 		return 1;
 	}
+	sys_free_mem(parsed_args);
 
 	pcb_t *pcb = findPCB(pcb_name);
 	if(pcb == NULL) {
