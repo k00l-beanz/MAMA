@@ -79,6 +79,18 @@ const cmd_mapping cmd_mappings[] = {
 			"resume",
 			&cmd_pcb_resume
 		},
+		{
+			"delete",
+			&cmd_pcb_delete
+		},
+		{
+			"block",
+			&cmd_pcb_block
+		},
+		{
+			"resume",
+			&cmd_pcb_resume
+		},
 	{
 		"arg-test",
 		&cmd_argtest

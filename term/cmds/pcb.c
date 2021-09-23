@@ -2,6 +2,9 @@
 #include <term/args.h>
 #include <term/pcb/pcb.h>
 
+extern pcb_queue_t * priority_queue;
+extern pcb_queue_t * fifo_queue;
+
 int cmd_pcb_set_priority(char *args) {
 	(void)args;
 	return 0;
@@ -90,6 +93,17 @@ int cmd_pcb_show_ready(char *args) {
 
 int cmd_pcb_show_blocked(char *args) {
 	(void)args;
+
+	pcb_node_t *node = fifo_queue->pcbq_head;
+	if(node == NULL) {
+		printf("No blocked PCBs found");
+		return 0;
+	}
+	while(node != NULL) {
+		cmd_pcb_show(node->pcb->pcb_name);
+		printf("\n");
+		node = node->pcbn_next_pcb;
+	}
 	return 0;
 }
 
@@ -162,6 +176,64 @@ int cmd_pcb_resume(char *args) {
 			break;
 		default:
 			return 0; // do nothing if PCB isn't suspended
+	}
+	return insertPCB(pcb);
+}
+
+int cmd_pcb_delete(char *args) {
+	char *pcb_name;
+
+	parsed_args *parsed_args = parse_args(args);
+	if(!next_unnamed_arg(parsed_args, &pcb_name)) {
+		printf("Bad usage: PCB name not provided\n");
+		sys_free_mem(parsed_args);
+		return 1;
+	}
+	sys_free_mem(parsed_args);
+
+	pcb_t *pcb = findPCB(pcb_name);
+	if(pcb == NULL) {
+		printf("Error: PCB not found\n");
+		return 1;
+	}
+
+	removePCB(pcb);
+	sys_free_mem(pcb->pcb_stack_bottom);
+	sys_free_mem(pcb);
+
+	return 0;
+}
+
+int cmd_pcb_block(char *args) {
+	char *pcb_name;
+
+	parsed_args *parsed_args = parse_args(args);
+	if(!next_unnamed_arg(parsed_args, &pcb_name)) {
+		printf("Bad usage: PCB name not provided\n");
+		sys_free_mem(parsed_args);
+		return 1;
+	}
+	sys_free_mem(parsed_args);
+
+	pcb_t *pcb = findPCB(pcb_name);
+	if(pcb == NULL) {
+		printf("Error: PCB not found\n");
+		return 1;
+	}
+
+	removePCB(pcb);
+	switch(pcb->pcb_process_state) {
+		case RUNNING:
+		case READY:
+		case BLOCKED:
+			pcb->pcb_process_state = BLOCKED;
+			break;
+		case SUSPENDED_READY:
+		case SUSPENDED_BLOCKED:
+			pcb->pcb_process_state = SUSPENDED_BLOCKED;
+			break;
+		default:
+			return 1;
 	}
 	return insertPCB(pcb);
 }
