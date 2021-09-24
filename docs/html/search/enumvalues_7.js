@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['n_5fsuspended_0',['N_SUSPENDED',['../pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa0432f0e991d7467234d5704f63c84b12',1,'pcb.h']]]
+  ['param_5fname_0',['PARAM_NAME',['../syntax_8h.html#af33280939207bc6f00c4b91581c64e83aa88076262efd878ec9b974554cdcc7d5',1,'syntax.h']]],
+  ['param_5fvalue_1',['PARAM_VALUE',['../syntax_8h.html#af33280939207bc6f00c4b91581c64e83a1c85eab78873293d0782d092daeb6f88',1,'syntax.h']]],
+  ['priority_2',['PRIORITY',['../pcb_8h.html#ab4997200d0dfc40cf82ea4983950ae64a117d4e929adf16e40bd27b3e7c7cee51',1,'pcb.h']]]
 ];

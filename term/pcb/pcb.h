@@ -194,19 +194,6 @@ int removePCB(pcb_t * pcb);
 int createPCB(char * user_input);
 
 /**
- * Create a PCB in memory
- * 
- * This is the backend method to the createPCB method.
- * 
- * @param name Give name of the PCB
- * @param process_class The type of process class that will be used
- * @param priority Priority of the PCB
-
-void createPCBinMemory(char * name, pc_t process_class, int priority);
-*/
-
-
-/**
  * Delete PCB
  * 
  * Will remove a PCB from the appropriate queue 
@@ -269,7 +256,7 @@ void resumePCB(char * name);
  * @param name Name of PCB that will have it's priority changed
  * @param priority The new priority that will be set in the PCB 
 */
-void setPriority(char * name, int priority);
+int setPriority(char * name, int priority);
 
 /**
  * Show informatino of PCB
@@ -280,7 +267,7 @@ void setPriority(char * name, int priority);
  * 
  * @param name Name of PCB to have its information displayed
 */
-void showPCB(char * name);
+int showPCB(char * name);
 
 /**
  * Show PCBs in ready queue
@@ -289,7 +276,7 @@ void showPCB(char * name);
  * The information that is displayed is: Process Name, Class,
  * State, Suspended Status, Priority
 */
-void showReady();
+int showReady();
 
 /**
  * Show PCBs in blocked queue
@@ -299,7 +286,7 @@ void showReady();
  * State, Suspended Status, Priority.
  * 
 */
-void showBlocked();
+int showBlocked();
 
 /**
  * Show all PCBs
@@ -308,6 +295,6 @@ void showBlocked();
  * The information that is displayed is: Process Name, Class,
  * State, Suspended Status, Priority. 
 */
-void showAll();
+int showAll();
 
 #endif

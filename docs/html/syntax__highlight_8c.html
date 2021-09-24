@@ -19,11 +19,11 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+ <tr id="projectrow">
+  <td id="projectalign">
    <div id="projectname">MAMA
    </div>
-   <div id="projectbrief">MAMA CS 450 Project</div>
+   <div id="projectbrief">CS 450 OS Project</div>
   </td>
  </tr>
  </tbody>
@@ -87,17 +87,23 @@ Functions</h2></td></tr>
 <tr class="memitem:aaed43064814c2ef42729e71bbadcf73c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8c.html#aaed43064814c2ef42729e71bbadcf73c">switch_to</a> (enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>, int, int)</td></tr>
 <tr class="memdesc:aaed43064814c2ef42729e71bbadcf73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not syntax highlighting is enabled as the user types.  <a href="syntax__highlight_8c.html#aaed43064814c2ef42729e71bbadcf73c">More...</a><br /></td></tr>
 <tr class="separator:aaed43064814c2ef42729e71bbadcf73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39318f833f527bd72fe820ed4c7b97d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8c.html#a39318f833f527bd72fe820ed4c7b97d1">color_for</a> (enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a>)</td></tr>
-<tr class="separator:a39318f833f527bd72fe820ed4c7b97d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9d6b8916489bef5584d7eca99fc6d87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8c.html#aa9d6b8916489bef5584d7eca99fc6d87">get_state_at</a> (int, int *)</td></tr>
-<tr class="separator:aa9d6b8916489bef5584d7eca99fc6d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a335d32f85bd63e4dac15d8a485a0df4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8c.html#a335d32f85bd63e4dac15d8a485a0df4d">color_for</a> (enum <a class="el" href="syntax_8h.html#af33280939207bc6f00c4b91581c64e83">SyntaxState</a> state)</td></tr>
+<tr class="memdesc:a335d32f85bd63e4dac15d8a485a0df4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the ANSI color code for the specified syntax state.  <a href="syntax__highlight_8c.html#a335d32f85bd63e4dac15d8a485a0df4d">More...</a><br /></td></tr>
+<tr class="separator:a335d32f85bd63e4dac15d8a485a0df4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cb7c40b079a85723604d8b3256a9f85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8c.html#a1cb7c40b079a85723604d8b3256a9f85">get_state_at</a> (int index, int *index_of_state_in_record)</td></tr>
+<tr class="memdesc:a1cb7c40b079a85723604d8b3256a9f85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the index in the states and switch_indexes data structures corresponding to the specified cursor index.  <a href="syntax__highlight_8c.html#a1cb7c40b079a85723604d8b3256a9f85">More...</a><br /></td></tr>
+<tr class="separator:a1cb7c40b079a85723604d8b3256a9f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8982d81a1ac7f95d9c633772f4b9c910"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8c.html#a8982d81a1ac7f95d9c633772f4b9c910">syntax_init</a> ()</td></tr>
+<tr class="memdesc:a8982d81a1ac7f95d9c633772f4b9c910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes internal data structures needed for syntax highlighting.  <a href="syntax__highlight_8c.html#a8982d81a1ac7f95d9c633772f4b9c910">More...</a><br /></td></tr>
 <tr class="separator:a8982d81a1ac7f95d9c633772f4b9c910"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae9e3cd30ba3fa463d856cf5e3e2e603"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8c.html#aae9e3cd30ba3fa463d856cf5e3e2e603">syntax_enable_highlighting</a> ()</td></tr>
+<tr class="memdesc:aae9e3cd30ba3fa463d856cf5e3e2e603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables syntax highlighting as the user types.  <a href="syntax__highlight_8c.html#aae9e3cd30ba3fa463d856cf5e3e2e603">More...</a><br /></td></tr>
 <tr class="separator:aae9e3cd30ba3fa463d856cf5e3e2e603"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a071979ddc6be81df5ef330aff3244d8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8c.html#a071979ddc6be81df5ef330aff3244d8f">syntax_disable_highlighting</a> ()</td></tr>
+<tr class="memdesc:a071979ddc6be81df5ef330aff3244d8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables syntax highlighting as the user types.  <a href="syntax__highlight_8c.html#a071979ddc6be81df5ef330aff3244d8f">More...</a><br /></td></tr>
 <tr class="separator:a071979ddc6be81df5ef330aff3244d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d0d3fecb83c8763320c153deb0c7b29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8c.html#a5d0d3fecb83c8763320c153deb0c7b29">syntax_handle_char</a> (char c, int index)</td></tr>
+<tr class="memdesc:a5d0d3fecb83c8763320c153deb0c7b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index.  <a href="syntax__highlight_8c.html#a5d0d3fecb83c8763320c153deb0c7b29">More...</a><br /></td></tr>
 <tr class="separator:a5d0d3fecb83c8763320c153deb0c7b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -115,8 +121,8 @@ Variables</h2></td></tr>
 <tr class="separator:a03e6cca0c879c0443efb431c30c14f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a39318f833f527bd72fe820ed4c7b97d1" name="a39318f833f527bd72fe820ed4c7b97d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39318f833f527bd72fe820ed4c7b97d1">&#9670;&nbsp;</a></span>color_for()</h2>
+<a id="a335d32f85bd63e4dac15d8a485a0df4d" name="a335d32f85bd63e4dac15d8a485a0df4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a335d32f85bd63e4dac15d8a485a0df4d">&#9670;&nbsp;</a></span>color_for()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,7 +136,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Prints the ANSI color code for the specified syntax state. Used internally by syntax_handle_char.</p>
+
+<p>Prints the ANSI color code for the specified syntax state. </p>
+<p >Used internally by syntax_handle_char.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">state</td><td>The syntax state for which to print the correct color code to the terminal for. </td></tr>
@@ -140,8 +148,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aa9d6b8916489bef5584d7eca99fc6d87" name="aa9d6b8916489bef5584d7eca99fc6d87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9d6b8916489bef5584d7eca99fc6d87">&#9670;&nbsp;</a></span>get_state_at()</h2>
+<a id="a1cb7c40b079a85723604d8b3256a9f85" name="a1cb7c40b079a85723604d8b3256a9f85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cb7c40b079a85723604d8b3256a9f85">&#9670;&nbsp;</a></span>get_state_at()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,7 +173,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Retrieves the index in the states and switch_indexes data structures corresponding to the specified cursor index. Used internally by syntax_handle_char.</p>
+
+<p>Retrieves the index in the states and switch_indexes data structures corresponding to the specified cursor index. </p>
+<p >Used internally by syntax_handle_char.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>The index of the cursor. </td></tr>
@@ -209,7 +219,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Whether or not syntax highlighting is enabled as the user types. </p>
-<p >Switches to the specified syntax state. Used internally by syntax_handle_char.</p>
+<p >Switches to the specified syntax state.</p>
+<p >Used internally by syntax_handle_char.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">state</td><td>The syntax state being switched to. </td></tr>
@@ -235,7 +246,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Disables syntax highlighting as the user types. </p>
+
+<p>Disables syntax highlighting as the user types. </p>
 
 </div>
 </div>
@@ -253,7 +265,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Enables syntax highlighting as the user types. </p>
+
+<p>Enables syntax highlighting as the user types. </p>
 
 </div>
 </div>
@@ -282,7 +295,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index.</p>
+
+<p>Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>The next character that will be output to the screen. </td></tr>
@@ -307,7 +321,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Initializes internal data structures needed for syntax highlighting. </p>
+
+<p>Initializes internal data structures needed for syntax highlighting. </p>
 
 </div>
 </div>

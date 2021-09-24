@@ -13,18 +13,18 @@
 \item 
 void \mbox{\hyperlink{syntax__highlight_8c_aaed43064814c2ef42729e71bbadcf73c}{switch\+\_\+to}} (enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}}, int, int)
 \begin{DoxyCompactList}\small\item\em Whether or not syntax highlighting is enabled as the user types. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{syntax__highlight_8c_a39318f833f527bd72fe820ed4c7b97d1}{color\+\_\+for}} (enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}})
-\item 
-void \mbox{\hyperlink{syntax__highlight_8c_aa9d6b8916489bef5584d7eca99fc6d87}{get\+\_\+state\+\_\+at}} (int, int $\ast$)
-\item 
+void \mbox{\hyperlink{syntax__highlight_8c_a335d32f85bd63e4dac15d8a485a0df4d}{color\+\_\+for}} (enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}} state)
+\begin{DoxyCompactList}\small\item\em Prints the ANSI color code for the specified syntax state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{syntax__highlight_8c_a1cb7c40b079a85723604d8b3256a9f85}{get\+\_\+state\+\_\+at}} (int index, int $\ast$index\+\_\+of\+\_\+state\+\_\+in\+\_\+record)
+\begin{DoxyCompactList}\small\item\em Retrieves the index in the states and switch\+\_\+indexes data structures corresponding to the specified cursor index. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{syntax__highlight_8c_a8982d81a1ac7f95d9c633772f4b9c910}{syntax\+\_\+init}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes internal data structures needed for syntax highlighting. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{syntax__highlight_8c_aae9e3cd30ba3fa463d856cf5e3e2e603}{syntax\+\_\+enable\+\_\+highlighting}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Enables syntax highlighting as the user types. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{syntax__highlight_8c_a071979ddc6be81df5ef330aff3244d8f}{syntax\+\_\+disable\+\_\+highlighting}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Disables syntax highlighting as the user types. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{syntax__highlight_8c_a5d0d3fecb83c8763320c153deb0c7b29}{syntax\+\_\+handle\+\_\+char}} (char c, int index)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,26 +39,34 @@ int \mbox{\hyperlink{syntax__highlight_8c_a03e6cca0c879c0443efb431c30c14f76}{ena
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{syntax__highlight_8c_a39318f833f527bd72fe820ed4c7b97d1}\label{syntax__highlight_8c_a39318f833f527bd72fe820ed4c7b97d1}} 
+\mbox{\Hypertarget{syntax__highlight_8c_a335d32f85bd63e4dac15d8a485a0df4d}\label{syntax__highlight_8c_a335d32f85bd63e4dac15d8a485a0df4d}} 
 \index{syntax\_highlight.c@{syntax\_highlight.c}!color\_for@{color\_for}}
 \index{color\_for@{color\_for}!syntax\_highlight.c@{syntax\_highlight.c}}
 \doxysubsubsection{\texorpdfstring{color\_for()}{color\_for()}}
 {\footnotesize\ttfamily void color\+\_\+for (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}}}]{state }\end{DoxyParamCaption})}
 
-Prints the ANSI color code for the specified syntax state. Used internally by syntax\+\_\+handle\+\_\+char.
+
+
+Prints the ANSI color code for the specified syntax state. 
+
+Used internally by syntax\+\_\+handle\+\_\+char.
 
 
 \begin{DoxyParams}{Parameters}
 {\em state} & The syntax state for which to print the correct color code to the terminal for. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{syntax__highlight_8c_aa9d6b8916489bef5584d7eca99fc6d87}\label{syntax__highlight_8c_aa9d6b8916489bef5584d7eca99fc6d87}} 
+\mbox{\Hypertarget{syntax__highlight_8c_a1cb7c40b079a85723604d8b3256a9f85}\label{syntax__highlight_8c_a1cb7c40b079a85723604d8b3256a9f85}} 
 \index{syntax\_highlight.c@{syntax\_highlight.c}!get\_state\_at@{get\_state\_at}}
 \index{get\_state\_at@{get\_state\_at}!syntax\_highlight.c@{syntax\_highlight.c}}
 \doxysubsubsection{\texorpdfstring{get\_state\_at()}{get\_state\_at()}}
 {\footnotesize\ttfamily void get\+\_\+state\+\_\+at (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int $\ast$}]{index\+\_\+of\+\_\+state\+\_\+in\+\_\+record }\end{DoxyParamCaption})}
 
-Retrieves the index in the states and switch\+\_\+indexes data structures corresponding to the specified cursor index. Used internally by syntax\+\_\+handle\+\_\+char.
+
+
+Retrieves the index in the states and switch\+\_\+indexes data structures corresponding to the specified cursor index. 
+
+Used internally by syntax\+\_\+handle\+\_\+char.
 
 
 \begin{DoxyParams}{Parameters}
@@ -77,7 +85,9 @@ Retrieves the index in the states and switch\+\_\+indexes data structures corres
 
 Whether or not syntax highlighting is enabled as the user types. 
 
-Switches to the specified syntax state. Used internally by syntax\+\_\+handle\+\_\+char.
+Switches to the specified syntax state.
+
+Used internally by syntax\+\_\+handle\+\_\+char.
 
 
 \begin{DoxyParams}{Parameters}
@@ -94,19 +104,29 @@ Switches to the specified syntax state. Used internally by syntax\+\_\+handle\+\
 \doxysubsubsection{\texorpdfstring{syntax\_disable\_highlighting()}{syntax\_disable\_highlighting()}}
 {\footnotesize\ttfamily void syntax\+\_\+disable\+\_\+highlighting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Disables syntax highlighting as the user types. \mbox{\Hypertarget{syntax__highlight_8c_aae9e3cd30ba3fa463d856cf5e3e2e603}\label{syntax__highlight_8c_aae9e3cd30ba3fa463d856cf5e3e2e603}} 
+
+
+Disables syntax highlighting as the user types. 
+
+\mbox{\Hypertarget{syntax__highlight_8c_aae9e3cd30ba3fa463d856cf5e3e2e603}\label{syntax__highlight_8c_aae9e3cd30ba3fa463d856cf5e3e2e603}} 
 \index{syntax\_highlight.c@{syntax\_highlight.c}!syntax\_enable\_highlighting@{syntax\_enable\_highlighting}}
 \index{syntax\_enable\_highlighting@{syntax\_enable\_highlighting}!syntax\_highlight.c@{syntax\_highlight.c}}
 \doxysubsubsection{\texorpdfstring{syntax\_enable\_highlighting()}{syntax\_enable\_highlighting()}}
 {\footnotesize\ttfamily void syntax\+\_\+enable\+\_\+highlighting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Enables syntax highlighting as the user types. \mbox{\Hypertarget{syntax__highlight_8c_a5d0d3fecb83c8763320c153deb0c7b29}\label{syntax__highlight_8c_a5d0d3fecb83c8763320c153deb0c7b29}} 
+
+
+Enables syntax highlighting as the user types. 
+
+\mbox{\Hypertarget{syntax__highlight_8c_a5d0d3fecb83c8763320c153deb0c7b29}\label{syntax__highlight_8c_a5d0d3fecb83c8763320c153deb0c7b29}} 
 \index{syntax\_highlight.c@{syntax\_highlight.c}!syntax\_handle\_char@{syntax\_handle\_char}}
 \index{syntax\_handle\_char@{syntax\_handle\_char}!syntax\_highlight.c@{syntax\_highlight.c}}
 \doxysubsubsection{\texorpdfstring{syntax\_handle\_char()}{syntax\_handle\_char()}}
 {\footnotesize\ttfamily void syntax\+\_\+handle\+\_\+char (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{int}]{index }\end{DoxyParamCaption})}
 
-Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index.
+
+
+Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -121,7 +141,11 @@ Adjusts the terminal color assuming the specified character will immediately be 
 \doxysubsubsection{\texorpdfstring{syntax\_init()}{syntax\_init()}}
 {\footnotesize\ttfamily void syntax\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
 Initializes internal data structures needed for syntax highlighting. 
+
+
 
 \doxysubsection{Variable Documentation}
 \mbox{\Hypertarget{syntax__highlight_8c_a03e6cca0c879c0443efb431c30c14f76}\label{syntax__highlight_8c_a03e6cca0c879c0443efb431c30c14f76}} 

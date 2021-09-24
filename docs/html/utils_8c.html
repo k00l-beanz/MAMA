@@ -19,11 +19,11 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+ <tr id="projectrow">
+  <td id="projectalign">
    <div id="projectname">MAMA
    </div>
-   <div id="projectbrief">MAMA CS 450 Project</div>
+   <div id="projectbrief">CS 450 OS Project</div>
   </td>
  </tr>
  </tbody>
@@ -77,8 +77,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a347a8e5864fe871ff6b10c0052630980"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8c.html#a347a8e5864fe871ff6b10c0052630980">is_name_char</a> (char c)</td></tr>
+<tr class="memdesc:a347a8e5864fe871ff6b10c0052630980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name.  <a href="utils_8c.html#a347a8e5864fe871ff6b10c0052630980">More...</a><br /></td></tr>
 <tr class="separator:a347a8e5864fe871ff6b10c0052630980"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc629b1fcab2bf6c4303dd5fcbcf1ac3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8c.html#acc629b1fcab2bf6c4303dd5fcbcf1ac3">skip_ws</a> (char **c)</td></tr>
+<tr class="memdesc:acc629b1fcab2bf6c4303dd5fcbcf1ac3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the specified pointer to a character buffer forward until it points to the next non-whitespace character.  <a href="utils_8c.html#acc629b1fcab2bf6c4303dd5fcbcf1ac3">More...</a><br /></td></tr>
 <tr class="separator:acc629b1fcab2bf6c4303dd5fcbcf1ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -97,7 +99,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name.</p>
+
+<p>Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>The character to test. </td></tr>
@@ -123,7 +126,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Moves the specified pointer to a character buffer forward until it points to the next non-whitespace character.</p>
+
+<p>Moves the specified pointer to a character buffer forward until it points to the next non-whitespace character. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>A pointer to a pointer to an entry in a character buffer. Will be modified to point to the next non-whitespace character in the buffer. </td></tr>

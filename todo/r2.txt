@@ -14,7 +14,7 @@ User Commands
 	Show all processes [] Abdullah
 	Show ready processes [] Abdullah
 	Show block processes [] Mohammad
-	CreatePCB [] Maximillian 
+	CreatePCB [x] Maximillian 
 	DeletePCB [] Mohammad
 	Block [] Mohammad
 	Unblock [] Maximillian

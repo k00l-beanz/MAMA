@@ -24,7 +24,7 @@ void \mbox{\hyperlink{args_8c_af6f6bf06ce4ca91542c45a2b94cc028a}{stack\+\_\+push
 \item 
 void \mbox{\hyperlink{args_8c_a8fb0d77d46fca442308a594c029bb623}{stack\+\_\+pop}} ()
 \item 
-int \mbox{\hyperlink{args_8c_a4cb832e1dc869736cd79e94770587d4e}{parse\+\_\+args}} (char $\ast$arg\+\_\+str, \mbox{\hyperlink{structparsed__args}{parsed\+\_\+args}} $\ast$args)
+\mbox{\hyperlink{structparsed__args}{parsed\+\_\+args}} $\ast$ \mbox{\hyperlink{args_8c_ab5d3d88fa2dc039460d89a4b0a2f7f7f}{parse\+\_\+args}} (char $\ast$arg\+\_\+str)
 \item 
 int \mbox{\hyperlink{args_8c_aab5cb37daa27a21e9a724fc3c7116b3c}{named\+\_\+arg}} (\mbox{\hyperlink{structparsed__args}{parsed\+\_\+args}} $\ast$args, char $\ast$arg\+\_\+name, char $\ast$$\ast$arg\+\_\+val)
 \item 
@@ -79,11 +79,11 @@ enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State
 \doxysubsubsection{\texorpdfstring{next\_unnamed\_arg()}{next\_unnamed\_arg()}}
 {\footnotesize\ttfamily int next\+\_\+unnamed\+\_\+arg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structparsed__args}{parsed\+\_\+args}} $\ast$}]{args,  }\item[{char $\ast$$\ast$}]{arg\+\_\+val }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{args_8c_a4cb832e1dc869736cd79e94770587d4e}\label{args_8c_a4cb832e1dc869736cd79e94770587d4e}} 
+\mbox{\Hypertarget{args_8c_ab5d3d88fa2dc039460d89a4b0a2f7f7f}\label{args_8c_ab5d3d88fa2dc039460d89a4b0a2f7f7f}} 
 \index{args.c@{args.c}!parse\_args@{parse\_args}}
 \index{parse\_args@{parse\_args}!args.c@{args.c}}
 \doxysubsubsection{\texorpdfstring{parse\_args()}{parse\_args()}}
-{\footnotesize\ttfamily int parse\+\_\+args (\begin{DoxyParamCaption}\item[{char $\ast$}]{arg\+\_\+str,  }\item[{\mbox{\hyperlink{structparsed__args}{parsed\+\_\+args}} $\ast$}]{args }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structparsed__args}{parsed\+\_\+args}} $\ast$ parse\+\_\+args (\begin{DoxyParamCaption}\item[{char $\ast$}]{arg\+\_\+str }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{args_8c_a9ab176223790fbcc85e664dd8262ba46}\label{args_8c_a9ab176223790fbcc85e664dd8262ba46}} 
 \index{args.c@{args.c}!stack\_empty@{stack\_empty}}

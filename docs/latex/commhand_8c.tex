@@ -12,6 +12,7 @@
 {\ttfamily \#include \char`\"{}dnt/dnt.\+c\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}ascii/mama.\+c\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pcb/pcb.\+c\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -28,13 +29,13 @@ typedef struct \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} \mbox{\hy
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{commhand_8c_a2f4ba017d1252af62b83584e64cee010}{is\+\_\+name\+\_\+char}} (char)
-\item 
+\begin{DoxyCompactList}\small\item\em Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{commhand_8c_a2cc0cebdb010b00580b45be948f88261}{extract\+\_\+cmd\+\_\+name}} (char $\ast$, char $\ast$, int $\ast$, int $\ast$)
 \item 
 \mbox{\hyperlink{commhand_8c_a94081df0b3154edd3c47c2ef2f4aadcc}{cmd\+\_\+func\+\_\+t}} \mbox{\hyperlink{commhand_8c_a47c794d5c09edf314e8aa3280b425235}{fetch\+\_\+cmd\+\_\+handler}} (char $\ast$)
 \item 
 int \mbox{\hyperlink{commhand_8c_a14d85617242501c323a203ee196d3efa}{commhand}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Displays command line and interprets inputted commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -64,7 +65,9 @@ const \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} \mbox{\hyperlink{c
 \doxysubsubsection{\texorpdfstring{commhand()}{commhand()}}
 {\footnotesize\ttfamily int commhand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Displays command line and interprets inputted commands
+
+
+Displays command line and interprets inputted commands. 
 
 Parses through the input that was polled from the command line and interprets the command that was inputted (typically the first word)
 
@@ -89,7 +92,9 @@ Returns 0 upon success, -\/1 upon error
 \doxysubsubsection{\texorpdfstring{is\_name\_char()}{is\_name\_char()}}
 {\footnotesize\ttfamily int is\+\_\+name\+\_\+char (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
 
-Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name.
+
+
+Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name. 
 
 
 \begin{DoxyParams}{Parameters}

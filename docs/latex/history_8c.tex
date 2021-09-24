@@ -9,18 +9,18 @@
 \item 
 int \mbox{\hyperlink{history_8c_a1a4c5f12484bf92370d49bf3864abdfc}{circular\+\_\+next\+\_\+index}} (int)
 \begin{DoxyCompactList}\small\item\em Whether or not the most recent entry in the user\textquotesingle{}s command history has been discarded by calling hist\+\_\+discard\+\_\+last\+\_\+frame. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{history_8c_a3d8ab02da702516820018e1c99f101a8}{circular\+\_\+prev\+\_\+index}} (int)
-\item 
-void \mbox{\hyperlink{history_8c_a5ba78997ba4c60bdbacf3d37631b43d6}{write\+\_\+hist\+\_\+to\+\_\+buf}} (char $\ast$, int $\ast$, int $\ast$)
-\item 
+int \mbox{\hyperlink{history_8c_ad02156d724be4a0d57b4876b7829b42d}{circular\+\_\+prev\+\_\+index}} (int i)
+\begin{DoxyCompactList}\small\item\em Returns the index immediately preceding the specified index in cmd\+\_\+hist, an array-\/based circular queue containing entries in the user\textquotesingle{}s command history. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{history_8c_a29bc230f76ab2f176c35703511118f62}{write\+\_\+hist\+\_\+to\+\_\+buf}} (char $\ast$buf, int $\ast$index, int $\ast$len)
+\begin{DoxyCompactList}\small\item\em Writes the history entry pointed to by cmd\+\_\+hist\+\_\+current\+\_\+index to the specified buffer and prints the new buffer to the terminal. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{history_8c_aa89cee980a7d228fe49f555363fcba96}{hist\+\_\+rewind}} (char $\ast$internal\+\_\+buf, int $\ast$internal\+\_\+index, int $\ast$internal\+\_\+buf\+\_\+len)
-\item 
+\begin{DoxyCompactList}\small\item\em Moves backwards 1 entry in the user\textquotesingle{}s command history. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{history_8c_aac28a079e6b542b1e0df3389277898b0}{hist\+\_\+forward}} (char $\ast$internal\+\_\+buf, int $\ast$internal\+\_\+index, int $\ast$internal\+\_\+buf\+\_\+len)
-\item 
+\begin{DoxyCompactList}\small\item\em Moves forwards 1 entry in the user\textquotesingle{}s command history. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{history_8c_a891d01cf115df52caf35c4e543072efd}{hist\+\_\+discard\+\_\+last\+\_\+frame}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Removes the most recent command input from the user from the user\textquotesingle{}s command history. \end{DoxyCompactList}\item 
 char $\ast$ \mbox{\hyperlink{history_8c_a89f377730416439788a796f46a97a883}{hist\+\_\+next\+\_\+frame}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Requests a buffer to write user input to that will become the most recent entry in the user\textquotesingle{}s command history. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -44,13 +44,15 @@ Returns the index immediately following the specified index in cmd\+\_\+hist, an
 \begin{DoxyReturn}{Returns}
 The index of the slot immediately following the slot at index i in cmd\+\_\+hist. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{history_8c_a3d8ab02da702516820018e1c99f101a8}\label{history_8c_a3d8ab02da702516820018e1c99f101a8}} 
+\mbox{\Hypertarget{history_8c_ad02156d724be4a0d57b4876b7829b42d}\label{history_8c_ad02156d724be4a0d57b4876b7829b42d}} 
 \index{history.c@{history.c}!circular\_prev\_index@{circular\_prev\_index}}
 \index{circular\_prev\_index@{circular\_prev\_index}!history.c@{history.c}}
 \doxysubsubsection{\texorpdfstring{circular\_prev\_index()}{circular\_prev\_index()}}
 {\footnotesize\ttfamily int circular\+\_\+prev\+\_\+index (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
 
-Returns the index immediately preceding the specified index in cmd\+\_\+hist, an array-\/based circular queue containing entries in the user\textquotesingle{}s command history.
+
+
+Returns the index immediately preceding the specified index in cmd\+\_\+hist, an array-\/based circular queue containing entries in the user\textquotesingle{}s command history. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -66,13 +68,19 @@ The index of the slot immediately preceding the slot at index i in cmd\+\_\+hist
 \doxysubsubsection{\texorpdfstring{hist\_discard\_last\_frame()}{hist\_discard\_last\_frame()}}
 {\footnotesize\ttfamily void hist\+\_\+discard\+\_\+last\+\_\+frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Removes the most recent command input from the user from the user\textquotesingle{}s command history. \mbox{\Hypertarget{history_8c_aac28a079e6b542b1e0df3389277898b0}\label{history_8c_aac28a079e6b542b1e0df3389277898b0}} 
+
+
+Removes the most recent command input from the user from the user\textquotesingle{}s command history. 
+
+\mbox{\Hypertarget{history_8c_aac28a079e6b542b1e0df3389277898b0}\label{history_8c_aac28a079e6b542b1e0df3389277898b0}} 
 \index{history.c@{history.c}!hist\_forward@{hist\_forward}}
 \index{hist\_forward@{hist\_forward}!history.c@{history.c}}
 \doxysubsubsection{\texorpdfstring{hist\_forward()}{hist\_forward()}}
 {\footnotesize\ttfamily void hist\+\_\+forward (\begin{DoxyParamCaption}\item[{char $\ast$}]{internal\+\_\+buf,  }\item[{int $\ast$}]{internal\+\_\+index,  }\item[{int $\ast$}]{internal\+\_\+buf\+\_\+len }\end{DoxyParamCaption})}
 
-Moves forwards 1 entry in the user\textquotesingle{}s command history.
+
+
+Moves forwards 1 entry in the user\textquotesingle{}s command history. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -89,7 +97,9 @@ Moves forwards 1 entry in the user\textquotesingle{}s command history.
 \doxysubsubsection{\texorpdfstring{hist\_next\_frame()}{hist\_next\_frame()}}
 {\footnotesize\ttfamily char $\ast$ hist\+\_\+next\+\_\+frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Requests a buffer to write user input to that will become the most recent entry in the user\textquotesingle{}s command history.
+
+
+Requests a buffer to write user input to that will become the most recent entry in the user\textquotesingle{}s command history. 
 
 \begin{DoxyReturn}{Returns}
 A pointer to the first slot in a character buffer representing the next entry in the user\textquotesingle{}s command history. 
@@ -100,7 +110,9 @@ A pointer to the first slot in a character buffer representing the next entry in
 \doxysubsubsection{\texorpdfstring{hist\_rewind()}{hist\_rewind()}}
 {\footnotesize\ttfamily void hist\+\_\+rewind (\begin{DoxyParamCaption}\item[{char $\ast$}]{internal\+\_\+buf,  }\item[{int $\ast$}]{internal\+\_\+index,  }\item[{int $\ast$}]{internal\+\_\+buf\+\_\+len }\end{DoxyParamCaption})}
 
-Moves backwards 1 entry in the user\textquotesingle{}s command history.
+
+
+Moves backwards 1 entry in the user\textquotesingle{}s command history. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -111,13 +123,17 @@ Moves backwards 1 entry in the user\textquotesingle{}s command history.
 {\em internal\+\_\+buf\+\_\+len} & A pointer to the length of the buffer containing user input to the terminal. Will be adjusted to contain the length of the history entry being written to the buffer. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{history_8c_a5ba78997ba4c60bdbacf3d37631b43d6}\label{history_8c_a5ba78997ba4c60bdbacf3d37631b43d6}} 
+\mbox{\Hypertarget{history_8c_a29bc230f76ab2f176c35703511118f62}\label{history_8c_a29bc230f76ab2f176c35703511118f62}} 
 \index{history.c@{history.c}!write\_hist\_to\_buf@{write\_hist\_to\_buf}}
 \index{write\_hist\_to\_buf@{write\_hist\_to\_buf}!history.c@{history.c}}
 \doxysubsubsection{\texorpdfstring{write\_hist\_to\_buf()}{write\_hist\_to\_buf()}}
 {\footnotesize\ttfamily void write\+\_\+hist\+\_\+to\+\_\+buf (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{int $\ast$}]{index,  }\item[{int $\ast$}]{len }\end{DoxyParamCaption})}
 
-Writes the history entry pointed to by cmd\+\_\+hist\+\_\+current\+\_\+index to the specified buffer and prints the new buffer to the terminal. Used internally by hist\+\_\+rewind and hist\+\_\+forward.
+
+
+Writes the history entry pointed to by cmd\+\_\+hist\+\_\+current\+\_\+index to the specified buffer and prints the new buffer to the terminal. 
+
+Used internally by hist\+\_\+rewind and hist\+\_\+forward.
 
 
 \begin{DoxyParams}{Parameters}

@@ -39,27 +39,27 @@
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{dnt_8h_ab434e4f99f9d3687be837492216455d5}{setdate}} (char $\ast$date)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the date of the system. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{dnt_8h_a0977b9d4967b5c76520da73ce07cc180}{set\+Date\+In\+Memory}} (int month, int day, int year)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the date in memory. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{dnt_8h_a1b6c333c9d6fb565020fcb5de3d2b90d}{getdate}} (char $\ast$p)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the date of the system. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{dnt_8h_a486f150e717e9d85dc522465496ef1a3}{settime}} (char $\ast$time)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the time of the system. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{dnt_8h_af5a6a624923447ee9d56401abc4962d3}{set\+Time\+In\+Memory}} (int hour, int minute, int second)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the time into memory. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{dnt_8h_a8adbb1f302ef7d45187a37bec630abcd}{gettime}} (char $\ast$p)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the system time. \end{DoxyCompactList}\item 
 unsigned char \mbox{\hyperlink{dnt_8h_aa556d0707a7942a589bd20f0f229b0cb}{Ito\+BCD}} (unsigned int value)
-\item 
+\begin{DoxyCompactList}\small\item\em Converts 32-\/bit integer to 8-\/bit BCD. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{dnt_8h_a25d183b9180e03fbd0a132749bfba7a3}{BCDtoI}} (unsigned char value)
-\item 
+\begin{DoxyCompactList}\small\item\em Converts 8-\/bit BCD to 32-\/bit integer. \end{DoxyCompactList}\item 
 char $\ast$ \mbox{\hyperlink{dnt_8h_ac69caa79c44abf14cb2484e0b4e6c8db}{int\+To\+Month}} (int value)
-\item 
+\begin{DoxyCompactList}\small\item\em Converts integer to a string month. \end{DoxyCompactList}\item 
 char $\ast$ \mbox{\hyperlink{dnt_8h_a3610dc3b9c692a029fccae0faf859533}{int\+To\+Day\+Of\+Week}} (int value)
-\item 
+\begin{DoxyCompactList}\small\item\em Converts integer to string day of the week. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{dnt_8h_aea60a64a6b1b56aafc34d2b157768751}{days\+In\+Month}} (int month, int year)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calculates the number of days in a month. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -232,7 +232,9 @@ Minimum year that can be set in memory.
 \doxysubsubsection{\texorpdfstring{BCDtoI()}{BCDtoI()}}
 {\footnotesize\ttfamily unsigned int BCDtoI (\begin{DoxyParamCaption}\item[{unsigned char}]{value }\end{DoxyParamCaption})}
 
-Converts 8-\/bit BCD to 32-\/bit integer
+
+
+Converts 8-\/bit BCD to 32-\/bit integer. 
 
 Converts an 8-\/bit BCD unsigned char to a 32-\/bit unsigned integer.
 
@@ -250,7 +252,9 @@ Returns 32-\/bit unsigned int
 \doxysubsubsection{\texorpdfstring{daysInMonth()}{daysInMonth()}}
 {\footnotesize\ttfamily int days\+In\+Month (\begin{DoxyParamCaption}\item[{int}]{month,  }\item[{int}]{year }\end{DoxyParamCaption})}
 
-Calculates the number of days in a month
+
+
+Calculates the number of days in a month. 
 
 Calculates the number of days in the month based upon which month it is. If year is divisible by four then it is a leap year and will add 1 day for February for a total of 29 days. Otherwise, February will be 28 days.
 
@@ -270,7 +274,9 @@ Returns the number of days in the month
 \doxysubsubsection{\texorpdfstring{getdate()}{getdate()}}
 {\footnotesize\ttfamily int getdate (\begin{DoxyParamCaption}\item[{char $\ast$}]{p }\end{DoxyParamCaption})}
 
-Gets the date of the system
+
+
+Gets the date of the system. 
 
 Returns a string that represents the current date of the system. This is in the format Day\+Of\+Week, Month Day, Year Ex\+: Wednesday, August 25, 2021
 
@@ -288,7 +294,9 @@ Returns 1 upon success, -\/1 upon error
 \doxysubsubsection{\texorpdfstring{gettime()}{gettime()}}
 {\footnotesize\ttfamily int gettime (\begin{DoxyParamCaption}\item[{char $\ast$}]{p }\end{DoxyParamCaption})}
 
-Gets the system time
+
+
+Gets the system time. 
 
 Gets the system time from memory by reading from the corresponding memory address. Time will be writtin to the interface in the syntax of Hour\+:\+Minute\+:Second Ex\+: 10\+:06\+:23
 
@@ -306,7 +314,9 @@ Returns 1 upon success, -\/1 upon error
 \doxysubsubsection{\texorpdfstring{intToDayOfWeek()}{intToDayOfWeek()}}
 {\footnotesize\ttfamily char $\ast$ int\+To\+Day\+Of\+Week (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
 
-Converts integer to string day of the week
+
+
+Converts integer to string day of the week. 
 
 Converts a masked integer into an unmasked string day of the week. The days of the week are Sunday to Saturday and are 1 to 7 respectivley. 1 = Sunday 2 = Monday ... 7 = Saturday
 
@@ -324,7 +334,11 @@ Returns the unasked string value of month
 \doxysubsubsection{\texorpdfstring{intToMonth()}{intToMonth()}}
 {\footnotesize\ttfamily char $\ast$ int\+To\+Month (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
 
-Converts integer to a string month.
+
+
+Converts integer to a string month. 
+
+Converts masked int into string month.
 
 Converts a masked integer into an unmasked string month. The months are January to December and are 1 to 12 respectivley. 1 = January 2 = February ... 13 = December
 
@@ -336,7 +350,17 @@ Converts a masked integer into an unmasked string month. The months are January 
 \begin{DoxyReturn}{Returns}
 Returns unmasked string month
 \end{DoxyReturn}
-Converts masked int into string month
+Converts the masked integer value of month and converts it into an unmasked string of month
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Masked integer month\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns unmasked string of month
+\end{DoxyReturn}
+Converts integer to a string month.
 
 Converts the masked integer value of month and converts it into an unmasked string of month
 
@@ -354,7 +378,9 @@ Returns unmasked string of month
 \doxysubsubsection{\texorpdfstring{ItoBCD()}{ItoBCD()}}
 {\footnotesize\ttfamily unsigned char Ito\+BCD (\begin{DoxyParamCaption}\item[{unsigned int}]{value }\end{DoxyParamCaption})}
 
-Converts 32-\/bit integer to 8-\/bit BCD
+
+
+Converts 32-\/bit integer to 8-\/bit BCD. 
 
 Uses basic arithmetic and bit shifting to convert from 32-\/bit integer to 8-\/bit BCD.
 
@@ -372,7 +398,9 @@ Uses basic arithmetic and bit shifting to convert from 32-\/bit integer to 8-\/b
 \doxysubsubsection{\texorpdfstring{setdate()}{setdate()}}
 {\footnotesize\ttfamily int setdate (\begin{DoxyParamCaption}\item[{char $\ast$}]{date }\end{DoxyParamCaption})}
 
-Sets the date of the system
+
+
+Sets the date of the system. 
 
 Parses the parameter to setdate, breaking the parameter into month, day and year before passing it to set\+Date\+In\+Memory. The basic syntax is month.\+day.\+year
 
@@ -390,7 +418,9 @@ Returns 1 upon success, -\/1 upon error
 \doxysubsubsection{\texorpdfstring{setDateInMemory()}{setDateInMemory()}}
 {\footnotesize\ttfamily int set\+Date\+In\+Memory (\begin{DoxyParamCaption}\item[{int}]{month,  }\item[{int}]{day,  }\item[{int}]{year }\end{DoxyParamCaption})}
 
-Sets the date in memory
+
+
+Sets the date in memory. 
 
 Sets the date in memory by assigning the values to the appropriate places in memory. This method is called by the setdate method.
 
@@ -412,7 +442,9 @@ Returns 1 upon success, -\/1 upon error
 \doxysubsubsection{\texorpdfstring{settime()}{settime()}}
 {\footnotesize\ttfamily int settime (\begin{DoxyParamCaption}\item[{char $\ast$}]{time }\end{DoxyParamCaption})}
 
-Sets the time of the system
+
+
+Sets the time of the system. 
 
 Takes the parameter which will be parsed into 32-\/bit int (later converted to BCD) and sets it into memory. The syntax is Hour.\+Minute.\+Second Ex\+: 10.\+23.\+00
 
@@ -430,7 +462,9 @@ Returns 1 upon success, -\/1 upon error
 \doxysubsubsection{\texorpdfstring{setTimeInMemory()}{setTimeInMemory()}}
 {\footnotesize\ttfamily void set\+Time\+In\+Memory (\begin{DoxyParamCaption}\item[{int}]{hour,  }\item[{int}]{minute,  }\item[{int}]{second }\end{DoxyParamCaption})}
 
-Sets the time into memory
+
+
+Sets the time into memory. 
 
 This method is called by the settime method. Writes the data into memory. First converts all parameter from 32-\/bit int to 8-\/bit BCD and then writes to the appropriate address.
 

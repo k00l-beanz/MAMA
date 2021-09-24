@@ -19,11 +19,11 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+ <tr id="projectrow">
+  <td id="projectalign">
    <div id="projectname">MAMA
    </div>
-   <div id="projectbrief">MAMA CS 450 Project</div>
+   <div id="projectbrief">CS 450 OS Project</div>
   </td>
  </tr>
  </tbody>
@@ -78,6 +78,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a18dc43959682fb7b0d1ec15f4afd3b29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hints_8c.html#a18dc43959682fb7b0d1ec15f4afd3b29">hint_under_prompt</a> (char *str, int len, int ret_index)</td></tr>
+<tr class="memdesc:a18dc43959682fb7b0d1ec15f4afd3b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a line of text under the user's prompt in the terminal.  <a href="hints_8c.html#a18dc43959682fb7b0d1ec15f4afd3b29">More...</a><br /></td></tr>
 <tr class="separator:a18dc43959682fb7b0d1ec15f4afd3b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -112,7 +113,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Writes a line of text under the user's prompt in the terminal. Recommended for providing hints or warnings to the user as they type.</p>
+
+<p>Writes a line of text under the user's prompt in the terminal. </p>
+<p >Recommended for providing hints or warnings to the user as they type.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">str</td><td>The text to write under the user's prompt. </td></tr>

@@ -1,0 +1,105 @@
+\hypertarget{cmds_2pcb_8c}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/term/cmds/pcb.c File Reference}
+\label{cmds_2pcb_8c}\index{/home/maximillian/Desktop/MAMA/term/cmds/pcb.c@{/home/maximillian/Desktop/MAMA/term/cmds/pcb.c}}
+{\ttfamily \#include $<$lib/out.\+h$>$}\newline
+{\ttfamily \#include $<$term/args.\+h$>$}\newline
+{\ttfamily \#include $<$term/pcb/pcb.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{cmds_2pcb_8c_ae0bc08dbedda583ad248fe0ecd313e6f}{cmd\+\_\+pcb\+\_\+set\+\_\+priority}} (char $\ast$args)
+\item 
+int \mbox{\hyperlink{cmds_2pcb_8c_af5be1500402779e9d51036e0a892b6eb}{cmd\+\_\+pcb\+\_\+show}} (char $\ast$args)
+\item 
+int \mbox{\hyperlink{cmds_2pcb_8c_acbf16db55930f1bb3bef691ce43879c8}{cmd\+\_\+pcb\+\_\+show\+\_\+ready}} (char $\ast$args)
+\item 
+int \mbox{\hyperlink{cmds_2pcb_8c_a52dfaf574e869302421d6a69fa965a6b}{cmd\+\_\+pcb\+\_\+show\+\_\+blocked}} (char $\ast$args)
+\item 
+int \mbox{\hyperlink{cmds_2pcb_8c_a2718003983a1ee864ebdfff3f554740a}{cmd\+\_\+pcb\+\_\+show\+\_\+all}} (char $\ast$args)
+\item 
+int \mbox{\hyperlink{cmds_2pcb_8c_a483001d11d7ed5f0a633f66a98b74bc8}{cmd\+\_\+pcb\+\_\+suspend}} (char $\ast$args)
+\item 
+int \mbox{\hyperlink{cmds_2pcb_8c_acfeb138035b884cbabb18a98ed688000}{cmd\+\_\+pcb\+\_\+resume}} (char $\ast$args)
+\item 
+int \mbox{\hyperlink{cmds_2pcb_8c_a0afb717f7b646dae0d40b3ee90b3d7f2}{cmd\+\_\+pcb\+\_\+delete}} (char $\ast$args)
+\item 
+int \mbox{\hyperlink{cmds_2pcb_8c_af62cb446451132364e0f478d4f29f920}{cmd\+\_\+pcb\+\_\+block}} (char $\ast$args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{pcb_8h_a58e7d6c4cdd0ff161b6159964b1bb1f5}{pcb\+\_\+queue\+\_\+t}} $\ast$ \mbox{\hyperlink{cmds_2pcb_8c_ac4c41fbfa755950bed6c67b7c6df9171}{priority\+\_\+queue}}
+\item 
+\mbox{\hyperlink{pcb_8h_a58e7d6c4cdd0ff161b6159964b1bb1f5}{pcb\+\_\+queue\+\_\+t}} $\ast$ \mbox{\hyperlink{cmds_2pcb_8c_a0bb729257e8ba26995a3ff7451f54134}{fifo\+\_\+queue}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cmds_2pcb_8c_af62cb446451132364e0f478d4f29f920}\label{cmds_2pcb_8c_af62cb446451132364e0f478d4f29f920}} 
+\index{pcb.c@{pcb.c}!cmd\_pcb\_block@{cmd\_pcb\_block}}
+\index{cmd\_pcb\_block@{cmd\_pcb\_block}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_pcb\_block()}{cmd\_pcb\_block()}}
+{\footnotesize\ttfamily int cmd\+\_\+pcb\+\_\+block (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cmds_2pcb_8c_a0afb717f7b646dae0d40b3ee90b3d7f2}\label{cmds_2pcb_8c_a0afb717f7b646dae0d40b3ee90b3d7f2}} 
+\index{pcb.c@{pcb.c}!cmd\_pcb\_delete@{cmd\_pcb\_delete}}
+\index{cmd\_pcb\_delete@{cmd\_pcb\_delete}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_pcb\_delete()}{cmd\_pcb\_delete()}}
+{\footnotesize\ttfamily int cmd\+\_\+pcb\+\_\+delete (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cmds_2pcb_8c_acfeb138035b884cbabb18a98ed688000}\label{cmds_2pcb_8c_acfeb138035b884cbabb18a98ed688000}} 
+\index{pcb.c@{pcb.c}!cmd\_pcb\_resume@{cmd\_pcb\_resume}}
+\index{cmd\_pcb\_resume@{cmd\_pcb\_resume}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_pcb\_resume()}{cmd\_pcb\_resume()}}
+{\footnotesize\ttfamily int cmd\+\_\+pcb\+\_\+resume (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cmds_2pcb_8c_ae0bc08dbedda583ad248fe0ecd313e6f}\label{cmds_2pcb_8c_ae0bc08dbedda583ad248fe0ecd313e6f}} 
+\index{pcb.c@{pcb.c}!cmd\_pcb\_set\_priority@{cmd\_pcb\_set\_priority}}
+\index{cmd\_pcb\_set\_priority@{cmd\_pcb\_set\_priority}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_pcb\_set\_priority()}{cmd\_pcb\_set\_priority()}}
+{\footnotesize\ttfamily int cmd\+\_\+pcb\+\_\+set\+\_\+priority (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cmds_2pcb_8c_af5be1500402779e9d51036e0a892b6eb}\label{cmds_2pcb_8c_af5be1500402779e9d51036e0a892b6eb}} 
+\index{pcb.c@{pcb.c}!cmd\_pcb\_show@{cmd\_pcb\_show}}
+\index{cmd\_pcb\_show@{cmd\_pcb\_show}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_pcb\_show()}{cmd\_pcb\_show()}}
+{\footnotesize\ttfamily int cmd\+\_\+pcb\+\_\+show (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cmds_2pcb_8c_a2718003983a1ee864ebdfff3f554740a}\label{cmds_2pcb_8c_a2718003983a1ee864ebdfff3f554740a}} 
+\index{pcb.c@{pcb.c}!cmd\_pcb\_show\_all@{cmd\_pcb\_show\_all}}
+\index{cmd\_pcb\_show\_all@{cmd\_pcb\_show\_all}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_pcb\_show\_all()}{cmd\_pcb\_show\_all()}}
+{\footnotesize\ttfamily int cmd\+\_\+pcb\+\_\+show\+\_\+all (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cmds_2pcb_8c_a52dfaf574e869302421d6a69fa965a6b}\label{cmds_2pcb_8c_a52dfaf574e869302421d6a69fa965a6b}} 
+\index{pcb.c@{pcb.c}!cmd\_pcb\_show\_blocked@{cmd\_pcb\_show\_blocked}}
+\index{cmd\_pcb\_show\_blocked@{cmd\_pcb\_show\_blocked}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_pcb\_show\_blocked()}{cmd\_pcb\_show\_blocked()}}
+{\footnotesize\ttfamily int cmd\+\_\+pcb\+\_\+show\+\_\+blocked (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cmds_2pcb_8c_acbf16db55930f1bb3bef691ce43879c8}\label{cmds_2pcb_8c_acbf16db55930f1bb3bef691ce43879c8}} 
+\index{pcb.c@{pcb.c}!cmd\_pcb\_show\_ready@{cmd\_pcb\_show\_ready}}
+\index{cmd\_pcb\_show\_ready@{cmd\_pcb\_show\_ready}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_pcb\_show\_ready()}{cmd\_pcb\_show\_ready()}}
+{\footnotesize\ttfamily int cmd\+\_\+pcb\+\_\+show\+\_\+ready (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cmds_2pcb_8c_a483001d11d7ed5f0a633f66a98b74bc8}\label{cmds_2pcb_8c_a483001d11d7ed5f0a633f66a98b74bc8}} 
+\index{pcb.c@{pcb.c}!cmd\_pcb\_suspend@{cmd\_pcb\_suspend}}
+\index{cmd\_pcb\_suspend@{cmd\_pcb\_suspend}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_pcb\_suspend()}{cmd\_pcb\_suspend()}}
+{\footnotesize\ttfamily int cmd\+\_\+pcb\+\_\+suspend (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{cmds_2pcb_8c_a0bb729257e8ba26995a3ff7451f54134}\label{cmds_2pcb_8c_a0bb729257e8ba26995a3ff7451f54134}} 
+\index{pcb.c@{pcb.c}!fifo\_queue@{fifo\_queue}}
+\index{fifo\_queue@{fifo\_queue}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{fifo\_queue}{fifo\_queue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pcb_8h_a58e7d6c4cdd0ff161b6159964b1bb1f5}{pcb\+\_\+queue\+\_\+t}}$\ast$ fifo\+\_\+queue\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{cmds_2pcb_8c_ac4c41fbfa755950bed6c67b7c6df9171}\label{cmds_2pcb_8c_ac4c41fbfa755950bed6c67b7c6df9171}} 
+\index{pcb.c@{pcb.c}!priority\_queue@{priority\_queue}}
+\index{priority\_queue@{priority\_queue}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{priority\_queue}{priority\_queue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pcb_8h_a58e7d6c4cdd0ff161b6159964b1bb1f5}{pcb\+\_\+queue\+\_\+t}}$\ast$ priority\+\_\+queue\hspace{0.3cm}{\ttfamily [extern]}}
+

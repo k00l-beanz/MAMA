@@ -19,11 +19,11 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+ <tr id="projectrow">
+  <td id="projectalign">
    <div id="projectname">MAMA
    </div>
-   <div id="projectbrief">MAMA CS 450 Project</div>
+   <div id="projectbrief">CS 450 OS Project</div>
   </td>
  </tr>
  </tbody>
@@ -87,6 +87,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="dnt_8c.html">dnt/dnt.c</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mama_8c.html">ascii/mama.c</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pcb_2pcb_8c.html">pcb/pcb.c</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -103,12 +104,14 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a2f4ba017d1252af62b83584e64cee010"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#a2f4ba017d1252af62b83584e64cee010">is_name_char</a> (char)</td></tr>
+<tr class="memdesc:a2f4ba017d1252af62b83584e64cee010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name.  <a href="commhand_8c.html#a2f4ba017d1252af62b83584e64cee010">More...</a><br /></td></tr>
 <tr class="separator:a2f4ba017d1252af62b83584e64cee010"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cc0cebdb010b00580b45be948f88261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#a2cc0cebdb010b00580b45be948f88261">extract_cmd_name</a> (char *, char *, int *, int *)</td></tr>
 <tr class="separator:a2cc0cebdb010b00580b45be948f88261"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47c794d5c09edf314e8aa3280b425235"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commhand_8c.html#a94081df0b3154edd3c47c2ef2f4aadcc">cmd_func_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#a47c794d5c09edf314e8aa3280b425235">fetch_cmd_handler</a> (char *)</td></tr>
 <tr class="separator:a47c794d5c09edf314e8aa3280b425235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14d85617242501c323a203ee196d3efa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#a14d85617242501c323a203ee196d3efa">commhand</a> ()</td></tr>
+<tr class="memdesc:a14d85617242501c323a203ee196d3efa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays command line and interprets inputted commands.  <a href="commhand_8c.html#a14d85617242501c323a203ee196d3efa">More...</a><br /></td></tr>
 <tr class="separator:a14d85617242501c323a203ee196d3efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -160,7 +163,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Displays command line and interprets inputted commands</p>
+
+<p>Displays command line and interprets inputted commands. </p>
 <p >Parses through the input that was polled from the command line and interprets the command that was inputted (typically the first word)</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success, -1 upon error </dd></dl>
 
@@ -239,7 +243,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name.</p>
+
+<p>Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>The character to test. </td></tr>

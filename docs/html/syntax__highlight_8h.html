@@ -19,11 +19,11 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+ <tr id="projectrow">
+  <td id="projectalign">
    <div id="projectname">MAMA
    </div>
-   <div id="projectbrief">MAMA CS 450 Project</div>
+   <div id="projectbrief">CS 450 OS Project</div>
   </td>
  </tr>
  </tbody>
@@ -96,12 +96,16 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8982d81a1ac7f95d9c633772f4b9c910"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8h.html#a8982d81a1ac7f95d9c633772f4b9c910">syntax_init</a> ()</td></tr>
+<tr class="memdesc:a8982d81a1ac7f95d9c633772f4b9c910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes internal data structures needed for syntax highlighting.  <a href="syntax__highlight_8h.html#a8982d81a1ac7f95d9c633772f4b9c910">More...</a><br /></td></tr>
 <tr class="separator:a8982d81a1ac7f95d9c633772f4b9c910"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae9e3cd30ba3fa463d856cf5e3e2e603"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8h.html#aae9e3cd30ba3fa463d856cf5e3e2e603">syntax_enable_highlighting</a> ()</td></tr>
+<tr class="memdesc:aae9e3cd30ba3fa463d856cf5e3e2e603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables syntax highlighting as the user types.  <a href="syntax__highlight_8h.html#aae9e3cd30ba3fa463d856cf5e3e2e603">More...</a><br /></td></tr>
 <tr class="separator:aae9e3cd30ba3fa463d856cf5e3e2e603"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a071979ddc6be81df5ef330aff3244d8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8h.html#a071979ddc6be81df5ef330aff3244d8f">syntax_disable_highlighting</a> ()</td></tr>
+<tr class="memdesc:a071979ddc6be81df5ef330aff3244d8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables syntax highlighting as the user types.  <a href="syntax__highlight_8h.html#a071979ddc6be81df5ef330aff3244d8f">More...</a><br /></td></tr>
 <tr class="separator:a071979ddc6be81df5ef330aff3244d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a483c96861e05c886bf7f62caeed249b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syntax__highlight_8h.html#a483c96861e05c886bf7f62caeed249b4">syntax_handle_char</a> (char, int)</td></tr>
+<tr class="memdesc:a483c96861e05c886bf7f62caeed249b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index.  <a href="syntax__highlight_8h.html#a483c96861e05c886bf7f62caeed249b4">More...</a><br /></td></tr>
 <tr class="separator:a483c96861e05c886bf7f62caeed249b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -218,7 +222,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Disables syntax highlighting as the user types. </p>
+
+<p>Disables syntax highlighting as the user types. </p>
 
 </div>
 </div>
@@ -236,7 +241,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Enables syntax highlighting as the user types. </p>
+
+<p>Enables syntax highlighting as the user types. </p>
 
 </div>
 </div>
@@ -265,7 +271,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index.</p>
+
+<p>Adjusts the terminal color assuming the specified character will immediately be written to the screen at the specified index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>The next character that will be output to the screen. </td></tr>
@@ -290,7 +297,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Initializes internal data structures needed for syntax highlighting. </p>
+
+<p>Initializes internal data structures needed for syntax highlighting. </p>
 
 </div>
 </div>

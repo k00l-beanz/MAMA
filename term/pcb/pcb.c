@@ -243,53 +243,7 @@ int createPCB(char * args) {
 
 		params++;
 	}
-	/**Creating SetPriority**/
-	/*inserting pcb in the right queue*/
-	int setPriority( char name[30], int newPriority){
-		// creating a local pcb pointer
-		pcb_t *willDelete = findPCB(name);
 
-		// to check if pcb was found
-		if(willDelete == NULL){
-			return 0;
-		}
-				// deleting the pcb with the old status
-			
-				removePCB(willDelete);
-				
-				willDelete -> pcb_priority = newPriority;
-
-				//inserting into the queue
-				insertPCB(willDelete);
-				return 1;
-		}
-
-		
-	int showReady(){
-		// We are removing the tail of ready queue
-		pcb_t *temp = READY.pcbq_head;
-		for(;temp != NULL; temp = temp ->pcbn_next_pcb){
-			showPCB(temp->pcb_name);
-		}
-		return 0;
-	}
-
-
-	int showBlocked(){
-		//we are iterating from the head to tail
-		pcb_t *temp = BLOCKED.pcbq_head;
-		for(;temp != NULL; temp =temp->pcbn_next_pcb){
-			showPCB(temp->pcb_name);
-		}
-		return 0;
-	}
-	int showAll(){
-		showReady();
-		showBlocked();
-		suspended();
-		return 0;
-
-	}
 	/** Error Handling **/
 	/* Check for correct number of parameters */
 	if (params == 1) {
@@ -306,10 +260,10 @@ int createPCB(char * args) {
 		print("Error: Name of the PCB is too long\n",35);
 		return 0;
 	} 
-	/*else if (findPCB(name) != NULL) { TODO: Enable this when findPCB has been written
+	else if (findPCB(name) != NULL) {
 		print("Error: PCB with that name already exists\n",41);
 		return 0;
-	} */
+	} 
 
 	/* Check whether priority is out of bounds */
 	if (priority > MAX_PRIORITY || priority < MIN_PRIORITY) {
@@ -329,5 +283,81 @@ int createPCB(char * args) {
 	/* Insert into PCB queue */
 	insertPCB(pcb);
 
+	return 0;
+}
+
+/**Creating SetPriority**/
+/*inserting pcb in the right queue*/
+int setPriority( char name[30], int newPriority) {
+	// creating a local pcb pointer
+	pcb_t *willDelete = findPCB(name);
+
+	// to check if pcb was found
+	if(willDelete == NULL){
+		return 0;
+	}
+
+	// deleting the pcb with the old status
+	removePCB(willDelete);
+	
+	willDelete->pcb_priority = newPriority;
+
+	//inserting into the queue
+	insertPCB(willDelete);
+	return 1;
+}
+
+
+int showReady(){
+	// We are removing the tail of ready queue
+
+	/* 
+	   Debugging your code for you Abdullah. Hope you don't mind
+	   I think the code I wrote below is what your were going for
+	   but idk what's going through that big brain of yours. I kept your
+	   code below if you wanted to keep working on it.
+		- Maximillian
+	*/
+
+	/* Get the head of the queue */
+	pcb_node_t * temp = priority_queue->pcbq_head;
+	/* while there is another pcb */
+	while (temp->pcbn_next_pcb != NULL) { // this might be while (temp != NULL) idk ... 
+		// showPCB(temp->pcb->pcb_name); Reenable when written
+		temp = temp->pcbn_next_pcb;
+	}
+
+	/*
+	for(;temp != NULL; temp = temp ->pcbn_next_pcb){
+		showPCB(temp->pcb_name);
+	}
+	*/
+	return 0;
+}
+
+int showBlocked(){
+	/* Same as showReady() */
+
+	/* Get the head of the queue */
+	pcb_node_t * temp = fifo_queue->pcbq_head;
+	/* while there is another pcb */
+	while (temp->pcbn_next_pcb != NULL) { // similar as above. May stop 1 node before the tail. idk...
+		// showPCB(temp->pcb->pcb_name); Reenable when written
+		temp = temp->pcbn_next_pcb;
+	}
+
+	/*
+	for(;temp != NULL; temp =temp->pcbn_next_pcb){
+		showPCB(temp->pcb_name);
+	}
+	*/
+
+	return 0;
+}
+
+int showAll(){
+	showReady();
+	showBlocked();
+	// suspended(); Reenable when this has been written.
 	return 0;
 }

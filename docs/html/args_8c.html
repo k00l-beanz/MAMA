@@ -19,11 +19,11 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+ <tr id="projectrow">
+  <td id="projectalign">
    <div id="projectname">MAMA
    </div>
-   <div id="projectbrief">MAMA CS 450 Project</div>
+   <div id="projectbrief">CS 450 OS Project</div>
   </td>
  </tr>
  </tbody>
@@ -98,8 +98,8 @@ Functions</h2></td></tr>
 <tr class="separator:af6f6bf06ce4ca91542c45a2b94cc028a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fb0d77d46fca442308a594c029bb623"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#a8fb0d77d46fca442308a594c029bb623">stack_pop</a> ()</td></tr>
 <tr class="separator:a8fb0d77d46fca442308a594c029bb623"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cb832e1dc869736cd79e94770587d4e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#a4cb832e1dc869736cd79e94770587d4e">parse_args</a> (char *arg_str, <a class="el" href="structparsed__args.html">parsed_args</a> *args)</td></tr>
-<tr class="separator:a4cb832e1dc869736cd79e94770587d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5d3d88fa2dc039460d89a4b0a2f7f7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structparsed__args.html">parsed_args</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#ab5d3d88fa2dc039460d89a4b0a2f7f7f">parse_args</a> (char *arg_str)</td></tr>
+<tr class="separator:ab5d3d88fa2dc039460d89a4b0a2f7f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab5cb37daa27a21e9a724fc3c7116b3c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#aab5cb37daa27a21e9a724fc3c7116b3c">named_arg</a> (<a class="el" href="structparsed__args.html">parsed_args</a> *args, char *arg_name, char **arg_val)</td></tr>
 <tr class="separator:aab5cb37daa27a21e9a724fc3c7116b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3e646d339c958582b4cea1c9ccbe20d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args_8c.html#ab3e646d339c958582b4cea1c9ccbe20d">flag</a> (<a class="el" href="structparsed__args.html">parsed_args</a> *args, char *flag_name)</td></tr>
@@ -258,28 +258,18 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a4cb832e1dc869736cd79e94770587d4e" name="a4cb832e1dc869736cd79e94770587d4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cb832e1dc869736cd79e94770587d4e">&#9670;&nbsp;</a></span>parse_args()</h2>
+<a id="ab5d3d88fa2dc039460d89a4b0a2f7f7f" name="ab5d3d88fa2dc039460d89a4b0a2f7f7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5d3d88fa2dc039460d89a4b0a2f7f7f">&#9670;&nbsp;</a></span>parse_args()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int parse_args </td>
+          <td class="memname"><a class="el" href="structparsed__args.html">parsed_args</a> * parse_args </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>arg_str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>arg_str</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structparsed__args.html">parsed_args</a> *&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -19,11 +19,11 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+ <tr id="projectrow">
+  <td id="projectalign">
    <div id="projectname">MAMA
    </div>
-   <div id="projectbrief">MAMA CS 450 Project</div>
+   <div id="projectbrief">CS 450 OS Project</div>
   </td>
  </tr>
  </tbody>
@@ -78,10 +78,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:afb28ea5314ca9ca2a7cae0d962a6675f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="history_8h.html#afb28ea5314ca9ca2a7cae0d962a6675f">hist_rewind</a> (char *, int *, int *)</td></tr>
+<tr class="memdesc:afb28ea5314ca9ca2a7cae0d962a6675f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves backwards 1 entry in the user's command history.  <a href="history_8h.html#afb28ea5314ca9ca2a7cae0d962a6675f">More...</a><br /></td></tr>
 <tr class="separator:afb28ea5314ca9ca2a7cae0d962a6675f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a6148c95b06c92aac4cb8290b70e8ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="history_8h.html#a6a6148c95b06c92aac4cb8290b70e8ea">hist_forward</a> (char *, int *, int *)</td></tr>
+<tr class="memdesc:a6a6148c95b06c92aac4cb8290b70e8ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves forwards 1 entry in the user's command history.  <a href="history_8h.html#a6a6148c95b06c92aac4cb8290b70e8ea">More...</a><br /></td></tr>
 <tr class="separator:a6a6148c95b06c92aac4cb8290b70e8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89f377730416439788a796f46a97a883"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="history_8h.html#a89f377730416439788a796f46a97a883">hist_next_frame</a> ()</td></tr>
+<tr class="memdesc:a89f377730416439788a796f46a97a883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests a buffer to write user input to that will become the most recent entry in the user's command history.  <a href="history_8h.html#a89f377730416439788a796f46a97a883">More...</a><br /></td></tr>
 <tr class="separator:a89f377730416439788a796f46a97a883"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -116,7 +119,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Moves forwards 1 entry in the user's command history.</p>
+
+<p>Moves forwards 1 entry in the user's command history. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">internal_buf</td><td>The buffer managed by low-level read operations containing user input from the terminal. Contents will be overwritten with the next entry in the user's command history. </td></tr>
@@ -142,7 +146,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Requests a buffer to write user input to that will become the most recent entry in the user's command history.</p>
+
+<p>Requests a buffer to write user input to that will become the most recent entry in the user's command history. </p>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the first slot in a character buffer representing the next entry in the user's command history. </dd></dl>
 
 </div>
@@ -178,7 +183,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Moves backwards 1 entry in the user's command history.</p>
+
+<p>Moves backwards 1 entry in the user's command history. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">internal_buf</td><td>The buffer managed by low-level read operations containing user input from the terminal. Contents will be overwritten with the previous entry in the user's command history. </td></tr>
