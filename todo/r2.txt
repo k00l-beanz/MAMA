@@ -36,3 +36,4 @@ User Commands
 [] update WhoDidWhat.md
 [] Fix R1 time rollover/0 min display issue
 [] Fix R1 date component set order issue
+[] update version cmd
