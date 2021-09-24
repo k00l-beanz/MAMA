@@ -243,7 +243,53 @@ int createPCB(char * args) {
 
 		params++;
 	}
+	/**Creating SetPriority**/
+	/*inserting pcb in the right queue*/
+	int setPriority( char name[30], int newPriority){
+		// creating a local pcb pointer
+		pcb_t *willDelete = findPCB(name);
 
+		// to check if pcb was found
+		if(willDelete == NULL){
+			return 0;
+		}
+				// deleting the pcb with the old status
+			
+				removePCB(willDelete);
+				
+				willDelete -> pcb_priority = newPriority;
+
+				//inserting into the queue
+				insertPCB(willDelete);
+				return 1;
+		}
+
+		
+	int showReady(){
+		// We are removing the tail of ready queue
+		pcb_t *temp = READY.pcbq_head;
+		for(;temp != NULL; temp = temp ->pcbn_next_pcb){
+			showPCB(temp->pcb_name);
+		}
+		return 0;
+	}
+
+
+	int showBlocked(){
+		//we are iterating from the head to tail
+		pcb_t *temp = BLOCKED.pcbq_head;
+		for(;temp != NULL; temp =temp->pcbn_next_pcb){
+			showPCB(temp->pcb_name);
+		}
+		return 0;
+	}
+	int showAll(){
+		showReady();
+		showBlocked();
+		suspended();
+		return 0;
+
+	}
 	/** Error Handling **/
 	/* Check for correct number of parameters */
 	if (params == 1) {
