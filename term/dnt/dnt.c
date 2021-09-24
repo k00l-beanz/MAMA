@@ -75,6 +75,16 @@ int setDateInMemory(int month,int day,int year) {
   BCDyear = ItoBCD(year);
   outb(0x71,BCDyear);
 
+  /* Set day */
+  outb(0x70,0x07);
+  BCDday = ItoBCD(day);
+  outb(0x71,BCDday);
+
+  /* Set day of week */
+  outb(0x70,0x06);
+  BCDdayOfWeek = ItoBCD(day_of_week);
+  outb(0x71,BCDdayOfWeek);
+
   /* Set month */
   outb(0x70,0x08);
   BCDmonth = ItoBCD(month);
