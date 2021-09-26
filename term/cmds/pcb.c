@@ -1,3 +1,4 @@
+/*
 #include <lib/out.h>
 #include <term/args.h>
 #include <term/pcb/pcb.h>
@@ -9,6 +10,7 @@ int cmd_pcb_set_priority(char *args) {
 	(void)args;
 	return 0;
 }
+
 
 int cmd_pcb_show(char *args) {
 	char *pcb_name;
@@ -237,3 +239,5 @@ int cmd_pcb_block(char *args) {
 	}
 	return insertPCB(pcb);
 }
+
+*/

@@ -68,29 +68,46 @@ const cmd_mapping cmd_mappings[] = {
 			&createPCB
 		},
 		{
+			"deletepcb",
+			&deletePCB
+		},
+		{
 			"showpcb",
-			&cmd_pcb_show
+			&showPCB
 		},
 		{
-			"suspend",
-			&cmd_pcb_suspend
+			"showallpcb",
+			&showAll
 		},
 		{
-			"resume",
-			&cmd_pcb_resume
+			"showreadypcb",
+			&showReady
 		},
 		{
-			"delete",
-			&cmd_pcb_delete
+			"showblockedpcb",
+			&showBlocked
 		},
 		{
-			"block",
-			&cmd_pcb_block
+			"blockpcb",
+			&blockPCB
 		},
 		{
-			"resume",
-			&cmd_pcb_resume
+			"unblockpcb",
+			&unblockPCB
 		},
+		{
+			"setprioritypcb",
+			&setPriority
+		},
+		{
+			"resumepcb",
+			&resumePCB
+		},
+		{
+			"suspendpcb",
+			&suspendPCB
+		},
+
 	{
 		"arg-test",
 		&cmd_argtest
@@ -98,9 +115,11 @@ const cmd_mapping cmd_mappings[] = {
         { NULL } // sentinel for end-of-array
 };
 
+
 int is_name_char(char);
 void extract_cmd_name(char *, char *, int *, int *);
 cmd_func_t fetch_cmd_handler(char *);
+
 
 /**
  * Displays command line and interprets inputted commands

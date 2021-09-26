@@ -71,6 +71,84 @@ void helpList();
 */
 void versionHelp();
 
+/**
+ * Help page for createpcb
+ * 
+ * Displays the createpcb help page
+ * 
+*/
+void createpcbHelp();
+
+/**
+ * Help page for deletepcb
+ * 
+ * Displays the deletepcb help page 
+*/
+void deletepcbHelp();
+
+/**
+ * Help page for showpcb
+ * 
+ * Displays the showpcb help page
+*/
+void showpcbHelp();
+
+/**
+ * Help page for showallpcb
+ * 
+ * Displays the showallpcb help page
+*/
+void showallpcbHelp();
+
+/**
+ * Help page for showreadypcb
+ * 
+ * Displays the showreadypcb help page
+*/
+void showreadypcbHelp();
+
+/**
+ * Help page for showblockedpcb
+ * 
+ * Displays the showblockedpcb help page
+*/
+void showblockedpcbHelp();
+
+/**
+ * Help page for block
+ * 
+ * Displays the block help page
+*/
+void blockHelp();
+
+/**
+ * Help page for unblock
+ * 
+ * Displays te unblock help page
+*/
+void unblockHelp();
+
+/**
+ * Help page for setpriority
+ * 
+ * Displays the setpriority help page
+*/
+void setpriorityHelp();
+
+/**
+ * Help page for resume
+ * 
+ * Displays the resume help page
+*/
+void resumeHelp();
+
+/**
+ * Help page for suspend
+ * 
+ * Displays the suspend help page
+*/
+void suspendHelp();
+
 int print(char *, int);
 int printc(char);
 int println(char *, int);

@@ -202,11 +202,13 @@ int createPCB(char * user_input);
  * 
  * @param name Name of the PCB to delete
  * 
+ * @return Return 0 upon success, 1 upon failure
+ * 
 */
-void deletePCB(char * name);
+int deletePCB(char * name);
 
 /**
- * Set PCB state to blocked
+ * Set PCB state to be blocked
  * 
  * Find the PCB name in queue and sets
  * its state to blocked and reinserts it into
@@ -214,7 +216,7 @@ void deletePCB(char * name);
  * 
  * @param name Name of PCB to block
 */
-void blockPCB(char * name);
+int blockPCB(char * name);
 
 /**
  * Set PCB state to unblocked
@@ -223,8 +225,10 @@ void blockPCB(char * name);
  * reinserts it into the appropriate queue
  * 
  * @param name Name of the PCB to unblock 
+ * 
+ * @return Returns 0 upon success, 1 upon error
 */
-void unblockPCB(char * name);
+int unblockPCB(char * name);
 
 /**
  * Set PCB state to suspended
@@ -233,8 +237,10 @@ void unblockPCB(char * name);
  * and reinserts into appropriate queue
  * 
  * @param name Name of PCB to suspend
+ * 
+ * @return Returns 0 upon success, 1 upon error
 */
-void suspendPCB(char * name);
+int suspendPCB(char * name);
 
 /**
  * Set PCB state to resume
@@ -244,8 +250,9 @@ void suspendPCB(char * name);
  * 
  * @param name Name of PCB to resume 
  * 
+ * @return Returns 0 upon success, 1 upon error
 */
-void resumePCB(char * name);
+int resumePCB(char * name);
 
 /**
  * Set a new priority to a PCB
@@ -253,10 +260,11 @@ void resumePCB(char * name);
  * Sets a PCB's priority and reinserts the process into
  * the correct place in the correct queue
  * 
- * @param name Name of PCB that will have it's priority changed
- * @param priority The new priority that will be set in the PCB 
+ * @param args Name of the PCB and new priority (PCB_NAME.PRIORITY)
+ * 
+ * @return Returns 0 upon success, 1 upon error 
 */
-int setPriority(char * name, int priority);
+int setPriority(char * args);
 
 /**
  * Show informatino of PCB
@@ -275,8 +283,12 @@ int showPCB(char * name);
  * Display information for each PCB in the ready queue.
  * The information that is displayed is: Process Name, Class,
  * State, Suspended Status, Priority
+ * 
+ * @param p Empty parameters.
+ * 
+ * @return 0 upon success, 1 upon failure
 */
-int showReady();
+int showReady(char * p);
 
 /**
  * Show PCBs in blocked queue
@@ -286,7 +298,7 @@ int showReady();
  * State, Suspended Status, Priority.
  * 
 */
-int showBlocked();
+int showBlocked(char * args);
 
 /**
  * Show all PCBs
@@ -294,7 +306,11 @@ int showBlocked();
  * Display information for each PCB in the ready and blocked queue.
  * The information that is displayed is: Process Name, Class,
  * State, Suspended Status, Priority. 
+ * 
+ * @params args Empty params
+ * 
+ * @return Returns 0 upon success, 1 upon error
 */
-int showAll();
+int showAll(char * args);
 
 #endif

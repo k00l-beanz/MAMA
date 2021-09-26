@@ -15,5 +15,4 @@
 #define MAX_CMD_UNNAMED_ARG_COUNT 10
 
 int commhand();
-
 #endif

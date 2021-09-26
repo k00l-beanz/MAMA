@@ -5,6 +5,7 @@
 {\ttfamily \#include $<$include/string.\+h$>$}\newline
 {\ttfamily \#include $<$lib/out.\+h$>$}\newline
 {\ttfamily \#include $<$term/utils.\+h$>$}\newline
+{\ttfamily \#include $<$term/args.\+h$>$}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -24,14 +25,26 @@ int \mbox{\hyperlink{pcb_2pcb_8c_a699935a9f062569a0ca42dd52171813b}{remove\+PCB}
 \begin{DoxyCompactList}\small\item\em Removes PCB from Queue. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pcb_2pcb_8c_a3efafd1705275db79aee34f9009ec108}{create\+PCB}} (char $\ast$args)
 \begin{DoxyCompactList}\small\item\em Create a PCB. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{pcb_2pcb_8c_a9a2fae091487cbf25c1a764f1a49ec82}{set\+Priority}} (char name\mbox{[}30\mbox{]}, int new\+Priority)
+int \mbox{\hyperlink{pcb_2pcb_8c_a1ddbf25685d397d3c2a1f709485a0806}{set\+Priority}} (char $\ast$args)
 \begin{DoxyCompactList}\small\item\em Creating Set\+Priority. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{pcb_2pcb_8c_a5e17375cd78085fdfd675650218bc9b2}{show\+Ready}} ()
+int \mbox{\hyperlink{pcb_2pcb_8c_afe5d705bc975a79464e8d3ae458be508}{show\+PCB}} (char $\ast$args)
+\begin{DoxyCompactList}\small\item\em Show informatino of PCB. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{pcb_2pcb_8c_a8b053cb6751a4b9106f65c190c16fb13}{show\+Ready}} (char $\ast$args)
 \begin{DoxyCompactList}\small\item\em Show PCBs in ready queue. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{pcb_2pcb_8c_ac949130b761417d550446e24660aa2e7}{show\+Blocked}} ()
+int \mbox{\hyperlink{pcb_2pcb_8c_ace2e002e42c2ce2929436e767ba30f5d}{show\+Blocked}} (char $\ast$args)
 \begin{DoxyCompactList}\small\item\em Show PCBs in blocked queue. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{pcb_2pcb_8c_a28f8998a98c162391d51869228696869}{show\+All}} ()
-\begin{DoxyCompactList}\small\item\em Show all PCBs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \mbox{\hyperlink{pcb_2pcb_8c_a265523e034df978d83da7bb1f0ed209f}{show\+All}} (char $\ast$args)
+\begin{DoxyCompactList}\small\item\em Show all PCBs. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{pcb_2pcb_8c_a91736b2b1952b9bfd4532bd341065899}{suspend\+PCB}} (char $\ast$args)
+\begin{DoxyCompactList}\small\item\em Set PCB state to suspended. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{pcb_2pcb_8c_ab3fc9f19ba0388566ef0d05aa96d8807}{resume\+PCB}} (char $\ast$args)
+\begin{DoxyCompactList}\small\item\em Set PCB state to resume. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{pcb_2pcb_8c_a6afa36fd94d93283ed23ccd5176e6c57}{delete\+PCB}} (char $\ast$args)
+\begin{DoxyCompactList}\small\item\em Delete PCB. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{pcb_2pcb_8c_ab54e65e3f05a13f84090f6ddebfc7f5a}{block\+PCB}} (char $\ast$args)
+\begin{DoxyCompactList}\small\item\em Set PCB state to be blocked. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{pcb_2pcb_8c_a9be98649f5ef1f42228d3930c256f25c}{unblock\+PCB}} (char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Set PCB state to unblocked. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -61,6 +74,23 @@ Allocates memory for a new PCB in the stack and performs actions to initialize P
 \begin{DoxyReturn}{Returns}
 Pointer to newly created PCB, NULL otherwise 
 \end{DoxyReturn}
+\mbox{\Hypertarget{pcb_2pcb_8c_ab54e65e3f05a13f84090f6ddebfc7f5a}\label{pcb_2pcb_8c_ab54e65e3f05a13f84090f6ddebfc7f5a}} 
+\index{pcb.c@{pcb.c}!blockPCB@{blockPCB}}
+\index{blockPCB@{blockPCB}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{blockPCB()}{blockPCB()}}
+{\footnotesize\ttfamily int block\+PCB (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Set PCB state to be blocked. 
+
+Find the PCB name in queue and sets its state to blocked and reinserts it into the appropriate queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of PCB to block \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{pcb_2pcb_8c_a3efafd1705275db79aee34f9009ec108}\label{pcb_2pcb_8c_a3efafd1705275db79aee34f9009ec108}} 
 \index{pcb.c@{pcb.c}!createPCB@{createPCB}}
 \index{createPCB@{createPCB}!pcb.c@{pcb.c}}
@@ -88,7 +118,27 @@ Returns 1 upon success, Otherwise 0
 \end{DoxyReturn}
 Parse the user input
 
-Error Handling\mbox{\Hypertarget{pcb_2pcb_8c_a1fa60245485ed68db75b4626b44681ae}\label{pcb_2pcb_8c_a1fa60245485ed68db75b4626b44681ae}} 
+Error Handling\mbox{\Hypertarget{pcb_2pcb_8c_a6afa36fd94d93283ed23ccd5176e6c57}\label{pcb_2pcb_8c_a6afa36fd94d93283ed23ccd5176e6c57}} 
+\index{pcb.c@{pcb.c}!deletePCB@{deletePCB}}
+\index{deletePCB@{deletePCB}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{deletePCB()}{deletePCB()}}
+{\footnotesize\ttfamily int delete\+PCB (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Delete PCB. 
+
+Will remove a PCB from the appropriate queue and free all associated memory. Will find the PCB in the queue, unlink it and free it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the PCB to delete\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success, 1 upon failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_2pcb_8c_a1fa60245485ed68db75b4626b44681ae}\label{pcb_2pcb_8c_a1fa60245485ed68db75b4626b44681ae}} 
 \index{pcb.c@{pcb.c}!findPCB@{findPCB}}
 \index{findPCB@{findPCB}!pcb.c@{pcb.c}}
 \doxysubsubsection{\texorpdfstring{findPCB()}{findPCB()}}
@@ -178,17 +228,37 @@ Removes specified PCB from queue it is stored in.
 \begin{DoxyReturn}{Returns}
 Returns 1 upon success, 0 upon error 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pcb_2pcb_8c_a9a2fae091487cbf25c1a764f1a49ec82}\label{pcb_2pcb_8c_a9a2fae091487cbf25c1a764f1a49ec82}} 
+\mbox{\Hypertarget{pcb_2pcb_8c_ab3fc9f19ba0388566ef0d05aa96d8807}\label{pcb_2pcb_8c_ab3fc9f19ba0388566ef0d05aa96d8807}} 
+\index{pcb.c@{pcb.c}!resumePCB@{resumePCB}}
+\index{resumePCB@{resumePCB}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{resumePCB()}{resumePCB()}}
+{\footnotesize\ttfamily int resume\+PCB (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Set PCB state to resume. 
+
+Places a PCB into a not suspended state and reinserts into the appropriate queue
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of PCB to resume\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, 1 upon error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_2pcb_8c_a1ddbf25685d397d3c2a1f709485a0806}\label{pcb_2pcb_8c_a1ddbf25685d397d3c2a1f709485a0806}} 
 \index{pcb.c@{pcb.c}!setPriority@{setPriority}}
 \index{setPriority@{setPriority}!pcb.c@{pcb.c}}
 \doxysubsubsection{\texorpdfstring{setPriority()}{setPriority()}}
-{\footnotesize\ttfamily int set\+Priority (\begin{DoxyParamCaption}\item[{char}]{name\mbox{[}30\mbox{]},  }\item[{int}]{new\+Priority }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int set\+Priority (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
 
 
 
 Creating Set\+Priority. 
 
-\mbox{\Hypertarget{pcb_2pcb_8c_ac8f8f8a5f4c9c54ea50bbfca61182afc}\label{pcb_2pcb_8c_ac8f8f8a5f4c9c54ea50bbfca61182afc}} 
+Set a new priority to a PCB. \mbox{\Hypertarget{pcb_2pcb_8c_ac8f8f8a5f4c9c54ea50bbfca61182afc}\label{pcb_2pcb_8c_ac8f8f8a5f4c9c54ea50bbfca61182afc}} 
 \index{pcb.c@{pcb.c}!setupPCB@{setupPCB}}
 \index{setupPCB@{setupPCB}!pcb.c@{pcb.c}}
 \doxysubsubsection{\texorpdfstring{setupPCB()}{setupPCB()}}
@@ -212,37 +282,111 @@ Allocates and fill memory associated with the PCB being created. This is accompl
 \begin{DoxyReturn}{Returns}
 Returns pointer to PCB upon success, NULL otherwise 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pcb_2pcb_8c_a28f8998a98c162391d51869228696869}\label{pcb_2pcb_8c_a28f8998a98c162391d51869228696869}} 
+\mbox{\Hypertarget{pcb_2pcb_8c_a265523e034df978d83da7bb1f0ed209f}\label{pcb_2pcb_8c_a265523e034df978d83da7bb1f0ed209f}} 
 \index{pcb.c@{pcb.c}!showAll@{showAll}}
 \index{showAll@{showAll}!pcb.c@{pcb.c}}
 \doxysubsubsection{\texorpdfstring{showAll()}{showAll()}}
-{\footnotesize\ttfamily int show\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int show\+All (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
 
 
 
 Show all PCBs. 
 
-Display information for each PCB in the ready and blocked queue. The information that is displayed is\+: Process Name, Class, State, Suspended Status, Priority. \mbox{\Hypertarget{pcb_2pcb_8c_ac949130b761417d550446e24660aa2e7}\label{pcb_2pcb_8c_ac949130b761417d550446e24660aa2e7}} 
+Display information for each PCB in the ready and blocked queue. The information that is displayed is\+: Process Name, Class, State, Suspended Status, Priority.
+
+@params args Empty params
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, 1 upon error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_2pcb_8c_ace2e002e42c2ce2929436e767ba30f5d}\label{pcb_2pcb_8c_ace2e002e42c2ce2929436e767ba30f5d}} 
 \index{pcb.c@{pcb.c}!showBlocked@{showBlocked}}
 \index{showBlocked@{showBlocked}!pcb.c@{pcb.c}}
 \doxysubsubsection{\texorpdfstring{showBlocked()}{showBlocked()}}
-{\footnotesize\ttfamily int show\+Blocked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int show\+Blocked (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
 
 
 
 Show PCBs in blocked queue. 
 
-Display information for each PCB in the blocked queue. The information that is displayed is\+: Process Name, Class, State, Suspended Status, Priority. \mbox{\Hypertarget{pcb_2pcb_8c_a5e17375cd78085fdfd675650218bc9b2}\label{pcb_2pcb_8c_a5e17375cd78085fdfd675650218bc9b2}} 
+Display information for each PCB in the blocked queue. The information that is displayed is\+: Process Name, Class, State, Suspended Status, Priority. \mbox{\Hypertarget{pcb_2pcb_8c_afe5d705bc975a79464e8d3ae458be508}\label{pcb_2pcb_8c_afe5d705bc975a79464e8d3ae458be508}} 
+\index{pcb.c@{pcb.c}!showPCB@{showPCB}}
+\index{showPCB@{showPCB}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{showPCB()}{showPCB()}}
+{\footnotesize\ttfamily int show\+PCB (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Show informatino of PCB. 
+
+Display information of the PCB. The information that is displayed is\+: Process Name, Class, State, Suspended Status and Priority
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of PCB to have its information displayed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{pcb_2pcb_8c_a8b053cb6751a4b9106f65c190c16fb13}\label{pcb_2pcb_8c_a8b053cb6751a4b9106f65c190c16fb13}} 
 \index{pcb.c@{pcb.c}!showReady@{showReady}}
 \index{showReady@{showReady}!pcb.c@{pcb.c}}
 \doxysubsubsection{\texorpdfstring{showReady()}{showReady()}}
-{\footnotesize\ttfamily int show\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int show\+Ready (\begin{DoxyParamCaption}\item[{char $\ast$}]{p }\end{DoxyParamCaption})}
 
 
 
 Show PCBs in ready queue. 
 
-Display information for each PCB in the ready queue. The information that is displayed is\+: Process Name, Class, State, Suspended Status, Priority 
+Display information for each PCB in the ready queue. The information that is displayed is\+: Process Name, Class, State, Suspended Status, Priority
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Empty parameters.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 upon failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_2pcb_8c_a91736b2b1952b9bfd4532bd341065899}\label{pcb_2pcb_8c_a91736b2b1952b9bfd4532bd341065899}} 
+\index{pcb.c@{pcb.c}!suspendPCB@{suspendPCB}}
+\index{suspendPCB@{suspendPCB}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{suspendPCB()}{suspendPCB()}}
+{\footnotesize\ttfamily int suspend\+PCB (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Set PCB state to suspended. 
+
+Places a PCB state into suspended and reinserts into appropriate queue
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of PCB to suspend\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, 1 upon error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_2pcb_8c_a9be98649f5ef1f42228d3930c256f25c}\label{pcb_2pcb_8c_a9be98649f5ef1f42228d3930c256f25c}} 
+\index{pcb.c@{pcb.c}!unblockPCB@{unblockPCB}}
+\index{unblockPCB@{unblockPCB}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{unblockPCB()}{unblockPCB()}}
+{\footnotesize\ttfamily int unblock\+PCB (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Set PCB state to unblocked. 
+
+Sets PCB state into unblocked and reinserts it into the appropriate queue
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the PCB to unblock\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, 1 upon error 
+\end{DoxyReturn}
+
 
 \doxysubsection{Variable Documentation}
 \mbox{\Hypertarget{pcb_2pcb_8c_a58df49d4ee18ae41d37f152507b1026f}\label{pcb_2pcb_8c_a58df49d4ee18ae41d37f152507b1026f}} 

@@ -78,6 +78,7 @@ $(function() {
 <code>#include &lt;<a class="el" href="string_8h_source.html">include/string.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="out_8h_source.html">lib/out.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="utils_8h_source.html">term/utils.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="args_8h_source.html">term/args.h</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -105,18 +106,36 @@ Functions</h2></td></tr>
 <tr class="memitem:a3efafd1705275db79aee34f9009ec108"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a3efafd1705275db79aee34f9009ec108">createPCB</a> (char *args)</td></tr>
 <tr class="memdesc:a3efafd1705275db79aee34f9009ec108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a PCB.  <a href="pcb_2pcb_8c.html#a3efafd1705275db79aee34f9009ec108">More...</a><br /></td></tr>
 <tr class="separator:a3efafd1705275db79aee34f9009ec108"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a2fae091487cbf25c1a764f1a49ec82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a9a2fae091487cbf25c1a764f1a49ec82">setPriority</a> (char name[30], int newPriority)</td></tr>
-<tr class="memdesc:a9a2fae091487cbf25c1a764f1a49ec82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creating SetPriority.  <a href="pcb_2pcb_8c.html#a9a2fae091487cbf25c1a764f1a49ec82">More...</a><br /></td></tr>
-<tr class="separator:a9a2fae091487cbf25c1a764f1a49ec82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e17375cd78085fdfd675650218bc9b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a5e17375cd78085fdfd675650218bc9b2">showReady</a> ()</td></tr>
-<tr class="memdesc:a5e17375cd78085fdfd675650218bc9b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show PCBs in ready queue.  <a href="pcb_2pcb_8c.html#a5e17375cd78085fdfd675650218bc9b2">More...</a><br /></td></tr>
-<tr class="separator:a5e17375cd78085fdfd675650218bc9b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac949130b761417d550446e24660aa2e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#ac949130b761417d550446e24660aa2e7">showBlocked</a> ()</td></tr>
-<tr class="memdesc:ac949130b761417d550446e24660aa2e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show PCBs in blocked queue.  <a href="pcb_2pcb_8c.html#ac949130b761417d550446e24660aa2e7">More...</a><br /></td></tr>
-<tr class="separator:ac949130b761417d550446e24660aa2e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28f8998a98c162391d51869228696869"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a28f8998a98c162391d51869228696869">showAll</a> ()</td></tr>
-<tr class="memdesc:a28f8998a98c162391d51869228696869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show all PCBs.  <a href="pcb_2pcb_8c.html#a28f8998a98c162391d51869228696869">More...</a><br /></td></tr>
-<tr class="separator:a28f8998a98c162391d51869228696869"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ddbf25685d397d3c2a1f709485a0806"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a1ddbf25685d397d3c2a1f709485a0806">setPriority</a> (char *args)</td></tr>
+<tr class="memdesc:a1ddbf25685d397d3c2a1f709485a0806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creating SetPriority.  <a href="pcb_2pcb_8c.html#a1ddbf25685d397d3c2a1f709485a0806">More...</a><br /></td></tr>
+<tr class="separator:a1ddbf25685d397d3c2a1f709485a0806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe5d705bc975a79464e8d3ae458be508"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#afe5d705bc975a79464e8d3ae458be508">showPCB</a> (char *args)</td></tr>
+<tr class="memdesc:afe5d705bc975a79464e8d3ae458be508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show informatino of PCB.  <a href="pcb_2pcb_8c.html#afe5d705bc975a79464e8d3ae458be508">More...</a><br /></td></tr>
+<tr class="separator:afe5d705bc975a79464e8d3ae458be508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b053cb6751a4b9106f65c190c16fb13"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a8b053cb6751a4b9106f65c190c16fb13">showReady</a> (char *args)</td></tr>
+<tr class="memdesc:a8b053cb6751a4b9106f65c190c16fb13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show PCBs in ready queue.  <a href="pcb_2pcb_8c.html#a8b053cb6751a4b9106f65c190c16fb13">More...</a><br /></td></tr>
+<tr class="separator:a8b053cb6751a4b9106f65c190c16fb13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace2e002e42c2ce2929436e767ba30f5d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#ace2e002e42c2ce2929436e767ba30f5d">showBlocked</a> (char *args)</td></tr>
+<tr class="memdesc:ace2e002e42c2ce2929436e767ba30f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show PCBs in blocked queue.  <a href="pcb_2pcb_8c.html#ace2e002e42c2ce2929436e767ba30f5d">More...</a><br /></td></tr>
+<tr class="separator:ace2e002e42c2ce2929436e767ba30f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a265523e034df978d83da7bb1f0ed209f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a265523e034df978d83da7bb1f0ed209f">showAll</a> (char *args)</td></tr>
+<tr class="memdesc:a265523e034df978d83da7bb1f0ed209f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show all PCBs.  <a href="pcb_2pcb_8c.html#a265523e034df978d83da7bb1f0ed209f">More...</a><br /></td></tr>
+<tr class="separator:a265523e034df978d83da7bb1f0ed209f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91736b2b1952b9bfd4532bd341065899"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a91736b2b1952b9bfd4532bd341065899">suspendPCB</a> (char *args)</td></tr>
+<tr class="memdesc:a91736b2b1952b9bfd4532bd341065899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PCB state to suspended.  <a href="pcb_2pcb_8c.html#a91736b2b1952b9bfd4532bd341065899">More...</a><br /></td></tr>
+<tr class="separator:a91736b2b1952b9bfd4532bd341065899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3fc9f19ba0388566ef0d05aa96d8807"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#ab3fc9f19ba0388566ef0d05aa96d8807">resumePCB</a> (char *args)</td></tr>
+<tr class="memdesc:ab3fc9f19ba0388566ef0d05aa96d8807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PCB state to resume.  <a href="pcb_2pcb_8c.html#ab3fc9f19ba0388566ef0d05aa96d8807">More...</a><br /></td></tr>
+<tr class="separator:ab3fc9f19ba0388566ef0d05aa96d8807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6afa36fd94d93283ed23ccd5176e6c57"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a6afa36fd94d93283ed23ccd5176e6c57">deletePCB</a> (char *args)</td></tr>
+<tr class="memdesc:a6afa36fd94d93283ed23ccd5176e6c57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete PCB.  <a href="pcb_2pcb_8c.html#a6afa36fd94d93283ed23ccd5176e6c57">More...</a><br /></td></tr>
+<tr class="separator:a6afa36fd94d93283ed23ccd5176e6c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab54e65e3f05a13f84090f6ddebfc7f5a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#ab54e65e3f05a13f84090f6ddebfc7f5a">blockPCB</a> (char *args)</td></tr>
+<tr class="memdesc:ab54e65e3f05a13f84090f6ddebfc7f5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PCB state to be blocked.  <a href="pcb_2pcb_8c.html#ab54e65e3f05a13f84090f6ddebfc7f5a">More...</a><br /></td></tr>
+<tr class="separator:ab54e65e3f05a13f84090f6ddebfc7f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be98649f5ef1f42228d3930c256f25c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a9be98649f5ef1f42228d3930c256f25c">unblockPCB</a> (char *name)</td></tr>
+<tr class="memdesc:a9be98649f5ef1f42228d3930c256f25c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PCB state to unblocked.  <a href="pcb_2pcb_8c.html#a9be98649f5ef1f42228d3930c256f25c">More...</a><br /></td></tr>
+<tr class="separator:a9be98649f5ef1f42228d3930c256f25c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -151,6 +170,33 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ab54e65e3f05a13f84090f6ddebfc7f5a" name="ab54e65e3f05a13f84090f6ddebfc7f5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab54e65e3f05a13f84090f6ddebfc7f5a">&#9670;&nbsp;</a></span>blockPCB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int blockPCB </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set PCB state to be blocked. </p>
+<p >Find the PCB name in queue and sets its state to blocked and reinserts it into the appropriate queue.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of PCB to block </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a3efafd1705275db79aee34f9009ec108" name="a3efafd1705275db79aee34f9009ec108"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3efafd1705275db79aee34f9009ec108">&#9670;&nbsp;</a></span>createPCB()</h2>
 
@@ -181,6 +227,34 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Returns 1 upon success, Otherwise 0 </dd></dl>
 <p >Parse the user input</p>
 <p >Error Handling</p>
+
+</div>
+</div>
+<a id="a6afa36fd94d93283ed23ccd5176e6c57" name="a6afa36fd94d93283ed23ccd5176e6c57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6afa36fd94d93283ed23ccd5176e6c57">&#9670;&nbsp;</a></span>deletePCB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int deletePCB </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete PCB. </p>
+<p >Will remove a PCB from the appropriate queue and free all associated memory. Will find the PCB in the queue, unlink it and free it.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the PCB to delete</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Return 0 upon success, 1 upon failure </dd></dl>
 
 </div>
 </div>
@@ -316,8 +390,36 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a9a2fae091487cbf25c1a764f1a49ec82" name="a9a2fae091487cbf25c1a764f1a49ec82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a2fae091487cbf25c1a764f1a49ec82">&#9670;&nbsp;</a></span>setPriority()</h2>
+<a id="ab3fc9f19ba0388566ef0d05aa96d8807" name="ab3fc9f19ba0388566ef0d05aa96d8807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3fc9f19ba0388566ef0d05aa96d8807">&#9670;&nbsp;</a></span>resumePCB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int resumePCB </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set PCB state to resume. </p>
+<p >Places a PCB into a not suspended state and reinserts into the appropriate queue</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of PCB to resume</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success, 1 upon error </dd></dl>
+
+</div>
+</div>
+<a id="a1ddbf25685d397d3c2a1f709485a0806" name="a1ddbf25685d397d3c2a1f709485a0806"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ddbf25685d397d3c2a1f709485a0806">&#9670;&nbsp;</a></span>setPriority()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,24 +427,15 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int setPriority </td>
           <td>(</td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>name</em>[30], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>newPriority</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Creating SetPriority. </p>
+<p >Set a new priority to a PCB. </p>
 
 </div>
 </div>
@@ -392,8 +485,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a28f8998a98c162391d51869228696869" name="a28f8998a98c162391d51869228696869"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28f8998a98c162391d51869228696869">&#9670;&nbsp;</a></span>showAll()</h2>
+<a id="a265523e034df978d83da7bb1f0ed209f" name="a265523e034df978d83da7bb1f0ed209f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a265523e034df978d83da7bb1f0ed209f">&#9670;&nbsp;</a></span>showAll()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -401,19 +494,22 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int showAll </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Show all PCBs. </p>
-<p >Display information for each PCB in the ready and blocked queue. The information that is displayed is: Process Name, Class, State, Suspended Status, Priority. </p>
+<p >Display information for each PCB in the ready and blocked queue. The information that is displayed is: Process Name, Class, State, Suspended Status, Priority.</p>
+<p >@params args Empty params</p>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success, 1 upon error </dd></dl>
 
 </div>
 </div>
-<a id="ac949130b761417d550446e24660aa2e7" name="ac949130b761417d550446e24660aa2e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac949130b761417d550446e24660aa2e7">&#9670;&nbsp;</a></span>showBlocked()</h2>
+<a id="ace2e002e42c2ce2929436e767ba30f5d" name="ace2e002e42c2ce2929436e767ba30f5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace2e002e42c2ce2929436e767ba30f5d">&#9670;&nbsp;</a></span>showBlocked()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -421,7 +517,8 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int showBlocked </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -432,8 +529,35 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a5e17375cd78085fdfd675650218bc9b2" name="a5e17375cd78085fdfd675650218bc9b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e17375cd78085fdfd675650218bc9b2">&#9670;&nbsp;</a></span>showReady()</h2>
+<a id="afe5d705bc975a79464e8d3ae458be508" name="afe5d705bc975a79464e8d3ae458be508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe5d705bc975a79464e8d3ae458be508">&#9670;&nbsp;</a></span>showPCB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int showPCB </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Show informatino of PCB. </p>
+<p >Display information of the PCB. The information that is displayed is: Process Name, Class, State, Suspended Status and Priority</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of PCB to have its information displayed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8b053cb6751a4b9106f65c190c16fb13" name="a8b053cb6751a4b9106f65c190c16fb13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b053cb6751a4b9106f65c190c16fb13">&#9670;&nbsp;</a></span>showReady()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -441,14 +565,78 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int showReady </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Show PCBs in ready queue. </p>
-<p >Display information for each PCB in the ready queue. The information that is displayed is: Process Name, Class, State, Suspended Status, Priority </p>
+<p >Display information for each PCB in the ready queue. The information that is displayed is: Process Name, Class, State, Suspended Status, Priority</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Empty parameters.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 upon success, 1 upon failure </dd></dl>
+
+</div>
+</div>
+<a id="a91736b2b1952b9bfd4532bd341065899" name="a91736b2b1952b9bfd4532bd341065899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91736b2b1952b9bfd4532bd341065899">&#9670;&nbsp;</a></span>suspendPCB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int suspendPCB </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set PCB state to suspended. </p>
+<p >Places a PCB state into suspended and reinserts into appropriate queue</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of PCB to suspend</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success, 1 upon error </dd></dl>
+
+</div>
+</div>
+<a id="a9be98649f5ef1f42228d3930c256f25c" name="a9be98649f5ef1f42228d3930c256f25c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9be98649f5ef1f42228d3930c256f25c">&#9670;&nbsp;</a></span>unblockPCB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int unblockPCB </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set PCB state to unblocked. </p>
+<p >Sets PCB state into unblocked and reinserts it into the appropriate queue</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the PCB to unblock</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success, 1 upon error </dd></dl>
 
 </div>
 </div>
