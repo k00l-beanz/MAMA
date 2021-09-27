@@ -104,6 +104,7 @@ pcb_t * findPCB(char * name) {
 }
 
 int insertPCB(pcb_t * pcb) {
+
 	if (pcb == NULL) {
 		return 1;
 	}
@@ -134,6 +135,11 @@ int insertPCB(pcb_t * pcb) {
 		return 0;
 	}
 
+	////// Error is somewhere in here. The print stmt below does not execute when you do sequential createpcb cmds
+	////// PoC:
+	////// ~--> createpcb xyz.0.4
+	////// ~--> createpcb zyx.1.3
+	////// klogv: Panic: Page fault
 	pcb_node_t *node;
 	if(queue->queue_order == PRIORITY) {
 		// PRIORITY queue - insert after all pcbs of greater or equal priority and before all pcbs of lesser priority
@@ -143,7 +149,9 @@ int insertPCB(pcb_t * pcb) {
 		// FIFO - insert at end
 		node = queue->pcbq_tail;
 	}
-
+	//////
+	print("Inserted node into PRIORITY queue\n",1);
+	
 	// doubly linked lists sure are fun
 	pcb_node_t *inserted_node = (pcb_node_t *)sys_alloc_mem(sizeof(pcb_node_t));
 	inserted_node->pcbn_next_pcb = node->pcbn_next_pcb;
@@ -277,13 +285,13 @@ int createPCB(char * args) {
 		return 0;
 	}
 	
-
+	
 	/* Create the PCB */
 	pcb_t *pcb = setupPCB(name, process_class, priority);
-
+	
 	/* Insert into PCB queue */
 	insertPCB(pcb);
-
+	
 	return 0;
 }
 
@@ -547,34 +555,32 @@ int blockPCB(char *args) {
 int unblockPCB(char * name) {
 	skip_ws(&name);
 
-	/* Error handling for name */
+	// Error handling for name 
 	if (name == NULL || strlen(name) > MAX_NAME_SIZE) {
 		return 1;
+	}
 
-	//print("Printing works?\n",1);
-
-	/* Verify that PCB exists */
+	// Verify that PCB exists 
 	pcb_t * pcb = findPCB(name);
+	
 	if (pcb == NULL) {
 		print("Error: PCB with that name does not exist\n",34);
 		return 1;
 	}
-	print("Found pcb\n",10);
 
-	/* Assign new state and insert into appropriate queue */
+	// Assign new state and insert into appropriate queue 
 	pcb->pcb_process_state = READY;
 	if (insertPCB(pcb)) {
 		print("Error: PCB could not be inserted into queue\n",44);
 		return 1;
 	}
-	print("Inserted PCB\n",13);
 
-	/* Remove PCB from old queue */
+	// Remove PCB from old queue 
 	if (removePCB(pcb)) {
 		print("Error: Something went wrong removing PCB from queue\n",52);
 		return 1;
 	}
-	print("Removed PCB\n",12);
-
+	
 	return 0;
 }
+

@@ -16,24 +16,24 @@ User Commands
 	Show block processes [] Mohammad
 	CreatePCB [x] Maximillian 
 	DeletePCB [] Mohammad
-	Block [] Mohammad
-	Unblock [] Maximillian
+	Block [x] Mohammad
+	Unblock [x] Maximillian
 
-[] Suspend help page
-[] Resume help page
-[] SetPriority help page
-[] showPCB help page
-[] show all processes cmd help page
-[] show ready processes cmd help page
-[] show blocked processes cmd help page
-[] createPCB help page
-[] deletePCB help page
-[] block help page
-[] unblock help page
-[] Update `help list` table
+[x] Suspend help page
+[x] Resume help page
+[x] SetPriority help page
+[x] showPCB help page
+[x] show all processes cmd help page
+[x] show ready processes cmd help page
+[x] show blocked processes cmd help page
+[x] createPCB help page
+[x] deletePCB help page
+[x] block help page
+[x] unblock help page
+[x] Update `help list` table
 [] Update user manual
 [] Update programmer's manual
 [] update WhoDidWhat.md
 [] Fix R1 time rollover/0 min display issue
 [] Fix R1 date component set order issue
-[] update version cmd
+[x] update version cmd
