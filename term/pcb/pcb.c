@@ -104,7 +104,6 @@ pcb_t * findPCB(char * name) {
 }
 
 int insertPCB(pcb_t * pcb) {
-
 	if (pcb == NULL) {
 		return 1;
 	}
@@ -135,38 +134,18 @@ int insertPCB(pcb_t * pcb) {
 		return 0;
 	}
 
-	////// Error is somewhere in here. The print stmt below does not execute when you do sequential createpcb cmds
-	////// PoC:
-	////// ~--> createpcb xyz.0.4
-	////// ~--> createpcb zyx.1.3
-	////// klogv: Panic: Page fault
-	/*pcb_node_t *node;
+	pcb_node_t *node;
 	if(queue->queue_order == PRIORITY) {
 		// PRIORITY queue - insert after all pcbs of greater or equal priority and before all pcbs of lesser priority
-		while(node->pcbn_next_pcb != NULL && node->pcbn_next_pcb->pcb->pcb_priority >= pcb->pcb_priority)
+		node = queue->pcbq_head;
+		while(node->pcbn_next_pcb != NULL && node->pcbn_next_pcb->pcb->pcb_priority >= pcb->pcb_priority) {
 			node = node->pcbn_next_pcb;
+		}
 	} else {
 		// FIFO - insert at end
 		node = queue->pcbq_tail;
-	} */
-	//////
-
-	/*
-		Below is my fix. It works, I just don't know if it works well. 
-			- Maximillian
-	*/
-	pcb_node_t * node;
-	if (queue->queue_order == PRIORITY) {
-		node = priority_queue->pcbq_tail;
-		while (node != NULL && pcb->pcb_priority > node->pcb->pcb_priority && node != queue->pcbq_head) {
-			node = node->pcbn_prev_pcb;
-		}
-	} else {
-		node = queue->pcbq_tail;
 	}
-
-	print("Inserted node into PRIORITY queue\n",1);
-
+	
 	// doubly linked lists sure are fun
 	pcb_node_t *inserted_node = (pcb_node_t *)sys_alloc_mem(sizeof(pcb_node_t));
 	inserted_node->pcbn_next_pcb = node->pcbn_next_pcb;
