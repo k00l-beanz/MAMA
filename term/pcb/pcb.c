@@ -394,8 +394,23 @@ int showPCB(char *args) {
 	return 0;
 }
 
-int showReady(char *args) {
-	(void)args;
+int showReady(char * p) {
+	(void) p;
+
+	/* Get head of priority queue */
+	pcb_node_t * node = priority_queue->pcbq_head;
+	if (node == NULL) {
+		print("Ready Queue is empty\n",21);
+		return 1;
+	}
+
+	/* Show each pcb node */
+	while (node != NULL) {
+		showPCB(node->pcb->pcb_name);
+		printf("\n");
+		node = node->pcbn_next_pcb;
+	}
+
 	return 0;
 }
 
@@ -562,18 +577,22 @@ int unblockPCB(char * name) {
 		return 1;
 	}
 
+	removePCB(pcb);
+
 	// Assign new state and insert into appropriate queue 
-	pcb->pcb_process_state = READY;
-	if (insertPCB(pcb)) {
-		print("Error: PCB could not be inserted into queue\n",44);
-		return 1;
+	switch(pcb->pcb_process_state) {
+		case RUNNING:
+		case READY:
+		case BLOCKED:
+			pcb->pcb_process_state = READY;
+			break;
+		case SUSPENDED_READY:
+		case SUSPENDED_BLOCKED:
+		default:
+			return 1;
 	}
 
-	// Remove PCB from old queue 
-	if (removePCB(pcb)) {
-		print("Error: Something went wrong removing PCB from queue\n",52);
-		return 1;
-	}
+	insertPCB(pcb);
 	
 	return 0;
 }
