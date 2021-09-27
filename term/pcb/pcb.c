@@ -136,6 +136,7 @@ int insertPCB(pcb_t * pcb) {
 
 	pcb_node_t *node;
 	if(queue->queue_order == PRIORITY) {
+
 		// PRIORITY queue - insert after all pcbs of greater or equal priority and before all pcbs of lesser priority
 		node = queue->pcbq_head;
 		while(node->pcbn_next_pcb != NULL && node->pcbn_next_pcb->pcb->pcb_priority >= pcb->pcb_priority) {
@@ -289,31 +290,60 @@ int createPCB(char * args) {
 	return 0;
 }
 
-/**Creating SetPriority**/
-/*inserting pcb in the right queue*/
-/*
-int setPriority(char name[30], int newPriority) {
-	// creating a local pcb pointer
-	pcb_t *willDelete = findPCB(name);
-
-	// to check if pcb was found
-	if(willDelete == NULL){
-		return 0;
-	}
-
-	// deleting the pcb with the old status
-	removePCB(willDelete);
-	
-	willDelete->pcb_priority = newPriority;
-
-	//inserting into the queue
-	insertPCB(willDelete);
-	return 1;
-}
-*/
 
 int setPriority(char *args) {
-	(void)args;
+	skip_ws(&args);
+
+	char * name;
+	char * token;
+	int priority, params = 1;
+
+	token = strtok(args,".");
+	name = token;
+
+	/** Parse the user input **/
+	while (token != NULL) {
+		token = strtok(NULL,".");
+
+		switch (params) {
+			case 1:
+				priority = atoi(token);
+				break;
+			default:
+				break;
+		}
+
+		params++;
+	}
+
+	/** Error Handling **/
+	/* Check for correct number of parameters */
+	if (params != 3) {
+		print("Error: Wrong amount of parameters\n",27);
+		return 1;
+	}
+
+	/* Check whether priority is out of bounds */
+	if (priority > MAX_PRIORITY || priority < MIN_PRIORITY) {
+		print("Error: Specified priority is out of bounds\n",43);
+		return 1;
+	}
+
+	/* Find PCB */
+	pcb_t * pcb = findPCB(name);
+	if (pcb == NULL) {
+		printf("Error: Specified PCB does not exist\n");
+		return 1;
+	}
+
+	/* Dispose of the old PCB */
+	removePCB(pcb);
+
+	/* Reinsert PCB with new priority */
+	pcb->pcb_priority = priority;
+	insertPCB(pcb);
+
+
 	return 0;
 }
 
