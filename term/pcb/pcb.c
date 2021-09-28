@@ -139,6 +139,15 @@ int insertPCB(pcb_t * pcb) {
 
 		// PRIORITY queue - insert after all pcbs of greater or equal priority and before all pcbs of lesser priority
 		node = queue->pcbq_head;
+		if(node->pcb->pcb_priority < pcb->pcb_priority) {
+			// node is replacing queue's current head
+			pcb_node_t *inserted_node = (pcb_node_t *)sys_alloc_mem(sizeof(pcb_node_t));
+			inserted_node->pcbn_next_pcb = node;
+			inserted_node->pcb = pcb;
+			node->pcbn_prev_pcb = inserted_node;
+			queue->pcbq_head = inserted_node;
+			return 0;
+		}
 		while(node->pcbn_next_pcb != NULL && node->pcbn_next_pcb->pcb->pcb_priority >= pcb->pcb_priority) {
 			node = node->pcbn_next_pcb;
 		}
