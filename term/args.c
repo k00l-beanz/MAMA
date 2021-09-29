@@ -56,7 +56,7 @@ parsed_args *parse_args(char *arg_str) {
 				while(*arg_str == '-')
 					arg_str++;
 				if(!get_token(&arg_str, last_token, MAX_CMD_ARG_NAME_LEN)) {
-					print("Bad syntax: argument names longer than %i characters are not supported.\n", MAX_CMD_ARG_NAME_LEN);
+					printf("Bad syntax: argument names longer than %i characters are not supported.\n", MAX_CMD_ARG_NAME_LEN);
 					sys_free_mem(args);
 					return NULL;
 				}
@@ -69,19 +69,19 @@ parsed_args *parse_args(char *arg_str) {
 
 				if(stack_peek() == PARAM_NAME) {
 					if(!get_token(&arg_str, args->named_arg_values[args->named_arg_count], MAX_CMD_ARG_VALUE_LEN)) {
-						print("Bad syntax: argument values longer than %i characters are not supported.\n", MAX_CMD_ARG_VALUE_LEN);
+						printf("Bad syntax: argument values longer than %i characters are not supported.\n", MAX_CMD_ARG_VALUE_LEN);
 						sys_free_mem(args);
 						return NULL;
 					}
 				} else {
 					if(args->unnamed_arg_count >= MAX_CMD_UNNAMED_ARG_COUNT) {
-						print("Bad syntax: commands containing more than %i unnamed arguments are not supported.\n", MAX_CMD_UNNAMED_ARG_COUNT);
+						printf("Bad syntax: commands containing more than %i unnamed arguments are not supported.\n", MAX_CMD_UNNAMED_ARG_COUNT);
 						sys_free_mem(args);
 						return NULL;
 					}
 					
 					if(!get_token(&arg_str, args->unnamed_args[args->unnamed_arg_count++], MAX_CMD_ARG_VALUE_LEN)) {
-						print("Bad syntax: argument values longer than %i characters are not supported.\n", MAX_CMD_ARG_VALUE_LEN);
+						printf("Bad syntax: argument values longer than %i characters are not supported.\n", MAX_CMD_ARG_VALUE_LEN);
 						sys_free_mem(args);
 						return NULL;
 					}
@@ -93,7 +93,7 @@ parsed_args *parse_args(char *arg_str) {
 				//println("Switched to state PARAM_VALUE", 1);
 				if(stack_peek() == PARAM_NAME) {
 					if(args->named_arg_count >= MAX_CMD_NAMED_ARG_COUNT) {
-						print("Bad syntax: commands containing more than %i named arguments are not supported.\n", MAX_CMD_NAMED_ARG_COUNT);
+						printf("Bad syntax: commands containing more than %i named arguments are not supported.\n", MAX_CMD_NAMED_ARG_COUNT);
 						sys_free_mem(args);
 						return NULL;
 					} else {
@@ -101,7 +101,7 @@ parsed_args *parse_args(char *arg_str) {
 					}
 
 					if(!get_token(&arg_str, args->named_arg_values[args->named_arg_count++], MAX_CMD_ARG_VALUE_LEN)) {
-						print("Bad syntax: argument values longer than %i characters are not supported.\n", MAX_CMD_ARG_VALUE_LEN);
+						printf("Bad syntax: argument values longer than %i characters are not supported.\n", MAX_CMD_ARG_VALUE_LEN);
 						sys_free_mem(args);
 						return NULL;
 					}
@@ -109,13 +109,13 @@ parsed_args *parse_args(char *arg_str) {
 					stack_pop();
 				} else {
 					if(args->unnamed_arg_count >= MAX_CMD_UNNAMED_ARG_COUNT) {
-						print("Bad syntax: commands containing more than %i unnamed arguments are not supported.\n", MAX_CMD_UNNAMED_ARG_COUNT);
+						printf("Bad syntax: commands containing more than %i unnamed arguments are not supported.\n", MAX_CMD_UNNAMED_ARG_COUNT);
 						sys_free_mem(args);
 						return NULL;
 					}
 					
 					if(!get_token(&arg_str, args->unnamed_args[args->unnamed_arg_count++], MAX_CMD_ARG_VALUE_LEN)) {
-						print("Bad syntax: argument values longer than %i characters are not supported.\n", MAX_CMD_ARG_VALUE_LEN);
+						printf("Bad syntax: argument values longer than %i characters are not supported.\n", MAX_CMD_ARG_VALUE_LEN);
 						sys_free_mem(args);
 						return NULL;
 					}
@@ -149,7 +149,7 @@ parsed_args *parse_args(char *arg_str) {
 					return NULL;
 				} else if(stack_peek() == PARAM_NAME) {
 					if(args->flag_count >= MAX_CMD_FLAG_COUNT) {
-						print("Bad syntax: commands containing more than %i flags are not supported.\n", MAX_CMD_FLAG_COUNT);
+						printf("Bad syntax: commands containing more than %i flags are not supported.\n", MAX_CMD_FLAG_COUNT);
 						sys_free_mem(args);
 						return NULL;
 					}

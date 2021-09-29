@@ -81,7 +81,7 @@ pcb_t * setupPCB(char * name, int process_class, int priority) {
 pcb_t * findPCB(char * name) {
     /* Check for valid name */
     if (strlen(name) > MAX_NAME_SIZE || name == NULL) {
-        // TODO Error message here
+        printf("Error: Name of the PCB is too long\n");
         return NULL;
     }
 
@@ -285,7 +285,7 @@ int createPCB(char * args) {
 	}
 
 	if (process_class != 0 && process_class != 1) {
-		printf("Error: Specified process class %i does not exist\n", process_class);
+		printf("Error: Specified process class does not exist\n"); // if the user doesn't enter a numeric value for the process class, this would print garbage data instead of what they entered, so I removed the part of this error message that echos what the user entered
 		return 0;
 	}
 	
@@ -361,6 +361,8 @@ int showPCB(char *args) {
 	char *pcb_name;
 
 	parsed_args *parsed_args = parse_args(args);
+	if(parsed_args == NULL)
+		return 1;
 	if(!next_unnamed_arg(parsed_args, &pcb_name)) {
 		println("Bad usage: PCB name not provided", 32);
 		sys_free_mem(parsed_args);
@@ -481,6 +483,8 @@ int suspendPCB(char *args) {
 	char *pcb_name;
 
 	parsed_args *parsed_args = parse_args(args);
+	if(parsed_args == NULL)
+		return 1;
 	if(!next_unnamed_arg(parsed_args, &pcb_name)) {
 		printf("Bad usage: PCB name not provided\n");
 		sys_free_mem(parsed_args);
@@ -515,6 +519,8 @@ int resumePCB(char *args) {
 	char *pcb_name;
 
 	parsed_args *parsed_args = parse_args(args);
+	if(parsed_args == NULL)
+		return 1;
 	if(!next_unnamed_arg(parsed_args, &pcb_name)) {
 		printf("Bad usage: PCB name not provided\n");
 		sys_free_mem(parsed_args);
@@ -530,14 +536,19 @@ int resumePCB(char *args) {
 
 	removePCB(pcb);
 	switch(pcb->pcb_process_state) {
+		case READY:
 		case SUSPENDED_READY:
 			pcb->pcb_process_state = READY;
 			break;
+		case BLOCKED:
 		case SUSPENDED_BLOCKED:
 			pcb->pcb_process_state = BLOCKED;
 			break;
+		case RUNNING:
+			pcb->pcb_process_state = RUNNING;
+			break;
 		default:
-			return 0; // do nothing if PCB isn't suspended
+			return 1;
 	}
 	return insertPCB(pcb);
 }
@@ -546,6 +557,8 @@ int deletePCB(char *args) {
 	char *pcb_name;
 
 	parsed_args *parsed_args = parse_args(args);
+	if(parsed_args == NULL)
+		return 1;
 	if(!next_unnamed_arg(parsed_args, &pcb_name)) {
 		printf("Bad usage: PCB name not provided\n");
 		sys_free_mem(parsed_args);
@@ -570,6 +583,8 @@ int blockPCB(char *args) {
 	char *pcb_name;
 
 	parsed_args *parsed_args = parse_args(args);
+	if(parsed_args == NULL)
+		return 1;
 	if(!next_unnamed_arg(parsed_args, &pcb_name)) {
 		printf("Bad usage: PCB name not provided\n");
 		sys_free_mem(parsed_args);
@@ -605,6 +620,7 @@ int unblockPCB(char * name) {
 
 	// Error handling for name 
 	if (name == NULL || strlen(name) > MAX_NAME_SIZE) {
+		printf("Error: Name of the PCB is too long\n"); // added error message here instead of printing nothing
 		return 1;
 	}
 
