@@ -26,10 +26,10 @@ int \mbox{\hyperlink{pcb_2pcb_8c_a699935a9f062569a0ca42dd52171813b}{remove\+PCB}
 int \mbox{\hyperlink{pcb_2pcb_8c_a3efafd1705275db79aee34f9009ec108}{create\+PCB}} (char $\ast$args)
 \begin{DoxyCompactList}\small\item\em Create a PCB. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pcb_2pcb_8c_a1ddbf25685d397d3c2a1f709485a0806}{set\+Priority}} (char $\ast$args)
-\begin{DoxyCompactList}\small\item\em Creating Set\+Priority. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set a new priority to a PCB. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pcb_2pcb_8c_afe5d705bc975a79464e8d3ae458be508}{show\+PCB}} (char $\ast$args)
 \begin{DoxyCompactList}\small\item\em Show informatino of PCB. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{pcb_2pcb_8c_a8b053cb6751a4b9106f65c190c16fb13}{show\+Ready}} (char $\ast$args)
+int \mbox{\hyperlink{pcb_2pcb_8c_a777cdc044591a36e9bd209df4a7b4dab}{show\+Ready}} (char $\ast$p)
 \begin{DoxyCompactList}\small\item\em Show PCBs in ready queue. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pcb_2pcb_8c_ace2e002e42c2ce2929436e767ba30f5d}{show\+Blocked}} (char $\ast$args)
 \begin{DoxyCompactList}\small\item\em Show PCBs in blocked queue. \end{DoxyCompactList}\item 
@@ -256,9 +256,21 @@ Returns 0 upon success, 1 upon error
 
 
 
-Creating Set\+Priority. 
+Set a new priority to a PCB. 
 
-Set a new priority to a PCB. \mbox{\Hypertarget{pcb_2pcb_8c_ac8f8f8a5f4c9c54ea50bbfca61182afc}\label{pcb_2pcb_8c_ac8f8f8a5f4c9c54ea50bbfca61182afc}} 
+Sets a PCB\textquotesingle{}s priority and reinserts the process into the correct place in the correct queue
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Name of the PCB and new priority (PCB\+\_\+\+NAME.\+PRIORITY)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, 1 upon error 
+\end{DoxyReturn}
+Parse the user input
+
+Error Handling\mbox{\Hypertarget{pcb_2pcb_8c_ac8f8f8a5f4c9c54ea50bbfca61182afc}\label{pcb_2pcb_8c_ac8f8f8a5f4c9c54ea50bbfca61182afc}} 
 \index{pcb.c@{pcb.c}!setupPCB@{setupPCB}}
 \index{setupPCB@{setupPCB}!pcb.c@{pcb.c}}
 \doxysubsubsection{\texorpdfstring{setupPCB()}{setupPCB()}}
@@ -326,7 +338,7 @@ Display information of the PCB. The information that is displayed is\+: Process 
 {\em name} & Name of PCB to have its information displayed \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{pcb_2pcb_8c_a8b053cb6751a4b9106f65c190c16fb13}\label{pcb_2pcb_8c_a8b053cb6751a4b9106f65c190c16fb13}} 
+\mbox{\Hypertarget{pcb_2pcb_8c_a777cdc044591a36e9bd209df4a7b4dab}\label{pcb_2pcb_8c_a777cdc044591a36e9bd209df4a7b4dab}} 
 \index{pcb.c@{pcb.c}!showReady@{showReady}}
 \index{showReady@{showReady}!pcb.c@{pcb.c}}
 \doxysubsubsection{\texorpdfstring{showReady()}{showReady()}}

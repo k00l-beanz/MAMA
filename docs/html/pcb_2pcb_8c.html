@@ -107,14 +107,14 @@ Functions</h2></td></tr>
 <tr class="memdesc:a3efafd1705275db79aee34f9009ec108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a PCB.  <a href="pcb_2pcb_8c.html#a3efafd1705275db79aee34f9009ec108">More...</a><br /></td></tr>
 <tr class="separator:a3efafd1705275db79aee34f9009ec108"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ddbf25685d397d3c2a1f709485a0806"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a1ddbf25685d397d3c2a1f709485a0806">setPriority</a> (char *args)</td></tr>
-<tr class="memdesc:a1ddbf25685d397d3c2a1f709485a0806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creating SetPriority.  <a href="pcb_2pcb_8c.html#a1ddbf25685d397d3c2a1f709485a0806">More...</a><br /></td></tr>
+<tr class="memdesc:a1ddbf25685d397d3c2a1f709485a0806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a new priority to a PCB.  <a href="pcb_2pcb_8c.html#a1ddbf25685d397d3c2a1f709485a0806">More...</a><br /></td></tr>
 <tr class="separator:a1ddbf25685d397d3c2a1f709485a0806"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe5d705bc975a79464e8d3ae458be508"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#afe5d705bc975a79464e8d3ae458be508">showPCB</a> (char *args)</td></tr>
 <tr class="memdesc:afe5d705bc975a79464e8d3ae458be508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show informatino of PCB.  <a href="pcb_2pcb_8c.html#afe5d705bc975a79464e8d3ae458be508">More...</a><br /></td></tr>
 <tr class="separator:afe5d705bc975a79464e8d3ae458be508"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b053cb6751a4b9106f65c190c16fb13"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a8b053cb6751a4b9106f65c190c16fb13">showReady</a> (char *args)</td></tr>
-<tr class="memdesc:a8b053cb6751a4b9106f65c190c16fb13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show PCBs in ready queue.  <a href="pcb_2pcb_8c.html#a8b053cb6751a4b9106f65c190c16fb13">More...</a><br /></td></tr>
-<tr class="separator:a8b053cb6751a4b9106f65c190c16fb13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a777cdc044591a36e9bd209df4a7b4dab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a777cdc044591a36e9bd209df4a7b4dab">showReady</a> (char *p)</td></tr>
+<tr class="memdesc:a777cdc044591a36e9bd209df4a7b4dab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show PCBs in ready queue.  <a href="pcb_2pcb_8c.html#a777cdc044591a36e9bd209df4a7b4dab">More...</a><br /></td></tr>
+<tr class="separator:a777cdc044591a36e9bd209df4a7b4dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace2e002e42c2ce2929436e767ba30f5d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#ace2e002e42c2ce2929436e767ba30f5d">showBlocked</a> (char *args)</td></tr>
 <tr class="memdesc:ace2e002e42c2ce2929436e767ba30f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show PCBs in blocked queue.  <a href="pcb_2pcb_8c.html#ace2e002e42c2ce2929436e767ba30f5d">More...</a><br /></td></tr>
 <tr class="separator:ace2e002e42c2ce2929436e767ba30f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -434,8 +434,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creating SetPriority. </p>
-<p >Set a new priority to a PCB. </p>
+<p>Set a new priority to a PCB. </p>
+<p >Sets a PCB's priority and reinserts the process into the correct place in the correct queue</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>Name of the PCB and new priority (PCB_NAME.PRIORITY)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success, 1 upon error </dd></dl>
+<p >Parse the user input</p>
+<p >Error Handling</p>
 
 </div>
 </div>
@@ -556,8 +565,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a8b053cb6751a4b9106f65c190c16fb13" name="a8b053cb6751a4b9106f65c190c16fb13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b053cb6751a4b9106f65c190c16fb13">&#9670;&nbsp;</a></span>showReady()</h2>
+<a id="a777cdc044591a36e9bd209df4a7b4dab" name="a777cdc044591a36e9bd209df4a7b4dab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a777cdc044591a36e9bd209df4a7b4dab">&#9670;&nbsp;</a></span>showReady()</h2>
 
 <div class="memitem">
 <div class="memproto">

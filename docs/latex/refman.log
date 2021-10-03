@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.9.9)  9 SEP 2021 11:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.3)  3 OCT 2021 15:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -715,14 +715,6 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 )
 (./refman.aux
 
-LaTeX Warning: Label `pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa55d7de928267c737
-097b30008fda3b98' multiply defined.
-
-
-LaTeX Warning: Label `pcb_8h_a4f8f003be709b151ad2f3ccaaacac31fa257d583f003f9390
-832bd7acde1fa519' multiply defined.
-
-
 LaTeX Warning: Label `colorize_8c_ab87bacfdad76e61b9412d7124be44c1caf77fb67151d
 0c18d397069ad8c271ba3' multiply defined.
 
@@ -937,7 +929,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 171.
  [1] [2] [3] [4]
-[5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20
 
 ]
 Package hyperref Info: Option `pageanchor' set `true' on input line 174.
@@ -1015,7 +1007,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 16.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 16.
-) (./structpcb__queue__t.tex [23]
+) (./structpcb__queue.tex [23]
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
 (Font)              Font shape `TS1/phv/m/sl' tried instead on input line 16.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
@@ -1032,7 +1024,7 @@ LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
 )
 (./interrupts_8h_source.tex) (./io_8h.tex [28]) (./io_8h_source.tex)
 (./serial_8h.tex [29] [30]
-Underfull \hbox (badness 10000) detected at line 82
+Underfull \hbox (badness 10000) detected at line 84
 [][][]
  []
 
@@ -1056,7 +1048,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
  []
 
 [43]
-Underfull \hbox (badness 10000) detected at line 55
+Underfull \hbox (badness 10000) detected at line 57
 [][][]
  []
 
@@ -1081,7 +1073,7 @@ Overfull \vbox (20.91711pt too high) has occurred while \output is active []
 
 
 [59]
-Underfull \hbox (badness 10000) detected at line 120
+Underfull \hbox (badness 10000) detected at line 122
 [][][]
  []
 
@@ -1111,133 +1103,78 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--5
  []
 
 [68] [69]) (./out_8h.tex [70]
-Underfull \hbox (badness 10000) detected at line 52
+Underfull \hbox (badness 10000) detected at line 86
 [][][]
  []
 
-[71]) (./out_8h_source.tex [72]) (./string_8c.tex
+[71] [72] [73] [74]) (./out_8h_source.tex [75]) (./string_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--5
 
  []
 
-[73]
-Underfull \hbox (badness 10000) detected at line 56
+[76]
+Underfull \hbox (badness 10000) detected at line 58
 [][][]
  []
 
-[74]) (./mpx__supt_8c.tex
+[77]) (./mpx__supt_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--7
 
  []
 
-[75] [76]) (./mpx__supt_8h.tex
+[78] [79]) (./mpx__supt_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[77] [78] [79] [80] [81]) (./mpx__supt_8h_source.tex [82] [83]) (./pcb_8c.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--5
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 25
-[][][]
- []
-
-[84]
-Underfull \hbox (badness 10000) detected at line 43
-[][][]
- []
-
-) (./pcb_8h.tex [85] [86]
-Underfull \hbox (badness 10000) detected at line 153
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 171
-[][][]
- []
-
-[87pdfTeX warning (ext4): destination with the same identifier (name{pcb_8h_a4f
-8f003be709b151ad2f3ccaaacac31fa55d7de928267c737097b30008fda\ETC.}) has been alr
-eady used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.188 \end{DoxyParams}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{pcb_8h_a4f8f0
-03be709b151ad2f3ccaaacac31fa257d583f003f9390832bd7acde1f\ETC.}) has been alread
-y used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.188 \end{DoxyParams}
-                      
-] [88]
-Underfull \hbox (badness 10000) detected at line 189
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 222
-[][][]
- []
-
-[89]
-Underfull \hbox (badness 10000) detected at line 244
-[][][]
- []
-
-) (./pcb_8h_source.tex [90]) (./README_8md.tex) (./args_8c.tex
+[80] [81] [82] [83] [84]) (./mpx__supt_8h_source.tex [85]) (./README_8md.tex)
+(./args_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--9
 
  []
 
-[91] [92] [93]) (./args_8h.tex) (./args_8h_source.tex [94]) (./mama_8c.tex
+[86] [87] [88]) (./args_8h.tex [89]) (./args_8h_source.tex) (./mama_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-) (./mama_8h.tex [95]) (./mama_8h_source.tex) (./argtest_8c.tex
+[90]) (./mama_8h.tex) (./mama_8h_source.tex) (./argtest_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--6
 
  []
 
-) (./echo_8c.tex
+[91]) (./echo_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[96]) (./help_8c.tex
+) (./help_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[97]
-Underfull \hbox (badness 10000) detected at line 43
+[92]
+Underfull \hbox (badness 10000) detected at line 45
 [][][]
  []
 
-[98]) (./term_2cmds_2help_8c.tex
+[93]) (./term_2cmds_2help_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+[94] [95]
+Underfull \hbox (badness 10000) detected at line 77
+[][][]
+ []
+
+[96] [97] [98]) (./shutdown_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
 [99]
-Underfull \hbox (badness 10000) detected at line 43
-[][][]
- []
-
-[100]) (./shutdown_8c.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-[101]
-Underfull \hbox (badness 10000) detected at line 25
+Underfull \hbox (badness 10000) detected at line 29
 [][][]
  []
 
@@ -1247,27 +1184,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
  []
 
 
-Underfull \hbox (badness 10000) detected at line 25
+Underfull \hbox (badness 10000) detected at line 29
 [][][]
  []
 
-) (./commands_8h.tex) (./commands_8h_source.tex [102]) (./commhand_8c.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--15
+) (./commands_8h.tex) (./commands_8h_source.tex [100]) (./commhand_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--16
 
  []
 
-[103]
-Underfull \hbox (badness 10000) detected at line 71
+[101]
+Underfull \hbox (badness 10000) detected at line 74
 [][][]
  []
 
-[104]
-Underfull \hbox (badness 10000) detected at line 99
+[102]
+Underfull \hbox (badness 10000) detected at line 104
 [][][]
  []
 
-) (./commhand_8h.tex [105] [106]
-Underfull \hbox (badness 10000) detected at line 91
+) (./commhand_8h.tex [103] [104]
+Underfull \hbox (badness 10000) detected at line 93
 [][][]
  []
 
@@ -1276,153 +1213,313 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
+[105] [106]
+Underfull \hbox (badness 10000) detected at line 49
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 71
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 91
+[][][]
+ []
+
 [107]
-Underfull \hbox (badness 10000) detected at line 47
+Underfull \hbox (badness 10000) detected at line 111
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 131
 [][][]
  []
 
 [108]
-Underfull \hbox (badness 10000) detected at line 67
+Underfull \hbox (badness 10000) detected at line 153
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 85
+Underfull \hbox (badness 10000) detected at line 173
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 103
+Underfull \hbox (badness 10000) detected at line 193
 [][][]
  []
 
 [109]
-Underfull \hbox (badness 10000) detected at line 121
+Underfull \hbox (badness 10000) detected at line 217
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 139
+Underfull \hbox (badness 10000) detected at line 237
 [][][]
  []
 
-[110]
-Underfull \hbox (badness 10000) detected at line 157
+[110]) (./dnt_8h.tex [111] [112] [113] [114]
+Underfull \hbox (badness 10000) detected at line 246
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 175
-[][][]
- []
-
-[111]
-Underfull \hbox (badness 10000) detected at line 197
+[115]
+Underfull \hbox (badness 10000) detected at line 268
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 215
-[][][]
- []
-
-) (./dnt_8h.tex [112] [113] [114] [115] [116]
-Underfull \hbox (badness 10000) detected at line 244
+Underfull \hbox (badness 10000) detected at line 288
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 264
+Underfull \hbox (badness 10000) detected at line 308
+[][][]
+ []
+
+[116]
+Underfull \hbox (badness 10000) detected at line 328
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 282
+Underfull \hbox (badness 10000) detected at line 350
 [][][]
  []
 
 [117]
-Underfull \hbox (badness 10000) detected at line 300
+Underfull \hbox (badness 10000) detected at line 360
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 318
+Underfull \hbox (badness 10000) detected at line 372
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 392
 [][][]
  []
 
 [118]
-Underfull \hbox (badness 10000) detected at line 336
+Underfull \hbox (badness 10000) detected at line 412
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 348
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 366
+Underfull \hbox (badness 10000) detected at line 436
 [][][]
  []
 
 [119]
-Underfull \hbox (badness 10000) detected at line 384
+Underfull \hbox (badness 10000) detected at line 456
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 406
-[][][]
- []
-
-[120]
-Underfull \hbox (badness 10000) detected at line 424
-[][][]
- []
-
-) (./dnt_8h_source.tex [121]) (./history_8c.tex
+) (./dnt_8h_source.tex [120]) (./history_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--7
 
  []
 
-
+[121]
 Underfull \hbox (badness 10000) detected at line 44
 [][][]
  []
 
+
+Underfull \hbox (badness 10000) detected at line 62
+[][][]
+ []
+
 [122]
-Underfull \hbox (badness 10000) detected at line 60
+Underfull \hbox (badness 10000) detected at line 104
 [][][]
  []
 
-[123]
-Underfull \hbox (badness 10000) detected at line 94
+[123]) (./history_8h.tex [124]
+Underfull \hbox (badness 10000) detected at line 44
 [][][]
  []
 
-) (./history_8h.tex [124]
-Underfull \hbox (badness 10000) detected at line 40
+) (./history_8h_source.tex) (./cmds_2pcb_8c.tex) (./pcb_2pcb_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--9
+
+ []
+
+[125] [126]
+Underfull \hbox (badness 10000) detected at line 74
 [][][]
  []
 
-[125]) (./history_8h_source.tex) (./syntax_8c.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+
+ []
+
+[127]
+Underfull \hbox (badness 10000) detected at line 116
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 138
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 158
+[][][]
+ []
+
+[128]
+Underfull \hbox (badness 10000) detected at line 178
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 208
+[][][]
+ []
+
+[129]
+Underfull \hbox (badness 10000) detected at line 228
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 248
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 268
+[][][]
+ []
+
+[130]
+Underfull \hbox (badness 10000) detected at line 294
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 311
+[][][]
+ []
+
+[131]
+Underfull \hbox (badness 10000) detected at line 358
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 378
+[][][]
+ []
+
+[132]
+Underfull \hbox (badness 10000) detected at line 398
+[][][]
+ []
+
+) (./pcb_8h.tex [133] [134] [135] [136]
+Underfull \hbox (badness 10000) detected at line 221
+[][][]
+ []
+
+[137]
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 263
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 285
+[][][]
+ []
+
+[138]
+Underfull \hbox (badness 10000) detected at line 305
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 325
+[][][]
+ []
+
+[139]
+Underfull \hbox (badness 10000) detected at line 355
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 375
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 395
+[][][]
+ []
+
+[140]
+Underfull \hbox (badness 10000) detected at line 415
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 441
+[][][]
+ []
+
+[141]
+Underfull \hbox (badness 10000) detected at line 458
+[][][]
+ []
+
+[142]
+Underfull \hbox (badness 10000) detected at line 505
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 525
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 545
+[][][]
+ []
+
+) (./pcb_8h_source.tex [143] [144]) (./syntax_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--5
 
  []
 
-) (./syntax_8h.tex [126] [127]) (./syntax_8h_source.tex) (./utils_8c.tex
+) (./syntax_8h.tex [145] [146]) (./syntax_8h_source.tex) (./utils_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[128]
-Underfull \hbox (badness 10000) detected at line 27
+[147]
+Underfull \hbox (badness 10000) detected at line 29
 [][][]
  []
 
-) (./utils_8h.tex [129]
-Underfull \hbox (badness 10000) detected at line 26
+) (./utils_8h.tex [148] [149]
+Underfull \hbox (badness 10000) detected at line 28
 [][][]
  []
 
@@ -1431,159 +1528,160 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[130] [131pdfTeX warning (ext4): destination with the same identifier (name{col
-orize_8c_ab87bacfdad76e61b9412d7124be44c1caf77fb67151d0c18d397069a\ETC.}) has b
-een already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.140 S
-       witches the background color in the terminal so that subsequent text ...
-pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
-b87bacfdad76e61b9412d7124be44c1caf80f9a890089d211842d596\ETC.}) has been alread
-y used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.140 S
-       witches the background color in the terminal so that subsequent text ...
-pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
-b87bacfdad76e61b9412d7124be44c1caa60bd322f93178d68184e30\ETC.}) has been alread
-y used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.140 S
-       witches the background color in the terminal so that subsequent text ...
-pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
-b87bacfdad76e61b9412d7124be44c1cae735a848bf82163a19236ea\ETC.}) has been alread
-y used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.140 S
-       witches the background color in the terminal so that subsequent text ...
-pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
-b87bacfdad76e61b9412d7124be44c1ca35d6719cb4d7577c031b3d7\ETC.}) has been alread
-y used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.140 S
-       witches the background color in the terminal so that subsequent text ...
-pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
-b87bacfdad76e61b9412d7124be44c1ca56926c820ad72d0977e7ee4\ETC.}) has been alread
-y used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.140 S
-       witches the background color in the terminal so that subsequent text ...
-pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
-b87bacfdad76e61b9412d7124be44c1caafe71cad474c15ce63b300c\ETC.}) has been alread
-y used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.140 S
-       witches the background color in the terminal so that subsequent text ...
-pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
-b87bacfdad76e61b9412d7124be44c1ca283fc479650da98250635b9\ETC.}) has been alread
-y used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.140 S
-       witches the background color in the terminal so that subsequent text ...
-] [132]) (./colorize_8h.tex
-Overfull \vbox (20.42323pt too high) has occurred while \output is active []
+[150]
+Overfull \vbox (18.11183pt too high) has occurred while \output is active []
 
 
-[133pdfTeX warning (ext4): destination with the same identifier (name{colorize_
-8h_ab87bacfdad76e61b9412d7124be44c1caf77fb67151d0c18d397069a\ETC.}) has been al
+[151pdfTeX warning (ext4): destination with the same identifier (name{colorize_
+8c_ab87bacfdad76e61b9412d7124be44c1caf77fb67151d0c18d397069a\ETC.}) has been al
 ready used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.113 \end{DoxyEnumFields}
+l.130 \end{DoxyEnumFields}
                           
+pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
+b87bacfdad76e61b9412d7124be44c1caf80f9a890089d211842d596\ETC.}) has been alread
+y used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.130 \end{DoxyEnumFields}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
+b87bacfdad76e61b9412d7124be44c1caa60bd322f93178d68184e30\ETC.}) has been alread
+y used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.130 \end{DoxyEnumFields}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
+b87bacfdad76e61b9412d7124be44c1cae735a848bf82163a19236ea\ETC.}) has been alread
+y used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.130 \end{DoxyEnumFields}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
+b87bacfdad76e61b9412d7124be44c1ca35d6719cb4d7577c031b3d7\ETC.}) has been alread
+y used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.130 \end{DoxyEnumFields}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
+b87bacfdad76e61b9412d7124be44c1ca56926c820ad72d0977e7ee4\ETC.}) has been alread
+y used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.130 \end{DoxyEnumFields}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
+b87bacfdad76e61b9412d7124be44c1caafe71cad474c15ce63b300c\ETC.}) has been alread
+y used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.130 \end{DoxyEnumFields}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{colorize_8c_a
+b87bacfdad76e61b9412d7124be44c1ca283fc479650da98250635b9\ETC.}) has been alread
+y used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.130 \end{DoxyEnumFields}
+                          
+] [152]) (./colorize_8h.tex [153] [154pdfTeX warning (ext4): destination with t
+he same identifier (name{colorize_8h_ab87bacfdad76e61b9412d7124be44c1caf77fb671
+51d0c18d397069a\ETC.}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.150 \doxysubsubsection
+                        {\texorpdfstring{display\_italicize()}{display\_ital...
 pdfTeX warning (ext4): destination with the same identifier (name{colorize_8h_a
 b87bacfdad76e61b9412d7124be44c1caf80f9a890089d211842d596\ETC.}) has been alread
 y used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.113 \end{DoxyEnumFields}
-                          
+l.150 \doxysubsubsection
+                        {\texorpdfstring{display\_italicize()}{display\_ital...
 pdfTeX warning (ext4): destination with the same identifier (name{colorize_8h_a
 b87bacfdad76e61b9412d7124be44c1caa60bd322f93178d68184e30\ETC.}) has been alread
 y used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.113 \end{DoxyEnumFields}
-                          
+l.150 \doxysubsubsection
+                        {\texorpdfstring{display\_italicize()}{display\_ital...
 pdfTeX warning (ext4): destination with the same identifier (name{colorize_8h_a
 b87bacfdad76e61b9412d7124be44c1cae735a848bf82163a19236ea\ETC.}) has been alread
 y used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.113 \end{DoxyEnumFields}
-                          
+l.150 \doxysubsubsection
+                        {\texorpdfstring{display\_italicize()}{display\_ital...
 pdfTeX warning (ext4): destination with the same identifier (name{colorize_8h_a
 b87bacfdad76e61b9412d7124be44c1ca35d6719cb4d7577c031b3d7\ETC.}) has been alread
 y used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.113 \end{DoxyEnumFields}
-                          
+l.150 \doxysubsubsection
+                        {\texorpdfstring{display\_italicize()}{display\_ital...
 pdfTeX warning (ext4): destination with the same identifier (name{colorize_8h_a
 b87bacfdad76e61b9412d7124be44c1ca56926c820ad72d0977e7ee4\ETC.}) has been alread
 y used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.113 \end{DoxyEnumFields}
-                          
+l.150 \doxysubsubsection
+                        {\texorpdfstring{display\_italicize()}{display\_ital...
 pdfTeX warning (ext4): destination with the same identifier (name{colorize_8h_a
 b87bacfdad76e61b9412d7124be44c1caafe71cad474c15ce63b300c\ETC.}) has been alread
 y used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.113 \end{DoxyEnumFields}
-                          
+l.150 \doxysubsubsection
+                        {\texorpdfstring{display\_italicize()}{display\_ital...
 pdfTeX warning (ext4): destination with the same identifier (name{colorize_8h_a
 b87bacfdad76e61b9412d7124be44c1ca283fc479650da98250635b9\ETC.}) has been alread
 y used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.113 \end{DoxyEnumFields}
-                          
-]) (./colorize_8h_source.tex [134]) (./cursor_8c.tex
+l.150 \doxysubsubsection
+                        {\texorpdfstring{display\_italicize()}{display\_ital...
+]) (./colorize_8h_source.tex) (./cursor_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[135]) (./cursor_8h.tex [136] [137]) (./cursor_8h_source.tex) (./hints_8c.tex
+[155] [156]) (./cursor_8h.tex [157] [158]) (./cursor_8h_source.tex)
+(./hints_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--5
 
  []
 
-[138]) (./hints_8h.tex
-Overfull \vbox (1.02997pt too high) has occurred while \output is active []
+
+Overfull \vbox (26.13777pt too high) has occurred while \output is active []
 
 
-[139]) (./hints_8h_source.tex) (./syntax__highlight_8c.tex
+[159]) (./hints_8h.tex) (./hints_8h_source.tex) (./syntax__highlight_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--11
 
  []
 
-[140] [141] [142]) (./syntax__highlight_8h.tex [143] [144])
-(./syntax__highlight_8h_source.tex) (./WhoDidWhat_8md.tex) [145] [146
+[160] [161] [162] [163]) (./syntax__highlight_8h.tex [164] [165])
+(./syntax__highlight_8h_source.tex [166]) (./WhoDidWhat_8md.tex) [167] [168
 
 ]
 (./refman.ind
@@ -1637,108 +1735,114 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--38
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--56
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
 []\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/ascii/mama.c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--58
+Underfull \hbox (badness 10000) in paragraph at lines 53--55
 []\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/ascii/mama.h,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
+Underfull \hbox (badness 10000) in paragraph at lines 55--57
 []\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/cmds/argtest.c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--62
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
 []\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/cmds/echo.c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--68
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
+[]\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/cmds/pcb.c,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--67
 []\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/cmds/version.c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--70
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
 []\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/commands.h,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--72
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
 []\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/commhand.c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
+Underfull \hbox (badness 10000) in paragraph at lines 71--73
 []\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/commhand.h,
  []
 
 
-Underfull \hbox (badness 1721) in paragraph at lines 76--78
-[]\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/dnt/dnt.h, [][]112[][],
+Underfull \hbox (badness 1721) in paragraph at lines 75--77
+[]\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/dnt/dnt.h, [][]111[][],
  []
 
 
-Underfull \hbox (badness 4156) in paragraph at lines 80--82
-[]\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/history.h, [][]125[][],
+Underfull \hbox (badness 4156) in paragraph at lines 79--81
+[]\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/history.h, [][]124[][],
  []
 
 
-Underfull \hbox (badness 3907) in paragraph at lines 83--85
-[]\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/syntax.h, [][]127[][],
+Underfull \hbox (badness 3907) in paragraph at lines 86--88
+[]\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/syntax.h, [][]146[][],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--88
-[]\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/utils.h, [][]129[][],
+Underfull \hbox (badness 10000) in paragraph at lines 89--91
+[]\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/utils.h, [][]148[][],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
 []\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/visuals/hints.c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--100
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
 []\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/visuals/hints.h,
  []
 
 
-Overfull \hbox (41.66695pt too wide) in paragraph at lines 100--102
+Overfull \hbox (41.66695pt too wide) in paragraph at lines 103--105
 []\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/visuals/syntax_highlight.c
 ,
  []
 
 
-Overfull \hbox (42.17088pt too wide) in paragraph at lines 102--104
+Overfull \hbox (42.17088pt too wide) in paragraph at lines 105--107
 []\T1/phv/m/n/10 /home/maximillian/Desktop/MAMA/term/visuals/syntax_highlight.h
 ,
  []
 
-[147
+[169
 
 
-] [148] [149] [150] [151] [152] [153] [154] [155] [156] [157] [158]
-Underfull \hbox (badness 10000) in paragraph at lines 1484--1485
+] [170] [171] [172] [173] [174] [175] [176] [177] [178] [179] [180]
+[181]
+Underfull \hbox (badness 10000) in paragraph at lines 1629--1630
 []| \T1/phv/m/n/10 SYN-TAX_COLOR_DOUBLE_QUOTE_STRING,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1487--1488
+Underfull \hbox (badness 10000) in paragraph at lines 1632--1633
 []| \T1/phv/m/n/10 SYN-TAX_COLOR_SINGLE_QUOTE_STRING,
  []
 
-[159] [160])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 298.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 298.
+[182] [183])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 299.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 299.
  (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 298.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 298.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 299.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 299.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 15CD3CBF8A4AC4974A2C3D16D1FA9B6A;142979.
+(rerunfilecheck)             Checksum: 84C510C46AD0E664D428F18EC99FB281;155131.
 
 
 
@@ -1746,13 +1850,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 20177 strings out of 483183
- 333794 string characters out of 5966293
- 720755 words of memory out of 5000000
- 33006 multiletter control sequences out of 15000+600000
+ 20489 strings out of 481239
+ 342566 string characters out of 5920377
+ 744904 words of memory out of 5000000
+ 33400 multiletter control sequences out of 15000+600000
  590301 words of font info for 94 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 55i,16n,96p,891b,738s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 1141 hyphenation exceptions out of 8191
+ 55i,16n,96p,891b,799s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
@@ -1764,10 +1868,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (180 pages, 524982 bytes).
+Output written on refman.pdf (205 pages, 574908 bytes).
 PDF statistics:
- 8253 PDF objects out of 8907 (max. 8388607)
- 7922 compressed objects within 80 object streams
- 1658 named destinations out of 1728 (max. 500000)
- 5553 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 9010 PDF objects out of 10688 (max. 8388607)
+ 8647 compressed objects within 87 object streams
+ 1825 named destinations out of 2073 (max. 500000)
+ 6041 words of extra memory for PDF output out of 10000 (max. 10000000)
 
