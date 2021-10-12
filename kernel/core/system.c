@@ -3,6 +3,9 @@
 
 #include <core/serial.h>
 
+/// Currently operating process
+pcb_t * cop;
+
 /*
   Procedure..: klogv
   Description..: Kernel log messages. Sent to active
@@ -29,4 +32,9 @@ void kpanic(const char *msg)
   strcat(logmsg, msg);
   klogv(logmsg);
   hlt(); //halt
+}
+
+u32int * sys_call(context * registers) {
+
+  return registers; // Temporary
 }
