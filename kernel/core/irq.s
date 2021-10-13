@@ -44,6 +44,8 @@ extern do_page_fault
 extern do_reserved
 extern do_coprocessor
 
+extern sys_call
+
 ; RTC interrupt handler
 ; Tells the slave PIC to ignore
 ; interrupts from the RTC

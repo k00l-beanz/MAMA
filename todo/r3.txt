@@ -3,5 +3,12 @@ R3:
 	      slide 13 on black board has the instructions
 	Fill body of irq.s 	[x]
 	sys_call 		[]
-	yield			[]
+	yield			[x]
 	loadr3			[]
+
+	Note: Take a look at slide 15
+	update interrupts.c []
+	ensure setupPCB has a correct stacktop []
+
+R4:
+	

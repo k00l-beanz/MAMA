@@ -2,8 +2,10 @@
 #include <system.h>
 
 #include <core/serial.h>
+#include <modules/mpx_supt.c>
 
 #include "term/pcb/pcb.h"
+#include "term/pcb/pcb.c"
 #include "term/dispatch/context.h"
 
 /// Currently operating process
@@ -52,10 +54,28 @@ void kpanic(const char *msg)
 */
 u32int * sys_call(context * registers) {
 
-  /* Is there a currently operating process? */
+  //Is there a currently operating process? 
   if (cop == NULL) {
-    context = registers;
+    global_context = registers;
+  } else { //There is an existing cop 
+
+      if (params.op_code == IDLE) {
+        // Save the context
+        cop->pcb_stack_top = (unsigned char *) registers;
+      } else if (params.op_code == EXIT) {
+        // Free cop
+        freePCB(cop);
+      }
   }
+
+  // Get head of READY queue 
+  pcb_t * pcb = priority_queue->pcbq_head->pcb;
   
-  return registers; // Temporary
+  if (pcb != NULL) {
+    cop = pcb;
+    removePCB(pcb);
+    return (u32int *) cop->pcb_stack_top;
+  }
+
+  return (u32int *) global_context;
 }

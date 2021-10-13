@@ -10,7 +10,7 @@
 #include "dnt/dnt.c"
 #include "utils.h"
 #include "ascii/mama.c"
-
+#include "dispatch/context.c"
 #include "pcb/pcb.c"
 
 typedef int (*cmd_func_t)(char *);
@@ -107,7 +107,10 @@ const cmd_mapping cmd_mappings[] = {
 			"suspendpcb",
 			&suspendPCB
 		},
-
+		{
+			"yield",
+			&yield
+		},
 	{
 		"arg-test",
 		&cmd_argtest
