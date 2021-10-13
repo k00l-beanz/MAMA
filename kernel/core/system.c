@@ -2,10 +2,9 @@
 #include <system.h>
 
 #include <core/serial.h>
-#include <modules/mpx_supt.c>
+#include <modules/mpx_supt.h>
 
 #include "term/pcb/pcb.h"
-#include "term/pcb/pcb.c"
 #include "term/dispatch/context.h"
 
 /// Currently operating process
@@ -13,6 +12,8 @@ pcb_t * cop;
 
 /// Context 
 context * global_context;
+extern pcb_queue_t * priority_queue;
+extern param params;
 
 /*
   Procedure..: klogv
@@ -65,6 +66,7 @@ u32int * sys_call(context * registers) {
       } else if (params.op_code == EXIT) {
         // Free cop
         freePCB(cop);
+        // TODO: cop now points to freed memory, using it will result in a use-after-free - does cop need to be set to null here? not really sure how any of this stuff works lol
       }
   }
 
