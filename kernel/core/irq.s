@@ -24,6 +24,7 @@
 [GLOBAL reserved]
 [GLOBAL coprocessor]
 [GLOBAL rtc_isr]
+[GLOBAL sys_call_isr]
 
 ;; Names of the C handlers
 extern do_divide_error
