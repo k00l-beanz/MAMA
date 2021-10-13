@@ -1,3 +1,5 @@
+#ifndef CONTEXT_H
+#define CONTEXT_H
 
 /// Context of the currently operating process
 typedef struct Context {
@@ -37,3 +39,5 @@ int yield(char * p);
  * 
 */
 int loadr3(char * p);
+
+#endif

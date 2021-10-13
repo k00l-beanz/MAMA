@@ -8,7 +8,7 @@ R3:
 
 	Note: Take a look at slide 15
 	update interrupts.c [X]
-	ensure setupPCB has a correct stacktop []
+	ensure setupPCB has a correct stacktop [X]
 
 R4:
 	

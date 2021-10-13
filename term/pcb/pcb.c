@@ -6,6 +6,7 @@
 #include <lib/out.h>
 #include <term/utils.h>
 #include <term/args.h>
+#include <term/dispatch/context.h>
 
 /*
 	We are going to have two queues for right now.
@@ -48,7 +49,7 @@ pcb_t * allocatePCB() {
 	}
 
 	/* End of the stack (SP) */
-	pcb->pcb_stack_top = pcb->pcb_stack_bottom + MAX_STACK_SIZE;
+	pcb->pcb_stack_top = pcb->pcb_stack_bottom + MAX_STACK_SIZE - sizeof(context);
 
 	/* Zero out memory in the stack frame (SF) */
 	memset(pcb, MAX_STACK_SIZE, '\0');
