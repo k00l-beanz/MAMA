@@ -7,7 +7,7 @@ R3:
 	loadr3			[]
 
 	Note: Take a look at slide 15
-	update interrupts.c []
+	update interrupts.c [X]
 	ensure setupPCB has a correct stacktop []
 
 R4:
