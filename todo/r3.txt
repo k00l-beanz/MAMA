@@ -12,3 +12,11 @@ R3:
 
 R4:
 	
+	Slide 16 - turn commhand into process:
+	Remove call to commhand in kmain	[]
+	Add commhand and idle to ready queue	[]
+	Trigger interrupt on line 60		[]
+	Remove yield cmd			[]
+	
+	alarm cmd/proc		[]
+	infinite process	[]
