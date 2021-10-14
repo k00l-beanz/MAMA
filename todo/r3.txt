@@ -2,7 +2,7 @@ R3:
 	Note: a lot of this is in kernel/core/system.c
 	      slide 13 on black board has the instructions
 	Fill body of irq.s 	[x]
-	sys_call 		[]
+	sys_call 		[x]
 	yield			[x]
 	loadr3			[]
 

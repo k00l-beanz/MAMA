@@ -1,6 +1,8 @@
 #ifndef CONTEXT_H
 #define CONTEXT_H
 
+#include "term/pcb/pcb.h"
+
 /// Context of the currently operating process
 typedef struct Context {
 	/// Segment registers
@@ -39,5 +41,7 @@ int yield(char * p);
  * 
 */
 int loadr3(char * p);
+
+pcb_t * loadr3CreatePCB(char * args);
 
 #endif

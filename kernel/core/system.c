@@ -66,7 +66,12 @@ u32int * sys_call(context * registers) {
       } else if (params.op_code == EXIT) {
         // Free cop
         freePCB(cop);
-        // TODO: cop now points to freed memory, using it will result in a use-after-free - does cop need to be set to null here? not really sure how any of this stuff works lol
+        // TODO: cop now points to freed memory, 
+        // using it will result in a use-after-free - does cop need to be set to null here? 
+        // not really sure how any of this stuff works lol
+        // 
+        // I made it NULL to prevent what you mentioned above
+        cop = NULL;
       }
   }
 

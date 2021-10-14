@@ -262,37 +262,37 @@ int createPCB(char * args) {
 	/* Check for correct number of parameters */
 	if (params == 1) {
 		print("Usage: createpcb [NAME.PROCESS_CLASS.PRIORITY]\n",47);
-		return 0;
+		return 1;
 	}
 	else if (params != 4) {
 		print("Error: Wrong amount of parameters\n",27);
-		return 0;
+		return 1;
 	}
 
 	/* Check name for size and whether it exists in a PCB already */
 	if (strlen(name) > MAX_NAME_SIZE || name == NULL) {
 		print("Error: Name of the PCB is too long\n",35);
-		return 0;
+		return 1;
 	} 
 	else if (findPCB(name) != NULL) {
 		print("Error: PCB with that name already exists\n",41);
-		return 0;
+		return 1;
 	} 
 
 	/* Check whether priority is out of bounds */
 	if (priority > MAX_PRIORITY || priority < MIN_PRIORITY) {
 		print("Error: Specified priority is out of bounds\n",43);
-		return 0;
+		return 1;
 	}
 
 	if (process_class != 0 && process_class != 1) {
 		printf("Error: Specified process class does not exist\n"); // if the user doesn't enter a numeric value for the process class, this would print garbage data instead of what they entered, so I removed the part of this error message that echos what the user entered
-		return 0;
+		return 1;
 	}
 	
 	
 	/* Create the PCB */
-	pcb_t *pcb = setupPCB(name, process_class, priority);
+	pcb_t * pcb = setupPCB(name, process_class, priority);
 	
 	/* Insert into PCB queue */
 	insertPCB(pcb);

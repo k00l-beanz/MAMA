@@ -189,7 +189,7 @@ int removePCB(pcb_t * pcb);
  * @param process_class The type of process class that will be used
  * @param priority Priority of the PCB
  * 
- * @return Returns 1 upon success, Otherwise 0
+ * @return Returns 0 upon success, 1 upon error
 */
 int createPCB(char * user_input);
 

@@ -111,6 +111,10 @@ const cmd_mapping cmd_mappings[] = {
 			"yield",
 			&yield
 		},
+		{
+			"loadr3",
+			&loadr3
+		},
 	{
 		"arg-test",
 		&cmd_argtest
