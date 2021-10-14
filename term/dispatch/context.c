@@ -17,9 +17,9 @@ int loadr3(char * args) {
 
 	pcb_t * pcb = loadr3CreatePCB(args);
 	
-	/*if (pcb == NULL) {
-		printf()
-	} */
+	if (pcb == NULL) {
+		return 0;
+	}
 
 	context * cp = (context *) pcb->pcb_stack_top;
 	memset(cp, 0, sizeof(context));
