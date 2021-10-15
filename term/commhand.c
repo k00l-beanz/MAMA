@@ -108,10 +108,6 @@ const cmd_mapping cmd_mappings[] = {
 			&suspendPCB
 		},
 		{
-			"yield",
-			&yield
-		},
-		{
 			"loadr3",
 			&loadr3
 		},
@@ -136,7 +132,7 @@ cmd_func_t fetch_cmd_handler(char *);
  * 
  * @return Returns 0 upon success, -1 upon error
 */
-int commhand() {
+void commhand() {
 	syntax_init();
 
 	char cmd_name[MAX_CMD_NAME_LEN + 1];
@@ -218,7 +214,7 @@ int commhand() {
 		}
 	}
 
-	return 0;
+	return;
 }
 
 

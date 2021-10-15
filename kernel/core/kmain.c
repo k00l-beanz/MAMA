@@ -22,6 +22,8 @@
 #include "modules/mpx_supt.h"
 #include <term/commhand.c>
 
+#include "term/dispatch/context.h"
+
 void kmain(void)
 {
    extern uint32_t magic;
@@ -37,7 +39,7 @@ void kmain(void)
    init_serial(COM1);
    set_serial_in(COM1);
    set_serial_out(COM1);
-   mpx_init(MODULE_R2);
+   mpx_init(MODULE_R4);
 
  
    klogv("Starting MPX boot sequence...");
@@ -85,7 +87,10 @@ void kmain(void)
 
    // 6) Call YOUR command handler -  interface method
    klogv("Transferring control to commhand...");
-   commhand();
+   // commhand(); !!! ENABLE/RE-ENABLE FOR R4 !!!
+   loadr3BackEnd("commhand.0.9",&commhand);
+   loadr3BackEnd("idle.0.1",&idle);
+   yield();
 
    // 7) System Shutdown on return from your command handler
    klogv("Starting system shutdown procedure...");

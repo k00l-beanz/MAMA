@@ -21,13 +21,9 @@ typedef struct Context {
  * Forces commhand to yield to other processes.
  * If any processes are in the ready queue, they will
  * be executed.
- * 
- * @param p Empty parameter
- * 
- * @return Returns 0 upon success
- * 
+ *  
 */
-int yield(char * p);
+void yield();
 
 /**
  * Loads r3 'processes'
@@ -55,6 +51,6 @@ int loadr3(char * p);
 */
 pcb_t * loadr3CreatePCB(char * args);
 
-void loadr3BackEnd(char * pcb, void (*func) (void)); 
+void loadr3BackEnd(char * pcb, void (* func) (void)); 
 
 #endif

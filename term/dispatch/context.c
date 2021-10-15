@@ -3,13 +3,11 @@
 #include "term/pcb/pcb.h"
 #include "procsr3.c"
 
-int yield(char * p) {
-	(void) p;
+void yield() {
 	asm volatile("int $60");
-	return 0;
 }
 
-void loadr3BackEnd(char * args, void (*func) (void)) {
+void loadr3BackEnd(char * args, void (* func) (void)) {
 	pcb_t * pcb = loadr3CreatePCB(args);
 	
 	if (pcb == NULL) {
@@ -32,11 +30,11 @@ void loadr3BackEnd(char * args, void (*func) (void)) {
 
 int loadr3(char * p) {
 	(void) p;
-	loadr3BackEnd("proc1.0.1", &proc1);
-	loadr3BackEnd("proc2.0.2", &proc2);
-	loadr3BackEnd("proc3.0.3", &proc3);
-	loadr3BackEnd("proc4.0.4", &proc4);
-	loadr3BackEnd("proc5.0.5", &proc5);
+	loadr3BackEnd("proc1.1.1", &proc1);
+	loadr3BackEnd("proc2.1.2", &proc2);
+	loadr3BackEnd("proc3.1.3", &proc3);
+	loadr3BackEnd("proc4.1.4", &proc4);
+	loadr3BackEnd("proc5.1.5", &proc5);
 	return 0;
 }
 
