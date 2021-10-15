@@ -42,6 +42,19 @@ int yield(char * p);
 */
 int loadr3(char * p);
 
+/**
+ * CreatePCB for loadr3
+ * 
+ * CreatePCB function for r3. This method behaves the
+ * same way as 'createPCB' in pcb.c with the execption
+ * that this method returns a pointer to the newly created
+ * pcb.
+ * 
+ * @param args PCB to be creates and used as the currentlly operating process
+ * @return Upon sucess, pointer to PCB, otherwise returns NULL 
+*/
 pcb_t * loadr3CreatePCB(char * args);
+
+void loadr3BackEnd(char * pcb, void (*func) (void)); 
 
 #endif

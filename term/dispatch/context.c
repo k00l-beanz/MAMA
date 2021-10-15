@@ -1,6 +1,7 @@
 
 #include "context.h"
 #include "term/pcb/pcb.h"
+#include "procsr3.c"
 
 int yield(char * p) {
 	(void) p;
@@ -8,42 +9,40 @@ int yield(char * p) {
 	return 0;
 }
 
-int loadr3(char * args) {
-	(void) args; // temp
-
-	// So I'm assuming loadr3 will take in a new process
-	// similiar to createPCB. The code that will be used is 
-	// below I just need to integrate it with MAMA
-
+void loadr3BackEnd(char * args, void (*func) (void)) {
 	pcb_t * pcb = loadr3CreatePCB(args);
 	
 	if (pcb == NULL) {
-		return 0;
+		return;
 	}
 
 	context * cp = (context *) pcb->pcb_stack_top;
 	memset(cp, 0, sizeof(context));
 	
-	/*
 	cp->fs = 0x10;
 	cp->gs = 0x10;
 	cp->ds = 0x10;
 	cp->es = 0x10;
 	cp->cs = 0x8;
-	cp->ebp = (u32int) pcb->stack_base;
-	cp->esp = (u32int) pcb->stack_top;
-	cp->eip = (u32int) func;
-	cp->eflags = 0x202;
-	*/
-	// return pcb;
+	cp->ebp = (u32int) pcb->pcb_stack_bottom;
+	cp->esp = (u32int) pcb->pcb_stack_top;
+	cp->eip = (u32int) func; 
+	cp->eflags = 0x202;	
+}
 
+int loadr3(char * p) {
+	(void) p;
+	loadr3BackEnd("proc1.0.1", &proc1);
+	loadr3BackEnd("proc2.0.2", &proc2);
+	loadr3BackEnd("proc3.0.3", &proc3);
+	loadr3BackEnd("proc4.0.4", &proc4);
+	loadr3BackEnd("proc5.0.5", &proc5);
 	return 0;
 }
 
 /*
 	So I copied this from pcb.c because I needed createPCB to return
-	a pcb pointer and not an int for loadr3. This will act as the createPCB backend
-	command. 
+	a pcb pointer and not an int for loadr3.
 
 	Another way I thought about doing this was using setupPCB since it does 
 	return a pcb pointer and then using insertPCB. createPCB does all the string parsing, 
@@ -122,6 +121,7 @@ pcb_t * loadr3CreatePCB(char * args) {
 	
 	/* Insert into PCB queue */
 	insertPCB(pcb);
+	suspendPCB(name);
 	
 	return pcb;
 }
