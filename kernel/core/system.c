@@ -88,7 +88,7 @@ u32int * sys_call(context * registers) {
       node = node->pcbn_next_pcb;
     }
     pcb = node->pcb;
-
+    pcb->pcb_process_state = RUNNING;
   }
 
   // There is a READY pcb
