@@ -54,7 +54,7 @@ void kpanic(const char *msg)
  * 
 */
 u32int * sys_call(context * registers) {
-
+  
   //Is there a currently operating process? 
   if (cop == NULL) {
     global_context = registers;
@@ -63,6 +63,7 @@ u32int * sys_call(context * registers) {
       if (params.op_code == IDLE) {
         // Save the context
         cop->pcb_stack_top = (unsigned char *) registers;
+        insertPCB(cop);
       } else if (params.op_code == EXIT) {
         // Free cop
         freePCB(cop);
@@ -76,8 +77,21 @@ u32int * sys_call(context * registers) {
   }
 
   // Get head of READY queue 
-  pcb_t * pcb = priority_queue->pcbq_head->pcb;
+  pcb_node_t * node = priority_queue->pcbq_head;
+  pcb_t * pcb;
   
+  if (node == NULL) { // Priority queue is empty
+    pcb = NULL;
+  } else { // There is something in READY queue, find pcb that is READY
+
+    while (node->pcb->pcb_process_state != READY) {
+      node = node->pcbn_next_pcb;
+    }
+    pcb = node->pcb;
+
+  }
+
+  // There is a READY pcb
   if (pcb != NULL) {
     cop = pcb;
     removePCB(pcb);

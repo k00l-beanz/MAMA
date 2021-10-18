@@ -133,6 +133,8 @@ cmd_func_t fetch_cmd_handler(char *);
  * @return Returns 0 upon success, -1 upon error
 */
 void commhand() {
+	// I changed the return type from 'int' to 'void' so I can call
+	// commhand using the dispatcher in kmain.c
 	syntax_init();
 
 	char cmd_name[MAX_CMD_NAME_LEN + 1];
@@ -212,9 +214,11 @@ void commhand() {
 		if(strcmp(cmd_name, "shutdown") == 0 && cmd_exit_code == 0) {
 			running = 0;
 		}
+		
+		sys_req(IDLE,NULL,NULL,NULL);
 	}
-
-	return;
+	
+	sys_req(EXIT,NULL,NULL,NULL);
 }
 
 

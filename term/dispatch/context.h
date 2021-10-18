@@ -4,7 +4,7 @@
 #include "term/pcb/pcb.h"
 
 /// Context of the currently operating process
-typedef struct Context {
+typedef struct context {
 	/// Segment registers
 	u32int gs, fs, es, ds;
 
@@ -39,18 +39,14 @@ void yield();
 int loadr3(char * p);
 
 /**
- * CreatePCB for loadr3
+ * Stores context on the stack
  * 
- * CreatePCB function for r3. This method behaves the
- * same way as 'createPCB' in pcb.c with the execption
- * that this method returns a pointer to the newly created
- * pcb.
+ * With a given pcb and method to run, the dispatcher
+ * will store context registers onto the PCB stack.
  * 
- * @param args PCB to be creates and used as the currentlly operating process
- * @return Upon sucess, pointer to PCB, otherwise returns NULL 
+ * @param pcb PCB where context is stored
+ * @param func Method that is ran within the process 
 */
-pcb_t * loadr3CreatePCB(char * args);
-
-void loadr3BackEnd(char * pcb, void (* func) (void)); 
+pcb_t * dispatcher(char * pcb, void (* func) (void)); 
 
 #endif

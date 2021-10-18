@@ -19,10 +19,11 @@
 #include <core/interrupts.h>
 #include <mem/heap.h>
 #include <mem/paging.h>
-#include "modules/mpx_supt.h"
-#include <term/commhand.c>
+#include <modules/mpx_supt.h>
 
+#include "term/commhand.c"
 #include "term/dispatch/context.h"
+#include "term/pcb/pcb.h"
 
 void kmain(void)
 {
@@ -87,9 +88,23 @@ void kmain(void)
 
    // 6) Call YOUR command handler -  interface method
    klogv("Transferring control to commhand...");
-   // commhand(); !!! ENABLE/RE-ENABLE FOR R4 !!!
-   loadr3BackEnd("commhand.0.9",&commhand);
-   loadr3BackEnd("idle.0.1",&idle);
+   // commhand(); // !!! ENABLE/RE-ENABLE FOR R4 !!!
+
+   // Commhand PCB
+   pcb_t * commhandPCB = dispatcher("commhand",&commhand);
+   commhandPCB->pcb_priority = 9;
+   commhandPCB->pcb_process_class = 0;
+   commhandPCB->pcb_process_state = READY;
+   insertPCB(commhandPCB);
+
+   // Idle PCB
+   pcb_t * idlePCB = dispatcher("idle",&idle);
+   idlePCB->pcb_priority = 1;
+   idlePCB->pcb_process_class = 0;
+   idlePCB->pcb_process_state = READY;
+   insertPCB(idlePCB);
+  
+   // yield
    yield();
 
    // 7) System Shutdown on return from your command handler
