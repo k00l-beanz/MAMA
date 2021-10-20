@@ -128,6 +128,10 @@ int insertPCB(pcb_t * pcb) {
 	if(queue->pcbq_head == NULL) {
 		// queue is empty - set this pcb as head and tail
 		pcb_node_t *inserted_node = (pcb_node_t *)sys_alloc_mem(sizeof(pcb_node_t));
+		if(inserted_node == NULL) {
+			printf("Memory allocation fault in createPCB");
+			return 1;
+		}
 		// null next and prev nodes for new node
 		inserted_node->pcbn_next_pcb = NULL;
 		inserted_node->pcbn_prev_pcb = NULL;
@@ -145,8 +149,13 @@ int insertPCB(pcb_t * pcb) {
 		if(node->pcb->pcb_priority < pcb->pcb_priority) {
 			// node is replacing queue's current head
 			pcb_node_t *inserted_node = (pcb_node_t *)sys_alloc_mem(sizeof(pcb_node_t));
+			if(inserted_node == NULL) {
+				printf("Memory allocation fault in createPCB");
+				return 1;
+			}
 			inserted_node->pcbn_next_pcb = node;
 			inserted_node->pcb = pcb;
+			inserted_node->pcbn_prev_pcb = NULL;
 			node->pcbn_prev_pcb = inserted_node;
 			queue->pcbq_head = inserted_node;
 			return 0;
@@ -161,6 +170,10 @@ int insertPCB(pcb_t * pcb) {
 	
 	// doubly linked lists sure are fun
 	pcb_node_t *inserted_node = (pcb_node_t *)sys_alloc_mem(sizeof(pcb_node_t));
+	if(inserted_node == NULL) {
+		printf("Memory allocation fault in createPCB");
+		return 1;
+	}
 	inserted_node->pcbn_next_pcb = node->pcbn_next_pcb;
 	inserted_node->pcbn_prev_pcb = node;
 	inserted_node->pcb = pcb;

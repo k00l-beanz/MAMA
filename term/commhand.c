@@ -146,7 +146,7 @@ void commhand() {
 	mama();
 
 	/* Initialize PCB */
-	initPCB();
+	//initPCB();
 	
 	/* Driver loop */
 	while(running) {

@@ -70,6 +70,8 @@ void kmain(void)
    init_irq();
    sti();
 
+   initPCB();
+
     // 4)  Interrupt vector table --  tables.c
     // this creates and initializes a default interrupt vector table
     // this function is in tables.c
