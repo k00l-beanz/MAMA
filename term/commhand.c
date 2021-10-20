@@ -147,7 +147,7 @@ void commhand() {
 
 	/* Initialize PCB */
 	initPCB();
-
+	
 	/* Driver loop */
 	while(running) {
 		/* Prints prompt */
@@ -215,10 +215,10 @@ void commhand() {
 			running = 0;
 		}
 		
-		sys_req(IDLE,NULL,NULL,NULL);
+		sys_req(IDLE,DEFAULT_DEVICE,NULL,NULL);
 	}
 	
-	sys_req(EXIT,NULL,NULL,NULL);
+	sys_req(EXIT,DEFAULT_DEVICE,NULL,NULL);
 }
 
 

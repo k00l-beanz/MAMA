@@ -58,8 +58,8 @@ pcb_t * allocatePCB() {
 }
 
 int freePCB(pcb_t * pcb) {
-	int free = sys_free_mem(pcb->pcb_stack_bottom);
-	free = sys_free_mem(pcb);
+	// int free = sys_free_mem(pcb->pcb_stack_bottom);
+	int free = sys_free_mem(pcb);
 	return free;
 }
 
@@ -112,6 +112,8 @@ int insertPCB(pcb_t * pcb) {
 	pcb_queue_t *queue;
 	switch (pcb->pcb_process_state) {
 		case READY:
+			queue = priority_queue;
+			break;
 		case SUSPENDED_READY:
 			queue = priority_queue;
 			break;
@@ -574,8 +576,9 @@ int deletePCB(char *args) {
 	}
 
 	removePCB(pcb);
-	sys_free_mem(pcb->pcb_stack_bottom);
-	sys_free_mem(pcb);
+	freePCB(pcb);
+	// sys_free_mem(pcb->pcb_stack_bottom);
+	// sys_free_mem(pcb);
 
 	return 0;
 }

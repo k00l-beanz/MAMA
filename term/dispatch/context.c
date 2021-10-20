@@ -12,15 +12,10 @@ void yield() {
 int loadr3(char * p) {
 	(void) p;
 	insertPCB(dispatcher("proc1", &proc1));
-	showPCB("proc1");
 	insertPCB(dispatcher("proc2", &proc2));
-	showPCB("proc2");
 	insertPCB(dispatcher("proc3", &proc3));
-	showPCB("proc3");
 	insertPCB(dispatcher("proc4", &proc4));
-	showPCB("proc4");
 	insertPCB(dispatcher("proc5", &proc5));
-	showPCB("proc5");
 	return 0;
 }
 

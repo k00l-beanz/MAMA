@@ -103,7 +103,7 @@ void kmain(void)
    idlePCB->pcb_process_class = 0;
    idlePCB->pcb_process_state = READY;
    insertPCB(idlePCB);
-  
+
    // yield
    yield();
 

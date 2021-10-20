@@ -44,7 +44,6 @@ extern do_general_protection
 extern do_page_fault
 extern do_reserved
 extern do_coprocessor
-
 extern sys_call
 
 ; RTC interrupt handler
@@ -123,23 +122,32 @@ coprocessor:
 ;;; access the registers. The C handler returns the address of the
 ;;; new processes stack top/pointer.
 sys_call_isr:
-	pusha			; push all registers to stack
+	; push all registers to stack
+	pusha
 
-	push ds     	; push segment registers
+	; push segment registers
+	push ds     	
 	push es
 	push fs
 	push gs
 
-	push esp		; Save stack pointer
-	call sys_call 	; Execute function
+	; Save stack pointer
+	push esp
 
-	mov esp, eax	; Create new stack pointer
+	; Execute function		
+	call sys_call 	
 
-	pop gs			; Restore context
+	; Create new stack pointer
+	mov esp, eax	
+
+	; Restore context
+	pop gs			
 	pop fs
 	pop es
 	pop ds
 
-	popa			; Restore all registers
+	; Restore all registers
+	popa			
 
-	iret 			; Return from interrupt
+	; Return from interrupt
+	iret 			

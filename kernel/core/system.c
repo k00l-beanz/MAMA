@@ -6,6 +6,7 @@
 
 #include "term/pcb/pcb.h"
 #include "term/dispatch/context.h"
+#include <lib/out.h>
 
 /// Currently operating process
 pcb_t * cop;
@@ -54,7 +55,7 @@ void kpanic(const char *msg)
  * 
 */
 u32int * sys_call(context * registers) {
-  
+
   //Is there a currently operating process? 
   if (cop == NULL) {
     global_context = registers;
@@ -63,10 +64,14 @@ u32int * sys_call(context * registers) {
       if (params.op_code == IDLE) {
         // Save the context
         cop->pcb_stack_top = (unsigned char *) registers;
+        cop->pcb_process_state = READY;
         insertPCB(cop);
       } else if (params.op_code == EXIT) {
         // Free cop
+        cop->pcb_process_state = SUSPENDED_READY;
+        removePCB(cop);
         freePCB(cop);
+
         // TODO: cop now points to freed memory, 
         // using it will result in a use-after-free - does cop need to be set to null here? 
         // not really sure how any of this stuff works lol
@@ -78,25 +83,28 @@ u32int * sys_call(context * registers) {
 
   // Get head of READY queue 
   pcb_node_t * node = priority_queue->pcbq_head;
-  pcb_t * pcb;
-  
-  if (node == NULL) { // Priority queue is empty
-    pcb = NULL;
-  } else { // There is something in READY queue, find pcb that is READY
+  pcb_t * pcb = NULL;
 
-    while (node->pcb->pcb_process_state != READY) {
-      node = node->pcbn_next_pcb;
+  while (node != NULL) {
+    
+    if (node->pcb->pcb_process_state == READY) {
+      pcb = node->pcb;
+      pcb->pcb_process_state = RUNNING;
+      break;
     }
-    pcb = node->pcb;
-    pcb->pcb_process_state = RUNNING;
-  }
 
+    node = node->pcbn_next_pcb;
+  }
+  
   // There is a READY pcb
-  if (pcb != NULL) {
+  if (pcb != NULL) {  
     cop = pcb;
+
+    pcb->pcb_process_state = SUSPENDED_READY;
     removePCB(pcb);
+    freePCB(pcb);
+
     return (u32int *) cop->pcb_stack_top;
   }
-
   return (u32int *) global_context;
 }
