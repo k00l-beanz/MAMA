@@ -1,0 +1,70 @@
+\hypertarget{string_8h_source}{}\doxysection{string.\+h}
+\label{string_8h_source}\index{/home/maximillian/Desktop/MAMA/include/string.h@{/home/maximillian/Desktop/MAMA/include/string.h}}
+\mbox{\hyperlink{string_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_STRING\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_STRING\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{system_8h}{system.h}}>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{  Procedure..: isspace}}
+\DoxyCodeLine{8 \textcolor{comment}{  Description..: Determine if a character is whitespace.}}
+\DoxyCodeLine{9 \textcolor{comment}{  Params..: c-\/character to check}}
+\DoxyCodeLine{10 \textcolor{comment}{*/}}
+\DoxyCodeLine{11 \textcolor{keywordtype}{int} \mbox{\hyperlink{string_8h_a0f3d37d605e9e6d4fc1853ff9d4b91bf}{isspace}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *c);}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{comment}{/*}}
+\DoxyCodeLine{14 \textcolor{comment}{  Procedure..: memset}}
+\DoxyCodeLine{15 \textcolor{comment}{  Description..: Set a region of memory.}}
+\DoxyCodeLine{16 \textcolor{comment}{  Params..: s-\/destination, c-\/byte to write, n-\/count}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 \textcolor{keywordtype}{void}* \mbox{\hyperlink{string_8h_a313175102214d45434bf045db18dddf0}{memset}}(\textcolor{keywordtype}{void} *s, \textcolor{keywordtype}{int} c, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{/*}}
+\DoxyCodeLine{21 \textcolor{comment}{  Procedure..: strcpy}}
+\DoxyCodeLine{22 \textcolor{comment}{  Description..: Copy one string to another.}}
+\DoxyCodeLine{23 \textcolor{comment}{  Params..: s1-\/destination, s2-\/source}}
+\DoxyCodeLine{24 \textcolor{comment}{*/}}
+\DoxyCodeLine{25 \textcolor{keywordtype}{char}* \mbox{\hyperlink{string_8h_a93ecb3a9381ab0afe2a2bcefcae491dc}{strcpy}}(\textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{/*}}
+\DoxyCodeLine{28 \textcolor{comment}{  Procedure..: strcat}}
+\DoxyCodeLine{29 \textcolor{comment}{  Description..: Concatenate the contents of one string onto another.}}
+\DoxyCodeLine{30 \textcolor{comment}{  Params..: s1-\/destination, s2-\/source}}
+\DoxyCodeLine{31 \textcolor{comment}{*/}}
+\DoxyCodeLine{32 \textcolor{keywordtype}{char}* \mbox{\hyperlink{string_8h_a11b1eac714726eaced49d9ecead8fc0c}{strcat}}(\textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{comment}{/*}}
+\DoxyCodeLine{35 \textcolor{comment}{  Procedure..: strlen}}
+\DoxyCodeLine{36 \textcolor{comment}{  Description..: Returns the length of a string.}}
+\DoxyCodeLine{37 \textcolor{comment}{  Params..: s-\/input string}}
+\DoxyCodeLine{38 \textcolor{comment}{*/}}
+\DoxyCodeLine{39 \textcolor{keywordtype}{int}   \mbox{\hyperlink{string_8h_a2dee044e4e667b5b789b493abd21cfa4}{strlen}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{/*}}
+\DoxyCodeLine{42 \textcolor{comment}{  Procedure..: strcmp}}
+\DoxyCodeLine{43 \textcolor{comment}{  Description..: String comparison}}
+\DoxyCodeLine{44 \textcolor{comment}{  Params..: s1-\/string 1, s2-\/string 2}}
+\DoxyCodeLine{45 \textcolor{comment}{*/}}
+\DoxyCodeLine{46 \textcolor{keywordtype}{int}   \mbox{\hyperlink{string_8h_a11bd144d7d44914099a3aeddf1c8567d}{strcmp}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{comment}{/*}}
+\DoxyCodeLine{49 \textcolor{comment}{  Procedure..: strtok}}
+\DoxyCodeLine{50 \textcolor{comment}{  Description..: Split string into tokens}}
+\DoxyCodeLine{51 \textcolor{comment}{  Params..: s1-\/string, s2-\/delimiter}}
+\DoxyCodeLine{52 \textcolor{comment}{*/}}
+\DoxyCodeLine{53 \textcolor{keywordtype}{char}* \mbox{\hyperlink{string_8h_aeed5147fce5c2f7c690dbec0941482f4}{strtok}}(\textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{comment}{/*}}
+\DoxyCodeLine{56 \textcolor{comment}{  Procedure..: atoi}}
+\DoxyCodeLine{57 \textcolor{comment}{  Description..: Convert an ASCII string to an integer}}
+\DoxyCodeLine{58 \textcolor{comment}{  Params..: const char *s -\/-\/ String}}
+\DoxyCodeLine{59 \textcolor{comment}{*/}}
+\DoxyCodeLine{60 \textcolor{keywordtype}{int} \mbox{\hyperlink{string_8h_a30670a60464f77af17dfb353353d6df8}{atoi}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{73 \textcolor{keywordtype}{char} *\mbox{\hyperlink{string_8h_aacdd10d7ae02287ad7aa56699c35603c}{itoa}}(\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

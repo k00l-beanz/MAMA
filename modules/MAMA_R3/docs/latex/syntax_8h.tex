@@ -1,0 +1,93 @@
+\hypertarget{syntax_8h}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/term/syntax.h File Reference}
+\label{syntax_8h}\index{/home/maximillian/Desktop/MAMA/term/syntax.h@{/home/maximillian/Desktop/MAMA/term/syntax.h}}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}} \{ \newline
+\mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83a34d0593ff40f9bfd598cf63104c18a96}{CMD\+\_\+\+NAME\+\_\+\+OR\+\_\+\+LEADING\+\_\+\+WHITESPACE}}
+, \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83aeb55efc71570e1830a0070d06af683b4}{CMD\+\_\+\+NAME}}
+, \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83aa88076262efd878ec9b974554cdcc7d5}{PARAM\+\_\+\+NAME}}
+, \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83a1c85eab78873293d0782d092daeb6f88}{PARAM\+\_\+\+VALUE}}
+, \newline
+\mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83ae7db3de1e657bbe2e8259e7ca2d9793c}{DOUBLE\+\_\+\+QUOTE\+\_\+\+STRING}}
+, \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83a242f8b0468adf6dc6dd3519ddd37ed04}{DOUBLE\+\_\+\+QUOTE\+\_\+\+STRING\+\_\+\+END\+\_\+\+QUOTE}}
+, \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83ac1a06c479e02a744bff8252ce0b988e5}{SINGLE\+\_\+\+QUOTE\+\_\+\+STRING}}
+, \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83ad584f45ce95cbda27206bc3a7a7e0c61}{SINGLE\+\_\+\+QUOTE\+\_\+\+STRING\+\_\+\+END\+\_\+\+QUOTE}}
+, \newline
+\mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83a0e3733a4d13a591724fae5c6c951c832}{END\+\_\+\+OF\+\_\+\+INPUT}}
+, \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83a88ec7d5086d2469ba843c7fcceade8a6}{DEFAULT}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}} \mbox{\hyperlink{syntax_8h_ac7d49ef60cb2864658aa70a30a456d09}{get\+\_\+state}} (char, enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}})
+\item 
+int \mbox{\hyperlink{syntax_8h_a968837195fdbd4c36319b8a28cb5bbc7}{changes\+\_\+state}} (char, enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}}, enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83}} 
+\index{syntax.h@{syntax.h}!SyntaxState@{SyntaxState}}
+\index{SyntaxState@{SyntaxState}!syntax.h@{syntax.h}}
+\doxysubsubsection{\texorpdfstring{SyntaxState}{SyntaxState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_NAME\_OR\_LEADING\_WHITESPACE@{CMD\_NAME\_OR\_LEADING\_WHITESPACE}!syntax.h@{syntax.h}}\index{syntax.h@{syntax.h}!CMD\_NAME\_OR\_LEADING\_WHITESPACE@{CMD\_NAME\_OR\_LEADING\_WHITESPACE}}}\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83a34d0593ff40f9bfd598cf63104c18a96}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83a34d0593ff40f9bfd598cf63104c18a96}} 
+CMD\+\_\+\+NAME\+\_\+\+OR\+\_\+\+LEADING\+\_\+\+WHITESPACE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_NAME@{CMD\_NAME}!syntax.h@{syntax.h}}\index{syntax.h@{syntax.h}!CMD\_NAME@{CMD\_NAME}}}\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83aeb55efc71570e1830a0070d06af683b4}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83aeb55efc71570e1830a0070d06af683b4}} 
+CMD\+\_\+\+NAME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARAM\_NAME@{PARAM\_NAME}!syntax.h@{syntax.h}}\index{syntax.h@{syntax.h}!PARAM\_NAME@{PARAM\_NAME}}}\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83aa88076262efd878ec9b974554cdcc7d5}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83aa88076262efd878ec9b974554cdcc7d5}} 
+PARAM\+\_\+\+NAME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARAM\_VALUE@{PARAM\_VALUE}!syntax.h@{syntax.h}}\index{syntax.h@{syntax.h}!PARAM\_VALUE@{PARAM\_VALUE}}}\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83a1c85eab78873293d0782d092daeb6f88}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83a1c85eab78873293d0782d092daeb6f88}} 
+PARAM\+\_\+\+VALUE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOUBLE\_QUOTE\_STRING@{DOUBLE\_QUOTE\_STRING}!syntax.h@{syntax.h}}\index{syntax.h@{syntax.h}!DOUBLE\_QUOTE\_STRING@{DOUBLE\_QUOTE\_STRING}}}\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83ae7db3de1e657bbe2e8259e7ca2d9793c}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83ae7db3de1e657bbe2e8259e7ca2d9793c}} 
+DOUBLE\+\_\+\+QUOTE\+\_\+\+STRING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOUBLE\_QUOTE\_STRING\_END\_QUOTE@{DOUBLE\_QUOTE\_STRING\_END\_QUOTE}!syntax.h@{syntax.h}}\index{syntax.h@{syntax.h}!DOUBLE\_QUOTE\_STRING\_END\_QUOTE@{DOUBLE\_QUOTE\_STRING\_END\_QUOTE}}}\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83a242f8b0468adf6dc6dd3519ddd37ed04}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83a242f8b0468adf6dc6dd3519ddd37ed04}} 
+DOUBLE\+\_\+\+QUOTE\+\_\+\+STRING\+\_\+\+END\+\_\+\+QUOTE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SINGLE\_QUOTE\_STRING@{SINGLE\_QUOTE\_STRING}!syntax.h@{syntax.h}}\index{syntax.h@{syntax.h}!SINGLE\_QUOTE\_STRING@{SINGLE\_QUOTE\_STRING}}}\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83ac1a06c479e02a744bff8252ce0b988e5}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83ac1a06c479e02a744bff8252ce0b988e5}} 
+SINGLE\+\_\+\+QUOTE\+\_\+\+STRING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SINGLE\_QUOTE\_STRING\_END\_QUOTE@{SINGLE\_QUOTE\_STRING\_END\_QUOTE}!syntax.h@{syntax.h}}\index{syntax.h@{syntax.h}!SINGLE\_QUOTE\_STRING\_END\_QUOTE@{SINGLE\_QUOTE\_STRING\_END\_QUOTE}}}\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83ad584f45ce95cbda27206bc3a7a7e0c61}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83ad584f45ce95cbda27206bc3a7a7e0c61}} 
+SINGLE\+\_\+\+QUOTE\+\_\+\+STRING\+\_\+\+END\+\_\+\+QUOTE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{END\_OF\_INPUT@{END\_OF\_INPUT}!syntax.h@{syntax.h}}\index{syntax.h@{syntax.h}!END\_OF\_INPUT@{END\_OF\_INPUT}}}\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83a0e3733a4d13a591724fae5c6c951c832}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83a0e3733a4d13a591724fae5c6c951c832}} 
+END\+\_\+\+OF\+\_\+\+INPUT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEFAULT@{DEFAULT}!syntax.h@{syntax.h}}\index{syntax.h@{syntax.h}!DEFAULT@{DEFAULT}}}\mbox{\Hypertarget{syntax_8h_af33280939207bc6f00c4b91581c64e83a88ec7d5086d2469ba843c7fcceade8a6}\label{syntax_8h_af33280939207bc6f00c4b91581c64e83a88ec7d5086d2469ba843c7fcceade8a6}} 
+DEFAULT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{syntax_8h_a968837195fdbd4c36319b8a28cb5bbc7}\label{syntax_8h_a968837195fdbd4c36319b8a28cb5bbc7}} 
+\index{syntax.h@{syntax.h}!changes\_state@{changes\_state}}
+\index{changes\_state@{changes\_state}!syntax.h@{syntax.h}}
+\doxysubsubsection{\texorpdfstring{changes\_state()}{changes\_state()}}
+{\footnotesize\ttfamily int changes\+\_\+state (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{enum}]{Syntax\+State,  }\item[{enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}} $\ast$}]{next\+\_\+state }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{syntax_8h_ac7d49ef60cb2864658aa70a30a456d09}\label{syntax_8h_ac7d49ef60cb2864658aa70a30a456d09}} 
+\index{syntax.h@{syntax.h}!get\_state@{get\_state}}
+\index{get\_state@{get\_state}!syntax.h@{syntax.h}}
+\doxysubsubsection{\texorpdfstring{get\_state()}{get\_state()}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{syntax_8h_af33280939207bc6f00c4b91581c64e83}{Syntax\+State}} get\+\_\+state (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{enum}]{Syntax\+State }\end{DoxyParamCaption})}
+

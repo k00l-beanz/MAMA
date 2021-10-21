@@ -1,0 +1,33 @@
+\hypertarget{io_8h}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/include/core/io.h File Reference}
+\label{io_8h}\index{/home/maximillian/Desktop/MAMA/include/core/io.h@{/home/maximillian/Desktop/MAMA/include/core/io.h}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{io_8h_a0e661d36f40638a36550a534076f155b}{outb}}(port,  data)~  \mbox{\hyperlink{system_8h_a71921cebf4610b0dbb2b7a0daaf3fedf}{asm}} \mbox{\hyperlink{system_8h_af55a5e48555be7d32ad73e76cf5d4db0}{volatile}} (\char`\"{}outb \%\%al,\%\%dx\char`\"{} \+: \+: \char`\"{}a\char`\"{} (data), \char`\"{}d\char`\"{} (port))
+\item 
+\#define \mbox{\hyperlink{io_8h_ad6488a48837d179b1833e2f48dac9665}{inb}}(port)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{io_8h_ad6488a48837d179b1833e2f48dac9665}\label{io_8h_ad6488a48837d179b1833e2f48dac9665}} 
+\index{io.h@{io.h}!inb@{inb}}
+\index{inb@{inb}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{inb}{inb}}
+{\footnotesize\ttfamily \#define inb(\begin{DoxyParamCaption}\item[{}]{port }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{      (\{                        \(\backslash\)}
+\DoxyCodeLine{      unsigned \textcolor{keywordtype}{char} r;                      \(\backslash\)}
+\DoxyCodeLine{      asm \textcolor{keyword}{volatile} (\textcolor{stringliteral}{"{}inb \%\%dx,\%\%al"{}}: \textcolor{stringliteral}{"{}=a"{}} (r): \textcolor{stringliteral}{"{}d"{}} (port)); \(\backslash\)}
+\DoxyCodeLine{      r;                            \(\backslash\)}
+\DoxyCodeLine{    \})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{io_8h_a0e661d36f40638a36550a534076f155b}\label{io_8h_a0e661d36f40638a36550a534076f155b}} 
+\index{io.h@{io.h}!outb@{outb}}
+\index{outb@{outb}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{outb}{outb}}
+{\footnotesize\ttfamily \#define outb(\begin{DoxyParamCaption}\item[{}]{port,  }\item[{}]{data }\end{DoxyParamCaption})~  \mbox{\hyperlink{system_8h_a71921cebf4610b0dbb2b7a0daaf3fedf}{asm}} \mbox{\hyperlink{system_8h_af55a5e48555be7d32ad73e76cf5d4db0}{volatile}} (\char`\"{}outb \%\%al,\%\%dx\char`\"{} \+: \+: \char`\"{}a\char`\"{} (data), \char`\"{}d\char`\"{} (port))}
+

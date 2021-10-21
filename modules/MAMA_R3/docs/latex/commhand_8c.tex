@@ -1,0 +1,115 @@
+\hypertarget{commhand_8c}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/term/commhand.c File Reference}
+\label{commhand_8c}\index{/home/maximillian/Desktop/MAMA/term/commhand.c@{/home/maximillian/Desktop/MAMA/term/commhand.c}}
+{\ttfamily \#include $<$include/string.\+h$>$}\newline
+{\ttfamily \#include $<$modules/mpx\+\_\+supt.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}visuals/colorize.\+c\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}history.\+c\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commhand.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commands.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}visuals/syntax\+\_\+highlight.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}visuals/hints.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$lib/out.\+c$>$}\newline
+{\ttfamily \#include \char`\"{}dnt/dnt.\+c\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ascii/mama.\+c\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pcb/pcb.\+c\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int($\ast$ \mbox{\hyperlink{commhand_8c_a94081df0b3154edd3c47c2ef2f4aadcc}{cmd\+\_\+func\+\_\+t}}) (char $\ast$)
+\item 
+typedef struct \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} \mbox{\hyperlink{commhand_8c_a234209e5926679c12f80c1bf60d3c968}{cmd\+\_\+mapping}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{commhand_8c_a2f4ba017d1252af62b83584e64cee010}{is\+\_\+name\+\_\+char}} (char)
+\begin{DoxyCompactList}\small\item\em Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{commhand_8c_a2cc0cebdb010b00580b45be948f88261}{extract\+\_\+cmd\+\_\+name}} (char $\ast$, char $\ast$, int $\ast$, int $\ast$)
+\item 
+\mbox{\hyperlink{commhand_8c_a94081df0b3154edd3c47c2ef2f4aadcc}{cmd\+\_\+func\+\_\+t}} \mbox{\hyperlink{commhand_8c_a47c794d5c09edf314e8aa3280b425235}{fetch\+\_\+cmd\+\_\+handler}} (char $\ast$)
+\item 
+int \mbox{\hyperlink{commhand_8c_a14d85617242501c323a203ee196d3efa}{commhand}} ()
+\begin{DoxyCompactList}\small\item\em Displays command line and interprets inputted commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} \mbox{\hyperlink{commhand_8c_a64ca5586b992ceef209f82007e1874c8}{cmd\+\_\+mappings}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{commhand_8c_a94081df0b3154edd3c47c2ef2f4aadcc}\label{commhand_8c_a94081df0b3154edd3c47c2ef2f4aadcc}} 
+\index{commhand.c@{commhand.c}!cmd\_func\_t@{cmd\_func\_t}}
+\index{cmd\_func\_t@{cmd\_func\_t}!commhand.c@{commhand.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_func\_t}{cmd\_func\_t}}
+{\footnotesize\ttfamily typedef int($\ast$ cmd\+\_\+func\+\_\+t) (char $\ast$)}
+
+\mbox{\Hypertarget{commhand_8c_a234209e5926679c12f80c1bf60d3c968}\label{commhand_8c_a234209e5926679c12f80c1bf60d3c968}} 
+\index{commhand.c@{commhand.c}!cmd\_mapping@{cmd\_mapping}}
+\index{cmd\_mapping@{cmd\_mapping}!commhand.c@{commhand.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_mapping}{cmd\_mapping}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{commhand_8c_a14d85617242501c323a203ee196d3efa}\label{commhand_8c_a14d85617242501c323a203ee196d3efa}} 
+\index{commhand.c@{commhand.c}!commhand@{commhand}}
+\index{commhand@{commhand}!commhand.c@{commhand.c}}
+\doxysubsubsection{\texorpdfstring{commhand()}{commhand()}}
+{\footnotesize\ttfamily int commhand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays command line and interprets inputted commands. 
+
+Parses through the input that was polled from the command line and interprets the command that was inputted (typically the first word)
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, -\/1 upon error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{commhand_8c_a2cc0cebdb010b00580b45be948f88261}\label{commhand_8c_a2cc0cebdb010b00580b45be948f88261}} 
+\index{commhand.c@{commhand.c}!extract\_cmd\_name@{extract\_cmd\_name}}
+\index{extract\_cmd\_name@{extract\_cmd\_name}!commhand.c@{commhand.c}}
+\doxysubsubsection{\texorpdfstring{extract\_cmd\_name()}{extract\_cmd\_name()}}
+{\footnotesize\ttfamily void extract\+\_\+cmd\+\_\+name (\begin{DoxyParamCaption}\item[{char $\ast$}]{cmd\+\_\+str,  }\item[{char $\ast$}]{cmd\+\_\+name,  }\item[{int $\ast$}]{cmd\+\_\+name\+\_\+len,  }\item[{int $\ast$}]{args\+\_\+start\+\_\+index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{commhand_8c_a47c794d5c09edf314e8aa3280b425235}\label{commhand_8c_a47c794d5c09edf314e8aa3280b425235}} 
+\index{commhand.c@{commhand.c}!fetch\_cmd\_handler@{fetch\_cmd\_handler}}
+\index{fetch\_cmd\_handler@{fetch\_cmd\_handler}!commhand.c@{commhand.c}}
+\doxysubsubsection{\texorpdfstring{fetch\_cmd\_handler()}{fetch\_cmd\_handler()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{commhand_8c_a94081df0b3154edd3c47c2ef2f4aadcc}{cmd\+\_\+func\+\_\+t}} fetch\+\_\+cmd\+\_\+handler (\begin{DoxyParamCaption}\item[{char $\ast$}]{cmd\+\_\+name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{commhand_8c_a2f4ba017d1252af62b83584e64cee010}\label{commhand_8c_a2f4ba017d1252af62b83584e64cee010}} 
+\index{commhand.c@{commhand.c}!is\_name\_char@{is\_name\_char}}
+\index{is\_name\_char@{is\_name\_char}!commhand.c@{commhand.c}}
+\doxysubsubsection{\texorpdfstring{is\_name\_char()}{is\_name\_char()}}
+{\footnotesize\ttfamily int is\+\_\+name\+\_\+char (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The character to test. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the specified character c is valid in an identifier, false otherwise. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{commhand_8c_a64ca5586b992ceef209f82007e1874c8}\label{commhand_8c_a64ca5586b992ceef209f82007e1874c8}} 
+\index{commhand.c@{commhand.c}!cmd\_mappings@{cmd\_mappings}}
+\index{cmd\_mappings@{cmd\_mappings}!commhand.c@{commhand.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_mappings}{cmd\_mappings}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} cmd\+\_\+mappings\mbox{[}$\,$\mbox{]}}
+

@@ -1,0 +1,107 @@
+\hypertarget{heap_8h}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/include/mem/heap.h File Reference}
+\label{heap_8h}\index{/home/maximillian/Desktop/MAMA/include/mem/heap.h@{/home/maximillian/Desktop/MAMA/include/mem/heap.h}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structheader}{header}}
+\item 
+struct \mbox{\hyperlink{structfooter}{footer}}
+\item 
+struct \mbox{\hyperlink{structindex__entry}{index\+\_\+entry}}
+\item 
+struct \mbox{\hyperlink{structindex__table}{index\+\_\+table}}
+\item 
+struct \mbox{\hyperlink{structheap}{heap}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{heap_8h_a032503e76d6f69bc67e99e909c8125da}{TABLE\+\_\+\+SIZE}}~0x1000
+\item 
+\#define \mbox{\hyperlink{heap_8h_a15073b9742f7e29d8174509197eb4ab9}{KHEAP\+\_\+\+BASE}}~0x\+D000000
+\item 
+\#define \mbox{\hyperlink{heap_8h_aee52619f74498ad224eb8e4354b89e40}{KHEAP\+\_\+\+MIN}}~0x10000
+\item 
+\#define \mbox{\hyperlink{heap_8h_a0f2696767a10e6efffc64e9b459c4ea6}{KHEAP\+\_\+\+SIZE}}~0x1000000
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{heap_8h_a9bfb8053c2382598ef5b2175f475d49a}{\+\_\+kmalloc}} (\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} size, int align, \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} $\ast$phys\+\_\+addr)
+\item 
+\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{heap_8h_a15d6a52c5c080c8c7ffc73e336d8e574}{kmalloc}} (\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} size)
+\item 
+\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{heap_8h_aa2a6fb2aa05727dc1e7d72cbc108e63c}{kfree}} ()
+\item 
+void \mbox{\hyperlink{heap_8h_a755a69ff831b6e23a808dcf4b9944854}{init\+\_\+kheap}} ()
+\item 
+\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{heap_8h_a2b1d5a9ba11695605f74fc10cd719af5}{alloc}} (\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} size, \mbox{\hyperlink{structheap}{heap}} $\ast$hp, int align)
+\item 
+\mbox{\hyperlink{structheap}{heap}} $\ast$ \mbox{\hyperlink{heap_8h_abf10fb79c17a354e68c11652bc5f9d0c}{make\+\_\+heap}} (\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{tables_8h_ab5763c2b18c825c8b8fba44b2e60ddc1}{base}}, \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} max, \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} min)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{heap_8h_a15073b9742f7e29d8174509197eb4ab9}\label{heap_8h_a15073b9742f7e29d8174509197eb4ab9}} 
+\index{heap.h@{heap.h}!KHEAP\_BASE@{KHEAP\_BASE}}
+\index{KHEAP\_BASE@{KHEAP\_BASE}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{KHEAP\_BASE}{KHEAP\_BASE}}
+{\footnotesize\ttfamily \#define KHEAP\+\_\+\+BASE~0x\+D000000}
+
+\mbox{\Hypertarget{heap_8h_aee52619f74498ad224eb8e4354b89e40}\label{heap_8h_aee52619f74498ad224eb8e4354b89e40}} 
+\index{heap.h@{heap.h}!KHEAP\_MIN@{KHEAP\_MIN}}
+\index{KHEAP\_MIN@{KHEAP\_MIN}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{KHEAP\_MIN}{KHEAP\_MIN}}
+{\footnotesize\ttfamily \#define KHEAP\+\_\+\+MIN~0x10000}
+
+\mbox{\Hypertarget{heap_8h_a0f2696767a10e6efffc64e9b459c4ea6}\label{heap_8h_a0f2696767a10e6efffc64e9b459c4ea6}} 
+\index{heap.h@{heap.h}!KHEAP\_SIZE@{KHEAP\_SIZE}}
+\index{KHEAP\_SIZE@{KHEAP\_SIZE}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{KHEAP\_SIZE}{KHEAP\_SIZE}}
+{\footnotesize\ttfamily \#define KHEAP\+\_\+\+SIZE~0x1000000}
+
+\mbox{\Hypertarget{heap_8h_a032503e76d6f69bc67e99e909c8125da}\label{heap_8h_a032503e76d6f69bc67e99e909c8125da}} 
+\index{heap.h@{heap.h}!TABLE\_SIZE@{TABLE\_SIZE}}
+\index{TABLE\_SIZE@{TABLE\_SIZE}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{TABLE\_SIZE}{TABLE\_SIZE}}
+{\footnotesize\ttfamily \#define TABLE\+\_\+\+SIZE~0x1000}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{heap_8h_a9bfb8053c2382598ef5b2175f475d49a}\label{heap_8h_a9bfb8053c2382598ef5b2175f475d49a}} 
+\index{heap.h@{heap.h}!\_kmalloc@{\_kmalloc}}
+\index{\_kmalloc@{\_kmalloc}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{\_kmalloc()}{\_kmalloc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \+\_\+kmalloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}}}]{size,  }\item[{int}]{align,  }\item[{\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} $\ast$}]{phys\+\_\+addr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{heap_8h_a2b1d5a9ba11695605f74fc10cd719af5}\label{heap_8h_a2b1d5a9ba11695605f74fc10cd719af5}} 
+\index{heap.h@{heap.h}!alloc@{alloc}}
+\index{alloc@{alloc}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{alloc()}{alloc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} alloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}}}]{size,  }\item[{\mbox{\hyperlink{structheap}{heap}} $\ast$}]{hp,  }\item[{int}]{align }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{heap_8h_a755a69ff831b6e23a808dcf4b9944854}\label{heap_8h_a755a69ff831b6e23a808dcf4b9944854}} 
+\index{heap.h@{heap.h}!init\_kheap@{init\_kheap}}
+\index{init\_kheap@{init\_kheap}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{init\_kheap()}{init\_kheap()}}
+{\footnotesize\ttfamily void init\+\_\+kheap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{heap_8h_aa2a6fb2aa05727dc1e7d72cbc108e63c}\label{heap_8h_aa2a6fb2aa05727dc1e7d72cbc108e63c}} 
+\index{heap.h@{heap.h}!kfree@{kfree}}
+\index{kfree@{kfree}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{kfree()}{kfree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} kfree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{heap_8h_a15d6a52c5c080c8c7ffc73e336d8e574}\label{heap_8h_a15d6a52c5c080c8c7ffc73e336d8e574}} 
+\index{heap.h@{heap.h}!kmalloc@{kmalloc}}
+\index{kmalloc@{kmalloc}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{kmalloc()}{kmalloc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} kmalloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}}}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{heap_8h_abf10fb79c17a354e68c11652bc5f9d0c}\label{heap_8h_abf10fb79c17a354e68c11652bc5f9d0c}} 
+\index{heap.h@{heap.h}!make\_heap@{make\_heap}}
+\index{make\_heap@{make\_heap}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{make\_heap()}{make\_heap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structheap}{heap}} $\ast$ make\+\_\+heap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}}}]{base,  }\item[{\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}}}]{max,  }\item[{\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}}}]{min }\end{DoxyParamCaption})}
+

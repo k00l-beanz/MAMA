@@ -1,0 +1,102 @@
+\hypertarget{paging_8h_source}{}\doxysection{paging.\+h}
+\label{paging_8h_source}\index{/home/maximillian/Desktop/MAMA/include/mem/paging.h@{/home/maximillian/Desktop/MAMA/include/mem/paging.h}}
+\mbox{\hyperlink{paging_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_PAGING\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_PAGING\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{system_8h}{system.h}}>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define PAGE\_SIZE 0x1000}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{comment}{/*}}
+\DoxyCodeLine{9 \textcolor{comment}{  Page entry structure}}
+\DoxyCodeLine{10 \textcolor{comment}{  Describes a single page in memory}}
+\DoxyCodeLine{11 \textcolor{comment}{*/}}
+\DoxyCodeLine{12 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{13   \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{structpage__entry_a34148a94af9bfabbb8c4f00f9865dfee}{present}}   : 1;}
+\DoxyCodeLine{14   \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{structpage__entry_a2ea8d7684fe45772b6acba70d46e41d9}{writeable}} : 1;}
+\DoxyCodeLine{15   \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{structpage__entry_a2beafd3900a1f36f09af9c35a9a14f18}{usermode}}  : 1;}
+\DoxyCodeLine{16   \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{structpage__entry_a8b4097e0cee08d028182b11bd1f73f92}{accessed}}  : 1;}
+\DoxyCodeLine{17   \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{structpage__entry_ab3b5e22c6146f227a26bdec64e63f4b0}{dirty}}     : 1;}
+\DoxyCodeLine{18   \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{structpage__entry_af6d963f09b01571b107e6f505050c0e5}{reserved}}  : 7;}
+\DoxyCodeLine{19   \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{structpage__entry_a68a6dc54a7ab6f7fb1a068476190bf67}{frameaddr}} : 20;}
+\DoxyCodeLine{20 \} \mbox{\hyperlink{structpage__entry}{page\_entry}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{/*}}
+\DoxyCodeLine{23 \textcolor{comment}{  Page table structure}}
+\DoxyCodeLine{24 \textcolor{comment}{  Contains 1024 pages/frames}}
+\DoxyCodeLine{25 \textcolor{comment}{*/}}
+\DoxyCodeLine{26 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{27   \mbox{\hyperlink{structpage__entry}{page\_entry}} pages[1024];}
+\DoxyCodeLine{28 \} \mbox{\hyperlink{structpage__table}{page\_table}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{/*}}
+\DoxyCodeLine{31 \textcolor{comment}{  Page directory structure}}
+\DoxyCodeLine{32 \textcolor{comment}{  Limited to 1024 tables for now}}
+\DoxyCodeLine{33 \textcolor{comment}{*/}}
+\DoxyCodeLine{34 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{35   \mbox{\hyperlink{structpage__table}{page\_table}} *tables[1024];}
+\DoxyCodeLine{36   \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} tables\_phys[1024];}
+\DoxyCodeLine{37 \} \mbox{\hyperlink{structpage__dir}{page\_dir}};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{comment}{/*}}
+\DoxyCodeLine{40 \textcolor{comment}{  Procedure..: set\_bit}}
+\DoxyCodeLine{41 \textcolor{comment}{  Description..: Marks a page frame bit as in use (1).}}
+\DoxyCodeLine{42 \textcolor{comment}{*/}}
+\DoxyCodeLine{43 \textcolor{keywordtype}{void} \mbox{\hyperlink{paging_8h_a70101fc152ff58caafbe36ab391a9a68}{set\_bit}}(\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} addr);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{comment}{/*}}
+\DoxyCodeLine{46 \textcolor{comment}{  Procedure..: clear\_bit}}
+\DoxyCodeLine{47 \textcolor{comment}{  Description..: Marks a page frame bit as free (0).}}
+\DoxyCodeLine{48 \textcolor{comment}{*/}}
+\DoxyCodeLine{49 \textcolor{keywordtype}{void} \mbox{\hyperlink{paging_8h_adcef508c82c20a032508f871e79e1b92}{clear\_bit}}(\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} addr);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{comment}{/*}}
+\DoxyCodeLine{52 \textcolor{comment}{  Procedure..: get\_bit}}
+\DoxyCodeLine{53 \textcolor{comment}{  Description..: Checks if page frame is in use.}}
+\DoxyCodeLine{54 \textcolor{comment}{*/}}
+\DoxyCodeLine{55 \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{paging_8h_a317b4797bc81f65bd01cfa190800ecdd}{get\_bit}}(\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} addr);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{comment}{/*}}
+\DoxyCodeLine{58 \textcolor{comment}{  Procedure..: first\_free}}
+\DoxyCodeLine{59 \textcolor{comment}{  Description..: Finds the first free page frame.}}
+\DoxyCodeLine{60 \textcolor{comment}{*/}}
+\DoxyCodeLine{61 \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{paging_8h_acb3c25257061521382c7ba900c1c1ab4}{first\_free}}();}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{comment}{/*}}
+\DoxyCodeLine{64 \textcolor{comment}{  Procedure..: init\_paging}}
+\DoxyCodeLine{65 \textcolor{comment}{  Description..: Initializes the kernel page directory and }}
+\DoxyCodeLine{66 \textcolor{comment}{    initial kernel heap area. Performs identity mapping of}}
+\DoxyCodeLine{67 \textcolor{comment}{    the kernel frames such that the virtual addresses are}}
+\DoxyCodeLine{68 \textcolor{comment}{    equivalent to the physical addresses.}}
+\DoxyCodeLine{69 \textcolor{comment}{*/}}
+\DoxyCodeLine{70 \textcolor{keywordtype}{void} \mbox{\hyperlink{paging_8h_a919b727f386797a8b9d8eceb5c4e7313}{init\_paging}}();}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{comment}{/*}}
+\DoxyCodeLine{73 \textcolor{comment}{  Procedure..: load\_page\_dir}}
+\DoxyCodeLine{74 \textcolor{comment}{  Description..: Sets a page directory as the current}}
+\DoxyCodeLine{75 \textcolor{comment}{    directory and enables paging via the cr0 register.}}
+\DoxyCodeLine{76 \textcolor{comment}{    The cr3 register enables address translation from}}
+\DoxyCodeLine{77 \textcolor{comment}{    linear to physical addresses.}}
+\DoxyCodeLine{78 \textcolor{comment}{    http://en.wikipedia.org/wiki/Control\_register\#Control\_registers\_in\_x86\_series}}
+\DoxyCodeLine{79 \textcolor{comment}{*/}}
+\DoxyCodeLine{80 \textcolor{keywordtype}{void} \mbox{\hyperlink{paging_8h_a3affceba4cd194e1c516404c14abbe7c}{load\_page\_dir}}(\mbox{\hyperlink{structpage__dir}{page\_dir}} *new\_page\_dir);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{comment}{/*}}
+\DoxyCodeLine{83 \textcolor{comment}{  Procedure..: get\_page}}
+\DoxyCodeLine{84 \textcolor{comment}{  Description..: Finds and returns a page, allocating a new }}
+\DoxyCodeLine{85 \textcolor{comment}{   page table if necessary.}}
+\DoxyCodeLine{86 \textcolor{comment}{*/}}
+\DoxyCodeLine{87 \mbox{\hyperlink{structpage__entry}{page\_entry}}* \mbox{\hyperlink{paging_8h_a47e4570159b06b34c82bd7bd8a9a5afb}{get\_page}}(\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} addr, \mbox{\hyperlink{structpage__dir}{page\_dir}} *dir, \textcolor{keywordtype}{int} make\_table);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{comment}{/*}}
+\DoxyCodeLine{90 \textcolor{comment}{  Procedure..: new\_frame}}
+\DoxyCodeLine{91 \textcolor{comment}{  Description..: Marks a frame as in use in the frame bitmap,}}
+\DoxyCodeLine{92 \textcolor{comment}{    sets up the page, and saves the frame index in the page.}}
+\DoxyCodeLine{93 \textcolor{comment}{*/}}
+\DoxyCodeLine{94 \textcolor{keywordtype}{void} \mbox{\hyperlink{paging_8h_a04bce9da2c1d7c59f6efd8e4d9b54db7}{new\_frame}}(\mbox{\hyperlink{structpage__entry}{page\_entry}}* page);}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

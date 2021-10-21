@@ -1,0 +1,22 @@
+R3:
+	Note: a lot of this is in kernel/core/system.c
+	      slide 13 on black board has the instructions
+	Fill body of irq.s 	[x]
+	sys_call 		[x]
+	yield			[x]
+	loadr3			[x]
+
+	Note: Take a look at slide 15
+	update interrupts.c [X]
+	ensure setupPCB has a correct stacktop [X]
+
+R4:
+	
+	Slide 16 - turn commhand into process:
+	Remove call to commhand in kmain	[]
+	Add commhand and idle to ready queue	[]
+	Trigger interrupt on line 60		[]
+	Remove yield cmd			[x]
+	
+	alarm cmd/proc		[]
+	infinite process	[]

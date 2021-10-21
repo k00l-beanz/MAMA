@@ -1,0 +1,5 @@
+#!/bin/bash
+
+make clean
+make
+qemu-system-i386 -nographic -kernel kernel.bin -s

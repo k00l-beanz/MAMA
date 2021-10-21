@@ -1,0 +1,385 @@
+\hypertarget{interrupts_8c}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/kernel/core/interrupts.c File Reference}
+\label{interrupts_8c}\index{/home/maximillian/Desktop/MAMA/kernel/core/interrupts.c@{/home/maximillian/Desktop/MAMA/kernel/core/interrupts.c}}
+{\ttfamily \#include $<$system.\+h$>$}\newline
+{\ttfamily \#include $<$core/io.\+h$>$}\newline
+{\ttfamily \#include $<$core/serial.\+h$>$}\newline
+{\ttfamily \#include $<$core/tables.\+h$>$}\newline
+{\ttfamily \#include $<$core/interrupts.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{interrupts_8c_a6b115109e4a0d3c5fb6252d091e86bfe}{PIC1}}~0x20
+\item 
+\#define \mbox{\hyperlink{interrupts_8c_ac90003f52c8d736193efc954ece08e58}{PIC2}}~0x\+A0
+\item 
+\#define \mbox{\hyperlink{interrupts_8c_ac56445256ce58f14f3c61af0cbf0cdad}{ICW1}}~0x11
+\item 
+\#define \mbox{\hyperlink{interrupts_8c_a7945f331ddf94a0e0e938f825bc4d43c}{ICW4}}~0x01
+\item 
+\#define \mbox{\hyperlink{interrupts_8c_aeae4190ed25d0648577e1c742fd8a78d}{io\+\_\+wait}}()~\mbox{\hyperlink{system_8h_a71921cebf4610b0dbb2b7a0daaf3fedf}{asm}} \mbox{\hyperlink{system_8h_af55a5e48555be7d32ad73e76cf5d4db0}{volatile}} (\char`\"{}outb \$0x80\char`\"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interrupts_8c_a779cbe32e1a5f1dc8fa9b7191f116b28}{divide\+\_\+error}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a0d0105433f9c65c14928027b3f0966b7}{debug}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_aa42d18df06cf68f8c05fded5344c4c7e}{nmi}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a874043e2396dd8ce20ec7af3ea1e2a86}{breakpoint}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a810f078a27a6781a7406c74985ecb761}{overflow}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a96724d36ad85f9a02231d8e6fe0434df}{bounds}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a422d8af60b69cc11dbcbb9d89c69756b}{invalid\+\_\+op}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_abe88cd1dcc26cb58ee785c714e016f72}{device\+\_\+not\+\_\+available}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_ae2b9f5b44e05e0c53f8eaaa98396d627}{double\+\_\+fault}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a1d688a0a370977c03fa98884a6e771e9}{coprocessor\+\_\+segment}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a972be67f6a5432cc8eab8d27755fb00f}{invalid\+\_\+tss}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_af1748d9ea65ba652bc92074ab6570d8e}{segment\+\_\+not\+\_\+present}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a1ccc3198890318741629a03bb88bee6f}{stack\+\_\+segment}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a10777dd6c3a040471676741bbb8dda46}{general\+\_\+protection}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_ab3800dd0177baaef4da00494edfb32d9}{page\+\_\+fault}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_ad686e3fee8ec8346a6d8e98d970a02dd}{reserved}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a5c538c7b7a55e3c981780b599fcb1de7}{coprocessor}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a52f2615cebbdeab188085a03c913fcf9}{rtc\+\_\+isr}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_af88eb8e98d943aa0461c01de3cb53493}{isr0}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a1f9ba1353a3e7fcf94720c1c56ab3a96}{do\+\_\+isr}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_ad17d9a8aa78440af8fc40d3fd55dbad8}{init\+\_\+irq}} (void)
+\item 
+void \mbox{\hyperlink{interrupts_8c_afbc0dbef6f15e2df21b38724ea38c483}{init\+\_\+pic}} (void)
+\item 
+void \mbox{\hyperlink{interrupts_8c_aab29cc64234c341b5d2efc6cc8f68714}{do\+\_\+divide\+\_\+error}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_ac3cb74146ddcc548b98534fc275e6672}{do\+\_\+debug}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a32aec16299751a52f0a12f26043c0d7d}{do\+\_\+nmi}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a0ea01197b18487b9e94d20d83055d743}{do\+\_\+breakpoint}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a49e352bcfc8f4fadf35bd6a263bedebe}{do\+\_\+overflow}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a27f47460ebcce0c6a6af781bd6f9fb9f}{do\+\_\+bounds}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_abed3b5d3250b216bc700d29085f5b0c9}{do\+\_\+invalid\+\_\+op}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a45efb1fd58094c1e71b1d2423f3971f6}{do\+\_\+device\+\_\+not\+\_\+available}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a1c92f7e610e78af13b2d9a2d962cc4e6}{do\+\_\+double\+\_\+fault}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_af5be233a6560c8dcf2ac87eafbee7e0e}{do\+\_\+coprocessor\+\_\+segment}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a4470fee2d72940bf23ec1510c20582c3}{do\+\_\+invalid\+\_\+tss}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_ac36f6e131887ab7f2e9e4f93858f8a34}{do\+\_\+segment\+\_\+not\+\_\+present}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a70282e61c45bf8c1b0ace8021977207d}{do\+\_\+stack\+\_\+segment}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a6b1e503d397160ae65963ef495a10dfd}{do\+\_\+general\+\_\+protection}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a70473c7f1d2679277751cb161e2d768d}{do\+\_\+page\+\_\+fault}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a3b448798302562f8ef16b8ee1de71ba7}{do\+\_\+reserved}} ()
+\item 
+void \mbox{\hyperlink{interrupts_8c_a8a3725c251a2cb8e346a847febf66ed2}{do\+\_\+coprocessor}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+idt\+\_\+entry \mbox{\hyperlink{interrupts_8c_a3c386c59636822ce451be20cc1433a55}{idt\+\_\+entries}} \mbox{[}256\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{interrupts_8c_ac56445256ce58f14f3c61af0cbf0cdad}\label{interrupts_8c_ac56445256ce58f14f3c61af0cbf0cdad}} 
+\index{interrupts.c@{interrupts.c}!ICW1@{ICW1}}
+\index{ICW1@{ICW1}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{ICW1}{ICW1}}
+{\footnotesize\ttfamily \#define ICW1~0x11}
+
+\mbox{\Hypertarget{interrupts_8c_a7945f331ddf94a0e0e938f825bc4d43c}\label{interrupts_8c_a7945f331ddf94a0e0e938f825bc4d43c}} 
+\index{interrupts.c@{interrupts.c}!ICW4@{ICW4}}
+\index{ICW4@{ICW4}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{ICW4}{ICW4}}
+{\footnotesize\ttfamily \#define ICW4~0x01}
+
+\mbox{\Hypertarget{interrupts_8c_aeae4190ed25d0648577e1c742fd8a78d}\label{interrupts_8c_aeae4190ed25d0648577e1c742fd8a78d}} 
+\index{interrupts.c@{interrupts.c}!io\_wait@{io\_wait}}
+\index{io\_wait@{io\_wait}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{io\_wait}{io\_wait}}
+{\footnotesize\ttfamily \#define io\+\_\+wait(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{system_8h_a71921cebf4610b0dbb2b7a0daaf3fedf}{asm}} \mbox{\hyperlink{system_8h_af55a5e48555be7d32ad73e76cf5d4db0}{volatile}} (\char`\"{}outb \$0x80\char`\"{})}
+
+\mbox{\Hypertarget{interrupts_8c_a6b115109e4a0d3c5fb6252d091e86bfe}\label{interrupts_8c_a6b115109e4a0d3c5fb6252d091e86bfe}} 
+\index{interrupts.c@{interrupts.c}!PIC1@{PIC1}}
+\index{PIC1@{PIC1}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{PIC1}{PIC1}}
+{\footnotesize\ttfamily \#define PIC1~0x20}
+
+\mbox{\Hypertarget{interrupts_8c_ac90003f52c8d736193efc954ece08e58}\label{interrupts_8c_ac90003f52c8d736193efc954ece08e58}} 
+\index{interrupts.c@{interrupts.c}!PIC2@{PIC2}}
+\index{PIC2@{PIC2}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{PIC2}{PIC2}}
+{\footnotesize\ttfamily \#define PIC2~0x\+A0}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{interrupts_8c_a96724d36ad85f9a02231d8e6fe0434df}\label{interrupts_8c_a96724d36ad85f9a02231d8e6fe0434df}} 
+\index{interrupts.c@{interrupts.c}!bounds@{bounds}}
+\index{bounds@{bounds}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{bounds()}{bounds()}}
+{\footnotesize\ttfamily void bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a874043e2396dd8ce20ec7af3ea1e2a86}\label{interrupts_8c_a874043e2396dd8ce20ec7af3ea1e2a86}} 
+\index{interrupts.c@{interrupts.c}!breakpoint@{breakpoint}}
+\index{breakpoint@{breakpoint}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{breakpoint()}{breakpoint()}}
+{\footnotesize\ttfamily void breakpoint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a5c538c7b7a55e3c981780b599fcb1de7}\label{interrupts_8c_a5c538c7b7a55e3c981780b599fcb1de7}} 
+\index{interrupts.c@{interrupts.c}!coprocessor@{coprocessor}}
+\index{coprocessor@{coprocessor}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{coprocessor()}{coprocessor()}}
+{\footnotesize\ttfamily void coprocessor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a1d688a0a370977c03fa98884a6e771e9}\label{interrupts_8c_a1d688a0a370977c03fa98884a6e771e9}} 
+\index{interrupts.c@{interrupts.c}!coprocessor\_segment@{coprocessor\_segment}}
+\index{coprocessor\_segment@{coprocessor\_segment}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{coprocessor\_segment()}{coprocessor\_segment()}}
+{\footnotesize\ttfamily void coprocessor\+\_\+segment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a0d0105433f9c65c14928027b3f0966b7}\label{interrupts_8c_a0d0105433f9c65c14928027b3f0966b7}} 
+\index{interrupts.c@{interrupts.c}!debug@{debug}}
+\index{debug@{debug}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{debug()}{debug()}}
+{\footnotesize\ttfamily void debug (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_abe88cd1dcc26cb58ee785c714e016f72}\label{interrupts_8c_abe88cd1dcc26cb58ee785c714e016f72}} 
+\index{interrupts.c@{interrupts.c}!device\_not\_available@{device\_not\_available}}
+\index{device\_not\_available@{device\_not\_available}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{device\_not\_available()}{device\_not\_available()}}
+{\footnotesize\ttfamily void device\+\_\+not\+\_\+available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a779cbe32e1a5f1dc8fa9b7191f116b28}\label{interrupts_8c_a779cbe32e1a5f1dc8fa9b7191f116b28}} 
+\index{interrupts.c@{interrupts.c}!divide\_error@{divide\_error}}
+\index{divide\_error@{divide\_error}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{divide\_error()}{divide\_error()}}
+{\footnotesize\ttfamily void divide\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a27f47460ebcce0c6a6af781bd6f9fb9f}\label{interrupts_8c_a27f47460ebcce0c6a6af781bd6f9fb9f}} 
+\index{interrupts.c@{interrupts.c}!do\_bounds@{do\_bounds}}
+\index{do\_bounds@{do\_bounds}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_bounds()}{do\_bounds()}}
+{\footnotesize\ttfamily void do\+\_\+bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a0ea01197b18487b9e94d20d83055d743}\label{interrupts_8c_a0ea01197b18487b9e94d20d83055d743}} 
+\index{interrupts.c@{interrupts.c}!do\_breakpoint@{do\_breakpoint}}
+\index{do\_breakpoint@{do\_breakpoint}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_breakpoint()}{do\_breakpoint()}}
+{\footnotesize\ttfamily void do\+\_\+breakpoint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a8a3725c251a2cb8e346a847febf66ed2}\label{interrupts_8c_a8a3725c251a2cb8e346a847febf66ed2}} 
+\index{interrupts.c@{interrupts.c}!do\_coprocessor@{do\_coprocessor}}
+\index{do\_coprocessor@{do\_coprocessor}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_coprocessor()}{do\_coprocessor()}}
+{\footnotesize\ttfamily void do\+\_\+coprocessor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_af5be233a6560c8dcf2ac87eafbee7e0e}\label{interrupts_8c_af5be233a6560c8dcf2ac87eafbee7e0e}} 
+\index{interrupts.c@{interrupts.c}!do\_coprocessor\_segment@{do\_coprocessor\_segment}}
+\index{do\_coprocessor\_segment@{do\_coprocessor\_segment}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_coprocessor\_segment()}{do\_coprocessor\_segment()}}
+{\footnotesize\ttfamily void do\+\_\+coprocessor\+\_\+segment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_ac3cb74146ddcc548b98534fc275e6672}\label{interrupts_8c_ac3cb74146ddcc548b98534fc275e6672}} 
+\index{interrupts.c@{interrupts.c}!do\_debug@{do\_debug}}
+\index{do\_debug@{do\_debug}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_debug()}{do\_debug()}}
+{\footnotesize\ttfamily void do\+\_\+debug (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a45efb1fd58094c1e71b1d2423f3971f6}\label{interrupts_8c_a45efb1fd58094c1e71b1d2423f3971f6}} 
+\index{interrupts.c@{interrupts.c}!do\_device\_not\_available@{do\_device\_not\_available}}
+\index{do\_device\_not\_available@{do\_device\_not\_available}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_device\_not\_available()}{do\_device\_not\_available()}}
+{\footnotesize\ttfamily void do\+\_\+device\+\_\+not\+\_\+available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_aab29cc64234c341b5d2efc6cc8f68714}\label{interrupts_8c_aab29cc64234c341b5d2efc6cc8f68714}} 
+\index{interrupts.c@{interrupts.c}!do\_divide\_error@{do\_divide\_error}}
+\index{do\_divide\_error@{do\_divide\_error}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_divide\_error()}{do\_divide\_error()}}
+{\footnotesize\ttfamily void do\+\_\+divide\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a1c92f7e610e78af13b2d9a2d962cc4e6}\label{interrupts_8c_a1c92f7e610e78af13b2d9a2d962cc4e6}} 
+\index{interrupts.c@{interrupts.c}!do\_double\_fault@{do\_double\_fault}}
+\index{do\_double\_fault@{do\_double\_fault}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_double\_fault()}{do\_double\_fault()}}
+{\footnotesize\ttfamily void do\+\_\+double\+\_\+fault (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a6b1e503d397160ae65963ef495a10dfd}\label{interrupts_8c_a6b1e503d397160ae65963ef495a10dfd}} 
+\index{interrupts.c@{interrupts.c}!do\_general\_protection@{do\_general\_protection}}
+\index{do\_general\_protection@{do\_general\_protection}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_general\_protection()}{do\_general\_protection()}}
+{\footnotesize\ttfamily void do\+\_\+general\+\_\+protection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_abed3b5d3250b216bc700d29085f5b0c9}\label{interrupts_8c_abed3b5d3250b216bc700d29085f5b0c9}} 
+\index{interrupts.c@{interrupts.c}!do\_invalid\_op@{do\_invalid\_op}}
+\index{do\_invalid\_op@{do\_invalid\_op}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_invalid\_op()}{do\_invalid\_op()}}
+{\footnotesize\ttfamily void do\+\_\+invalid\+\_\+op (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a4470fee2d72940bf23ec1510c20582c3}\label{interrupts_8c_a4470fee2d72940bf23ec1510c20582c3}} 
+\index{interrupts.c@{interrupts.c}!do\_invalid\_tss@{do\_invalid\_tss}}
+\index{do\_invalid\_tss@{do\_invalid\_tss}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_invalid\_tss()}{do\_invalid\_tss()}}
+{\footnotesize\ttfamily void do\+\_\+invalid\+\_\+tss (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a1f9ba1353a3e7fcf94720c1c56ab3a96}\label{interrupts_8c_a1f9ba1353a3e7fcf94720c1c56ab3a96}} 
+\index{interrupts.c@{interrupts.c}!do\_isr@{do\_isr}}
+\index{do\_isr@{do\_isr}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_isr()}{do\_isr()}}
+{\footnotesize\ttfamily void do\+\_\+isr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a32aec16299751a52f0a12f26043c0d7d}\label{interrupts_8c_a32aec16299751a52f0a12f26043c0d7d}} 
+\index{interrupts.c@{interrupts.c}!do\_nmi@{do\_nmi}}
+\index{do\_nmi@{do\_nmi}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_nmi()}{do\_nmi()}}
+{\footnotesize\ttfamily void do\+\_\+nmi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a49e352bcfc8f4fadf35bd6a263bedebe}\label{interrupts_8c_a49e352bcfc8f4fadf35bd6a263bedebe}} 
+\index{interrupts.c@{interrupts.c}!do\_overflow@{do\_overflow}}
+\index{do\_overflow@{do\_overflow}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_overflow()}{do\_overflow()}}
+{\footnotesize\ttfamily void do\+\_\+overflow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a70473c7f1d2679277751cb161e2d768d}\label{interrupts_8c_a70473c7f1d2679277751cb161e2d768d}} 
+\index{interrupts.c@{interrupts.c}!do\_page\_fault@{do\_page\_fault}}
+\index{do\_page\_fault@{do\_page\_fault}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_page\_fault()}{do\_page\_fault()}}
+{\footnotesize\ttfamily void do\+\_\+page\+\_\+fault (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a3b448798302562f8ef16b8ee1de71ba7}\label{interrupts_8c_a3b448798302562f8ef16b8ee1de71ba7}} 
+\index{interrupts.c@{interrupts.c}!do\_reserved@{do\_reserved}}
+\index{do\_reserved@{do\_reserved}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_reserved()}{do\_reserved()}}
+{\footnotesize\ttfamily void do\+\_\+reserved (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_ac36f6e131887ab7f2e9e4f93858f8a34}\label{interrupts_8c_ac36f6e131887ab7f2e9e4f93858f8a34}} 
+\index{interrupts.c@{interrupts.c}!do\_segment\_not\_present@{do\_segment\_not\_present}}
+\index{do\_segment\_not\_present@{do\_segment\_not\_present}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_segment\_not\_present()}{do\_segment\_not\_present()}}
+{\footnotesize\ttfamily void do\+\_\+segment\+\_\+not\+\_\+present (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a70282e61c45bf8c1b0ace8021977207d}\label{interrupts_8c_a70282e61c45bf8c1b0ace8021977207d}} 
+\index{interrupts.c@{interrupts.c}!do\_stack\_segment@{do\_stack\_segment}}
+\index{do\_stack\_segment@{do\_stack\_segment}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{do\_stack\_segment()}{do\_stack\_segment()}}
+{\footnotesize\ttfamily void do\+\_\+stack\+\_\+segment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_ae2b9f5b44e05e0c53f8eaaa98396d627}\label{interrupts_8c_ae2b9f5b44e05e0c53f8eaaa98396d627}} 
+\index{interrupts.c@{interrupts.c}!double\_fault@{double\_fault}}
+\index{double\_fault@{double\_fault}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{double\_fault()}{double\_fault()}}
+{\footnotesize\ttfamily void double\+\_\+fault (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a10777dd6c3a040471676741bbb8dda46}\label{interrupts_8c_a10777dd6c3a040471676741bbb8dda46}} 
+\index{interrupts.c@{interrupts.c}!general\_protection@{general\_protection}}
+\index{general\_protection@{general\_protection}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{general\_protection()}{general\_protection()}}
+{\footnotesize\ttfamily void general\+\_\+protection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_ad17d9a8aa78440af8fc40d3fd55dbad8}\label{interrupts_8c_ad17d9a8aa78440af8fc40d3fd55dbad8}} 
+\index{interrupts.c@{interrupts.c}!init\_irq@{init\_irq}}
+\index{init\_irq@{init\_irq}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{init\_irq()}{init\_irq()}}
+{\footnotesize\ttfamily void init\+\_\+irq (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_afbc0dbef6f15e2df21b38724ea38c483}\label{interrupts_8c_afbc0dbef6f15e2df21b38724ea38c483}} 
+\index{interrupts.c@{interrupts.c}!init\_pic@{init\_pic}}
+\index{init\_pic@{init\_pic}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{init\_pic()}{init\_pic()}}
+{\footnotesize\ttfamily void init\+\_\+pic (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a422d8af60b69cc11dbcbb9d89c69756b}\label{interrupts_8c_a422d8af60b69cc11dbcbb9d89c69756b}} 
+\index{interrupts.c@{interrupts.c}!invalid\_op@{invalid\_op}}
+\index{invalid\_op@{invalid\_op}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{invalid\_op()}{invalid\_op()}}
+{\footnotesize\ttfamily void invalid\+\_\+op (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a972be67f6a5432cc8eab8d27755fb00f}\label{interrupts_8c_a972be67f6a5432cc8eab8d27755fb00f}} 
+\index{interrupts.c@{interrupts.c}!invalid\_tss@{invalid\_tss}}
+\index{invalid\_tss@{invalid\_tss}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{invalid\_tss()}{invalid\_tss()}}
+{\footnotesize\ttfamily void invalid\+\_\+tss (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_af88eb8e98d943aa0461c01de3cb53493}\label{interrupts_8c_af88eb8e98d943aa0461c01de3cb53493}} 
+\index{interrupts.c@{interrupts.c}!isr0@{isr0}}
+\index{isr0@{isr0}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{isr0()}{isr0()}}
+{\footnotesize\ttfamily void isr0 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_aa42d18df06cf68f8c05fded5344c4c7e}\label{interrupts_8c_aa42d18df06cf68f8c05fded5344c4c7e}} 
+\index{interrupts.c@{interrupts.c}!nmi@{nmi}}
+\index{nmi@{nmi}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{nmi()}{nmi()}}
+{\footnotesize\ttfamily void nmi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a810f078a27a6781a7406c74985ecb761}\label{interrupts_8c_a810f078a27a6781a7406c74985ecb761}} 
+\index{interrupts.c@{interrupts.c}!overflow@{overflow}}
+\index{overflow@{overflow}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{overflow()}{overflow()}}
+{\footnotesize\ttfamily void overflow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_ab3800dd0177baaef4da00494edfb32d9}\label{interrupts_8c_ab3800dd0177baaef4da00494edfb32d9}} 
+\index{interrupts.c@{interrupts.c}!page\_fault@{page\_fault}}
+\index{page\_fault@{page\_fault}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{page\_fault()}{page\_fault()}}
+{\footnotesize\ttfamily void page\+\_\+fault (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_ad686e3fee8ec8346a6d8e98d970a02dd}\label{interrupts_8c_ad686e3fee8ec8346a6d8e98d970a02dd}} 
+\index{interrupts.c@{interrupts.c}!reserved@{reserved}}
+\index{reserved@{reserved}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{reserved()}{reserved()}}
+{\footnotesize\ttfamily void reserved (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a52f2615cebbdeab188085a03c913fcf9}\label{interrupts_8c_a52f2615cebbdeab188085a03c913fcf9}} 
+\index{interrupts.c@{interrupts.c}!rtc\_isr@{rtc\_isr}}
+\index{rtc\_isr@{rtc\_isr}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_isr()}{rtc\_isr()}}
+{\footnotesize\ttfamily void rtc\+\_\+isr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_af1748d9ea65ba652bc92074ab6570d8e}\label{interrupts_8c_af1748d9ea65ba652bc92074ab6570d8e}} 
+\index{interrupts.c@{interrupts.c}!segment\_not\_present@{segment\_not\_present}}
+\index{segment\_not\_present@{segment\_not\_present}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{segment\_not\_present()}{segment\_not\_present()}}
+{\footnotesize\ttfamily void segment\+\_\+not\+\_\+present (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{interrupts_8c_a1ccc3198890318741629a03bb88bee6f}\label{interrupts_8c_a1ccc3198890318741629a03bb88bee6f}} 
+\index{interrupts.c@{interrupts.c}!stack\_segment@{stack\_segment}}
+\index{stack\_segment@{stack\_segment}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{stack\_segment()}{stack\_segment()}}
+{\footnotesize\ttfamily void stack\+\_\+segment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{interrupts_8c_a3c386c59636822ce451be20cc1433a55}\label{interrupts_8c_a3c386c59636822ce451be20cc1433a55}} 
+\index{interrupts.c@{interrupts.c}!idt\_entries@{idt\_entries}}
+\index{idt\_entries@{idt\_entries}!interrupts.c@{interrupts.c}}
+\doxysubsubsection{\texorpdfstring{idt\_entries}{idt\_entries}}
+{\footnotesize\ttfamily idt\+\_\+entry idt\+\_\+entries\mbox{[}256\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

@@ -1,0 +1,39 @@
+Internal Functions
+	AllocatePCB [x] maximillian
+	FreePCB [x] maximillian
+	FindPCB [x] Mohammad
+	SetupPCB [x] maximillian
+	InsertPCB [X] Austin
+	RemovePCB [X] Austin
+
+User Commands
+	Suspend [X] Austin
+	Resume [X] Austin
+	Set Priority [X] Abdullah
+	Show PCB [X] Abdullah
+	Show all processes [X] Abdullah
+	Show ready processes [X] Abdullah
+	Show block processes [x] Mohammad
+	CreatePCB [x] Maximillian 
+	DeletePCB [x] Mohammad
+	Block [x] Mohammad
+	Unblock [x] Maximillian
+
+[x] Suspend help page
+[x] Resume help page
+[x] SetPriority help page
+[x] showPCB help page
+[x] show all processes cmd help page
+[x] show ready processes cmd help page
+[x] show blocked processes cmd help page
+[x] createPCB help page
+[x] deletePCB help page
+[x] block help page
+[x] unblock help page
+[x] Update `help list` table
+[] Update user manual
+[] Update programmer's manual
+[] update WhoDidWhat.md
+[] Fix R1 time rollover/0 min display issue
+[] Fix R1 date component set order issue
+[x] update version cmd

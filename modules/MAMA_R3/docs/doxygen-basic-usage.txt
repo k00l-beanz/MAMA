@@ -1,0 +1,15 @@
+For methods/functions
+/**
+ * Brief explanation
+ * 
+ * Detailed explaination
+ *
+ * @param param_1
+ * @param param_2
+ *
+ * @return Return stuff
+*/  
+
+For constants, variables, structs and other stuff:
+/// Brief explanation
+#define CONSTANT_VARIABLE
