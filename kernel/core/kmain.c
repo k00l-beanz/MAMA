@@ -112,6 +112,7 @@ void kmain(void)
    idlePCB->pcb_priority = 1;
    idlePCB->pcb_process_class = 0;
    idlePCB->pcb_process_state = READY;
+   idlePCB->pcb_protection_mode = DELETABLE_WHEN_SUSPENDED;
    insertPCB(idlePCB);
 
    // yield

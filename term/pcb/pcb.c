@@ -572,6 +572,15 @@ int deletePCB(char *args) {
 		printf("Error: PCB not found\n");
 		return 1;
 	}
+
+	if(pcb->pcb_protection_mode == NOT_DELETABLE) {
+		printf("Error: Process %s cannot be deleted\n", pcb->pcb_name);
+		return 1;
+	} else if(pcb->pcb_protection_mode == DELETABLE_WHEN_SUSPENDED && !(pcb->pcb_process_state == SUSPENDED_READY || pcb->pcb_process_state == SUSPENDED_BLOCKED)) {
+		printf("Error: Process %s can only be deleted if suspended first\n", pcb->pcb_name);
+		printf("Try running: suspendpcb %s\n", pcb->pcb_name);
+		return 1;
+	}
 	
 	removePCB(pcb);
 	freePCB(pcb);

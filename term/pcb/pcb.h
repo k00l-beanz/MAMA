@@ -43,6 +43,12 @@ typedef enum {
     SUSPENDED_BLOCKED
 } p_state_t;
 
+typedef enum {
+    DELETABLE,
+    DELETABLE_WHEN_SUSPENDED,
+    NOT_DELETABLE
+} p_protection_mode_t;
+
 /// Process Control Block Structure
 typedef struct {
     /// PCB Name
@@ -56,6 +62,8 @@ typedef struct {
     
     /// State of the PCB
     p_state_t pcb_process_state;
+
+    p_protection_mode_t pcb_protection_mode;
 
     /// Top of the Stack. Set equal to the stack base + size of the stack
     unsigned char * pcb_stack_top; 
