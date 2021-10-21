@@ -101,13 +101,12 @@ void kmain(void)
    insertPCB(commhandPCB);
 
    // Alarm PCB
-   /*
    pcb_t * alarmPCB = dispatcher("alarms", &dispatchAlarm);
    alarmPCB->pcb_priority = 4;
    alarmPCB->pcb_process_class = 0;
    alarmPCB->pcb_process_state = READY;
    insertPCB(alarmPCB);
-   */
+ 
    // Idle PCB
    pcb_t * idlePCB = dispatcher("idle",&idle);
    idlePCB->pcb_priority = 1;

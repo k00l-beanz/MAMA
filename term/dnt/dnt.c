@@ -2,8 +2,8 @@
 #include "dnt.h"
 #include <modules/mpx_supt.h>
 
-char alarms[10][6];
-char messages[10][32];
+char alarms[10][6] = { "\0", "\0", "\0", "\0", "\0", "\0", "\0", "\0", "\0", "\0" };
+char messages[10][32] = { "\0", "\0", "\0", "\0", "\0", "\0", "\0", "\0", "\0", "\0" };
 char current_time[6];
 
 int setdate(char * date) {
@@ -27,10 +27,10 @@ int setdate(char * date) {
     switch (params) {
       case 1:
         day = atoi(token);
-	      break;
+        break;
       case 2:
         year = atoi(token);
-	      break;
+        break;
       default:
         break;
     }
@@ -163,10 +163,10 @@ int settime(char * time) {
     switch (params) {
       case 1:
         minute = atoi(token);
-	break;
+        break;
       case 2:
         second = atoi(token);
-	break;
+        break;
       default:
         break;
     }
@@ -366,7 +366,7 @@ int setAlarm(char * args) {
 
   // Correct Size
   if (strlen(args) > 64 || strlen(args) == 0) {
-    serial_println("Usage: setalarm hour:minute,message");
+    printf("Usage: setalarm hour:minute,message\n");
     return -1;
   }
 
@@ -379,22 +379,22 @@ int setAlarm(char * args) {
 
   // Ensure hour and minute are both valid numbers and within the range
   if (atoi(hour) > 23 || atoi(hour) < 0) {
-    serial_println("Error: Hour out of bounds");
+    printf("Error: Hour out of bounds\n");
     return -1;
   } else if (atoi(minute) > 59 || atoi(minute) < 0) {
-    serial_println("Error: Minute out of bounds");
+    printf("Error: Minute out of bounds\n");
     return -1;
   } else if (hour == NULL || minute == NULL) {
-    serial_println("Usage: setalarm hour:minute,message");
+    printf("Usage: setalarm hour:minute,message\n");
     return -1;
   }
 
   // Ensure message does not overflow
   if (strlen(message) > 32) {
-    serial_println("Error: Message to long");
+    printf("Error: Message to long\n");
     return -1;
   } else if (message == NULL) { // Ensure there is a message
-    serial_println("Usage: setalarm hour.minute,message");
+    printf("Usage: setalarm hour.minute,message\n");
     return -1;
   }
 
@@ -421,7 +421,7 @@ int setAlarm(char * args) {
   }
 
   // No room for any more alarms
-  serial_println("Error: Maximum alarms reached");
+  printf("Error: Maximum alarms reached\n");
   return -1;
 }
 
@@ -450,7 +450,7 @@ int freeAlarm(char * time) {
     }
   }
 
-  serial_println("Error: Alarm not found");
+  printf("Error: Alarm not found\n");
   return 0;
 }
 
@@ -475,16 +475,18 @@ void currentTime() {
 }
 
 void dispatchAlarm() {
-  int i;
-  currentTime();
-  
-  for (i = 0; i < 10; i++) {
-    if (strcmp(alarms[i], current_time) == 0) {
-      printf("%s\n", messages[i]);
-      freeAlarm(alarms[i]);
+  while(1) {
+    int i;
+    currentTime();
+
+    for (i = 0; i < 10; i++) {
+      if (strcmp(alarms[i], current_time) == 0) {
+        printf("%s\n", messages[i]);
+        freeAlarm(alarms[i]);
+      }
     }
+    
+    sys_req(IDLE,DEFAULT_DEVICE,NULL,NULL);
   }
-  
-  sys_req(IDLE,DEFAULT_DEVICE,NULL,NULL);
 }
 
