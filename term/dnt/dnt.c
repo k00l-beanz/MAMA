@@ -497,11 +497,7 @@ void dispatchAlarm() {
           printf("%s\n",messages[i]);
           freeAlarm(alarms[i]);
           sys_req(IDLE,DEFAULT_DEVICE,NULL,NULL);
-        } else if (currentHour > alarmHour) { // Past alarm hour
-          printf("%s\n",messages[i]);
-          freeAlarm(alarms[i]);
-          sys_req(IDLE,DEFAULT_DEVICE,NULL,NULL);
-        }
+        } 
         
       }
     }
