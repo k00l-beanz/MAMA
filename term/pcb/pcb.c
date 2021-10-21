@@ -112,8 +112,6 @@ int insertPCB(pcb_t * pcb) {
 	pcb_queue_t *queue;
 	switch (pcb->pcb_process_state) {
 		case READY:
-			queue = priority_queue;
-			break;
 		case SUSPENDED_READY:
 			queue = priority_queue;
 			break;
@@ -128,10 +126,6 @@ int insertPCB(pcb_t * pcb) {
 	if(queue->pcbq_head == NULL) {
 		// queue is empty - set this pcb as head and tail
 		pcb_node_t *inserted_node = (pcb_node_t *)sys_alloc_mem(sizeof(pcb_node_t));
-		if(inserted_node == NULL) {
-			printf("Memory allocation fault in createPCB");
-			return 1;
-		}
 		// null next and prev nodes for new node
 		inserted_node->pcbn_next_pcb = NULL;
 		inserted_node->pcbn_prev_pcb = NULL;
@@ -149,13 +143,8 @@ int insertPCB(pcb_t * pcb) {
 		if(node->pcb->pcb_priority < pcb->pcb_priority) {
 			// node is replacing queue's current head
 			pcb_node_t *inserted_node = (pcb_node_t *)sys_alloc_mem(sizeof(pcb_node_t));
-			if(inserted_node == NULL) {
-				printf("Memory allocation fault in createPCB");
-				return 1;
-			}
 			inserted_node->pcbn_next_pcb = node;
 			inserted_node->pcb = pcb;
-			inserted_node->pcbn_prev_pcb = NULL;
 			node->pcbn_prev_pcb = inserted_node;
 			queue->pcbq_head = inserted_node;
 			return 0;
@@ -170,10 +159,6 @@ int insertPCB(pcb_t * pcb) {
 	
 	// doubly linked lists sure are fun
 	pcb_node_t *inserted_node = (pcb_node_t *)sys_alloc_mem(sizeof(pcb_node_t));
-	if(inserted_node == NULL) {
-		printf("Memory allocation fault in createPCB");
-		return 1;
-	}
 	inserted_node->pcbn_next_pcb = node->pcbn_next_pcb;
 	inserted_node->pcbn_prev_pcb = node;
 	inserted_node->pcb = pcb;
@@ -587,7 +572,7 @@ int deletePCB(char *args) {
 		printf("Error: PCB not found\n");
 		return 1;
 	}
-
+	
 	removePCB(pcb);
 	freePCB(pcb);
 	// sys_free_mem(pcb->pcb_stack_bottom);
@@ -669,3 +654,23 @@ int unblockPCB(char * name) {
 	return 0;
 }
 
+/********************************************************/
+/********************* R4 Stuff Here ********************/
+/********************************************************/
+
+int resumeAll(char * p) {
+	(void) p;
+	pcb_node_t * node = priority_queue->pcbq_head;
+
+	if (node == NULL)  {
+		serial_println("Error: Nothing in READY queue");
+		return -1;
+	}
+
+	while (node != NULL) {
+		node->pcb->pcb_process_state = READY;
+		node = node->pcbn_next_pcb;
+	}
+
+	return 0;
+}

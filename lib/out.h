@@ -149,6 +149,35 @@ void resumeHelp();
 */
 void suspendHelp();
 
+/**
+ * Help page for loadr3
+ * 
+ * Displays the loadr3 help page 
+*/
+void loadr3Help();
+
+/**
+ * Help page for setalarm
+ * 
+ * Displays the setalarm help page
+*/
+void setalarmHelp();
+
+/**
+ * Help page for showalarm
+ * 
+ * Displays the showalarm help page 
+*/
+void showalarmsHelp();
+
+/**
+ * Help page for freealarm
+ * 
+ * Displays the freealarm help page 
+ * 
+*/
+void freealarmHelp();
+
 int print(char *, int);
 int printc(char);
 int println(char *, int);

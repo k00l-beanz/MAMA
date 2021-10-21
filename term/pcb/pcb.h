@@ -18,11 +18,11 @@
 
 /// Type of Queue Ordering
 typedef enum {
-	/// Priority Queue (Ready)
-	PRIORITY,
+    /// Priority Queue (Ready)
+    PRIORITY,
 
-	/// FIFO Queue (Blocked)
-	FIFO
+    /// FIFO Queue (Blocked)
+    FIFO
 } pcb_queue_order_t;
 
 /// Types of process states.
@@ -30,11 +30,11 @@ typedef enum {
     /// Running State
     RUNNING,
 
-	/// Ready State
-	READY,
-	
-	/// Blocked State
-	BLOCKED,
+    /// Ready State
+    READY,
+    
+    /// Blocked State
+    BLOCKED,
 
     /// Suspended Ready State
     SUSPENDED_READY,
@@ -45,23 +45,23 @@ typedef enum {
 
 /// Process Control Block Structure
 typedef struct {
-	/// PCB Name
-	char pcb_name[32]; 			// Can change size in the future
-	
-	/// Process Class
-	int pcb_process_class;     // I've decided that process class will be an int. SYS_PROCESS = 0, APPLICATION = 1
-	
-	/// Priority of PCB
-	int pcb_priority;
-	
-	/// State of the PCB
-	p_state_t pcb_process_state;
+    /// PCB Name
+    char pcb_name[32];          // Can change size in the future
+    
+    /// Process Class
+    int pcb_process_class;     // I've decided that process class will be an int. SYS_PROCESS = 0, APPLICATION = 1
+    
+    /// Priority of PCB
+    int pcb_priority;
+    
+    /// State of the PCB
+    p_state_t pcb_process_state;
 
-	/// Top of the Stack. Set equal to the stack base + size of the stack
-	unsigned char * pcb_stack_top; 
-	
-	/// Beginning of the Stack
-	unsigned char * pcb_stack_bottom;
+    /// Top of the Stack. Set equal to the stack base + size of the stack
+    unsigned char * pcb_stack_top; 
+    
+    /// Beginning of the Stack
+    unsigned char * pcb_stack_bottom;
 } pcb_t;
 
 /// Individual PCB nodes. Each PCB is associated with one node.
@@ -78,17 +78,17 @@ typedef struct pcb_node_t {
 
 /// "Master" controller of the PCB queue
 typedef struct pcb_queue {
-	/// Number of PCB's currently in the queue
-	int pcbq_count; 	
+    /// Number of PCB's currently in the queue
+    int pcbq_count;     
 
-	/// Head of the PCB queue
-	pcb_node_t *pcbq_head; 
+    /// Head of the PCB queue
+    pcb_node_t *pcbq_head; 
 
-	/// Tail of the PCB queue
-	pcb_node_t *pcbq_tail; 
+    /// Tail of the PCB queue
+    pcb_node_t *pcbq_tail; 
 
-	/// Queue order of the Master controller
-	pcb_queue_order_t queue_order;
+    /// Queue order of the Master controller
+    pcb_queue_order_t queue_order;
 } pcb_queue_t;
 
 
@@ -312,5 +312,22 @@ int showBlocked(char * args);
  * @return Returns 0 upon success, 1 upon error
 */
 int showAll(char * args);
+
+/********************************************************/
+/********************* R4 Stuff Here ********************/
+/********************************************************/
+
+/**
+ * Resume all suspended processes.
+ * 
+ * Iterates through READY queue and sets the
+ * state of the each PCB to READY
+ * 
+ * @param p Empty params
+ * 
+ * @return Returns 0 upon success, -1 otherwise.
+ * 
+*/
+int resumeAll(char * p);
 
 #endif

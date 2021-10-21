@@ -11,7 +11,7 @@ int cmd_version(char *arg_str) {
 	(void)arg_str;
 	
 	// printing the OS version number
-	char *versionOs= "\nCurrent Version: R2\n";
+	char *versionOs= "\nCurrent Version: R3/R4\n";
 	println(versionOs,20);
 	
 	return 0;

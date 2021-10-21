@@ -79,6 +79,22 @@ int cmd_help(char *command) {
 		suspendHelp();
 		return 1;
 	}
+	else if (strcmp(command, " loadr3") == 0) {
+		loadr3Help();
+		return 1;
+	}
+	else if (strcmp(command, " setalarm") == 0) {
+		setalarmHelp();
+		return 1;
+	}
+	else if (strcmp(command, " showalarms") == 0) {
+		showalarmsHelp();
+		return 1;
+	}
+	else if (strcmp(command, " freealarm") == 0) {
+		freealarmHelp();
+		return 1;
+	}
 	else {
 		print("Trying to get help with a command?\nType: help [COMMAND]\nTo see a list of common commands, Type: help list\n",106);
 	}
@@ -96,13 +112,13 @@ void versionHelp() {
 }
 
 void helpList() {
-	print("------------ ------------ ------------------\n"
-		  "| SYSTEM   | | TIME     | | PCB            |\n"
-		  "------------ ------------ ------------------\n"
-		  "| help     | | getdate  | | createpcb      |\n"
-		  "| version  | | setdate  | | deletepcb      |\n"
-		  "| shutdown | | gettime  | | showpcb        |\n"
-		  "------------ | settime  | | showallpcb     |\n"
+	print("------------ ------------ ------------------ --------------\n"
+		  "| SYSTEM   | | TIME     | | PCB            | | ALARM      |\n"
+		  "------------ ------------ ------------------ --------------\n"
+		  "| help     | | getdate  | | createpcb      | | setalarm   |\n"
+		  "| version  | | setdate  | | deletepcb      | | showalarms |\n"
+		  "| shutdown | | gettime  | | showpcb        | | freealarm  |\n"
+		  "------------ | settime  | | showallpcb     | --------------\n"
 		  "             ------------ | showreadypcb   |\n"
 		  "                          | showblockedpcb |\n"
 		  "                          | blockpcb       |\n"
@@ -328,4 +344,50 @@ void suspendHelp() {
 		  "Suspends the running PCB\n\n"
 		  "EXAMPLE\n\t"
 		  "suspendpcb mama\n\n",1);
+}
+
+/******************************************************/
+/********************** R4 ****************************/
+/******************************************************/
+
+void loadr3Help() {
+	print("NAME\n\t"
+		  "loadr3\n\n"
+		  "USAGE\n\t"
+		  "loadr3\n\n"
+		  "DESCRIPTION\n\t"
+		  "Loads all test processes into the READY queue\n\n",1);
+}
+
+void setalarmHelp() {
+	printf("NAME\n\t"
+		   "setalarm\n\n"
+		   "USAGE\n\t"
+		   "setalarm hour:minute,message\n\n"
+		   "DESCRIPTION\n\t"
+		   "Sets an alarm for the user with a custom message.\n\t"
+		   "NOTE: The message must be one word\n\n"
+		   "EXAMPLE\n\t"
+		   "hour = 5\n\t"
+		   "minute = 30\n\t"
+		   "message = cs-450_class!\n\n\t"
+		   "setalarm 5:30,cs-450_class!\n\n");
+}
+
+void showalarmsHelp() {
+	printf("NAME\n\t"
+		   "showalarms\n\n"
+		   "USAGE\n\t"
+		   "showalarms\n\n"
+		   "DESCRIPTION\n\t"
+		   "Displays all alarms and their messages\n\n");
+}
+
+void freealarmHelp() {
+	printf("NAME\n\t"
+		   "freealarm\n\n"
+		   "USAGE\n\t"
+		   "freealarm hour:minute\n\n"
+		   "DESCRIPTION\n\t"
+		   "Removes specified alarm from alarm list\n\n");
 }

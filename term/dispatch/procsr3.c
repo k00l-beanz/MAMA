@@ -10,12 +10,12 @@
 #define RC_4 4
 #define RC_5 5
 
-char* msg1 = "proc1 dispatched";
-char* msg2 = "proc2 dispatched";
-char* msg3 = "proc3 dispatched";
-char* msg4 = "proc4 dispatched";
-char* msg5 = "proc5 dispatched";
-int msgSize = 17;
+char* msg1 = "proc1 dispatched\n";
+char* msg2 = "proc2 dispatched\n";
+char* msg3 = "proc3 dispatched\n";
+char* msg4 = "proc4 dispatched\n";
+char* msg5 = "proc5 dispatched\n";
+int msgSize = 18;
 
 char* er1 = "proc1 ran after it was terminated";
 char* er2 = "proc2 ran after it was terminated";

@@ -1,5 +1,10 @@
 
 #include "dnt.h"
+#include <modules/mpx_supt.h>
+
+char alarms[10][6];
+char messages[10][32];
+char current_time[6];
 
 int setdate(char * date) {
   int params = 1;
@@ -349,5 +354,137 @@ int daysInMonth(int month, int year) {
           break;
       }
   return -1; // will never happen
+}
+
+/********************************************************/
+/********************* Alarm stuff here *****************/
+/********************************************************/
+
+int setAlarm(char * args) {
+  // Format: setalarm hour:minute,message
+  skip_ws(&args);
+
+  // Correct Size
+  if (strlen(args) > 64 || strlen(args) == 0) {
+    serial_println("Usage: setalarm hour:minute,message");
+    return -1;
+  }
+
+  char * hour = strtok(args,":");
+  char * minute = strtok(NULL,":");
+
+  char * waste = strtok(minute,",");
+  char * message = strtok(NULL,",");
+  (void) waste;
+
+  // Ensure hour and minute are both valid numbers and within the range
+  if (atoi(hour) > 23 || atoi(hour) < 0) {
+    serial_println("Error: Hour out of bounds");
+    return -1;
+  } else if (atoi(minute) > 59 || atoi(minute) < 0) {
+    serial_println("Error: Minute out of bounds");
+    return -1;
+  } else if (hour == NULL || minute == NULL) {
+    serial_println("Usage: setalarm hour:minute,message");
+    return -1;
+  }
+
+  // Ensure message does not overflow
+  if (strlen(message) > 32) {
+    serial_println("Error: Message to long");
+    return -1;
+  } else if (message == NULL) { // Ensure there is a message
+    serial_println("Usage: setalarm hour.minute,message");
+    return -1;
+  }
+
+  // Store time in proper format
+  char time[6];
+  memset(time, '\0', 6);
+  strcat(time, hour);
+  strcat(time,":");
+  strcat(time,minute);
+
+  char message_c[32];
+  memset(message_c, '\0', 32);
+  strcpy(message_c,message);
+
+  // I'm just going to use array's because 
+  // linked lists are CRINGE
+  int i;
+  for (i = 0; i < 10; i++) {
+    if (strlen(alarms[i]) == 0) {
+      strcpy(alarms[i],time);
+      strcpy(messages[i],message_c);
+      return 0;
+    }
+  }
+
+  // No room for any more alarms
+  serial_println("Error: Maximum alarms reached");
+  return -1;
+}
+
+int showAlarms(char * p) {
+  (void) p;
+
+  int i;
+  for (i = 0; i < 10; i++) {
+    if (strlen(alarms[i]) > 0) {
+      printf("%s : %s\n",alarms[i], messages[i]);
+    }
+  }
+
+  return 0;
+}
+
+int freeAlarm(char * time) {
+  skip_ws(&time);
+
+  int i;
+  for (i = 0; i < 10; i++) {
+    if (strcmp(alarms[i], time) == 0) {
+      strcpy(alarms[i], "");
+      strcpy(messages[i], "");
+      return 0;
+    }
+  }
+
+  serial_println("Error: Alarm not found");
+  return 0;
+}
+
+void currentTime() {
+
+  int hour, minute;
+  char *semi = ":";
+
+  memset(current_time, '\0', 6);
+
+  // Hours
+  outb(0x70, 0x04);
+  hour = BCDtoI(inb(0x71));
+  strcat(current_time,itoa(hour));
+  strcat(current_time,semi);
+
+  // Minutes
+  outb(0x70,0x02);
+  minute = BCDtoI(inb(0x71));
+  strcat(current_time,itoa(minute));
+
+}
+
+void dispatchAlarm() {
+  int i;
+  currentTime();
+  
+  for (i = 0; i < 10; i++) {
+    if (strcmp(alarms[i], current_time) == 0) {
+      printf("%s\n", messages[i]);
+      freeAlarm(alarms[i]);
+    }
+  }
+  
+  sys_req(IDLE,DEFAULT_DEVICE,NULL,NULL);
 }
 

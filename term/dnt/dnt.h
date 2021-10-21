@@ -204,3 +204,55 @@ char * intToMonth(int value);
  * 
 */
 int daysInMonth(int month, int year);
+
+/**
+ * Set an alarm 
+ * 
+ * Sets an alarm which will print a user defined message.
+ * Alarm will go off at specified time.
+ * 
+ * @param args Time and (optional) message
+ * @return Returns 0 upon success and -1 upon error
+*/
+int setAlarm(char * args);
+
+/**
+ * Show all alarms
+ * 
+ * Print all alarms currently in the 
+ * alarm list
+ * 
+ * @param p Empty parameters
+ * @return Returns 0 upon success, -1 upon error 
+*/
+int showAlarms(char * p);
+
+/**
+ * Remove alarm from alarms
+ * 
+ * Removes the alarm from the alarm
+ * list and 'frees' the spot 
+ * 
+ * @param time Alarm to remove from list
+ * 
+ * @return Returns 0 upon success, -1 upon error
+*/
+int freeAlarm(char * alarm);
+
+/**
+ * Alarm process
+ * 
+ * The function that will be used during
+ * context switching. This will check all alarm
+ * times against the current time 
+*/
+void dispatchAlarm();
+
+/**
+ * Current time
+ * 
+ * Gets the current time and stores it
+ * into string. 
+ * 
+*/
+void currentTime();

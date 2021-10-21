@@ -108,8 +108,24 @@ const cmd_mapping cmd_mappings[] = {
 			&suspendPCB
 		},
 		{
+			"resumeall",
+			&resumeAll
+		},
+		{
 			"loadr3",
 			&loadr3
+		},
+		{
+			"setalarm",
+			&setAlarm
+		},
+		{
+			"showalarms",
+			&showAlarms
+		},
+		{
+			"freealarm",
+			&freeAlarm
 		},
 	{
 		"arg-test",
@@ -213,12 +229,11 @@ void commhand() {
 		/* Command shutdown kills driver loop */
 		if(strcmp(cmd_name, "shutdown") == 0 && cmd_exit_code == 0) {
 			running = 0;
+			sys_req(EXIT,DEFAULT_DEVICE,NULL,NULL);
 		}
 		
 		sys_req(IDLE,DEFAULT_DEVICE,NULL,NULL);
 	}
-	
-	sys_req(EXIT,DEFAULT_DEVICE,NULL,NULL);
 }
 
 
