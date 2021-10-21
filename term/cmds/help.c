@@ -95,6 +95,10 @@ int cmd_help(char *command) {
 		freealarmHelp();
 		return 1;
 	}
+	else if (strcmp(command, " resumeallpcb") == 0) {
+		resumeallHelp();
+		return 1;
+	}
 	else {
 		print("Trying to get help with a command?\nType: help [COMMAND]\nTo see a list of common commands, Type: help list\n",106);
 	}
@@ -126,6 +130,8 @@ void helpList() {
 		  "                          | setprioritypcb |\n"
 		  "                          | resumepcb      |\n"
 		  "                          | suspendpcb     |\n"
+		  "                          | resumeallpcb   |\n"
+		  "                          | loadr3         |\n"
 		  "                          ------------------\n",191);
 }
 
@@ -356,7 +362,8 @@ void loadr3Help() {
 		  "USAGE\n\t"
 		  "loadr3\n\n"
 		  "DESCRIPTION\n\t"
-		  "Loads all test processes into the READY queue\n\n",1);
+		  "Loads all test processes into the READY queue in a SUSPENDED_READY state. Each process will be\n\t"
+		  "treated as an APPLICATION with a priority of 4\n\n",1);
 }
 
 void setalarmHelp() {
@@ -390,4 +397,13 @@ void freealarmHelp() {
 		   "freealarm hour:minute\n\n"
 		   "DESCRIPTION\n\t"
 		   "Removes specified alarm from alarm list\n\n");
+}
+
+void resumeallHelp() {
+	printf("NAME\n\t"
+		   "resumeallpcb\n\n"
+		   "USAGE\n\t"
+		   "resumeallpcb\n\n"
+		   "DESCRIPTION\n\t"
+		   "Sets the state of all PCB's in the READY queue to READY\n\n");
 }

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['ready_0',['READY',['../pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa6564f2f3e15be06b670547bbcaaf0798',1,'pcb.h']]],
-  ['red_1',['RED',['../colorize_8c.html#ab87bacfdad76e61b9412d7124be44c1caf80f9a890089d211842d59625e561f88',1,'RED():&#160;colorize.c'],['../colorize_8h.html#ab87bacfdad76e61b9412d7124be44c1caf80f9a890089d211842d59625e561f88',1,'RED():&#160;colorize.h']]],
-  ['running_2',['RUNNING',['../pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304',1,'pcb.h']]]
+  ['param_5fname_0',['PARAM_NAME',['../syntax_8h.html#af33280939207bc6f00c4b91581c64e83aa88076262efd878ec9b974554cdcc7d5',1,'syntax.h']]],
+  ['param_5fvalue_1',['PARAM_VALUE',['../syntax_8h.html#af33280939207bc6f00c4b91581c64e83a1c85eab78873293d0782d092daeb6f88',1,'syntax.h']]],
+  ['priority_2',['PRIORITY',['../pcb_8h.html#ab4997200d0dfc40cf82ea4983950ae64a117d4e929adf16e40bd27b3e7c7cee51',1,'pcb.h']]]
 ];

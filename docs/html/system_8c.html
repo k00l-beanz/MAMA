@@ -68,13 +68,18 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">system.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="string_8h_source.html">string.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="system_8h_source.html">system.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="serial_8h_source.html">core/serial.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="mpx__supt_8h_source.html">modules/mpx_supt.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="pcb_8h_source.html">term/pcb/pcb.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="context_8h_source.html">term/dispatch/context.h</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="out_8h_source.html">lib/out.h</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -82,6 +87,22 @@ Functions</h2></td></tr>
 <tr class="separator:abdb09834267dd4a2a0d07d43ca4d230d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff8473f901d828d76d3548130731c41d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#aff8473f901d828d76d3548130731c41d">kpanic</a> (const char *msg)</td></tr>
 <tr class="separator:aff8473f901d828d76d3548130731c41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa59b2cd3cbce56e21a22a3fe0b885ca3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="system_8h.html#a757de76cafbcddaac0d1632902fe4cb8">u32int</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#aa59b2cd3cbce56e21a22a3fe0b885ca3">sys_call</a> (<a class="el" href="structcontext.html">context</a> *registers)</td></tr>
+<tr class="memdesc:aa59b2cd3cbce56e21a22a3fe0b885ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to start interrupt.  <a href="system_8c.html#aa59b2cd3cbce56e21a22a3fe0b885ca3">More...</a><br /></td></tr>
+<tr class="separator:aa59b2cd3cbce56e21a22a3fe0b885ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a038ed9145b1e5616b721c305a081d160"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpcb__t.html">pcb_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#a038ed9145b1e5616b721c305a081d160">cop</a></td></tr>
+<tr class="memdesc:a038ed9145b1e5616b721c305a081d160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Currently operating process.  <a href="system_8c.html#a038ed9145b1e5616b721c305a081d160">More...</a><br /></td></tr>
+<tr class="separator:a038ed9145b1e5616b721c305a081d160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27117a9c1e67ba9bfef46af2a1cb8d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcontext.html">context</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#af27117a9c1e67ba9bfef46af2a1cb8d4">global_context</a></td></tr>
+<tr class="memdesc:af27117a9c1e67ba9bfef46af2a1cb8d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Context.  <a href="system_8c.html#af27117a9c1e67ba9bfef46af2a1cb8d4">More...</a><br /></td></tr>
+<tr class="separator:af27117a9c1e67ba9bfef46af2a1cb8d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4c41fbfa755950bed6c67b7c6df9171"><td class="memItemLeft" align="right" valign="top"><a class="el" href="pcb_8h.html#a58e7d6c4cdd0ff161b6159964b1bb1f5">pcb_queue_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#ac4c41fbfa755950bed6c67b7c6df9171">priority_queue</a></td></tr>
+<tr class="separator:ac4c41fbfa755950bed6c67b7c6df9171"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4b77494d0fad58939896ddc5290c99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structparam.html">param</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8c.html#a3b4b77494d0fad58939896ddc5290c99">params</a></td></tr>
+<tr class="separator:a3b4b77494d0fad58939896ddc5290c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="abdb09834267dd4a2a0d07d43ca4d230d" name="abdb09834267dd4a2a0d07d43ca4d230d"></a>
@@ -116,6 +137,111 @@ Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa59b2cd3cbce56e21a22a3fe0b885ca3" name="aa59b2cd3cbce56e21a22a3fe0b885ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa59b2cd3cbce56e21a22a3fe0b885ca3">&#9670;&nbsp;</a></span>sys_call()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="system_8h.html#a757de76cafbcddaac0d1632902fe4cb8">u32int</a> * sys_call </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcontext.html">context</a> *&#160;</td>
+          <td class="paramname"><em>registers</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Called to start interrupt. </p>
+<p >Is called by irq to determine the next routine to load</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">registers</td><td>Context registers for the current process </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the process being loaded </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a038ed9145b1e5616b721c305a081d160" name="a038ed9145b1e5616b721c305a081d160"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a038ed9145b1e5616b721c305a081d160">&#9670;&nbsp;</a></span>cop</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structpcb__t.html">pcb_t</a>* cop</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Currently operating process. </p>
+
+</div>
+</div>
+<a id="af27117a9c1e67ba9bfef46af2a1cb8d4" name="af27117a9c1e67ba9bfef46af2a1cb8d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af27117a9c1e67ba9bfef46af2a1cb8d4">&#9670;&nbsp;</a></span>global_context</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcontext.html">context</a>* global_context</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Context. </p>
+
+</div>
+</div>
+<a id="a3b4b77494d0fad58939896ddc5290c99" name="a3b4b77494d0fad58939896ddc5290c99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4b77494d0fad58939896ddc5290c99">&#9670;&nbsp;</a></span>params</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structparam.html">param</a> params</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4c41fbfa755950bed6c67b7c6df9171" name="ac4c41fbfa755950bed6c67b7c6df9171"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4c41fbfa755950bed6c67b7c6df9171">&#9670;&nbsp;</a></span>priority_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="pcb_8h.html#a58e7d6c4cdd0ff161b6159964b1bb1f5">pcb_queue_t</a>* priority_queue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

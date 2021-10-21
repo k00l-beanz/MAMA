@@ -476,17 +476,36 @@ void currentTime() {
 
 void dispatchAlarm() {
   while(1) {
-    int i;
+    int i, alarmHour, alarmMin;
+    char alarm[6];
     currentTime();
+    
+    // Current hour & minute
+    int currentHour = atoi(strtok(current_time, ":"));
+    int currentMin = atoi(strtok(NULL,":"));
 
     for (i = 0; i < 10; i++) {
-      if (strcmp(alarms[i], current_time) == 0) {
-        printf("%s\n", messages[i]);
-        freeAlarm(alarms[i]);
+      
+      if (strlen(alarms[i]) > 0) { // alarm found
+        strcpy(alarm,alarms[i]);
+
+        // Alarm hour & minute of alarm
+        alarmHour = atoi(strtok(alarm,":"));
+        alarmMin = atoi(strtok(NULL,":"));
+        
+        if (alarmHour == currentHour && currentMin >= alarmMin) { // Within the same hour, testing for minute
+          printf("%s\n",messages[i]);
+          freeAlarm(alarms[i]);
+          sys_req(IDLE,DEFAULT_DEVICE,NULL,NULL);
+        } else if (currentHour > alarmHour) { // Past alarm hour
+          printf("%s\n",messages[i]);
+          freeAlarm(alarms[i]);
+          sys_req(IDLE,DEFAULT_DEVICE,NULL,NULL);
+        }
+        
       }
     }
-    
+
     sys_req(IDLE,DEFAULT_DEVICE,NULL,NULL);
   }
 }
-

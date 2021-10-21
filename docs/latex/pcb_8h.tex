@@ -42,7 +42,12 @@ enum \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}{p\+\_\+state\+\_
 , \newline
 \mbox{\hyperlink{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31faa4d91165aaa967e74157a23c02725bc7}{SUSPENDED\+\_\+\+BLOCKED}}
  \}
-\begin{DoxyCompactList}\small\item\em Types of process states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Types of process states. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{pcb_8h_ab7bf7732db7ec98e16204b291146a924}{p\+\_\+protection\+\_\+mode\+\_\+t}} \{ \mbox{\hyperlink{pcb_8h_ab7bf7732db7ec98e16204b291146a924a1cd7ecb6642033844aec110d744548fa}{DELETABLE}}
+, \mbox{\hyperlink{pcb_8h_ab7bf7732db7ec98e16204b291146a924a0925912aff6e501e8e868da6d4bcee4f}{DELETABLE\+\_\+\+WHEN\+\_\+\+SUSPENDED}}
+, \mbox{\hyperlink{pcb_8h_ab7bf7732db7ec98e16204b291146a924ab9f55b77742880dc1642e76b459672dd}{NOT\+\_\+\+DELETABLE}}
+ \}
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -81,7 +86,9 @@ int \mbox{\hyperlink{pcb_8h_a777cdc044591a36e9bd209df4a7b4dab}{show\+Ready}} (ch
 int \mbox{\hyperlink{pcb_8h_ace2e002e42c2ce2929436e767ba30f5d}{show\+Blocked}} (char $\ast$args)
 \begin{DoxyCompactList}\small\item\em Show PCBs in blocked queue. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pcb_8h_a265523e034df978d83da7bb1f0ed209f}{show\+All}} (char $\ast$args)
-\begin{DoxyCompactList}\small\item\em Show all PCBs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Show all PCBs. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{pcb_8h_ac036527aaa2149438637e19a4d877de9}{resume\+All}} (char $\ast$p)
+\begin{DoxyCompactList}\small\item\em Resume all suspended processes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -151,6 +158,26 @@ Individual PCB nodes. Each PCB is associated with one node.
 
 
 \doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{pcb_8h_ab7bf7732db7ec98e16204b291146a924}\label{pcb_8h_ab7bf7732db7ec98e16204b291146a924}} 
+\index{pcb.h@{pcb.h}!p\_protection\_mode\_t@{p\_protection\_mode\_t}}
+\index{p\_protection\_mode\_t@{p\_protection\_mode\_t}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{p\_protection\_mode\_t}{p\_protection\_mode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pcb_8h_ab7bf7732db7ec98e16204b291146a924}{p\+\_\+protection\+\_\+mode\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DELETABLE@{DELETABLE}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!DELETABLE@{DELETABLE}}}\mbox{\Hypertarget{pcb_8h_ab7bf7732db7ec98e16204b291146a924a1cd7ecb6642033844aec110d744548fa}\label{pcb_8h_ab7bf7732db7ec98e16204b291146a924a1cd7ecb6642033844aec110d744548fa}} 
+DELETABLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DELETABLE\_WHEN\_SUSPENDED@{DELETABLE\_WHEN\_SUSPENDED}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!DELETABLE\_WHEN\_SUSPENDED@{DELETABLE\_WHEN\_SUSPENDED}}}\mbox{\Hypertarget{pcb_8h_ab7bf7732db7ec98e16204b291146a924a0925912aff6e501e8e868da6d4bcee4f}\label{pcb_8h_ab7bf7732db7ec98e16204b291146a924a0925912aff6e501e8e868da6d4bcee4f}} 
+DELETABLE\+\_\+\+WHEN\+\_\+\+SUSPENDED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOT\_DELETABLE@{NOT\_DELETABLE}!pcb.h@{pcb.h}}\index{pcb.h@{pcb.h}!NOT\_DELETABLE@{NOT\_DELETABLE}}}\mbox{\Hypertarget{pcb_8h_ab7bf7732db7ec98e16204b291146a924ab9f55b77742880dc1642e76b459672dd}\label{pcb_8h_ab7bf7732db7ec98e16204b291146a924ab9f55b77742880dc1642e76b459672dd}} 
+NOT\+\_\+\+DELETABLE&\\
+\hline
+
+\end{DoxyEnumFields}
 \mbox{\Hypertarget{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}\label{pcb_8h_a4f8f003be709b151ad2f3ccaaacac31f}} 
 \index{pcb.h@{pcb.h}!p\_state\_t@{p\_state\_t}}
 \index{p\_state\_t@{p\_state\_t}!pcb.h@{pcb.h}}
@@ -261,7 +288,7 @@ Creates a new, unique PCB in memory. ~\newline
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Returns 1 upon success, Otherwise 0 
+Returns 0 upon success, 1 upon error 
 \end{DoxyReturn}
 Parse the user input
 
@@ -374,6 +401,26 @@ Removes specified PCB from queue it is stored in.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Returns 1 upon success, 0 upon error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_8h_ac036527aaa2149438637e19a4d877de9}\label{pcb_8h_ac036527aaa2149438637e19a4d877de9}} 
+\index{pcb.h@{pcb.h}!resumeAll@{resumeAll}}
+\index{resumeAll@{resumeAll}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{resumeAll()}{resumeAll()}}
+{\footnotesize\ttfamily int resume\+All (\begin{DoxyParamCaption}\item[{char $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Resume all suspended processes. 
+
+Iterates through READY queue and sets the state of the each PCB to READY
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Empty params\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, -\/1 otherwise. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{pcb_8h_a8a7e8deeb9e21a925cc9ca8d42108337}\label{pcb_8h_a8a7e8deeb9e21a925cc9ca8d42108337}} 
 \index{pcb.h@{pcb.h}!resumePCB@{resumePCB}}

@@ -133,6 +133,11 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a4f8f003be709b151ad2f3ccaaacac31f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Types of process states.  <a href="pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31f">More...</a><br /></td></tr>
 <tr class="separator:a4f8f003be709b151ad2f3ccaaacac31f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7bf7732db7ec98e16204b291146a924"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_8h.html#ab7bf7732db7ec98e16204b291146a924">p_protection_mode_t</a> { <a class="el" href="pcb_8h.html#ab7bf7732db7ec98e16204b291146a924a1cd7ecb6642033844aec110d744548fa">DELETABLE</a>
+, <a class="el" href="pcb_8h.html#ab7bf7732db7ec98e16204b291146a924a0925912aff6e501e8e868da6d4bcee4f">DELETABLE_WHEN_SUSPENDED</a>
+, <a class="el" href="pcb_8h.html#ab7bf7732db7ec98e16204b291146a924ab9f55b77742880dc1642e76b459672dd">NOT_DELETABLE</a>
+ }</td></tr>
+<tr class="separator:ab7bf7732db7ec98e16204b291146a924"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -190,6 +195,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a265523e034df978d83da7bb1f0ed209f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_8h.html#a265523e034df978d83da7bb1f0ed209f">showAll</a> (char *args)</td></tr>
 <tr class="memdesc:a265523e034df978d83da7bb1f0ed209f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show all PCBs.  <a href="pcb_8h.html#a265523e034df978d83da7bb1f0ed209f">More...</a><br /></td></tr>
 <tr class="separator:a265523e034df978d83da7bb1f0ed209f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac036527aaa2149438637e19a4d877de9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_8h.html#ac036527aaa2149438637e19a4d877de9">resumeAll</a> (char *p)</td></tr>
+<tr class="memdesc:ac036527aaa2149438637e19a4d877de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resume all suspended processes.  <a href="pcb_8h.html#ac036527aaa2149438637e19a4d877de9">More...</a><br /></td></tr>
+<tr class="separator:ac036527aaa2149438637e19a4d877de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="abdc276a3da6aba2279ae3e4a69731d9f" name="abdc276a3da6aba2279ae3e4a69731d9f"></a>
@@ -290,6 +298,25 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ab7bf7732db7ec98e16204b291146a924" name="ab7bf7732db7ec98e16204b291146a924"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7bf7732db7ec98e16204b291146a924">&#9670;&nbsp;</a></span>p_protection_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="pcb_8h.html#ab7bf7732db7ec98e16204b291146a924">p_protection_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab7bf7732db7ec98e16204b291146a924a1cd7ecb6642033844aec110d744548fa" name="ab7bf7732db7ec98e16204b291146a924a1cd7ecb6642033844aec110d744548fa"></a>DELETABLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab7bf7732db7ec98e16204b291146a924a0925912aff6e501e8e868da6d4bcee4f" name="ab7bf7732db7ec98e16204b291146a924a0925912aff6e501e8e868da6d4bcee4f"></a>DELETABLE_WHEN_SUSPENDED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab7bf7732db7ec98e16204b291146a924ab9f55b77742880dc1642e76b459672dd" name="ab7bf7732db7ec98e16204b291146a924ab9f55b77742880dc1642e76b459672dd"></a>NOT_DELETABLE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <a id="a4f8f003be709b151ad2f3ccaaacac31f" name="a4f8f003be709b151ad2f3ccaaacac31f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f8f003be709b151ad2f3ccaaacac31f">&#9670;&nbsp;</a></span>p_state_t</h2>
 
@@ -416,7 +443,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns 1 upon success, Otherwise 0 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success, 1 upon error </dd></dl>
 <p >Parse the user input</p>
 <p >Error Handling</p>
 
@@ -579,6 +606,34 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns 1 upon success, 0 upon error </dd></dl>
+
+</div>
+</div>
+<a id="ac036527aaa2149438637e19a4d877de9" name="ac036527aaa2149438637e19a4d877de9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac036527aaa2149438637e19a4d877de9">&#9670;&nbsp;</a></span>resumeAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int resumeAll </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resume all suspended processes. </p>
+<p >Iterates through READY queue and sets the state of the each PCB to READY</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Empty params</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success, -1 otherwise. </dd></dl>
 
 </div>
 </div>

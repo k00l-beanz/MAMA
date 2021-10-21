@@ -79,6 +79,7 @@ $(function() {
 <code>#include &lt;<a class="el" href="out_8h_source.html">lib/out.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="utils_8h_source.html">term/utils.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="args_8h_source.html">term/args.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="context_8h_source.html">term/dispatch/context.h</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -136,6 +137,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a9be98649f5ef1f42228d3930c256f25c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#a9be98649f5ef1f42228d3930c256f25c">unblockPCB</a> (char *name)</td></tr>
 <tr class="memdesc:a9be98649f5ef1f42228d3930c256f25c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PCB state to unblocked.  <a href="pcb_2pcb_8c.html#a9be98649f5ef1f42228d3930c256f25c">More...</a><br /></td></tr>
 <tr class="separator:a9be98649f5ef1f42228d3930c256f25c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac036527aaa2149438637e19a4d877de9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pcb_2pcb_8c.html#ac036527aaa2149438637e19a4d877de9">resumeAll</a> (char *p)</td></tr>
+<tr class="memdesc:ac036527aaa2149438637e19a4d877de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resume all suspended processes.  <a href="pcb_2pcb_8c.html#ac036527aaa2149438637e19a4d877de9">More...</a><br /></td></tr>
+<tr class="separator:ac036527aaa2149438637e19a4d877de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -224,7 +228,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns 1 upon success, Otherwise 0 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success, 1 upon error </dd></dl>
 <p >Parse the user input</p>
 <p >Error Handling</p>
 
@@ -387,6 +391,34 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns 1 upon success, 0 upon error </dd></dl>
+
+</div>
+</div>
+<a id="ac036527aaa2149438637e19a4d877de9" name="ac036527aaa2149438637e19a4d877de9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac036527aaa2149438637e19a4d877de9">&#9670;&nbsp;</a></span>resumeAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int resumeAll </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resume all suspended processes. </p>
+<p >Iterates through READY queue and sets the state of the each PCB to READY</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Empty params</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success, -1 otherwise. </dd></dl>
 
 </div>
 </div>

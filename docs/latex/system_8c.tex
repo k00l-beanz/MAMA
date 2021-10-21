@@ -3,12 +3,29 @@
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$system.\+h$>$}\newline
 {\ttfamily \#include $<$core/serial.\+h$>$}\newline
+{\ttfamily \#include $<$modules/mpx\+\_\+supt.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}term/pcb/pcb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}term/dispatch/context.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$lib/out.\+h$>$}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{system_8c_abdb09834267dd4a2a0d07d43ca4d230d}{klogv}} (const char $\ast$msg)
 \item 
 void \mbox{\hyperlink{system_8c_aff8473f901d828d76d3548130731c41d}{kpanic}} (const char $\ast$msg)
+\item 
+\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} $\ast$ \mbox{\hyperlink{system_8c_aa59b2cd3cbce56e21a22a3fe0b885ca3}{sys\+\_\+call}} (\mbox{\hyperlink{structcontext}{context}} $\ast$registers)
+\begin{DoxyCompactList}\small\item\em Called to start interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$ \mbox{\hyperlink{system_8c_a038ed9145b1e5616b721c305a081d160}{cop}}
+\begin{DoxyCompactList}\small\item\em Currently operating process. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcontext}{context}} $\ast$ \mbox{\hyperlink{system_8c_af27117a9c1e67ba9bfef46af2a1cb8d4}{global\+\_\+context}}
+\begin{DoxyCompactList}\small\item\em Context. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{pcb_8h_a58e7d6c4cdd0ff161b6159964b1bb1f5}{pcb\+\_\+queue\+\_\+t}} $\ast$ \mbox{\hyperlink{system_8c_ac4c41fbfa755950bed6c67b7c6df9171}{priority\+\_\+queue}}
+\item 
+\mbox{\hyperlink{structparam}{param}} \mbox{\hyperlink{system_8c_a3b4b77494d0fad58939896ddc5290c99}{params}}
 \end{DoxyCompactItemize}
 
 
@@ -24,4 +41,59 @@ void \mbox{\hyperlink{system_8c_aff8473f901d828d76d3548130731c41d}{kpanic}} (con
 \index{kpanic@{kpanic}!system.c@{system.c}}
 \doxysubsubsection{\texorpdfstring{kpanic()}{kpanic()}}
 {\footnotesize\ttfamily void kpanic (\begin{DoxyParamCaption}\item[{const char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{system_8c_aa59b2cd3cbce56e21a22a3fe0b885ca3}\label{system_8c_aa59b2cd3cbce56e21a22a3fe0b885ca3}} 
+\index{system.c@{system.c}!sys\_call@{sys\_call}}
+\index{sys\_call@{sys\_call}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{sys\_call()}{sys\_call()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} $\ast$ sys\+\_\+call (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcontext}{context}} $\ast$}]{registers }\end{DoxyParamCaption})}
+
+
+
+Called to start interrupt. 
+
+Is called by irq to determine the next routine to load
+
+
+\begin{DoxyParams}{Parameters}
+{\em registers} & Context registers for the current process \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the process being loaded 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{system_8c_a038ed9145b1e5616b721c305a081d160}\label{system_8c_a038ed9145b1e5616b721c305a081d160}} 
+\index{system.c@{system.c}!cop@{cop}}
+\index{cop@{cop}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{cop}{cop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}}$\ast$ cop}
+
+
+
+Currently operating process. 
+
+\mbox{\Hypertarget{system_8c_af27117a9c1e67ba9bfef46af2a1cb8d4}\label{system_8c_af27117a9c1e67ba9bfef46af2a1cb8d4}} 
+\index{system.c@{system.c}!global\_context@{global\_context}}
+\index{global\_context@{global\_context}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{global\_context}{global\_context}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcontext}{context}}$\ast$ global\+\_\+context}
+
+
+
+Context. 
+
+\mbox{\Hypertarget{system_8c_a3b4b77494d0fad58939896ddc5290c99}\label{system_8c_a3b4b77494d0fad58939896ddc5290c99}} 
+\index{system.c@{system.c}!params@{params}}
+\index{params@{params}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{params}{params}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structparam}{param}} params\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{system_8c_ac4c41fbfa755950bed6c67b7c6df9171}\label{system_8c_ac4c41fbfa755950bed6c67b7c6df9171}} 
+\index{system.c@{system.c}!priority\_queue@{priority\_queue}}
+\index{priority\_queue@{priority\_queue}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{priority\_queue}{priority\_queue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pcb_8h_a58e7d6c4cdd0ff161b6159964b1bb1f5}{pcb\+\_\+queue\+\_\+t}}$\ast$ priority\+\_\+queue\hspace{0.3cm}{\ttfamily [extern]}}
 

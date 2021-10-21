@@ -178,6 +178,13 @@ void showalarmsHelp();
 */
 void freealarmHelp();
 
+/**
+ * Help page for resumeallpcb
+ * 
+ * Displays the resumeallpcb help page 
+*/
+void resumeallHelp();
+
 int print(char *, int);
 int printc(char);
 int println(char *, int);

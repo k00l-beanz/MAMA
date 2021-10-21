@@ -108,7 +108,7 @@ const cmd_mapping cmd_mappings[] = {
 			&suspendPCB
 		},
 		{
-			"resumeall",
+			"resumeallpcb",
 			&resumeAll
 		},
 		{

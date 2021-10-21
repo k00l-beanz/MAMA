@@ -1,6 +1,7 @@
 \hypertarget{dnt_8c}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/term/dnt/dnt.c File Reference}
 \label{dnt_8c}\index{/home/maximillian/Desktop/MAMA/term/dnt/dnt.c@{/home/maximillian/Desktop/MAMA/term/dnt/dnt.c}}
 {\ttfamily \#include \char`\"{}dnt.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$modules/mpx\+\_\+supt.\+h$>$}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,7 +26,26 @@ char $\ast$ \mbox{\hyperlink{dnt_8c_ac69caa79c44abf14cb2484e0b4e6c8db}{int\+To\+
 char $\ast$ \mbox{\hyperlink{dnt_8c_a3610dc3b9c692a029fccae0faf859533}{int\+To\+Day\+Of\+Week}} (int value)
 \begin{DoxyCompactList}\small\item\em Converts integer to string day of the week. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{dnt_8c_aea60a64a6b1b56aafc34d2b157768751}{days\+In\+Month}} (int month, int year)
-\begin{DoxyCompactList}\small\item\em Calculates the number of days in a month. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calculates the number of days in a month. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dnt_8c_a8dfc59eda80b9bcd290c00ac5a5be072}{set\+Alarm}} (char $\ast$args)
+\begin{DoxyCompactList}\small\item\em Set an alarm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dnt_8c_ac69b357094608f64a4fb839cead5ab91}{show\+Alarms}} (char $\ast$p)
+\begin{DoxyCompactList}\small\item\em Show all alarms. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dnt_8c_a393397cf31fb30d34cff1647fc9239fd}{free\+Alarm}} (char $\ast$time)
+\begin{DoxyCompactList}\small\item\em Remove alarm from alarms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{dnt_8c_a2fd7e60e421b7ab29e427868122c8cf4}{current\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Current time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{dnt_8c_a21a0d9297fe492ffb1b6823ccfffa24d}{dispatch\+Alarm}} ()
+\begin{DoxyCompactList}\small\item\em Alarm process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{dnt_8c_a2e9db90105225925ff7f66d38ea0128b}{alarms}} \mbox{[}10\mbox{]}\mbox{[}6\mbox{]} = \{ \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{} \}
+\item 
+char \mbox{\hyperlink{dnt_8c_aa5a5ae65e67dfb6185ed5a9d5ce6a058}{messages}} \mbox{[}10\mbox{]}\mbox{[}32\mbox{]} = \{ \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{} \}
+\item 
+char \mbox{\hyperlink{dnt_8c_a90acfc4b3972c9bd50b877120ad0da10}{current\+\_\+time}} \mbox{[}6\mbox{]}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -49,7 +69,17 @@ Converts an 8-\/bit BCD unsigned char to a 32-\/bit unsigned integer.
 \begin{DoxyReturn}{Returns}
 Returns 32-\/bit unsigned int 
 \end{DoxyReturn}
-\mbox{\Hypertarget{dnt_8c_aea60a64a6b1b56aafc34d2b157768751}\label{dnt_8c_aea60a64a6b1b56aafc34d2b157768751}} 
+\mbox{\Hypertarget{dnt_8c_a2fd7e60e421b7ab29e427868122c8cf4}\label{dnt_8c_a2fd7e60e421b7ab29e427868122c8cf4}} 
+\index{dnt.c@{dnt.c}!currentTime@{currentTime}}
+\index{currentTime@{currentTime}!dnt.c@{dnt.c}}
+\doxysubsubsection{\texorpdfstring{currentTime()}{currentTime()}}
+{\footnotesize\ttfamily void current\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Current time. 
+
+Gets the current time and stores it into string. \mbox{\Hypertarget{dnt_8c_aea60a64a6b1b56aafc34d2b157768751}\label{dnt_8c_aea60a64a6b1b56aafc34d2b157768751}} 
 \index{dnt.c@{dnt.c}!daysInMonth@{daysInMonth}}
 \index{daysInMonth@{daysInMonth}!dnt.c@{dnt.c}}
 \doxysubsubsection{\texorpdfstring{daysInMonth()}{daysInMonth()}}
@@ -70,6 +100,36 @@ Calculates the number of days in the month based upon which month it is. If year
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Returns the number of days in the month 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dnt_8c_a21a0d9297fe492ffb1b6823ccfffa24d}\label{dnt_8c_a21a0d9297fe492ffb1b6823ccfffa24d}} 
+\index{dnt.c@{dnt.c}!dispatchAlarm@{dispatchAlarm}}
+\index{dispatchAlarm@{dispatchAlarm}!dnt.c@{dnt.c}}
+\doxysubsubsection{\texorpdfstring{dispatchAlarm()}{dispatchAlarm()}}
+{\footnotesize\ttfamily void dispatch\+Alarm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Alarm process. 
+
+The function that will be used during context switching. This will check all alarm times against the current time \mbox{\Hypertarget{dnt_8c_a393397cf31fb30d34cff1647fc9239fd}\label{dnt_8c_a393397cf31fb30d34cff1647fc9239fd}} 
+\index{dnt.c@{dnt.c}!freeAlarm@{freeAlarm}}
+\index{freeAlarm@{freeAlarm}!dnt.c@{dnt.c}}
+\doxysubsubsection{\texorpdfstring{freeAlarm()}{freeAlarm()}}
+{\footnotesize\ttfamily int free\+Alarm (\begin{DoxyParamCaption}\item[{char $\ast$}]{alarm }\end{DoxyParamCaption})}
+
+
+
+Remove alarm from alarms. 
+
+Removes the alarm from the alarm list and \textquotesingle{}frees\textquotesingle{} the spot
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & Alarm to remove from list\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, -\/1 upon error 
 \end{DoxyReturn}
 \mbox{\Hypertarget{dnt_8c_a1b6c333c9d6fb565020fcb5de3d2b90d}\label{dnt_8c_a1b6c333c9d6fb565020fcb5de3d2b90d}} 
 \index{dnt.c@{dnt.c}!getdate@{getdate}}
@@ -173,6 +233,26 @@ Uses basic arithmetic and bit shifting to convert from 32-\/bit integer to 8-\/b
 \begin{DoxyReturn}{Returns}
 8-\/bit BCD number as an unsigned char 
 \end{DoxyReturn}
+\mbox{\Hypertarget{dnt_8c_a8dfc59eda80b9bcd290c00ac5a5be072}\label{dnt_8c_a8dfc59eda80b9bcd290c00ac5a5be072}} 
+\index{dnt.c@{dnt.c}!setAlarm@{setAlarm}}
+\index{setAlarm@{setAlarm}!dnt.c@{dnt.c}}
+\doxysubsubsection{\texorpdfstring{setAlarm()}{setAlarm()}}
+{\footnotesize\ttfamily int set\+Alarm (\begin{DoxyParamCaption}\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+Set an alarm. 
+
+Sets an alarm which will print a user defined message. Alarm will go off at specified time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Time and (optional) message \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and -\/1 upon error 
+\end{DoxyReturn}
 \mbox{\Hypertarget{dnt_8c_ab434e4f99f9d3687be837492216455d5}\label{dnt_8c_ab434e4f99f9d3687be837492216455d5}} 
 \index{dnt.c@{dnt.c}!setdate@{setdate}}
 \index{setdate@{setdate}!dnt.c@{dnt.c}}
@@ -258,3 +338,44 @@ This method is called by the settime method. Writes the data into memory. First 
 {\em second} & 32-\/bit int second \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{dnt_8c_ac69b357094608f64a4fb839cead5ab91}\label{dnt_8c_ac69b357094608f64a4fb839cead5ab91}} 
+\index{dnt.c@{dnt.c}!showAlarms@{showAlarms}}
+\index{showAlarms@{showAlarms}!dnt.c@{dnt.c}}
+\doxysubsubsection{\texorpdfstring{showAlarms()}{showAlarms()}}
+{\footnotesize\ttfamily int show\+Alarms (\begin{DoxyParamCaption}\item[{char $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Show all alarms. 
+
+Print all alarms currently in the alarm list
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Empty parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, -\/1 upon error 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{dnt_8c_a2e9db90105225925ff7f66d38ea0128b}\label{dnt_8c_a2e9db90105225925ff7f66d38ea0128b}} 
+\index{dnt.c@{dnt.c}!alarms@{alarms}}
+\index{alarms@{alarms}!dnt.c@{dnt.c}}
+\doxysubsubsection{\texorpdfstring{alarms}{alarms}}
+{\footnotesize\ttfamily char alarms\mbox{[}10\mbox{]}\mbox{[}6\mbox{]} = \{ \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{} \}}
+
+\mbox{\Hypertarget{dnt_8c_a90acfc4b3972c9bd50b877120ad0da10}\label{dnt_8c_a90acfc4b3972c9bd50b877120ad0da10}} 
+\index{dnt.c@{dnt.c}!current\_time@{current\_time}}
+\index{current\_time@{current\_time}!dnt.c@{dnt.c}}
+\doxysubsubsection{\texorpdfstring{current\_time}{current\_time}}
+{\footnotesize\ttfamily char current\+\_\+time\mbox{[}6\mbox{]}}
+
+\mbox{\Hypertarget{dnt_8c_aa5a5ae65e67dfb6185ed5a9d5ce6a058}\label{dnt_8c_aa5a5ae65e67dfb6185ed5a9d5ce6a058}} 
+\index{dnt.c@{dnt.c}!messages@{messages}}
+\index{messages@{messages}!dnt.c@{dnt.c}}
+\doxysubsubsection{\texorpdfstring{messages}{messages}}
+{\footnotesize\ttfamily char messages\mbox{[}10\mbox{]}\mbox{[}32\mbox{]} = \{ \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{}, \char`\"{}\textbackslash{}0\char`\"{} \}}
+

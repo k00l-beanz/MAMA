@@ -68,11 +68,13 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">dnt.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="dnt_8h_source.html">dnt.h</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="mpx__supt_8h_source.html">modules/mpx_supt.h</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -109,6 +111,30 @@ Functions</h2></td></tr>
 <tr class="memitem:aea60a64a6b1b56aafc34d2b157768751"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dnt_8c.html#aea60a64a6b1b56aafc34d2b157768751">daysInMonth</a> (int month, int year)</td></tr>
 <tr class="memdesc:aea60a64a6b1b56aafc34d2b157768751"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the number of days in a month.  <a href="dnt_8c.html#aea60a64a6b1b56aafc34d2b157768751">More...</a><br /></td></tr>
 <tr class="separator:aea60a64a6b1b56aafc34d2b157768751"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dfc59eda80b9bcd290c00ac5a5be072"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dnt_8c.html#a8dfc59eda80b9bcd290c00ac5a5be072">setAlarm</a> (char *args)</td></tr>
+<tr class="memdesc:a8dfc59eda80b9bcd290c00ac5a5be072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an alarm.  <a href="dnt_8c.html#a8dfc59eda80b9bcd290c00ac5a5be072">More...</a><br /></td></tr>
+<tr class="separator:a8dfc59eda80b9bcd290c00ac5a5be072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac69b357094608f64a4fb839cead5ab91"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dnt_8c.html#ac69b357094608f64a4fb839cead5ab91">showAlarms</a> (char *p)</td></tr>
+<tr class="memdesc:ac69b357094608f64a4fb839cead5ab91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show all alarms.  <a href="dnt_8c.html#ac69b357094608f64a4fb839cead5ab91">More...</a><br /></td></tr>
+<tr class="separator:ac69b357094608f64a4fb839cead5ab91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a393397cf31fb30d34cff1647fc9239fd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dnt_8c.html#a393397cf31fb30d34cff1647fc9239fd">freeAlarm</a> (char *time)</td></tr>
+<tr class="memdesc:a393397cf31fb30d34cff1647fc9239fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove alarm from alarms.  <a href="dnt_8c.html#a393397cf31fb30d34cff1647fc9239fd">More...</a><br /></td></tr>
+<tr class="separator:a393397cf31fb30d34cff1647fc9239fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fd7e60e421b7ab29e427868122c8cf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dnt_8c.html#a2fd7e60e421b7ab29e427868122c8cf4">currentTime</a> ()</td></tr>
+<tr class="memdesc:a2fd7e60e421b7ab29e427868122c8cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current time.  <a href="dnt_8c.html#a2fd7e60e421b7ab29e427868122c8cf4">More...</a><br /></td></tr>
+<tr class="separator:a2fd7e60e421b7ab29e427868122c8cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21a0d9297fe492ffb1b6823ccfffa24d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dnt_8c.html#a21a0d9297fe492ffb1b6823ccfffa24d">dispatchAlarm</a> ()</td></tr>
+<tr class="memdesc:a21a0d9297fe492ffb1b6823ccfffa24d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alarm process.  <a href="dnt_8c.html#a21a0d9297fe492ffb1b6823ccfffa24d">More...</a><br /></td></tr>
+<tr class="separator:a21a0d9297fe492ffb1b6823ccfffa24d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a2e9db90105225925ff7f66d38ea0128b"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dnt_8c.html#a2e9db90105225925ff7f66d38ea0128b">alarms</a> [10][6] = { &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot; }</td></tr>
+<tr class="separator:a2e9db90105225925ff7f66d38ea0128b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5a5ae65e67dfb6185ed5a9d5ce6a058"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dnt_8c.html#aa5a5ae65e67dfb6185ed5a9d5ce6a058">messages</a> [10][32] = { &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot; }</td></tr>
+<tr class="separator:aa5a5ae65e67dfb6185ed5a9d5ce6a058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90acfc4b3972c9bd50b877120ad0da10"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dnt_8c.html#a90acfc4b3972c9bd50b877120ad0da10">current_time</a> [6]</td></tr>
+<tr class="separator:a90acfc4b3972c9bd50b877120ad0da10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a25d183b9180e03fbd0a132749bfba7a3" name="a25d183b9180e03fbd0a132749bfba7a3"></a>
@@ -136,6 +162,26 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns 32-bit unsigned int </dd></dl>
+
+</div>
+</div>
+<a id="a2fd7e60e421b7ab29e427868122c8cf4" name="a2fd7e60e421b7ab29e427868122c8cf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fd7e60e421b7ab29e427868122c8cf4">&#9670;&nbsp;</a></span>currentTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void currentTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Current time. </p>
+<p >Gets the current time and stores it into string. </p>
 
 </div>
 </div>
@@ -175,6 +221,54 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the number of days in the month </dd></dl>
+
+</div>
+</div>
+<a id="a21a0d9297fe492ffb1b6823ccfffa24d" name="a21a0d9297fe492ffb1b6823ccfffa24d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21a0d9297fe492ffb1b6823ccfffa24d">&#9670;&nbsp;</a></span>dispatchAlarm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dispatchAlarm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alarm process. </p>
+<p >The function that will be used during context switching. This will check all alarm times against the current time </p>
+
+</div>
+</div>
+<a id="a393397cf31fb30d34cff1647fc9239fd" name="a393397cf31fb30d34cff1647fc9239fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a393397cf31fb30d34cff1647fc9239fd">&#9670;&nbsp;</a></span>freeAlarm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int freeAlarm </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>alarm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove alarm from alarms. </p>
+<p >Removes the alarm from the alarm list and 'frees' the spot</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>Alarm to remove from list</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success, -1 upon error </dd></dl>
 
 </div>
 </div>
@@ -316,6 +410,34 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>8-bit BCD number as an unsigned char </dd></dl>
+
+</div>
+</div>
+<a id="a8dfc59eda80b9bcd290c00ac5a5be072" name="a8dfc59eda80b9bcd290c00ac5a5be072"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dfc59eda80b9bcd290c00ac5a5be072">&#9670;&nbsp;</a></span>setAlarm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int setAlarm </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set an alarm. </p>
+<p >Sets an alarm which will print a user defined message. Alarm will go off at specified time.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>Time and (optional) message </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success and -1 upon error </dd></dl>
 
 </div>
 </div>
@@ -463,6 +585,77 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ac69b357094608f64a4fb839cead5ab91" name="ac69b357094608f64a4fb839cead5ab91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac69b357094608f64a4fb839cead5ab91">&#9670;&nbsp;</a></span>showAlarms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int showAlarms </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Show all alarms. </p>
+<p >Print all alarms currently in the alarm list</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Empty parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 upon success, -1 upon error </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a2e9db90105225925ff7f66d38ea0128b" name="a2e9db90105225925ff7f66d38ea0128b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e9db90105225925ff7f66d38ea0128b">&#9670;&nbsp;</a></span>alarms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char alarms[10][6] = { &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot; }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90acfc4b3972c9bd50b877120ad0da10" name="a90acfc4b3972c9bd50b877120ad0da10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90acfc4b3972c9bd50b877120ad0da10">&#9670;&nbsp;</a></span>current_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char current_time[6]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5a5ae65e67dfb6185ed5a9d5ce6a058" name="aa5a5ae65e67dfb6185ed5a9d5ce6a058"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5a5ae65e67dfb6185ed5a9d5ce6a058">&#9670;&nbsp;</a></span>messages</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char messages[10][32] = { &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot;, &quot;\0&quot; }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

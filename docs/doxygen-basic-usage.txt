@@ -13,3 +13,7 @@ For methods/functions
 For constants, variables, structs and other stuff:
 /// Brief explanation
 #define CONSTANT_VARIABLE
+
+To generate a PDF book with doxygen:
+	./doxygen Doxyfile
+	In latex dir: make 

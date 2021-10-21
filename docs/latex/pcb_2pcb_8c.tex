@@ -6,6 +6,7 @@
 {\ttfamily \#include $<$lib/out.\+h$>$}\newline
 {\ttfamily \#include $<$term/utils.\+h$>$}\newline
 {\ttfamily \#include $<$term/args.\+h$>$}\newline
+{\ttfamily \#include $<$term/dispatch/context.\+h$>$}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -44,7 +45,9 @@ int \mbox{\hyperlink{pcb_2pcb_8c_a6afa36fd94d93283ed23ccd5176e6c57}{delete\+PCB}
 int \mbox{\hyperlink{pcb_2pcb_8c_ab54e65e3f05a13f84090f6ddebfc7f5a}{block\+PCB}} (char $\ast$args)
 \begin{DoxyCompactList}\small\item\em Set PCB state to be blocked. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pcb_2pcb_8c_a9be98649f5ef1f42228d3930c256f25c}{unblock\+PCB}} (char $\ast$name)
-\begin{DoxyCompactList}\small\item\em Set PCB state to unblocked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Set PCB state to unblocked. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{pcb_2pcb_8c_ac036527aaa2149438637e19a4d877de9}{resume\+All}} (char $\ast$p)
+\begin{DoxyCompactList}\small\item\em Resume all suspended processes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -114,7 +117,7 @@ Creates a new, unique PCB in memory. ~\newline
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Returns 1 upon success, Otherwise 0 
+Returns 0 upon success, 1 upon error 
 \end{DoxyReturn}
 Parse the user input
 
@@ -227,6 +230,26 @@ Removes specified PCB from queue it is stored in.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Returns 1 upon success, 0 upon error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_2pcb_8c_ac036527aaa2149438637e19a4d877de9}\label{pcb_2pcb_8c_ac036527aaa2149438637e19a4d877de9}} 
+\index{pcb.c@{pcb.c}!resumeAll@{resumeAll}}
+\index{resumeAll@{resumeAll}!pcb.c@{pcb.c}}
+\doxysubsubsection{\texorpdfstring{resumeAll()}{resumeAll()}}
+{\footnotesize\ttfamily int resume\+All (\begin{DoxyParamCaption}\item[{char $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Resume all suspended processes. 
+
+Iterates through READY queue and sets the state of the each PCB to READY
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Empty params\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, -\/1 otherwise. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{pcb_2pcb_8c_ab3fc9f19ba0388566ef0d05aa96d8807}\label{pcb_2pcb_8c_ab3fc9f19ba0388566ef0d05aa96d8807}} 
 \index{pcb.c@{pcb.c}!resumePCB@{resumePCB}}

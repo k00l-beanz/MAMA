@@ -1,0 +1,88 @@
+\hypertarget{context_8h}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/term/dispatch/context.h File Reference}
+\label{context_8h}\index{/home/maximillian/Desktop/MAMA/term/dispatch/context.h@{/home/maximillian/Desktop/MAMA/term/dispatch/context.h}}
+{\ttfamily \#include \char`\"{}term/pcb/pcb.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcontext}{context}}
+\begin{DoxyCompactList}\small\item\em Context of the currently operating process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structcontext}{context}} \mbox{\hyperlink{context_8h_a68834c6dfcd51b068b7b60ca36279588}{context}}
+\begin{DoxyCompactList}\small\item\em Context of the currently operating process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{context_8h_a58c8b2ad0ea491a6642e5e1cbd358c89}{yield}} ()
+\begin{DoxyCompactList}\small\item\em Causes commhand to yield. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{context_8h_ace6cc1bdb64c3a0f48c1c31ad7757f9d}{loadr3}} (char $\ast$p)
+\begin{DoxyCompactList}\small\item\em Loads r3 \textquotesingle{}processes\textquotesingle{}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$ \mbox{\hyperlink{context_8h_a7aa244146b0f7fe5f4f18f85b5cd67d4}{dispatcher}} (char $\ast$pcb, void($\ast$func)(void))
+\begin{DoxyCompactList}\small\item\em Stores context on the stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{context_8h_a68834c6dfcd51b068b7b60ca36279588}\label{context_8h_a68834c6dfcd51b068b7b60ca36279588}} 
+\index{context.h@{context.h}!context@{context}}
+\index{context@{context}!context.h@{context.h}}
+\doxysubsubsection{\texorpdfstring{context}{context}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structcontext}{context}} \mbox{\hyperlink{structcontext}{context}}}
+
+
+
+Context of the currently operating process. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{context_8h_a7aa244146b0f7fe5f4f18f85b5cd67d4}\label{context_8h_a7aa244146b0f7fe5f4f18f85b5cd67d4}} 
+\index{context.h@{context.h}!dispatcher@{dispatcher}}
+\index{dispatcher@{dispatcher}!context.h@{context.h}}
+\doxysubsubsection{\texorpdfstring{dispatcher()}{dispatcher()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpcb__t}{pcb\+\_\+t}} $\ast$ dispatcher (\begin{DoxyParamCaption}\item[{char $\ast$}]{pcb,  }\item[{void($\ast$)(void)}]{func }\end{DoxyParamCaption})}
+
+
+
+Stores context on the stack. 
+
+With a given pcb and method to run, the dispatcher will store context registers onto the PCB stack.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pcb} & PCB where context is stored \\
+\hline
+{\em func} & Method that is ran within the process \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{context_8h_ace6cc1bdb64c3a0f48c1c31ad7757f9d}\label{context_8h_ace6cc1bdb64c3a0f48c1c31ad7757f9d}} 
+\index{context.h@{context.h}!loadr3@{loadr3}}
+\index{loadr3@{loadr3}!context.h@{context.h}}
+\doxysubsubsection{\texorpdfstring{loadr3()}{loadr3()}}
+{\footnotesize\ttfamily int loadr3 (\begin{DoxyParamCaption}\item[{char $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Loads r3 \textquotesingle{}processes\textquotesingle{}. 
+
+Loads all r3 \textquotesingle{}processes\textquotesingle{} into memory in a suspended ready state at any priority of the users choosing
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Empty parameter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, 1 upon error $\ast$$\ast$\+This may change 
+\end{DoxyReturn}
+\mbox{\Hypertarget{context_8h_a58c8b2ad0ea491a6642e5e1cbd358c89}\label{context_8h_a58c8b2ad0ea491a6642e5e1cbd358c89}} 
+\index{context.h@{context.h}!yield@{yield}}
+\index{yield@{yield}!context.h@{context.h}}
+\doxysubsubsection{\texorpdfstring{yield()}{yield()}}
+{\footnotesize\ttfamily void yield (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Causes commhand to yield. 
+
+Forces commhand to yield to other processes. If any processes are in the ready queue, they will be executed. 
