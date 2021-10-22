@@ -139,6 +139,7 @@ int is_name_char(char);
 void extract_cmd_name(char *, char *, int *, int *);
 cmd_func_t fetch_cmd_handler(char *);
 
+extern pcb_queue_t *priority_queue;
 
 /**
  * Displays command line and interprets inputted commands
@@ -229,6 +230,7 @@ void commhand() {
 		/* Command shutdown kills driver loop */
 		if(strcmp(cmd_name, "shutdown") == 0 && cmd_exit_code == 0) {
 			running = 0;
+			priority_queue->pcbq_head = NULL;
 			sys_req(EXIT,DEFAULT_DEVICE,NULL,NULL);
 		}
 		
