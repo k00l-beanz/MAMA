@@ -496,7 +496,6 @@ void dispatchAlarm() {
         if (alarmHour == currentHour && currentMin >= alarmMin) { // Within the same hour, testing for minute
           printf("%s\n",messages[i]);
           freeAlarm(alarms[i]);
-          sys_req(IDLE,DEFAULT_DEVICE,NULL,NULL);
         } 
         
       }
