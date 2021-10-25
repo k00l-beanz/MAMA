@@ -1,0 +1,39 @@
+Two phases in this module:
+	1. Implementing the heap manager and testing as a stand-alone program
+	2. Integrating the module into your MPX
+
+Intro:
+	- Memory blocks are tracked through Complete Memory Control Blocks (CMCB) as 
+	well as Limited Memory Control Blocks (LMCB) data structures
+	- Blocks are stored in one of two lists, free block list or allocated block list
+
+Memory Control Blocks
+	CMCBs contain:
+		Type - indicating free or allocated
+		Beginning Address
+		Size - Size of block in bytes
+		Name - Name of process (PCB) that is housed in the block
+		Links to the next and previous block of the same type
+	LMCBs contain:
+		Type - Indicating free or allocated
+		Size - Indicating size in bytes of the block
+
+
+
+****** Allocated Work ******
+Part I. Implemented Methods
+- See slides 7 to 18 for details on the below methods
+	Initialize Heap		[]
+	Allocate Memory		[]
+	Free Memory		[]
+	isEmpty			[]
+	Show Free Memory	[]
+	Show Allocated Memory	[]
+
+Part II. Integration into MPX
+- See slide 19 and 20 for details on this part
+
+
+User Manual			[]
+Programmers Manual		[]
+WhoDidWhat.md			[]
