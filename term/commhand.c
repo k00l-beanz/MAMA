@@ -12,6 +12,7 @@
 #include "ascii/mama.c"
 #include "dispatch/context.c"
 #include "pcb/pcb.c"
+#include "memory_management/mm.c"
 
 typedef int (*cmd_func_t)(char *);
 
@@ -126,6 +127,10 @@ const cmd_mapping cmd_mappings[] = {
 		{
 			"freealarm",
 			&freeAlarm
+		},
+		{
+			"initheap",
+			&initHeap
 		},
 	{
 		"arg-test",

@@ -12,11 +12,12 @@ typedef enum {
 
     /// Freed CMCB
     FREE
-} cmcb_state_e;
+} mcb_state_e;
 
-typedef struct cmcb_t {
+/// Complete Memory Control Block (CMBC)
+typedef struct cmcb_s {
     /// The type of the CMCB    
-    cmcb_state_e type;
+    mcb_state_e type;
 
     /// Beginning address of the CMCB
     u32int addr;
@@ -34,6 +35,30 @@ typedef struct cmcb_t {
     struct cmcb_s * prev;
 } cmcb_s;
 
+/// Limited Memory Control Block
+typedef struct lmcb_s {
+    /// Type of the LMCB
+    mcb_state_e type;
+
+    /// Size of the LMCB
+    u32int size;
+} lmcb_s;
+
+/// "Master" controller of the PCB queue
+typedef struct mcb_queue_s {
+    /// Number of PCB's currently in the queue
+    int mcb_count;     
+
+    /// Head of the PCB queue
+    cmcb_s * mcbq_head; 
+
+    /// Tail of the PCB queue
+    cmcb_s * mcbq_tail; 
+
+    /// Queue order of the Master controller
+    mcb_state_e mcb_queue_type;
+} mcb_queue_s;
+
 /********************************************/
 /************ Function Headers **************/
 /********************************************/
@@ -50,7 +75,7 @@ typedef struct cmcb_t {
  * 
  * @return Return 0 upon success, -1 otherwise
 */
-int initHeap(char * size);
+int initHeap(char * p);
 
 /**
  * Allocate additional memory from the heap.
@@ -76,7 +101,7 @@ int allocateMemory(char * size);
  * 
  * @return Returns 0 upon success, -1 otherwise
 */
-int freeMemory(char * addr)
+int freeMemory(char * addr);
 
 /**
  * Shows addresses and block size of all blocks in

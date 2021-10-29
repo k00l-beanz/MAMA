@@ -23,7 +23,7 @@ Memory Control Blocks
 ****** Allocated Work ******
 Part I. Implemented Methods
 - See slides 7 to 18 for details on the below methods
-	Initialize Heap		[]
+	Initialize Heap		[]	Maximillian 
 	Allocate Memory		[]
 	Free Memory		[]
 	isEmpty			[]
