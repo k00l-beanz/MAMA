@@ -3,6 +3,9 @@
 
 /// Start address of the heap
 u32int start_addr;
+mcb_queue_s * amcb;
+mcb_queue_s * fmcb;
+
 
 int initHeap(char * p) {
 	// Syntax for the cmd is initheap [size]
@@ -17,24 +20,32 @@ int initHeap(char * p) {
 	// Organize the heap. Both are of type FREE
 	// ** CMCB at the top of the heap 		**
 	// ** LMCB at the bottom of the heap 	**
+	// char * tmpName = "Initial CMCB\0";
 
-	// CMCB at the top of the heap
+	// CMCB at the top of the heap w/ all the information
 	cmcb_s * head = (cmcb_s *) start_addr;
 	head->type = FREE;
+	head->addr = start_addr + sizeof(cmcb_s);
+	head->size = (u32int) size;
+	strcpy(head->name,"Initial CMCB");
 	head->next = NULL;
 	head->prev = NULL;
 
-
 	// LMCB at the at the bottom.
-	lmcb_s * bottom = (lmcb_s *) ((start_addr + fullHeapSize) - sizeof(lmcb_s));
+	lmcb_s * bottom = (lmcb_s *) ((start_addr + fullHeapSize) - sizeof(lmcb_s)); // I think this math/logic is right. Correct it if its wrong
 	bottom->type = FREE;
-
-
-	(void) head;
-	(void) bottom;
+	bottom->size = (u32int) size;
 
 	// Initialize free and allocated lists
+	fmcb->mcbq_head = head;
+	fmcb->mcbq_tail = head;
+	fmcb->mcb_count = 1;
+	fmcb->mcb_queue_type = FREE;
 
-	(void) start_addr;
+	amcb->mcbq_head = NULL;
+	amcb->mcbq_tail = NULL;
+	amcb->mcb_count = 0;
+	amcb->mcb_queue_type = ALLOCATED;
+
 	return 0;
 }

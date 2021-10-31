@@ -44,15 +44,15 @@ typedef struct lmcb_s {
     u32int size;
 } lmcb_s;
 
-/// "Master" controller of the PCB queue
+/// "Master" controller of the MCB queue
 typedef struct mcb_queue_s {
-    /// Number of PCB's currently in the queue
+    /// Number of MCB's currently in the queue
     int mcb_count;     
 
-    /// Head of the PCB queue
+    /// Head of the MCB queue
     cmcb_s * mcbq_head; 
 
-    /// Tail of the PCB queue
+    /// Tail of the MCB queue
     cmcb_s * mcbq_tail; 
 
     /// Queue order of the Master controller
