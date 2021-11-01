@@ -23,12 +23,12 @@ Memory Control Blocks
 ****** Allocated Work ******
 Part I. Implemented Methods
 - See slides 7 to 18 for details on the below methods
-	Initialize Heap		[x]	Maximillian 
-	Allocate Memory		[]
-	Free Memory		[]
-	isEmpty			[]
-	Show Free Memory	[]
-	Show Allocated Memory	[]
+	Initialize Heap		[x] Maximillian 
+	Allocate Memory		[] Maximillian
+	Free Memory		[] Austin
+	isEmpty			[] Abdullah
+	Show Free Memory	[] Abdullah
+	Show Allocated Memory	[] Mohammad 
 
 Part II. Integration into MPX
 - See slide 19 and 20 for details on this part

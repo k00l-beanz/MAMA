@@ -3,7 +3,11 @@
 
 /// Start address of the heap
 u32int start_addr;
+
+/// Allocated Memory Control List
 mcb_queue_s * amcb;
+
+/// Free Memory Control List
 mcb_queue_s * fmcb;
 
 
@@ -20,7 +24,6 @@ int initHeap(char * p) {
 	// Organize the heap. Both are of type FREE
 	// ** CMCB at the top of the heap 		**
 	// ** LMCB at the bottom of the heap 	**
-	// char * tmpName = "Initial CMCB\0";
 
 	// CMCB at the top of the heap w/ all the information
 	cmcb_s * head = (cmcb_s *) start_addr;
