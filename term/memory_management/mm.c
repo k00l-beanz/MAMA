@@ -271,57 +271,30 @@ void insertFMCB(cmcb_s * mcb) {
 
 	// Address in ascending order
 	cmcb_s * queue = fmcb->mcbq_head;
-	while ((mcb->addr > queue->addr) && (queue != NULL)) {
+	while (queue->next != NULL) {
+
+		if (mcb->addr < queue->addr) {
+			// Reference to previous node
+			cmcb_s * pCmcb = queue->prev;
+
+			// Link everything up
+			pCmcb->next = mcb;
+			mcb->prev = pCmcb;
+			mcb->next = queue;
+			queue->prev = mcb;
+
+			return;
+		}
+		printf("Iterating through fmcb list, curr addr: %i\n", queue->addr);
 		queue = queue->next;
 	}
 
-	// MCB address is smaller than heads address
-	if ((queue->prev == NULL) && (queue->next != NULL)) {
-		serial_println("New FMCB head");
-		// Assign new head
-		fmcb->mcbq_head = mcb;
+	// New mcb has the highest address
+	// Insert at the tail
+	queue->next = mcb;
+	mcb->prev = queue;
 
-		// Link mcb's
-		mcb->next = queue;
-		queue->prev = mcb;
-
-		serial_println("");
-		return;
-	}
-	// Address is middling
-	else if ((queue->prev != NULL) && (queue->next != NULL)) {
-		serial_println("FMCB is middling");
-		// Refer previous node
-		cmcb_s * pCmcb = queue->prev;
-
-		// Refer next node
-		cmcb_s * nCmcb = queue->next;
-
-		// Link everything up
-		pCmcb->next = mcb;
-		nCmcb->prev = mcb;
-		mcb->next = nCmcb;
-		mcb->prev = pCmcb;
-
-		serial_println("");
-		return;		
-	}
-	// Largest address (tail)
-	else if ((queue->prev != NULL) && (queue->next == NULL)) {
-		serial_println("New FMCB is at tail");
-
-		// Refer old tail
-		cmcb_s * pCmcb = queue->prev;
-
-		// Assign new tail
-		pCmcb->next = mcb;
-		mcb->prev = pCmcb;
-
-		serial_println("");
-		return;
-	}
-
-	serial_println("");
+	return;
 }
 
 int showAllocated(char *discard) {
