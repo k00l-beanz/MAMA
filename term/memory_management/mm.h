@@ -110,7 +110,7 @@ int freeMemory(char * addr);
  * Traverses the allocated list and shows the addresses 
  * and the size of the block. Shown in the order of address. 
 */
-void showAllocated();
+int showAllocated(char *);
 
 /**
  * Shows the addresses and block size of all block in 

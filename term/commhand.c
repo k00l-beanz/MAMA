@@ -132,6 +132,10 @@ const cmd_mapping cmd_mappings[] = {
 			"initheap",
 			&initHeap
 		},
+		{
+			"showalloc",
+			&showAllocated
+		},
 	{
 		"arg-test",
 		&cmd_argtest

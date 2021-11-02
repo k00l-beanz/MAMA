@@ -1,6 +1,8 @@
 #include "mm.h"
 #include <include/core/serial.h>
 
+#include <lib/out.h>
+
 /// Start address of the heap
 u32int start_addr;
 
@@ -50,5 +52,27 @@ int initHeap(char * p) {
 	amcb->mcb_count = 0;
 	amcb->mcb_queue_type = ALLOCATED;
 
+	return 0;
+}
+
+int showAllocated(char *discard) {
+	(void)discard;
+	
+	cmcb_s *block = amcb->mcbq_head;
+	if(block == NULL) {
+		printf("No allocated memory found\n");
+		return 0;
+	}
+	while(block != NULL) {
+		printf("Block %s - ", block->name);
+		if(block->type == ALLOCATED)
+			display_fg_color(RED);
+		else
+			display_fg_color(GREEN);
+		printf(block->type == ALLOCATED ? "ALLOCATED" : "FREE");
+		display_reset();
+		printf(" - base addr: %i, size: %i bytes\n", block->addr, block->size);
+		block = block->next;
+	}
 	return 0;
 }
