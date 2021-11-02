@@ -76,11 +76,11 @@ int showAllocated(char *discard) {
 	}
 	return 0;
 int isEmpty() {
-    if(amcb->mcbq_head == NULL){
+    	if(amcb->mcbq_head == NULL){
         writelnMessage("Memory is empty");
         return 0;
     }
-    else{
+	else{
         writelnMessage("Memory is not empty");
         return -1;
     }
