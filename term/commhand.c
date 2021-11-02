@@ -1,6 +1,7 @@
 #include <include/string.h>
 #include <modules/mpx_supt.h>
 #include "visuals/colorize.c"
+#include "visuals/clear.c"
 #include "history.c"
 #include "commhand.h"
 #include "commands.h"
@@ -143,6 +144,10 @@ const cmd_mapping cmd_mappings[] = {
 	{
 		"arg-test",
 		&cmd_argtest
+	},
+	{
+		"clear",
+		&cmd_clear
 	},
         { NULL } // sentinel for end-of-array
 };
