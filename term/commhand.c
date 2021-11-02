@@ -14,6 +14,7 @@
 #include "dispatch/context.c"
 #include "pcb/pcb.c"
 #include "memory_management/mm.c"
+#include <term/args.h>
 
 typedef int (*cmd_func_t)(char *);
 
@@ -21,6 +22,8 @@ typedef struct cmd_mapping {
         char *cmd_name;
         cmd_func_t cmd_handler;
 } cmd_mapping;
+
+int cmd_alias(char *);
 
 /* mapping of command names to their associated functions
  * term/commhand.c uses this to find what function should be ran for a given command
@@ -32,7 +35,7 @@ typedef struct cmd_mapping {
  * The function to handle the command has to follow the signature for cmd_func_t, which is basically the following
  * int my_handler_func(char *arg_str) { ... }
  */
-const cmd_mapping cmd_mappings[] = {
+cmd_mapping cmd_mappings[MAX_CMD_COUNT] = {
         {
             "help",
             &cmd_help
@@ -149,7 +152,10 @@ const cmd_mapping cmd_mappings[] = {
 		"clear",
 		&cmd_clear
 	},
-        { NULL } // sentinel for end-of-array
+	{
+		"alias",
+		&cmd_alias
+	}
 };
 
 
@@ -289,4 +295,53 @@ void extract_cmd_name(char *cmd_str, char *cmd_name, int *cmd_name_len, int *arg
 
 	cmd_name[*cmd_name_len] = '\0';
 	*args_start_index = *cmd_name_len + ws_skip_len;
+}
+
+int cmd_alias(char *arg_str) {
+	parsed_args *args = parse_args(arg_str);
+	if(args == NULL) {
+		return 1;
+	}
+	if(args->unnamed_arg_count != 2) {
+		printf("Error: bad usage\n");
+		printf("Try: alias new_cmd_name alias_target\n");
+		sys_free_mem(args);
+		return 1;
+	}
+	if(strlen(args->unnamed_args[0]) > MAX_CMD_NAME_LEN || strlen(args->unnamed_args[1]) > MAX_CMD_NAME_LEN) {
+		printf("Error: command names longer than %i characters are not supported\n", MAX_CMD_NAME_LEN);
+		sys_free_mem(args);
+		return 1;
+	}
+
+	int cmd_count = 0;
+	while(cmd_count < MAX_CMD_COUNT && cmd_mappings[cmd_count].cmd_name != NULL)
+		cmd_count++;
+
+	if(cmd_count >= MAX_CMD_COUNT) {
+		printf("Error: maximum number of aliases reached\n");
+		sys_free_mem(args);
+		return 1;
+	}
+
+	cmd_func_t alias_target_handler = fetch_cmd_handler(args->unnamed_args[1]);
+	if(alias_target_handler == NULL) {
+		printf("Error: command %s not found\n", args->unnamed_args[1]);
+		sys_free_mem(args);
+		return 1;
+	}
+
+	if(fetch_cmd_handler(args->unnamed_args[0]) != NULL) {
+		printf("Error: command %s already exists; you cannot create another alias with this name\n", args->unnamed_args[0]);
+		sys_free_mem(args);
+		return 1;
+	}
+
+	cmd_mappings[cmd_count] = (cmd_mapping){
+		args->unnamed_args[0],
+		alias_target_handler
+	};
+
+	sys_free_mem(args);
+	return 0;
 }

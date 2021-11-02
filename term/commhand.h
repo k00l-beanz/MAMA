@@ -14,5 +14,7 @@
 #define MAX_CMD_NAMED_ARG_COUNT 10
 #define MAX_CMD_UNNAMED_ARG_COUNT 10
 
+#define MAX_CMD_COUNT 200  /// The maximum number of commands that can exist in the system, including both built-in commands and user-defined aliases
+
 void commhand();
 #endif
