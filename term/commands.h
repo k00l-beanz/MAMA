@@ -7,5 +7,6 @@
 #include "cmds/version.c"
 #include "cmds/argtest.c"
 #include "cmds/pcb.c"
+#include "cmds/clear.c"
 
 #endif
