@@ -14,8 +14,8 @@ typedef enum {
     FREE
 } mcb_state_e;
 
-/// Complete Memory Control Block (CMBC)
-typedef struct cmcb_s {
+/// Complete Memory Control Block (CMBC) 
+typedef struct cmcb_s { // This is 52 bytes long
     /// The type of the CMCB    
     mcb_state_e type;
 
@@ -35,25 +35,10 @@ typedef struct cmcb_s {
     struct cmcb_s * prev;
 } cmcb_s;
 
-/// Limited Memory Control Block
-typedef struct lmcb_s {
-    /// Type of the LMCB
-    mcb_state_e type;
-
-    /// Size of the LMCB
-    u32int size;
-} lmcb_s;
-
 /// "Master" controller of the MCB queue
 typedef struct mcb_queue_s {
-    /// Number of MCB's currently in the queue
-    int mcb_count;     
-
     /// Head of the MCB queue
     cmcb_s * mcbq_head; 
-
-    /// Tail of the MCB queue
-    cmcb_s * mcbq_tail; 
 
     /// Queue order of the Master controller
     mcb_state_e mcb_queue_type;
@@ -131,5 +116,11 @@ void showFree();
  * 		   if there is something within the heap. 
 */
 int isEmpty();
+
+void removeFMCB(cmcb_s * mcb);
+
+void insertAMCB(cmcb_s * mcb);
+
+void insertFMCB(cmcb_s * mcb);
 
 #endif
