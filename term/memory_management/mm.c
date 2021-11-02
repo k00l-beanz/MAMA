@@ -337,3 +337,36 @@ void insertFMCB(cmcb_s * mcb) {
 
 	serial_println("");
 }
+
+int showAllocated(char *discard) {
+	(void)discard;
+
+	cmcb_s *block = amcb->mcbq_head;
+	if(block == NULL) {
+		printf("No allocated memory found\n");
+		return 0;
+	}
+	while(block != NULL) {
+		printf("Block %s - ", block->name);
+		if(block->type == ALLOCATED)
+			display_fg_color(RED);
+		else
+			display_fg_color(GREEN);
+		printf(block->type == ALLOCATED ? "ALLOCATED" : "FREE");
+		display_reset();
+		printf(" - base addr: %i, size: %i bytes\n", block->addr, block->size);
+		block = block->next;
+	}
+	return 0;
+}
+
+int isEmpty() {
+	if(amcb->mcbq_head == NULL){
+		writelnMessage("Memory is empty");
+		return 0;
+	}
+	else {
+		writelnMessage("Memory is not empty");
+		return -1;
+	}	
+} 

@@ -136,6 +136,10 @@ const cmd_mapping cmd_mappings[] = {
 			"allocmem",
 			&allocateMemory
 		},
+		{
+			"showalloc",
+			&showAllocated
+		},
 	{
 		"arg-test",
 		&cmd_argtest

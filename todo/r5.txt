@@ -25,9 +25,9 @@ Part I. Implemented Methods
 - See slides 7 to 18 for details on the below methods
 	Initialize Heap		[x] Maximillian 
 	Allocate Memory		[] Maximillian
-	Free Memory		[] Austin
+	Free Memory		[] Abdullah
 	isEmpty			[] Abdullah
-	Show Free Memory	[] Abdullah
+	Show Free Memory	[] Austin
 	Show Allocated Memory	[] Mohammad 
 
 Part II. Integration into MPX
