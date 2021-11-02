@@ -82,7 +82,8 @@ int allocateMemory(char * size) {
 	}
 
 	printf("Available Memory: %i\n",queue->size);
-	printf("Queue's Address: %i\n", queue->addr);
+	printf("Free Queues Head Address: %i\n", queue->addr);
+	printf("Allocated Queues Head Address: %i\n", amcb->mcbq_head->addr);
 
 	// If no block with enough space is found, throw error
 	if (queue == NULL) {
@@ -103,31 +104,39 @@ int allocateMemory(char * size) {
 	newAMCB->type = ALLOCATED;
 	newAMCB->addr = (u32int) queue->addr;
 	newAMCB->size = (u32int) required;
+	strcpy(newAMCB->name, "New AMCB\0");
 	newAMCB->next = NULL;
 	newAMCB->prev = NULL;
 
 	printf("New AMCB addr: %i\n", newAMCB->addr);
 	printf("New AMCB Size: %i\n", newAMCB->size);
+
 	insertAMCB(newAMCB);
+
 	printf("AMCB addr after insert: %i\n", newAMCB->addr);
 	printf("AMCB size after insert: %i\n", newAMCB->size);
+
 	serial_println("");
 
 	// 3. Assign free cmcb in the next available free area
 	cmcb_s * newFMCB = (cmcb_s *) newAMCB + required;
 	newFMCB->type = FREE;
-	newFMCB->addr = (u32int) newAMCB->addr + required + sizeof(cmcb_s); // 204 offset
-	newFMCB->size = (u32int) ref_size - (required + sizeof(cmcb_s)); // 796
+	newFMCB->addr = (u32int) newAMCB->addr + required + sizeof(cmcb_s);
+	newFMCB->size = (u32int) ref_size - (required + sizeof(cmcb_s));
 	newFMCB->next = NULL;
 	newFMCB->prev = NULL;
+
+	// Make sure there is enough memory remaining to insert
+	// a new FMCB
+	if (newFMCB->size > ref_size) {
+		serial_println("Error: Not enough memory to insert new fmcb");
+		return -1;
+	}
 
 	printf("New FMCB addr: %i\n", newFMCB->addr);
 	printf("New FMCB size: %i\n", newFMCB->size);
 	serial_println("");
-	printf("AMCB addr before insert: %i\n", newAMCB->addr);
-	printf("AMCB size before insert: %i\n", newAMCB->size);
 	insertFMCB(newFMCB);
-
 	printf("FMCB addr after insert: %i\n", newFMCB->addr);
 	printf("FMCB size after insert: %i\n", newFMCB->size);
 
@@ -138,10 +147,10 @@ int allocateMemory(char * size) {
 
 	serial_println("");
 
-	printf("FMCB head size: %i\n", fmcb->mcbq_head->size);
-	printf("AMCB head size: %i\n", amcb->mcbq_head->size);
+	printf("FMCB remaining size: %i\n", fmcb->mcbq_head->size);
 
 	serial_println("");
+
 	return 0;
 }
 
@@ -205,6 +214,8 @@ void insertAMCB(cmcb_s * mcb) {
 	serial_println("");
 	serial_println("DEBUG: insertAMCB");
 
+	printf("Addr of mcb being inserted: %i\n", mcb->addr);
+
 	// No allocated mcb's
 	if (amcb->mcbq_head == NULL) {
 		serial_println("AMCB is empty. Creating head");
@@ -216,55 +227,30 @@ void insertAMCB(cmcb_s * mcb) {
 	
 	// Organize by increasing address
 	cmcb_s * queue = amcb->mcbq_head;
-	while ((mcb->addr > queue->addr) && (queue != NULL)) {
+	while (queue->next != NULL) {
+
+		if (mcb->addr < queue->addr) {
+			// Reference to previous mcb
+			cmcb_s * pCmcb = queue->prev;
+
+			// Link everything up
+			pCmcb->next = mcb;
+			mcb->prev = pCmcb;
+			mcb->next = queue;
+			queue->prev = mcb;
+
+			return;
+		}
+		
+		printf("Iterating through amcb list, curr addr: %i\n", queue->addr);
 		queue = queue->next;
 	}
 
-	// Address is smaller than head
-	if ((queue->next != NULL) && (queue->prev == NULL)) {
-		serial_println("New AMCB head");
-		// Assign new head
-		amcb->mcbq_head = mcb;
+	// New mcb has the highest address,
+	// Inserting at the tail
+	queue->next = mcb;
+	mcb->prev = queue;
 
-		// Link everything up
-		queue->prev = mcb;
-		mcb->prev = NULL;
-		mcb->next = queue;
-
-		serial_println("");
-		return;
-	}
-	// Address is somewhere in the middle
-	else if ((queue->prev != NULL) && (queue->next != NULL)) {
-		serial_println("Linking new mcb somewhere in middle");
-		// Save reference to previous cmcb
-		cmcb_s * pCmcb = queue->prev;
-
-		// Save reference to next cmcb
-		cmcb_s * nCmcb = queue->next;
-
-		// Link everything up
-		pCmcb->next = mcb;
-		nCmcb->prev = mcb;
-		mcb->next = nCmcb;
-		mcb->prev = pCmcb;
-
-		serial_println("");
-		return;
-	}
-	// Address is highest (tail)
-	else if (queue == NULL) {
-		serial_println("New Tail");
-		// Reference to previous mcb
-		cmcb_s * pCmcb = queue->prev;
-
-		// Link new tail
-		pCmcb->next = mcb;
-		mcb->prev = pCmcb;
-
-		serial_println("");
-		return;
-	}
 
 	serial_println("");
 }
@@ -362,11 +348,11 @@ int showAllocated(char *discard) {
 
 int isEmpty() {
 	if(amcb->mcbq_head == NULL){
-		writelnMessage("Memory is empty");
+		serial_println("Memory is empty");
 		return 0;
 	}
 	else {
-		writelnMessage("Memory is not empty");
+		serial_println("Memory is not empty");
 		return -1;
 	}	
 } 
