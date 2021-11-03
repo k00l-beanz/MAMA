@@ -14,20 +14,48 @@ mcb_queue_s * amcb = &allocated;
 /// Free Memory Control List
 mcb_queue_s * fmcb = &free;
 
-/// Full heap size
-int fullHeapSize;
-
 int initHeap(char * p) {
-	skip_ws(&p);
 	// Syntax for the cmd is: initheap [size]
-	serial_println("");
-	serial_println("DEBUG: initHeap");
-	// Convert parameter from char * to int
+	skip_ws(&p);
+	
+	// Correct number of parameters
+	int c = 0;
+	char * h = strtok(p," ");
+	while (h != NULL) {
+		h = strtok(NULL, " ");
+		c++;
+	}
+
+	if (c != 1) {
+		serial_println("Error: Wrong number of parameters. Refer to help pages.");
+		return -1;
+	}
+
+	// Validate a number was inputted and not characters
+	char * v = p;
+	while (*v != '\0') {
+		if ((*v < '0') || (*v > '9')) {
+			serial_println("Error: Not a valid inptut. Refer to help pages.");
+			return -1;
+		} 
+		v++;
+	}
+
+	// No size less than 1
 	int size = atoi(p);
+	if (size < 1) {
+		serial_println("Error: Size cannot be negative. Refer to help pages");
+		return -1;
+	}
+
 	int fullHeapSize = size + sizeof(cmcb_s);
 	
 	// Allocate to the heap
 	start_addr = kmalloc(fullHeapSize);
+	if (!start_addr) {
+		serial_println("Error: Something went wrong during kmalloc");
+		return -1;
+	}
 
 	// Organize the heap. Both are of type FREE
 	// ** CMCB at the top of the heap 		**
@@ -42,9 +70,6 @@ int initHeap(char * p) {
 	head->next = NULL;
 	head->prev = NULL;
 
-	printf("Heads Address: %i\n",(int) head->addr);
-	printf("Heads Size: %i\n", (int) head->size);
-
 	// Initialize free and allocated lists
 	fmcb->mcbq_head = head;
 	fmcb->mcb_queue_type = FREE;
@@ -52,14 +77,35 @@ int initHeap(char * p) {
 	amcb->mcbq_head = NULL;
 	amcb->mcb_queue_type = ALLOCATED;
 
-	serial_println("");
 	return 0;
 }
 
 int allocateMemory(char * size) {
 	skip_ws(&size);
-	serial_println("");
-	serial_println("DEBUG: allocateMemory");
+
+	// Correct number of parameters
+	int c = 0;
+	char * h = strtok(size," ");
+	while (h != NULL) {
+		h = strtok(NULL, " ");
+		c++;
+	}
+
+	if (c != 1) {
+		serial_println("Error: Wrong number of parameters. Refer to help pages.");
+		return -1;
+	}
+
+	// Ensure number was inputted
+	char * v = size;
+	while (*v != '\0') {
+		if ((*v < '0') || (*v > '9')) {
+			serial_println("Error: Not a valid input. Refer to help pages.");
+			return -1;
+		}
+		v++;
+	}
+
 	// Calculate required size for allocated mcb
 	u32int required = (u32int) (atoi(size) + sizeof(cmcb_s));
 	u32int ref_size;
@@ -81,10 +127,6 @@ int allocateMemory(char * size) {
 		queue = queue->next;
 	}
 
-	printf("Available Memory: %i\n",queue->size);
-	printf("Free Queues Head Address: %i\n", queue->addr);
-	printf("Allocated Queues Head Address: %i\n", amcb->mcbq_head->addr);
-
 	// If no block with enough space is found, throw error
 	if (queue == NULL) {
 		serial_println("Error: No free memory available");
@@ -98,8 +140,8 @@ int allocateMemory(char * size) {
 	
 	// 1. Remove mcb with enough space
 	removeFMCB(queue);
-	
-	// 2. Allocate memory for the mcb
+
+	// 2. Allocate memory for the mcb and insert into the AMCB queue
 	cmcb_s * newAMCB = queue;
 	newAMCB->type = ALLOCATED;
 	newAMCB->addr = (u32int) queue->addr;
@@ -108,17 +150,8 @@ int allocateMemory(char * size) {
 	newAMCB->next = NULL;
 	newAMCB->prev = NULL;
 
-	printf("New AMCB addr: %i\n", newAMCB->addr);
-	printf("New AMCB Size: %i\n", newAMCB->size);
-
 	insertAMCB(newAMCB);
-
-	printf("AMCB addr after insert: %i\n", newAMCB->addr);
-	printf("AMCB size after insert: %i\n", newAMCB->size);
-
-	serial_println("");
-
-	// 3. Assign free cmcb in the next available free area
+	// 3. Assign free cmcb in the next available free area and insert into FMCB queue
 	cmcb_s * newFMCB = (cmcb_s *) newAMCB + required;
 	newFMCB->type = FREE;
 	newFMCB->addr = (u32int) newAMCB->addr + required + sizeof(cmcb_s);
@@ -133,54 +166,30 @@ int allocateMemory(char * size) {
 		return -1;
 	}
 
-	printf("New FMCB addr: %i\n", newFMCB->addr);
-	printf("New FMCB size: %i\n", newFMCB->size);
-	serial_println("");
 	insertFMCB(newFMCB);
-	printf("FMCB addr after insert: %i\n", newFMCB->addr);
-	printf("FMCB size after insert: %i\n", newFMCB->size);
-
-	serial_println("");
-
-	printf("FMCB head addr: %i\n", fmcb->mcbq_head->addr);
-	printf("AMCB head addr: %i\n", amcb->mcbq_head->addr);
-
-	serial_println("");
-
-	printf("FMCB remaining size: %i\n", fmcb->mcbq_head->size);
-
-	serial_println("");
 
 	return 0;
 }
 
 void removeFMCB(cmcb_s * cmcb) {
-	serial_println("");
-	serial_println("DEBUG: removeFMCB");
 
 	// Only free cmcb in the list (only head)
 	if ((cmcb->prev == NULL) && (cmcb->next == NULL)) {
-		serial_println("Removing only head");
 		fmcb->mcbq_head = NULL;
-
-		serial_println("");
 		return;
 	}
 	// There is a free cmcb after, but not before (is head w/ members)
 	else if ((cmcb->prev == NULL) && (cmcb->next != NULL)) {
-		serial_println("Head with members");
 		// Assign new head
 		fmcb->mcbq_head = cmcb->next;
 
 		// Terminate current head
 		fmcb->mcbq_head->prev = NULL;
 
-		serial_println("");
 		return;
 	}
 	// There is a free cmcb before and after (somewhere in the middle of the list)
 	else if ((cmcb->prev != NULL) && (cmcb->next != NULL)) {
-		serial_println("Somewhere in the middle");
 		// Save reference to previous cmcb
 		cmcb_s * pCmcb = cmcb->prev;
 
@@ -191,37 +200,26 @@ void removeFMCB(cmcb_s * cmcb) {
 		pCmcb->next = nCmcb;
 		nCmcb->prev = pCmcb;
 
-		serial_println("");
 		return;
 	}
 	// There is a previous cmcb but no next free cmcb (tail)
 	else if ((cmcb->prev != NULL) && (cmcb->next == NULL)) {
-		serial_println("At the tail");
 		// Reference previous cmcb
 		cmcb_s * pCmcb = cmcb->prev;
 
 		// Terminate the tail
 		pCmcb->next = NULL;
 
-		serial_println("");
 		return;
 	}
-
-	serial_println("");
 }
 
 void insertAMCB(cmcb_s * mcb) {
-	serial_println("");
-	serial_println("DEBUG: insertAMCB");
 
-	printf("Addr of mcb being inserted: %i\n", mcb->addr);
 
 	// No allocated mcb's
 	if (amcb->mcbq_head == NULL) {
-		serial_println("AMCB is empty. Creating head");
 		amcb->mcbq_head = mcb;
-
-		serial_println("");
 		return;
 	}
 	
@@ -241,8 +239,6 @@ void insertAMCB(cmcb_s * mcb) {
 
 			return;
 		}
-		
-		printf("Iterating through amcb list, curr addr: %i\n", queue->addr);
 		queue = queue->next;
 	}
 
@@ -250,22 +246,13 @@ void insertAMCB(cmcb_s * mcb) {
 	// Inserting at the tail
 	queue->next = mcb;
 	mcb->prev = queue;
-
-
-	serial_println("");
 }
 
 void insertFMCB(cmcb_s * mcb) {
-	serial_println("");
-	serial_println("DEBUG: insertFMCB");
 
 	// Is there a head to the fmcb list?
 	if (fmcb->mcbq_head == NULL) {
-		serial_println("Create new free head");
 		fmcb->mcbq_head = mcb;
-		// serial_println(fmcb->mcbq_head->name);
-
-		serial_println("");
 		return;
 	}
 
@@ -285,7 +272,6 @@ void insertFMCB(cmcb_s * mcb) {
 
 			return;
 		}
-		printf("Iterating through fmcb list, curr addr: %i\n", queue->addr);
 		queue = queue->next;
 	}
 
