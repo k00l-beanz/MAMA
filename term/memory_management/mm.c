@@ -1,5 +1,6 @@
 #include "mm.h"
-#include "term/utils.h"
+
+#include <term/utils.h>
 #include <include/core/serial.h>
 
 /// Start address of the heap
@@ -356,31 +357,6 @@ int showAllocated(char *discard) {
 }
 
 int freeMemory(void * addr) {
-	// skip_ws(&addr);
-
-	// Parameter parsing
-	// Correct number of parameters
-	int c = 0;
-	char * p = strtok(addr, " ");
-	while (p != NULL) {
-		p = strtok(NULL, " ");
-		c++;
-	}
-
-	if (c != 1) {
-		serial_println("Error: Incorrect number of parameters");
-		return -1;
-	}
-
-	// Decimal system for addresses. Might be hex
-	char * h = addr;
-	while (*h != '\0') {
-		if ((*h < '0') || (*h > '9')) {
-			serial_println("Error: Invalid characters in parameter");
-			return -1;
-		}
-		h++;
-	}
 
 	// Does an amcb list even exist?
 	if (amcb->mcbq_head == NULL) {
@@ -455,7 +431,8 @@ int freeMemory(void * addr) {
 	return 0;
 }
 
-int isEmpty() {
+int isEmpty(char * p) {
+	(void) p;
 	if(amcb->mcbq_head == NULL){
 		serial_println("Memory is empty");
 		return 1;
@@ -468,11 +445,22 @@ int isEmpty() {
 
 int showFree(char * p) {
 	(void) p;
-
-	cmcb_s * queue = fmcb->mcbq_head;
-	while (queue != NULL) {
-		printf("Base addr: %i, size: %i\n", queue->addr,queue->size);
-		queue = queue->next;
+	
+	cmcb_s * free = fmcb->mcbq_head;
+	if(fmcb == NULL) {
+		printf("No free memory found\n");
+		return 0;
+	}
+	while(free != NULL) {
+		printf("Block %s - ", free->name);
+		if(free->type == ALLOCATED)
+			display_fg_color(RED);
+		else
+			display_fg_color(GREEN);
+		printf(free->type == ALLOCATED ? "ALLOCATED" : "FREE");
+		display_reset();
+		printf(" - base addr: %i, size: %i bytes\n", free->addr, free->size);
+		free = free->next;
 	}
 
 	return 0;

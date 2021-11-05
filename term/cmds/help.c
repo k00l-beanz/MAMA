@@ -99,6 +99,26 @@ int cmd_help(char *command) {
 		resumeallHelp();
 		return 1;
 	}
+	else if (strcmp(command, " showalloc") == 0) {
+		showallocHelp();
+		return 1;
+	}
+	else if (strcmp(command, " showfree") == 0) {
+		showfreeHelp();
+		return 1;
+	}
+	else if (strcmp(command, " isempty") == 0) {
+		isemptyHelp();
+		return 1;
+	}
+	else if (strcmp(command, " clear") == 0) {
+		clearHelp();
+		return 1;
+	}
+	else if (strcmp(command, " alias") == 0) {
+		aliasHelp();
+		return 1;
+	}
 	else {
 		print("Trying to get help with a command?\nType: help [COMMAND]\nTo see a list of common commands, Type: help list\n",106);
 	}
@@ -116,23 +136,23 @@ void versionHelp() {
 }
 
 void helpList() {
-	print("------------ ------------ ------------------ --------------\n"
-		  "| SYSTEM   | | TIME     | | PCB            | | ALARM      |\n"
-		  "------------ ------------ ------------------ --------------\n"
-		  "| help     | | getdate  | | createpcb      | | setalarm   |\n"
-		  "| version  | | setdate  | | deletepcb      | | showalarms |\n"
-		  "| shutdown | | gettime  | | showpcb        | | freealarm  |\n"
-		  "------------ | settime  | | showallpcb     | --------------\n"
-		  "             ------------ | showreadypcb   |\n"
-		  "                          | showblockedpcb |\n"
-		  "                          | blockpcb       |\n"
-		  "                          | unblockpcb     |\n"
-		  "                          | setprioritypcb |\n"
-		  "                          | resumepcb      |\n"
-		  "                          | suspendpcb     |\n"
-		  "                          | resumeallpcb   |\n"
-		  "                          | loadr3         |\n"
-		  "                          ------------------\n",191);
+	print(" ------------ ------------ ------------------ -------------- --------------\n"
+		  " | SYSTEM   | | TIME     | | PCB            | | ALARM      | | HEAP       |\n"
+		  " ------------ ------------ ------------------ -------------- --------------\n"
+		  " | help     | | getdate  | | createpcb      | | setalarm   | | showalloc  |\n"
+		  " | version  | | setdate  | | deletepcb      | | showalarms | | showfree   |\n"
+		  " | shutdown | | gettime  | | showpcb        | | freealarm  | | isempty    |\n"
+		  " | clear    | | settime  | | showallpcb     | -------------- --------------\n"
+		  " | alias    | ------------ | showreadypcb   |\n"
+		  " ------------              | showblockedpcb |\n"
+		  "                           | blockpcb       |\n"
+		  "                           | unblockpcb     |\n"
+		  "                           | setprioritypcb |\n"
+		  "                           | resumepcb      |\n"
+		  "                           | suspendpcb     |\n"
+		  "                           | resumeallpcb   |\n"
+		  "                           | loadr3         |\n"
+		  "                           ------------------\n",191);
 }
 
 void shutdownHelp() {
@@ -154,6 +174,26 @@ void helpHelp() {
 		  "The help page for the inputed command\n\n"
 		  "EXAMPLE\n\t"
 		  "help shutdown\n\n",166);
+}
+
+void clearHelp() {
+	printf("NAME\n\t"
+		   "clear\n\n"
+		   "USAGE\n\t"
+		   "clear\n\n"
+		   "DESCRIPTION\n\t"
+		   "Clears the terminal screen.\n\n");
+}
+
+void aliasHelp() {
+	printf("NAME\n\t"
+		   "alias\n\n"
+		   "USAGE\n\t"
+		   "alias [ALIAS] [COMMAND]\n\n"
+		   "DESCRIPTION\n\t"
+		   "Allows user to rename currently existing commands\n\n"
+		   "EXAMPLE\n\t"
+		   "alias mama shutdown\n\n");
 }
 
 /******************************************************/
@@ -406,4 +446,37 @@ void resumeallHelp() {
 		   "resumeallpcb\n\n"
 		   "DESCRIPTION\n\t"
 		   "Sets the state of all PCB's in the READY queue to READY\n\n");
+}
+
+/******************************************************/
+/********************** HEAP **************************/
+/******************************************************/
+
+void showallocHelp() {
+	printf("NAME\n\t"
+		   "showalloc\n\n"
+		   "USAGE\n\t"
+		   "showalloc\n\n"
+		   "DESCRIPTION\n\t"
+		   "Shows the memory location and size of all allocated memory control blocks in the heap. The allocated memory\n\t"
+		   "control blocks are organized by memory address in ascending order.\n\n");
+}
+
+void showfreeHelp() {
+	printf("NAME\n\t"
+		   "showfree\n\n"
+		   "USAGE\n\t"
+		   "showfree\n\n"
+		   "DESCRIPTION\n\t"
+		   "Shows the memory location and size of all free memory control blocks in the heap. The free memory\n\t"
+		   "control blocks are organized by memory address in ascending order.\n\n");
+}
+
+void isemptyHelp() {
+	printf("NAME\n\t"
+		   "isempty\n\n"
+		   "USAGE\n\t"
+		   "isempty\n\n"
+		   "DESCRIPTION\n\t"
+		   "Shows whether the heap is entirely free memory.\n\n");
 }

@@ -140,6 +140,10 @@ cmd_mapping cmd_mappings[MAX_CMD_COUNT] = {
 			"showfree",
 			&showFree
 		},
+		{
+			"isempty",
+			&isEmpty
+		},
 	{
 		"arg-test",
 		&cmd_argtest

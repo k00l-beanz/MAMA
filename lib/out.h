@@ -185,6 +185,42 @@ void freealarmHelp();
 */
 void resumeallHelp();
 
+/**
+ * Help page for showalloc
+ * 
+ * Displays the showalloc help page 
+*/
+void showallocHelp();
+
+/**
+ * Help page for showfree
+ * 
+ * Displays the showfree help pages 
+*/
+void showfreeHelp();
+
+/**
+ * Help page for isempty
+ * 
+ * Displays the isempty help pages 
+*/
+void isemptyHelp();
+
+/**
+ * Help page for clear
+ * 
+ * Displays the clear help pages 
+*/
+void clearHelp();
+
+/** 
+ * Help page for alias
+ * 
+ * Displays the alias help pages
+*/
+void aliasHelp();
+
+
 int print(char *, int);
 int printc(char);
 int println(char *, int);

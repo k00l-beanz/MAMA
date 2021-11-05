@@ -28,18 +28,18 @@ Part I. Implemented Methods
 	Free Memory		[x] Abdullah
 	isEmpty			[x] Abdullah
 	Show Free Memory	[x] Austin
-	Show Allocated Memory	[] Mohammad 
+	Show Allocated Memory	[x] Mohammad 
 
 Part II. Integration into MPX
 - See slide 19 and 20 for details on this part
-- Initialize heap to ~50 KB									[]
-- Call sys_int with MEM_MODULE. Indicates that memory management module has been implemented	[]
+- Initialize heap to ~50 KB									[x]
+- Call sys_int with MEM_MODULE. Indicates that memory management module has been implemented	[x]
 - Call "sys_set_malloc" and "sys_set_free" to override default kmalloc and kfree
-  calling your allocateMemory and freeMemory instead						[]
-- Remove any methods that would allow the user to allocate/deallocate memory 			[]
+  calling your allocateMemory and freeMemory instead						[x]
+- Remove any methods that would allow the user to allocate/deallocate memory 			[x]
 
 Help Pages			[]
-Version				[]
+Version				[x]
 User Manual			[]
 Programmers Manual		[]
 WhoDidWhat.md			[]
