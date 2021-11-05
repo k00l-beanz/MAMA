@@ -407,7 +407,8 @@ int freeMemory(char * addr) {
 
 	// Does an amcb list even exist?
 	if (amcb->mcbq_head == NULL) {
-		serial_println("Error: Free MCB list is empty");
+		serial_println("Error: Allocated MCB list is empty");
+		return -1;
 	}
 
 	u32int intAddr = atoi(addr);
@@ -430,7 +431,7 @@ int freeMemory(char * addr) {
 
 	// MCB with address was not found
 	if (queue == NULL) {
-		serial_println("Error: No FMCB with specified address exists");
+		serial_println("Error: No AMCB with specified address exists");
 		return -1;
 	}
 
@@ -446,19 +447,17 @@ int freeMemory(char * addr) {
 	cmcb_s * below = (cmcb_s *) queue + queue->size;
 	if (below->type == FREE) {
 		// Remove current mcb
-		removeFMCB(queue);
+		// removeFMCB(queue);
 		
 		// Inherit qualities of below with newly created fmcb
 		queue->size = queue->size + below->size + sizeof(cmcb_s);
 		strcpy(queue->name, below->name);
-		queue->next = below->next;
-		queue->prev = below->prev;
 
 		// Terminate below
 		removeFMCB(below);
 
 		// Add in new fmcb
-		insertFMCB(queue);
+		// insertFMCB(queue);
 
 	}
 
@@ -469,19 +468,17 @@ int freeMemory(char * addr) {
 		
 		if ((above->addr + above->size + sizeof(cmcb_s)) == queue->addr) {
 			// Remove current mcb
-			removeFMCB(queue);
+			// removeFMCB(queue);
 
 			// Above inherits the qualities of current mcb
 			above->size = (u32int) above->size + queue->size + sizeof(cmcb_s);
 			strcpy(above->name, queue->name);
-			above->prev = queue->prev;
-			above->next = queue->next;
-
+			
 			// Terminate current mcb
 			removeFMCB(queue);
 
 			// Add in new mcb
-			insertFMCB(above);
+			// insertFMCB(above);
 
 			break;
 		}
