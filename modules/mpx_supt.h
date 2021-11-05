@@ -64,8 +64,6 @@ void sys_set_malloc(u32int (*func)(u32int));
 */
 void sys_set_free(int (*func)(void *));
 
-
-
 /*
   Procedure..: sys_alloc_mem
   Description..: Allocates a block of memory (similar to malloc)

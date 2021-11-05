@@ -25,6 +25,7 @@
 #include "term/dispatch/context.h"
 #include "term/pcb/pcb.h"
 #include "term/dnt/dnt.h"
+#include "term/memory_management/mm.h"
 
 void kmain(void)
 {
@@ -33,6 +34,8 @@ void kmain(void)
    // extern void *mbd;
    // char *boot_loader_name = (char*)((long*)mbd)[16];
 
+   // ASCII art because we are trying to build a brand
+   mama();
   
    // 0) Initialize Serial I/O 
    // functions to initialize serial I/O can be found in serial.c
@@ -41,7 +44,12 @@ void kmain(void)
    init_serial(COM1);
    set_serial_in(COM1);
    set_serial_out(COM1);
-   mpx_init(MODULE_R4);
+   mpx_init(MODULE_R5);
+
+   // Initialize dynamic memory
+   initHeap("50000");
+   sys_set_malloc(&allocateMemory);
+   sys_set_free(&freeMemory);
 
  
    klogv("Starting MPX boot sequence...");
@@ -71,6 +79,7 @@ void kmain(void)
    init_irq();
    sti();
 
+   // Initialize PCB queues
    initPCB();
 
     // 4)  Interrupt vector table --  tables.c
@@ -87,6 +96,7 @@ void kmain(void)
    // NOTE:  You will only have about 70000 bytes of dynamic memory
    //
    klogv("Initializing virtual memory...");
+
    init_paging();
 
    // 6) Call YOUR command handler -  interface method

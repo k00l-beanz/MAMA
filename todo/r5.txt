@@ -24,16 +24,22 @@ Memory Control Blocks
 Part I. Implemented Methods
 - See slides 7 to 18 for details on the below methods
 	Initialize Heap		[x] Maximillian 
-	Allocate Memory		[] Maximillian
-	Free Memory		[] Abdullah
-	isEmpty			[] Abdullah
-	Show Free Memory	[] Austin
+	Allocate Memory		[x] Maximillian
+	Free Memory		[x] Abdullah
+	isEmpty			[x] Abdullah
+	Show Free Memory	[x] Austin
 	Show Allocated Memory	[] Mohammad 
 
 Part II. Integration into MPX
 - See slide 19 and 20 for details on this part
+- Initialize heap to ~50 KB									[]
+- Call sys_int with MEM_MODULE. Indicates that memory management module has been implemented	[]
+- Call "sys_set_malloc" and "sys_set_free" to override default kmalloc and kfree
+  calling your allocateMemory and freeMemory instead						[]
+- Remove any methods that would allow the user to allocate/deallocate memory 			[]
 
-
+Help Pages			[]
+Version				[]
 User Manual			[]
 Programmers Manual		[]
 WhoDidWhat.md			[]

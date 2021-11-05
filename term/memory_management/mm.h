@@ -72,7 +72,7 @@ int initHeap(char * p);
  * 
  * @return Returns 0 upon success, -1 otherwise 
 */
-int allocateMemory(char * size);
+u32int allocateMemory(u32int size);
 
 /**
  * Free a block of memory
@@ -86,7 +86,7 @@ int allocateMemory(char * size);
  * 
  * @return Returns 0 upon success, -1 otherwise
 */
-int freeMemory(char * addr);
+int freeMemory(void * addr);
 
 /**
  * Shows addresses and block size of all blocks in

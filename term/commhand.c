@@ -133,20 +133,8 @@ cmd_mapping cmd_mappings[MAX_CMD_COUNT] = {
 			&freeAlarm
 		},
 		{
-			"initheap",
-			&initHeap
-		},
-		{
-			"allocmem",
-			&allocateMemory
-		},
-		{
 			"showalloc",
 			&showAllocated
-		},
-		{
-			"freemem",
-			&freeMemory
 		},
 		{
 			"showfree",
@@ -190,9 +178,6 @@ void commhand() {
 	int cmd_name_len = 0;
 
 	int running = 1;
-
-	/* MAMA ascii art */
-	mama();
 
 	/* Initialize PCB */
 	//initPCB();

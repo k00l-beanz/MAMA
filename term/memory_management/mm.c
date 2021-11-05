@@ -78,34 +78,10 @@ int initHeap(char * p) {
 	return 0;
 }
 
-int allocateMemory(char * size) {
-	skip_ws(&size);
-
-	// Correct number of parameters
-	int c = 0;
-	char * h = strtok(size," ");
-	while (h != NULL) {
-		h = strtok(NULL, " ");
-		c++;
-	}
-
-	if (c != 1) {
-		serial_println("Error: Wrong number of parameters. Refer to help pages.");
-		return -1;
-	}
-
-	// Ensure number was inputted
-	char * v = size;
-	while (*v != '\0') {
-		if ((*v < '0') || (*v > '9')) {
-			serial_println("Error: Not a valid input. Refer to help pages.");
-			return -1;
-		}
-		v++;
-	}
+u32int allocateMemory(u32int size) {
 
 	// Calculate required size for allocated mcb
-	u32int required = (u32int) atoi(size);
+	u32int required = size;
 	u32int ref_size;
 
 	// Is fmcb list empty?
@@ -149,12 +125,13 @@ int allocateMemory(char * size) {
 	newAMCB->prev = NULL;
 
 	insertAMCB(newAMCB);
+	serial_println("newAMCB Has been inserted");
 
 	// Update amount of size remaining in fmcb block, if any
 	ref_size = ref_size - required;
 	if ((ref_size < 1) || (sizeof(cmcb_s) > ref_size)) {
 		serial_println("No room to insert new FMCB");
-		return 0;
+		return newAMCB->addr;
 	}
 
 	// 3. Assign free cmcb in the next available free area and insert into FMCB queue
@@ -167,7 +144,7 @@ int allocateMemory(char * size) {
 
 	insertFMCB(newFMCB);
 
-	return 0;
+	return newAMCB->addr;
 }
 
 void removeFMCB(cmcb_s * cmcb) {
@@ -378,8 +355,8 @@ int showAllocated(char *discard) {
 	return 0;
 }
 
-int freeMemory(char * addr) {
-	skip_ws(&addr);
+int freeMemory(void * addr) {
+	// skip_ws(&addr);
 
 	// Parameter parsing
 	// Correct number of parameters
@@ -398,7 +375,7 @@ int freeMemory(char * addr) {
 	// Decimal system for addresses. Might be hex
 	char * h = addr;
 	while (*h != '\0') {
-		if ((*h < '0') || *h > '9') {
+		if ((*h < '0') || (*h > '9')) {
 			serial_println("Error: Invalid characters in parameter");
 			return -1;
 		}
@@ -446,19 +423,13 @@ int freeMemory(char * addr) {
 	// 		2.a If one exists, merge
 	cmcb_s * below = (cmcb_s *) queue + queue->size;
 	if (below->type == FREE) {
-		// Remove current mcb
-		// removeFMCB(queue);
-		
+
 		// Inherit qualities of below with newly created fmcb
 		queue->size = queue->size + below->size + sizeof(cmcb_s);
 		strcpy(queue->name, below->name);
 
 		// Terminate below
 		removeFMCB(below);
-
-		// Add in new fmcb
-		// insertFMCB(queue);
-
 	}
 
 	// 3. Check above for free block
@@ -467,8 +438,6 @@ int freeMemory(char * addr) {
 	while (above != NULL) {
 		
 		if ((above->addr + above->size + sizeof(cmcb_s)) == queue->addr) {
-			// Remove current mcb
-			// removeFMCB(queue);
 
 			// Above inherits the qualities of current mcb
 			above->size = (u32int) above->size + queue->size + sizeof(cmcb_s);
@@ -477,9 +446,7 @@ int freeMemory(char * addr) {
 			// Terminate current mcb
 			removeFMCB(queue);
 
-			// Add in new mcb
-			// insertFMCB(above);
-
+			// Can only have one thing above
 			break;
 		}
 		above = above->next;
