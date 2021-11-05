@@ -104,7 +104,7 @@ int showAllocated(char *);
  * Traverses the free list and shows the addresses and the 
  * size of the block. Shown in the order of address.
 */
-void showFree();
+int showFree(char * p);
 
 /**
  * Does the heap only contain free memory.
@@ -118,6 +118,8 @@ void showFree();
 int isEmpty();
 
 void removeFMCB(cmcb_s * mcb);
+
+void removeAMCB(cmcb_s * cmcb);
 
 void insertAMCB(cmcb_s * mcb);
 

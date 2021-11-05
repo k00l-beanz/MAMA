@@ -144,6 +144,14 @@ cmd_mapping cmd_mappings[MAX_CMD_COUNT] = {
 			"showalloc",
 			&showAllocated
 		},
+		{
+			"freemem",
+			&freeMemory
+		},
+		{
+			"showfree",
+			&showFree
+		},
 	{
 		"arg-test",
 		&cmd_argtest

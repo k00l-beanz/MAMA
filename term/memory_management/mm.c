@@ -58,8 +58,6 @@ int initHeap(char * p) {
 	}
 
 	// Organize the heap. Both are of type FREE
-	// ** CMCB at the top of the heap 		**
-	// ** LMCB at the bottom of the heap 	**
 
 	// CMCB at the top of the heap w/ all the information
 	cmcb_s * head = (cmcb_s *) start_addr;
@@ -107,7 +105,7 @@ int allocateMemory(char * size) {
 	}
 
 	// Calculate required size for allocated mcb
-	u32int required = (u32int) (atoi(size) + sizeof(cmcb_s));
+	u32int required = (u32int) atoi(size);
 	u32int ref_size;
 
 	// Is fmcb list empty?
@@ -151,20 +149,21 @@ int allocateMemory(char * size) {
 	newAMCB->prev = NULL;
 
 	insertAMCB(newAMCB);
+
+	// Update amount of size remaining in fmcb block, if any
+	ref_size = ref_size - required;
+	if ((ref_size < 1) || (sizeof(cmcb_s) > ref_size)) {
+		serial_println("No room to insert new FMCB");
+		return 0;
+	}
+
 	// 3. Assign free cmcb in the next available free area and insert into FMCB queue
 	cmcb_s * newFMCB = (cmcb_s *) newAMCB + required;
 	newFMCB->type = FREE;
 	newFMCB->addr = (u32int) newAMCB->addr + required + sizeof(cmcb_s);
-	newFMCB->size = (u32int) ref_size - (required + sizeof(cmcb_s));
+	newFMCB->size = (u32int) ref_size - sizeof(cmcb_s);
 	newFMCB->next = NULL;
 	newFMCB->prev = NULL;
-
-	// Make sure there is enough memory remaining to insert
-	// a new FMCB
-	if (newFMCB->size > ref_size) {
-		serial_println("Error: Not enough memory to insert new fmcb");
-		return -1;
-	}
 
 	insertFMCB(newFMCB);
 
@@ -212,6 +211,57 @@ void removeFMCB(cmcb_s * cmcb) {
 
 		return;
 	}
+
+	serial_println("removeFMCB: No condition applies");
+	return;
+}
+
+void removeAMCB(cmcb_s * cmcb) {
+
+	// Ensure AMCB head exists
+	if (amcb->mcbq_head == NULL) {
+		serial_println("removeAMCB: No AMCB head exists");
+		return;
+	}
+
+	// Only head exists
+	if ((cmcb->prev == NULL) && (cmcb->next == NULL)) {
+		amcb->mcbq_head = NULL;
+		return;
+	}
+	// Head with members
+	else if ((cmcb->prev == NULL) && (cmcb->next != NULL)) {
+		amcb->mcbq_head = cmcb->next;
+		amcb->mcbq_head->prev = NULL;
+
+		return;
+	}
+	// Somewhere in the middle
+	else if ((cmcb->prev != NULL) && (cmcb->next != NULL)) {
+		// Save reference to previous cmcb
+		cmcb_s * pCmcb = cmcb->prev;
+
+		// Save reference to next cmcb
+		cmcb_s * nCmcb = cmcb->next;
+
+		// Link everything up
+		pCmcb->next = nCmcb;
+		nCmcb->prev = pCmcb;
+
+		return;
+	}
+	// Removing tail
+	else if ((cmcb->prev != NULL) && (cmcb->next == NULL)) {
+		// Save reference to previous cmcb
+		cmcb_s * pCmcb = cmcb->prev;
+
+		// Terminate current tail
+		pCmcb->next = NULL;
+
+		return;
+	}
+	serial_println("removeAMCB: No condition applies");
+	return;
 }
 
 void insertAMCB(cmcb_s * mcb) {
@@ -225,9 +275,14 @@ void insertAMCB(cmcb_s * mcb) {
 	
 	// Organize by increasing address
 	cmcb_s * queue = amcb->mcbq_head;
-	while (queue->next != NULL) {
+	while (queue != NULL) {
 
 		if (mcb->addr < queue->addr) {
+
+			// Is the newly inserted mcb address lower than the heads address?
+			if (mcb->addr < amcb->mcbq_head->addr)
+				amcb->mcbq_head = mcb;
+
 			// Reference to previous mcb
 			cmcb_s * pCmcb = queue->prev;
 
@@ -239,13 +294,19 @@ void insertAMCB(cmcb_s * mcb) {
 
 			return;
 		}
+		// New mcb has the highest address insert at the tail
+		else if (queue->next == NULL) {
+			queue->next = mcb;
+			mcb->prev = queue;
+
+			return;
+		}
+
 		queue = queue->next;
 	}
 
-	// New mcb has the highest address,
-	// Inserting at the tail
-	queue->next = mcb;
-	mcb->prev = queue;
+	serial_println("insertAMCB Error: MCB was not inserted");
+	return;
 }
 
 void insertFMCB(cmcb_s * mcb) {
@@ -258,9 +319,15 @@ void insertFMCB(cmcb_s * mcb) {
 
 	// Address in ascending order
 	cmcb_s * queue = fmcb->mcbq_head;
-	while (queue->next != NULL) {
+	while (queue != NULL) {
 
+		// Found spot to insert either at head or in the middle
 		if (mcb->addr < queue->addr) {
+
+			// Is the newly inserted mcb address lower than the heads address?
+			if (mcb->addr < fmcb->mcbq_head->addr)
+				fmcb->mcbq_head = mcb;
+
 			// Reference to previous node
 			cmcb_s * pCmcb = queue->prev;
 
@@ -272,20 +339,25 @@ void insertFMCB(cmcb_s * mcb) {
 
 			return;
 		}
+		// New mcb has the highest address insert at the tail
+		else if (queue->next == NULL) {
+			// Create new tail
+			queue->next = mcb;
+			mcb->prev = queue;
+
+			return;
+		}
+
 		queue = queue->next;
 	}
 
-	// New mcb has the highest address
-	// Insert at the tail
-	queue->next = mcb;
-	mcb->prev = queue;
-
+	serial_println("insertFMCB Error: MCB was not inserted");
 	return;
 }
 
 int showAllocated(char *discard) {
 	(void)discard;
-
+	
 	cmcb_s *block = amcb->mcbq_head;
 	if(block == NULL) {
 		printf("No allocated memory found\n");
@@ -302,16 +374,142 @@ int showAllocated(char *discard) {
 		printf(" - base addr: %i, size: %i bytes\n", block->addr, block->size);
 		block = block->next;
 	}
+
+	return 0;
+}
+
+int freeMemory(char * addr) {
+	skip_ws(&addr);
+
+	// Parameter parsing
+	// Correct number of parameters
+	int c = 0;
+	char * p = strtok(addr, " ");
+	while (p != NULL) {
+		p = strtok(NULL, " ");
+		c++;
+	}
+
+	if (c != 1) {
+		serial_println("Error: Incorrect number of parameters");
+		return -1;
+	}
+
+	// Decimal system for addresses. Might be hex
+	char * h = addr;
+	while (*h != '\0') {
+		if ((*h < '0') || *h > '9') {
+			serial_println("Error: Invalid characters in parameter");
+			return -1;
+		}
+		h++;
+	}
+
+	// Does an amcb list even exist?
+	if (amcb->mcbq_head == NULL) {
+		serial_println("Error: Free MCB list is empty");
+	}
+
+	u32int intAddr = atoi(addr);
+
+	// * 1. Set memory of specified address to free
+	// * 2. Check below for free block
+	// * 	2.a. If one exists, merge
+	// * 3. Check above for free block
+	// * 	3.a If one exists, merge
+
+	// 1. Set memory of specified address to free
+	// Ensure address exists
+	cmcb_s * queue = amcb->mcbq_head;
+	while (queue != NULL) {
+
+		if (queue->addr == intAddr) break;
+
+		queue = queue->next;
+	}
+
+	// MCB with address was not found
+	if (queue == NULL) {
+		serial_println("Error: No FMCB with specified address exists");
+		return -1;
+	}
+
+	removeAMCB(queue);
+
+	// Assign space as free and insert into fmcb list
+	queue->type = FREE;
+
+	insertFMCB(queue);
+
+	// 2. Check below for free block
+	// 		2.a If one exists, merge
+	cmcb_s * below = (cmcb_s *) queue + queue->size;
+	if (below->type == FREE) {
+		// Remove current mcb
+		removeFMCB(queue);
+		
+		// Inherit qualities of below with newly created fmcb
+		queue->size = queue->size + below->size + sizeof(cmcb_s);
+		strcpy(queue->name, below->name);
+		queue->next = below->next;
+		queue->prev = below->prev;
+
+		// Terminate below
+		removeFMCB(below);
+
+		// Add in new fmcb
+		insertFMCB(queue);
+
+	}
+
+	// 3. Check above for free block
+	// 		3.a If one exists, merge
+	cmcb_s * above = fmcb->mcbq_head;
+	while (above != NULL) {
+		
+		if ((above->addr + above->size + sizeof(cmcb_s)) == queue->addr) {
+			// Remove current mcb
+			removeFMCB(queue);
+
+			// Above inherits the qualities of current mcb
+			above->size = (u32int) above->size + queue->size + sizeof(cmcb_s);
+			strcpy(above->name, queue->name);
+			above->prev = queue->prev;
+			above->next = queue->next;
+
+			// Terminate current mcb
+			removeFMCB(queue);
+
+			// Add in new mcb
+			insertFMCB(above);
+
+			break;
+		}
+		above = above->next;
+	}
+	
 	return 0;
 }
 
 int isEmpty() {
 	if(amcb->mcbq_head == NULL){
 		serial_println("Memory is empty");
-		return 0;
+		return 1;
 	}
 	else {
 		serial_println("Memory is not empty");
-		return -1;
+		return 0;
 	}	
 } 
+
+int showFree(char * p) {
+	(void) p;
+
+	cmcb_s * queue = fmcb->mcbq_head;
+	while (queue != NULL) {
+		printf("Base addr: %i, size: %i\n", queue->addr,queue->size);
+		queue = queue->next;
+	}
+
+	return 0;
+}
