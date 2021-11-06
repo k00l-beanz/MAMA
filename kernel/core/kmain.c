@@ -44,10 +44,12 @@ void kmain(void)
    init_serial(COM1);
    set_serial_in(COM1);
    set_serial_out(COM1);
-   mpx_init(MODULE_R5);
+
+   // Memory managers have been written and enabled
+   mpx_init(MEM_MODULE);
 
    // Initialize dynamic memory
-   initHeap("50000");
+   initHeap(50000);
    sys_set_malloc(&allocateMemory);
    sys_set_free(&freeMemory);
 
@@ -116,7 +118,7 @@ void kmain(void)
    alarmPCB->pcb_process_class = 0;
    alarmPCB->pcb_process_state = READY;
    insertPCB(alarmPCB);
- 
+   
    // Idle PCB
    pcb_t * idlePCB = dispatcher("idle",&idle);
    idlePCB->pcb_priority = 1;
@@ -124,7 +126,7 @@ void kmain(void)
    idlePCB->pcb_process_state = READY;
    idlePCB->pcb_protection_mode = DELETABLE_WHEN_SUSPENDED;
    insertPCB(idlePCB);
-
+  
    // yield
    yield();
 

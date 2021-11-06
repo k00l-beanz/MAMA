@@ -60,7 +60,7 @@ typedef struct mcb_queue_s {
  * 
  * @return Return 0 upon success, -1 otherwise
 */
-int initHeap(char * p);
+int initHeap(u32int size);
 
 /**
  * Allocate additional memory from the heap.

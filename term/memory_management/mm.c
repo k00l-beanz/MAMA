@@ -15,40 +15,7 @@ mcb_queue_s * amcb = &allocated;
 /// Free Memory Control List
 mcb_queue_s * fmcb = &free;
 
-int initHeap(char * p) {
-	// Syntax for the cmd is: initheap [size]
-	skip_ws(&p);
-	
-	// Correct number of parameters
-	int c = 0;
-	char * h = strtok(p," ");
-	while (h != NULL) {
-		h = strtok(NULL, " ");
-		c++;
-	}
-
-	if (c != 1) {
-		serial_println("Error: Wrong number of parameters. Refer to help pages.");
-		return -1;
-	}
-
-	// Validate a number was inputted and not characters
-	char * v = p;
-	while (*v != '\0') {
-		if ((*v < '0') || (*v > '9')) {
-			serial_println("Error: Not a valid inptut. Refer to help pages.");
-			return -1;
-		} 
-		v++;
-	}
-
-	// No size less than 1
-	int size = atoi(p);
-	if (size < 1) {
-		serial_println("Error: Size cannot be negative. Refer to help pages");
-		return -1;
-	}
-
+int initHeap(u32int size) {
 	int fullHeapSize = size + sizeof(cmcb_s);
 	
 	// Allocate to the heap
@@ -59,13 +26,12 @@ int initHeap(char * p) {
 	}
 
 	// Organize the heap. Both are of type FREE
-
 	// CMCB at the top of the heap w/ all the information
 	cmcb_s * head = (cmcb_s *) start_addr;
 	head->type = FREE;
 	head->addr = start_addr + sizeof(cmcb_s);
 	head->size = (u32int) fullHeapSize - sizeof(cmcb_s);
-	strcpy(head->name,"Initial CMCB");
+	strcpy(head->name,"Initial FMCB");
 	head->next = NULL;
 	head->prev = NULL;
 
@@ -80,7 +46,7 @@ int initHeap(char * p) {
 }
 
 u32int allocateMemory(u32int size) {
-
+	serial_println("DEBUG: allocateMemory");
 	// Calculate required size for allocated mcb
 	u32int required = size;
 	u32int ref_size;
@@ -95,10 +61,12 @@ u32int allocateMemory(u32int size) {
 	// with enough space is found
 	cmcb_s * queue = fmcb->mcbq_head;
 	while (queue != NULL) {
+		
 		if (queue->size >= required) {
 			ref_size = queue->size;
 			break;
 		}
+		
 		queue = queue->next;
 	}
 
@@ -107,15 +75,15 @@ u32int allocateMemory(u32int size) {
 		serial_println("Error: No free memory available");
 		return -1;
 	}
-
+	
 	// Allocate memory
 	// 1. Remove mcb that has enough space from the free list
 	// 2. Allocate memory / Insert into allocated list
 	// 3. Assign free cmcb in the next available free area
-	
+
 	// 1. Remove mcb with enough space
 	removeFMCB(queue);
-
+	
 	// 2. Allocate memory for the mcb and insert into the AMCB queue
 	cmcb_s * newAMCB = queue;
 	newAMCB->type = ALLOCATED;
@@ -126,7 +94,6 @@ u32int allocateMemory(u32int size) {
 	newAMCB->prev = NULL;
 
 	insertAMCB(newAMCB);
-	serial_println("newAMCB Has been inserted");
 
 	// Update amount of size remaining in fmcb block, if any
 	ref_size = ref_size - required;
@@ -137,15 +104,17 @@ u32int allocateMemory(u32int size) {
 
 	// 3. Assign free cmcb in the next available free area and insert into FMCB queue
 	cmcb_s * newFMCB = (cmcb_s *) newAMCB + required;
+	
 	newFMCB->type = FREE;
 	newFMCB->addr = (u32int) newAMCB->addr + required + sizeof(cmcb_s);
 	newFMCB->size = (u32int) ref_size - sizeof(cmcb_s);
+	strcpy(newFMCB->name, "FMCB Block");
 	newFMCB->next = NULL;
 	newFMCB->prev = NULL;
 
 	insertFMCB(newFMCB);
 
-	return newAMCB->addr;
+	return (u32int) newAMCB->addr;
 }
 
 void removeFMCB(cmcb_s * cmcb) {
@@ -357,14 +326,14 @@ int showAllocated(char *discard) {
 }
 
 int freeMemory(void * addr) {
-
+	serial_println("DEBUG: freeMemory");
 	// Does an amcb list even exist?
 	if (amcb->mcbq_head == NULL) {
 		serial_println("Error: Allocated MCB list is empty");
 		return -1;
 	}
 
-	u32int intAddr = atoi(addr);
+	u32int intAddr = (u32int) addr;
 
 	// * 1. Set memory of specified address to free
 	// * 2. Check below for free block
@@ -392,6 +361,7 @@ int freeMemory(void * addr) {
 
 	// Assign space as free and insert into fmcb list
 	queue->type = FREE;
+	strcpy(queue->name, "New Free Block");
 
 	insertFMCB(queue);
 
