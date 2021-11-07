@@ -103,7 +103,7 @@ u32int allocateMemory(u32int size) {
 	}
 
 	// 3. Assign free cmcb in the next available free area and insert into FMCB queue
-	cmcb_s * newFMCB = (cmcb_s *) newAMCB + required;
+	cmcb_s * newFMCB = (cmcb_s *) (newAMCB->addr + required);
 	
 	newFMCB->type = FREE;
 	newFMCB->addr = (u32int) newAMCB->addr + required + sizeof(cmcb_s);
