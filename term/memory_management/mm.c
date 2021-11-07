@@ -61,15 +61,7 @@ u32int allocateMemory(u32int size) {
 	// with enough space is found
 	cmcb_s * queue = fmcb->mcbq_head;
 	while (queue != NULL) {
-		/*
-			If we select a free block based solely on the size passed to this function, there may not be enough room remaining to place a new FMCB for the remaining space.
-			This leads to wasted memory space, which is unideal but not a big deal.
-			However, the algorithm to combine adjacent free blocks in freeMemory assumes that blocks of memory are always adjacent to each other.
-			It calculates the offset to the next/previous cmcb assuming it will lie immediately adjacent to the end of the previous block of memory.
-			This means that if there is a sliver of unused memory surrounding a free block, the merge algorithm will not calculate the offsets to the next/previous cmcbs correctly.
-			For this reason, we should always ensure there is enough memory to also store the new FMCB in the remaining space, or adjust the merge algorithm to avoid this.
-		*/
-		if (queue->size >= required /*+ sizeof(cmcb_s)*/) { // commented out for now because of another error
+		if (queue->size >= required) {
 			ref_size = queue->size;
 			break;
 		}
@@ -108,6 +100,7 @@ u32int allocateMemory(u32int size) {
 	ref_size = ref_size - required;
 	if ((ref_size < 1) || (sizeof(cmcb_s) > ref_size)) {
 		serial_println("No room to insert new FMCB");
+		newAMCB->size = newAMCB->size + ref_size; // avoid unused memory with no cmcb being left over in this case
 		return newAMCB->addr;
 	}
 
