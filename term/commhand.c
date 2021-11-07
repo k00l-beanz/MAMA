@@ -302,12 +302,12 @@ int cmd_alias(char *arg_str) {
 	if(args->unnamed_arg_count != 2) {
 		printf("Error: bad usage\n");
 		printf("Try: alias new_cmd_name alias_target\n");
-		//sys_free_mem(args);
+		sys_free_mem(args);
 		return 1;
 	}
 	if(strlen(args->unnamed_args[0]) > MAX_CMD_NAME_LEN || strlen(args->unnamed_args[1]) > MAX_CMD_NAME_LEN) {
 		printf("Error: command names longer than %i characters are not supported\n", MAX_CMD_NAME_LEN);
-		//sys_free_mem(args);
+		sys_free_mem(args);
 		return 1;
 	}
 
@@ -317,20 +317,20 @@ int cmd_alias(char *arg_str) {
 
 	if(cmd_count >= MAX_CMD_COUNT) {
 		printf("Error: maximum number of aliases reached\n");
-		//sys_free_mem(args);
+		sys_free_mem(args);
 		return 1;
 	}
 
 	cmd_func_t alias_target_handler = fetch_cmd_handler(args->unnamed_args[1]);
 	if(alias_target_handler == NULL) {
 		printf("Error: command %s not found\n", args->unnamed_args[1]);
-		//sys_free_mem(args);
+		sys_free_mem(args);
 		return 1;
 	}
 
 	if(fetch_cmd_handler(args->unnamed_args[0]) != NULL) {
 		printf("Error: command %s already exists; you cannot create another alias with this name\n", args->unnamed_args[0]);
-		//sys_free_mem(args);
+		sys_free_mem(args);
 		return 1;
 	}
 
@@ -339,6 +339,6 @@ int cmd_alias(char *arg_str) {
 		alias_target_handler
 	};
 
-	//sys_free_mem(args);
+	sys_free_mem(args);
 	return 0;
 }
