@@ -19,8 +19,9 @@
 typedef int (*cmd_func_t)(char *);
 
 typedef struct cmd_mapping {
-        char *cmd_name;
-        cmd_func_t cmd_handler;
+    char *cmd_name;
+    cmd_func_t cmd_handler;
+    char *default_args;
 } cmd_mapping;
 
 int cmd_alias(char *);
@@ -36,132 +37,162 @@ int cmd_alias(char *);
  * int my_handler_func(char *arg_str) { ... }
  */
 cmd_mapping cmd_mappings[MAX_CMD_COUNT] = {
-        {
-            "help",
-            &cmd_help
-        },
-        {
-            "shutdown",
-            &cmd_shutdown
-        },
-        {
-        	"version",
-        	&cmd_version
-        },
-        {
-        	"gettime",
-        	&gettime
-        },
-        {
-        	"settime",
-        	&settime
-        },
-        {
-        	"getdate",
-        	&getdate
-        },
-        {
-        	"setdate",
-        	&setdate
-        },
-		{
-			"echo",
-			&cmd_echo
-		},
-		{
-			"createpcb",
-			&createPCB
-		},
-		{
-			"deletepcb",
-			&deletePCB
-		},
-		{
-			"showpcb",
-			&showPCB
-		},
-		{
-			"showallpcb",
-			&showAll
-		},
-		{
-			"showreadypcb",
-			&showReady
-		},
-		{
-			"showblockedpcb",
-			&showBlocked
-		},
-		{
-			"blockpcb",
-			&blockPCB
-		},
-		{
-			"unblockpcb",
-			&unblockPCB
-		},
-		{
-			"setprioritypcb",
-			&setPriority
-		},
-		{
-			"resumepcb",
-			&resumePCB
-		},
-		{
-			"suspendpcb",
-			&suspendPCB
-		},
-		{
-			"resumeallpcb",
-			&resumeAll
-		},
-		{
-			"loadr3",
-			&loadr3
-		},
-		{
-			"setalarm",
-			&setAlarm
-		},
-		{
-			"showalarms",
-			&showAlarms
-		},
-		{
-			"freealarm",
-			&freeAlarm
-		},
-		{
-			"showalloc",
-			&showAllocated
-		},
-		{
-			"showfree",
-			&showFree
-		},
-		{
-			"isempty",
-			&isEmpty
-		},
+	{
+		"help",
+		&cmd_help,
+		""
+	},
+	{
+		"shutdown",
+		&cmd_shutdown,
+		""
+	},
+	{
+		"version",
+		&cmd_version,
+		""
+	},
+	{
+		"gettime",
+		&gettime,
+		""
+	},
+	{
+		"settime",
+		&settime,
+		""
+	},
+	{
+		"getdate",
+		&getdate,
+		""
+	},
+	{
+		"setdate",
+		&setdate,
+		""
+	},
+	{
+		"echo",
+		&cmd_echo,
+		""
+	},
+	{
+		"createpcb",
+		&createPCB,
+		""
+	},
+	{
+		"deletepcb",
+		&deletePCB,
+		""
+	},
+	{
+		"showpcb",
+		&showPCB,
+		""
+	},
+	{
+		"showallpcb",
+		&showAll,
+		""
+	},
+	{
+		"showreadypcb",
+		&showReady,
+		""
+	},
+	{
+		"showblockedpcb",
+		&showBlocked,
+		""
+	},
+	{
+		"blockpcb",
+		&blockPCB,
+		""
+	},
+	{
+		"unblockpcb",
+		&unblockPCB,
+		""
+	},
+	{
+		"setprioritypcb",
+		&setPriority,
+		""
+	},
+	{
+		"resumepcb",
+		&resumePCB,
+		""
+	},
+	{
+		"suspendpcb",
+		&suspendPCB,
+		""
+	},
+	{
+		"resumeallpcb",
+		&resumeAll,
+		""
+	},
+	{
+		"loadr3",
+		&loadr3,
+		""
+	},
+	{
+		"setalarm",
+		&setAlarm,
+		""
+	},
+	{
+		"showalarms",
+		&showAlarms,
+		""
+	},
+	{
+		"freealarm",
+		&freeAlarm,
+		""
+	},
+	{
+		"showalloc",
+		&showAllocated,
+		""
+	},
+	{
+		"showfree",
+		&showFree,
+		""
+	},
+	{
+		"isempty",
+		&isEmpty,
+		""
+	},
 	{
 		"arg-test",
-		&cmd_argtest
+		&cmd_argtest,
+		""
 	},
 	{
 		"clear",
-		&cmd_clear
+		&cmd_clear,
+		""
 	},
 	{
 		"alias",
-		&cmd_alias
+		&cmd_alias,
+		""
 	}
 };
 
 
 int is_name_char(char);
 void extract_cmd_name(char *, char *, int *, int *);
-cmd_func_t fetch_cmd_handler(char *);
+cmd_mapping *fetch_cmd_mapping(char *);
 
 extern pcb_queue_t *priority_queue;
 
@@ -233,16 +264,19 @@ void commhand() {
 			}
 		}
 
-		cmd_func_t handler = fetch_cmd_handler(cmd_name);
+		cmd_mapping *mapping = fetch_cmd_mapping(cmd_name);
 
 		int cmd_exit_code;
-		if(handler != NULL) {
-			char args[MAX_CMD_STRING_LEN];
+		if(mapping != NULL) {
+			int default_args_len = mapping->default_args != NULL ? strlen(mapping->default_args) : 0;
+			char args[default_args_len + strlen(cmd_str + args_start_index) + 1];
 			/* command handlers get a copy of the arguments string so that they are
 			 * free to modify it without affecting the command history
 			*/
-			strcpy(args, cmd_str + args_start_index);
-			cmd_exit_code = (*handler)(args);
+			if(default_args_len > 0)
+				strcpy(args, mapping->default_args); // note - this means argument strings passed to functions might not start with a space, although some expect this
+			strcpy(args + default_args_len, cmd_str + args_start_index);
+			cmd_exit_code = (mapping->cmd_handler)(args);
 		} else {
 			print("Unrecognized command: ", 22);
 			println(cmd_name, cmd_name_len);
@@ -264,11 +298,11 @@ void commhand() {
  * Procedure: fetch_cmd_handler
  * Description: Returns the associated command handler (as a function pointer) for the specified command
  */
-cmd_func_t fetch_cmd_handler(char *cmd_name) {	
+cmd_mapping *fetch_cmd_mapping(char *cmd_name) {	
 	int i = 0;
 	while(cmd_mappings[i].cmd_name != NULL) {
 		if(strcmp(cmd_name, cmd_mappings[i].cmd_name) == 0)
-			return (cmd_func_t)cmd_mappings[i].cmd_handler;
+			return &cmd_mappings[i];
 		i++;
 	}
 	return NULL;
@@ -301,7 +335,7 @@ int cmd_alias(char *arg_str) {
 	}
 	if(args->unnamed_arg_count != 2) {
 		printf("Error: bad usage\n");
-		printf("Try: alias new_cmd_name alias_target\n");
+		printf("Try: alias new_cmd_name alias_target [ -a \"optional arguments string\" ]\n");
 		sys_free_mem(args);
 		return 1;
 	}
@@ -321,22 +355,28 @@ int cmd_alias(char *arg_str) {
 		return 1;
 	}
 
-	cmd_func_t alias_target_handler = fetch_cmd_handler(args->unnamed_args[1]);
-	if(alias_target_handler == NULL) {
+	cmd_mapping *alias_target_mapping = fetch_cmd_mapping(args->unnamed_args[1]);
+	if(alias_target_mapping == NULL) {
 		printf("Error: command %s not found\n", args->unnamed_args[1]);
 		sys_free_mem(args);
 		return 1;
 	}
 
-	if(fetch_cmd_handler(args->unnamed_args[0]) != NULL) {
+	if(fetch_cmd_mapping(args->unnamed_args[0]) != NULL) {
 		printf("Error: command %s already exists; you cannot create another alias with this name\n", args->unnamed_args[0]);
 		sys_free_mem(args);
 		return 1;
 	}
 
+	char *default_args = NULL;
+	named_arg(args, "a", &default_args);
+	char *cmd_name = (char *)sys_alloc_mem(strlen(args->unnamed_args[0]) + 1);
+	strcpy(cmd_name, args->unnamed_args[0]);
+
 	cmd_mappings[cmd_count] = (cmd_mapping){
-		args->unnamed_args[0],
-		alias_target_handler
+		cmd_name,
+		alias_target_mapping->cmd_handler,
+		default_args
 	};
 
 	sys_free_mem(args);

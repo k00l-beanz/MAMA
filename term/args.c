@@ -25,6 +25,7 @@ void stack_pop();
 // returned args needs freed when done with
 parsed_args *parse_args(char *arg_str) {
 	parsed_args *args = (parsed_args *)sys_alloc_mem(sizeof(parsed_args));
+	memset(args, '\0', sizeof(parsed_args));
 	skip_ws(&arg_str);
 	
 	// The only lexeme we have to store and use a lookahead to figure out what to do with is PARAM_NAME,

@@ -27,5 +27,6 @@ int cmd_argtest(char *arg_str) {
 			printf("- %s\n", args->unnamed_args[i]);
 	}
 
+	sys_free_mem(args);
 	return 0;
 }

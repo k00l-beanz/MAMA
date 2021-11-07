@@ -9,6 +9,7 @@
 #include <mem/heap.h>
 #include <string.h>
 #include <core/serial.h>
+#include "../lib/out.h"
 
 // global variable containing parameter used when making 
 // system calls via sys_req
@@ -158,6 +159,7 @@ void *sys_alloc_mem(u32int size)
 */
 int sys_free_mem(void *ptr)
 {
+  //printf("sys_free_mem called\n");
   if (mem_module_active)
     return (*student_free)(ptr);
   // otherwise we don't free anything
