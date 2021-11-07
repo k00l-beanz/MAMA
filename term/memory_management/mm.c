@@ -232,33 +232,8 @@ void insertAMCB(cmcb_s * mcb) {
 	
 	// Organize by increasing address
 	cmcb_s * queue = amcb->mcbq_head;
-	do {
-		if(mcb->addr < queue->addr) {
-			mcb->prev = queue->prev;
-			mcb->next = queue;
-			queue->prev = mcb;
-			if(mcb->prev != NULL)
-				mcb->prev->next = mcb;
-			else
-				amcb->mcbq_head = mcb;
-			return;
-		}
-		if(queue->next != NULL)
-			queue = queue->next;
-	}
-	while (queue->next != NULL);
+	while (queue != NULL) {
 
-	queue->next = mcb;
-	mcb->prev = queue;
-
-	return;
-
-
-	// {
-
-		
-		//queue = queue->next;
-		/*
 		if (mcb->addr < queue->addr) {
 
 			// Is the newly inserted mcb address lower than the heads address?
@@ -285,9 +260,7 @@ void insertAMCB(cmcb_s * mcb) {
 		}
 
 		queue = queue->next;
-		*/
-	//}
-
+	}
 
 	serial_println("insertAMCB Error: MCB was not inserted");
 	return;
@@ -295,36 +268,6 @@ void insertAMCB(cmcb_s * mcb) {
 
 void insertFMCB(cmcb_s * mcb) {
 
-	// No allocated mcb's
-	if (fmcb->mcbq_head == NULL) {
-		fmcb->mcbq_head = mcb;
-		return;
-	}
-	
-	// Organize by increasing address
-	cmcb_s * queue = fmcb->mcbq_head;
-	do {
-		if(mcb->addr < queue->addr) {
-			mcb->prev = queue->prev;
-			mcb->next = queue;
-			queue->prev = mcb;
-			if(mcb->prev != NULL)
-				mcb->prev->next = mcb;
-			else
-				fmcb->mcbq_head = mcb;
-			return;
-		}
-		if(queue->next != NULL)
-			queue = queue->next;
-	}
-	while (queue->next != NULL);
-
-	queue->next = mcb;
-	mcb->prev = queue;
-
-	return;
-
-	/*
 	// Is there a head to the fmcb list?
 	if (fmcb->mcbq_head == NULL) {
 		fmcb->mcbq_head = mcb;
@@ -367,7 +310,6 @@ void insertFMCB(cmcb_s * mcb) {
 
 	serial_println("insertFMCB Error: MCB was not inserted");
 	return;
-	*/
 }
 
 int showAllocated(char *discard) {
