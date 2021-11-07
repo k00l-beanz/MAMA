@@ -59,8 +59,10 @@ pcb_t * allocatePCB() {
 
 int freePCB(pcb_t * pcb) {
 	// int free = sys_free_mem(pcb->pcb_stack_bottom);
-	int free = sys_free_mem(pcb);
-	return free;
+	//int free = sys_free_mem(pcb);
+	//return free;
+	(void)pcb;
+	return 0;
 }
 
 pcb_t * setupPCB(char * name, int process_class, int priority) {
@@ -144,6 +146,7 @@ int insertPCB(pcb_t * pcb) {
 			// node is replacing queue's current head
 			pcb_node_t *inserted_node = (pcb_node_t *)sys_alloc_mem(sizeof(pcb_node_t));
 			inserted_node->pcbn_next_pcb = node;
+			inserted_node->pcbn_prev_pcb = NULL;
 			inserted_node->pcb = pcb;
 			node->pcbn_prev_pcb = inserted_node;
 			queue->pcbq_head = inserted_node;
@@ -218,8 +221,11 @@ int removePCB(pcb_t * pcb) {
 	}
 	
 	// node is no longer needed and is not accessible - node can be freed
+	serial_println("about to call sys_free_mem in removePCB");
 	sys_free_mem(node);
-	
+	printf_debug("just returned from problematic sys_free_mem call\n");
+
+
 	return 0;
 }
 
@@ -369,13 +375,14 @@ int showPCB(char *args) {
 		sys_free_mem(parsed_args);
 		return 1;
 	}
-	sys_free_mem(parsed_args);
 
 	pcb_t *pcb = findPCB(pcb_name);
 	if(pcb == NULL) {
 		println("Error: PCB not found", 20);
+		sys_free_mem(parsed_args);
 		return 1;
 	}
+	sys_free_mem(parsed_args);
 
 	printf("Process %s - ", pcb->pcb_name);
 	switch(pcb->pcb_process_state) {
@@ -491,13 +498,14 @@ int suspendPCB(char *args) {
 		sys_free_mem(parsed_args);
 		return 1;
 	}
-	sys_free_mem(parsed_args);
 
 	pcb_t *pcb = findPCB(pcb_name);
 	if(pcb == NULL) {
 		printf("Error: PCB not found\n");
+		sys_free_mem(parsed_args);
 		return 1;
 	}
+	sys_free_mem(parsed_args);
 
 	removePCB(pcb);
 	switch(pcb->pcb_process_state) {
@@ -527,13 +535,14 @@ int resumePCB(char *args) {
 		sys_free_mem(parsed_args);
 		return 1;
 	}
-	sys_free_mem(parsed_args);
 
 	pcb_t *pcb = findPCB(pcb_name);
 	if(pcb == NULL) {
 		printf("Error: PCB not found\n");
+		sys_free_mem(parsed_args);
 		return 1;
 	}
+	sys_free_mem(parsed_args);
 
 	removePCB(pcb);
 	switch(pcb->pcb_process_state) {
@@ -565,13 +574,14 @@ int deletePCB(char *args) {
 		sys_free_mem(parsed_args);
 		return 1;
 	}
-	sys_free_mem(parsed_args);
 
 	pcb_t *pcb = findPCB(pcb_name);
 	if(pcb == NULL) {
 		printf("Error: PCB not found\n");
+		sys_free_mem(parsed_args);
 		return 1;
 	}
+	sys_free_mem(parsed_args);
 
 	if(pcb->pcb_protection_mode == NOT_DELETABLE) {
 		printf("Error: Process %s cannot be deleted\n", pcb->pcb_name);
@@ -601,13 +611,14 @@ int blockPCB(char *args) {
 		sys_free_mem(parsed_args);
 		return 1;
 	}
-	sys_free_mem(parsed_args);
 
 	pcb_t *pcb = findPCB(pcb_name);
 	if(pcb == NULL) {
 		printf("Error: PCB not found\n");
+		sys_free_mem(parsed_args);
 		return 1;
 	}
+	sys_free_mem(parsed_args);
 
 	removePCB(pcb);
 	switch(pcb->pcb_process_state) {
