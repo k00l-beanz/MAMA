@@ -155,14 +155,6 @@ cmd_mapping cmd_mappings[MAX_CMD_COUNT] = {
 	{
 		"alias",
 		&cmd_alias
-	},
-	{
-		"manualfree",
-		&manual_free
-	},
-	{
-		"manualalloc",
-		&manual_alloc
 	}
 };
 

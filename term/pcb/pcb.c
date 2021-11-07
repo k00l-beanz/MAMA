@@ -221,10 +221,7 @@ int removePCB(pcb_t * pcb) {
 	}
 	
 	// node is no longer needed and is not accessible - node can be freed
-	serial_println("about to call sys_free_mem in removePCB");
 	sys_free_mem(node);
-	printf_debug("just returned from problematic sys_free_mem call\n");
-
 
 	return 0;
 }

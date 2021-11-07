@@ -80,44 +80,6 @@ void printf(char *str, ...) {
 	va_end(args);
 }
 
-void printf_debug(char *str, ...) {
-	va_list args;
-	va_start(args, str);
-	
-	int len = strlen(str);
-	char buf[len + 1];
-
-	int i, j;
-	for(i = 0, j = 0; str[i] != '\0'; i++) {
-		if(str[i] != '%') {
-			buf[j] = str[i];
-			j++;
-		} else {
-			buf[j] = '\0';
-			serial_print(buf);
-			j = 0;
-			
-			i++;
-			
-			switch(str[i]) {
-				case 'i':
-					serial_print(itoa(va_arg(args, int)));
-					break;
-				case 's':
-					serial_print(va_arg(args, char *));
-					break;
-				default:
-					printf_debug("Illegal format string %%%c\n", str[i]);
-					return;
-			}
-		}
-	}
-	buf[j] = '\0';
-	serial_print(buf);
-
-	va_end(args);
-}
-
 /*
  * Procedure: read()
  * Description: Reads *buf into serial input.
