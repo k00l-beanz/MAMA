@@ -1,0 +1,41 @@
+The Serial Port Driver
+Note: This module fucking sucks
+This starts at R6.4 in the .doc file since they claim its similar to a 'cook-book'. We'll see....
+
+- Serial driver must support both input and output via a serial port
+- Consists of:
+	- Four control procedures
+	- Interrupt handler
+	- Set of data structures
+- Control procedures perform standard operations:
+	- open (initialize) the port
+	- close the port
+	- read and write a block of characters
+- We need to implement a 'ring buffer'
+
+Device Registers
+- We are creating a synchronous device drivers. EVERYTHING WE DO MUST MATCH UP. We don't have to implement everything below, but what we implement must be on both
+  the receving and sending device.
+	- Transmission speeds (baud)
+	- The high-order bit can be used as data or as an error-checking (parity) bit
+	- We can also do framing bits
+	- Flow control: Receiving device tells the sending device when it is unable to accept more data
+
+- Communication mechanisms required for a serial port are often implemented by a special type of chip called Universal Asynchronous Receiver-Transmitter (UART).
+- The MPX version of UART is called the INS8250 Asynchronous Communications Controller, or ACC
+- The ACC includes:
+	- 8-bit input and an 8-bit output register
+	- 16-bit control register which specifies the speed (baud)
+	- Three additional 8-bit control registers.
+		- Interrupt enable register: Used to enable/disable each of the interrupt types associated with the port
+		- Line Control: Used to primarily set options such as parity and the number of data bits
+		- Modem Control: Controls options that are needed if the port is conected to a remote communication device. Also provides a universal enable/disable for serial port interrupts
+	- Three 8-bit status registers:
+		- Interrupt ID: indicates if an interrupt has occured and what type
+		- Line status: indicates the ready status of the port for input and output
+		- Modem status: indicates various status values associated with a communication device
+- Baud rate divisor register must be loaded with a special value which indirectly specifies the desired baud rate. The serial port clock speed is fixed at 1.8432 MHz, or 1,843,200 ticks per second
+	baud_rate_div = 115200 / (long) baud_rate
+- where baud_rate is the desired rate.
+- Baud rates supported by the ACC are: 110, 150, 300, 600, 1200, 2400, 4800, 9600, and 19,200. It is recommended we use 1200. The same speed for both input and output devices
+- We are using COM1. The base address is 0x3F8 (IBM products)
