@@ -39,3 +39,95 @@ Device Registers
 - where baud_rate is the desired rate.
 - Baud rates supported by the ACC are: 110, 150, 300, 600, 1200, 2400, 4800, 9600, and 19,200. It is recommended we use 1200. The same speed for both input and output devices
 - We are using COM1. The base address is 0x3F8 (IBM products)
+
+- Five registers are associated with the first two port addresses in a peculiar way. Base+1 I/O port is used to access the interrupt enable register.
+- The remaining assignments are permanent and straightforward. They are:
+	base+2: Interrupt ID register
+	base+3: Line Control Register
+	base+4: Modem Control register
+	base+5: Line Status Register
+	base+6: Modem status register
+
+- ACC provides four different interrupt types. All are associated with a single interrupt vector and a sincle PIC level
+- For serial port 1 and 2 are:
+		Interrupt ID	Vector Addr.	PIC Level
+	COM1	0Ch		0030h		4
+	COM2	0Bh		002Ch		3
+
+- Two interrupt types are associated with device ready conditions:
+	- The receiver data available interrupt occurs when a new input character is available
+	- Transmitter Holding Register Empty interrupt occurs when the output register has become free
+		- These interrupts are referred to as input ready and output ready respectively
+
+- Because there are multiple interrupt types but only one vector, a serial port interrupt handler must have a first-level, second-level structure.
+	- Firt level reads the interrupt ID register to determine the specific interrupt type
+	- Each second level handler must perform a characteristic action to clear the specific interrupt
+		Interrupt		Action to Clear
+		Input Ready		Read the receiver buffer
+		Output Ready		None; already cleared by reading the interrupt ID register
+		Line Status		Read the Line Status register
+		Modem Status		Read the Modem Status Register
+
+Data Structures
+- Principle data structure required by the serial port driver is Device Control Block
+	- Flag indicating whether the port is open
+	- Pointer to associated event flag, this flag is set to 0 at the beginning of an operation, and set to 1 to indicate when the operation is complete
+	- Status code, with values IDLE, READING and WRITING
+	- Address and counters associated with the current input buffer
+	- Addresses and counters associated with the current output buffer
+	- An array to be used as the input ring buffer, with associated input index, output index, and counter
+
+Actual coding stuff below
+=========================
+	
+int com_open(int * eflag_p, int baud_rate)
+==========================================
+eflag_p : a pointer to an integer event flag within the calling program
+baud_rate : desired baud rate
+- This method should do the following:
+	- Initialize the DCB
+	- Set the new interrupt handler address into the interrupt vector
+	- Compute and store the baud rate divisor
+	- Set other necessary line characteristics
+	- Enable all necessary interrupts
+- Note: As soon as the device is opened, characters will begin to be accepted in the ring buffer. It should not be necessary to wait until com_read has been called
+- If there is no error, the value returned should be 0. Otherwise, one of the following error codes should be returned:
+	-101	invalid (null) event flag pointer
+	-102	invalid baud rate divisor
+	-103	port already open
+- See init_serial in kernel/core/serial.c for a sample on serial initialization
+[+] On page 22 of the .doc file there is a step-by-step list of things that need to happen for this method.
+
+int com_close(void)
+==================
+- called at the end of a session of serial port use.
+- If there is no error, the value returned should be zero. Otherwise, the following error code returned should be:
+	-201	serial port not open
+[+] On page 23 of the .doc file there is a step-by-step list of things that need to happen for this method.
+
+int com_read(char * buf_p, int * count_p)
+========================================
+buf_p : far pointer to the starting address of teh buffer to receive all the input characters
+count_p : the address of an integer count value indicating the number of characters to be read
+- This method obtains input characters and loads them into the requestor's buffer
+- Input characters must first be obtained from teh ring buffer, if any are pending
+- If no error, the value returned should be zero. Otherwise, one of the following error codes should be returned:
+	-301	port not open
+	-302	invalid buffer address
+	-303	invalid count address or count value
+	-304	device busy
+[+] On page 24 of the .doc file there is a step-by-step list of things that need to heppen fro this method.
+
+int com_write(char * buf_p, int * count_p)
+=========================================
+buf_p : pointer to the starting address of the buffer containing the block of characters to be written
+count_p : address of an integer count value indicating the number of characters to be transferred
+- Damn I'm getting tired of typing so...
+[+] On page 25 lists the appropriate error codes and steps to implement this fucking method
+
+The Interrupt Handler
+====================
+[+] Steps and what not start on page 26
+
+Conclusion
+- I have read this entire .doc file and still have no fucking clue what to do
