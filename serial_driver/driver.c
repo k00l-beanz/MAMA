@@ -13,6 +13,8 @@
 #define MODEM_STATUS_REGISTER 6
 #define SCRATCH_REGISTER 7
 
+#define PIC_MASK 0x21;
+
 #define RING_BUFFER_SIZE 100
 
 typedef enum {
@@ -36,17 +38,18 @@ typedef struct dcb_t {
 
 	device_status_t oper_status;
 
-	char *user_buf;
+	char *user_read_buf;
+	int *user_read_count;
 
-	int *user_count;
+	char *user_write_buf;
+	int *user_write_count;
+
+	char ring_buffer[RING_BUFFER_SIZE];
+	int ring_buffer_head = 0;
+	int ring_buffer_tail = 0;
 } dcb_t;
 
 const dcb_t *COM1_control_block = NULL;
-
-// TODO: should this be part of the DCB? I think it might
-char ring_buffer[RING_BUFFER_SIZE];
-int ring_buffer_head = 0;
-int ring_buffer_tail = 0;
 
 // return codes for all functions are defined by the r6 document
 
@@ -85,8 +88,8 @@ int com_open(int *eflag_p, int baud_rate) {
 	COM1_control_block->oper_status = IDLE;
 	COM1_control_block->user_buf = NULL;
 	COM1_control_block->user_count = NULL;
-	ring_buffer_head = 0;
-	ring_buffer_tail = 0;
+	COM1_control_block->ring_buffer_head = 0;
+	COM1_control_block->ring_buffer_tail = 0;
 
 	// 3.	Save the address of the current interrupt handler, and install the new handler in the interrupt vector.
 	// TODO: this ^^^
@@ -105,7 +108,9 @@ int com_open(int *eflag_p, int baud_rate) {
 	outb(BASE + LINE_CONTROL_REGISTER, 0x03);
 
 	// 8.	Enable the appropriate level in the PIC mask register.
-	// lol what
+	disable(); // example document had these function calls, not sure if they are needed or what they do
+	outb(PIC_MASK, inb(PIC_MASK) & ~0b1000); // PIC level for COM1 is 4, not sure if this is the right way to set it or not though
+	enable();
 
 	// 9.	Enable overall serial port interrupts by storing the value 0x08 in the Modem Control register. 
 	outb(BASE + MODEM_CONTROL_REGISTER, 0x08);
@@ -165,10 +170,10 @@ int com_read(char *buf, int *count) {
 	// 5.	Copy characters from the ring buffer to the requestor's buffer, until the ring buffer is emptied, the requested count has been reached, or a CR (ENTER) code has been found. The copied characters should, of course, be removed from the ring buffer. Either input interrupts or all interrupts should be disabled during the copying. 
 	outb(BASE + INTERRUPT_ENABLE_REGISTER, 0x0); // disable input interrupts TODO: this might clear the write interrupt bit and not reset it
 
-	while(actual_count < *count && ring_buffer_head != ring_buffer_tail) {
-		char next = ring_buffer[ring_buffer_head];
-		ring_buffer[ring_buffer_head] = '\0'; // I don't think this is actually necessary, but it says to do it
-		ring_buffer_head = ring_buffer_head == RING_BUFFER_SIZE - 1 ? 0 : ring_buffer_head + 1;
+	while(actual_count < *count && COM1_control_block->ring_buffer_head != COM1_control_block->ring_buffer_tail) {
+		char next = COM1_control_block->ring_buffer[COM1_control_block->ring_buffer_head];
+		COM1_control_block->ring_buffer[COM1_control_block->ring_buffer_head] = '\0'; // I don't think this is actually necessary, but it says to do it
+		COM1_control_block->ring_buffer_head = COM1_control_block->ring_buffer_head == RING_BUFFER_SIZE - 1 ? 0 : COM1_control_block->ring_buffer_head + 1;
 
 		if(next == '\n')
 			break;
@@ -210,8 +215,8 @@ int com_write(char *buf, int *count) {
 	}
 
 	// 3.	Install the buffer pointer and counters in the DCB, and set the current status to writing. 
-	COM1_control_block->user_buf = buf;
-	COM1_control_block->user_count = count;
+	COM1_control_block->user_write_buf = buf;
+	COM1_control_block->user_write_count = count;
 	COM1_control_block->oper_status = WRITING;
 
 	// 4.	Clear the caller's event flag. 
