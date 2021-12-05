@@ -13,6 +13,8 @@
 #define MODEM_STATUS_REGISTER 6
 #define SCRATCH_REGISTER 7
 
+#define RING_BUFFER_SIZE 100
+
 typedef enum {
 	OPEN,
 
@@ -37,9 +39,12 @@ typedef struct dcb_t {
 
 const dcb_t *COM1_control_block = NULL;
 
-// whats a ring buffer and where does that go
+char ring_buffer[RING_BUFFER_SIZE];
+int ring_buffer_head = 0;
+int ring_buffer_tail = 0;
 
-// return codes are defined by the r6 document
+// return codes for all functions are defined by the r6 document
+
 // TODO: disable interrupts at beginning, reenable at end?
 int com_open(int *eflag_p, int baud_rate) {
 	// 1.	Ensure that the parameters are valid, and that the device is not currently open.
@@ -62,7 +67,7 @@ int com_open(int *eflag_p, int baud_rate) {
 		default:
 			return -102; // invalid baud rate divisor
 	}
-	if(COM1_control_block != NULL && COM1_control_block->ready_state != OPEN) {
+	if(COM1_control_block != NULL && COM1_control_block->ready_state != CLOSED) {
 		return -103; // already open
 	}
 
@@ -73,7 +78,8 @@ int com_open(int *eflag_p, int baud_rate) {
 	COM1_control_block->eflag_p = eflag_p;
 	COM1_control_block->ready_state = OPEN;
 	COM1_control_block->oper_status = IDLE;
-	// TODO: initialize ring buffer, whatever that is
+	ring_buffer_head = 0;
+	ring_buffer_tail = 0;
 
 	// 3.	Save the address of the current interrupt handler, and install the new handler in the interrupt vector.
 	// TODO: this ^^^
@@ -104,11 +110,78 @@ int com_open(int *eflag_p, int baud_rate) {
 }
 
 int com_close() {
+	// 1.	Ensure that the port is currently open.
+	if(COM1_control_block == NULL || COM1_control_block->ready_state != OPEN) {
+		return -201; // not open
+	}
+
+	// 2.	Clear the open indicator in the DCB.
+	COM1_control_block->ready_state = CLOSED;
+
+	// 3.	Disable the appropriate level in the PIC mask register. 
+	// TODO
+
+	// 4.	Disable all interrupts in the ACC by loading zero values to the Modem Status register and the Interrupt Enable register.
+	outb(BASE + MODEM_STATUS_REGISTER, 0x0);
+	outb(BASE + INTERRUPT_ENABLE_REGISTER, 0x0);
+
+	// 5.	Restore the original saved interrupt vector. 
+	// TODO
+
 	return 0;
 }
 
 int com_read(char *buf, int *count) {
+	// 1.	Validate the supplied parameters.
+	if(buf == NULL) {
+		return -302; // invalid buffer address
+	}
+	if(count == NULL || *count <= 0) {
+		return -303; // invalid count address or count value
+	}
 
+	// 2.	Ensure that the port is open, and the status is idle.
+	if(COM1_control_block == NULL || COM1_control_block->ready_state != OPEN) {
+		return -301; // port not open
+	}
+	if(COM1_control_block->oper_status != IDLE) {
+		return -304; // device busy
+	}
+
+	// 3.	Initialize the input buffer variables (not the ring buffer!) and set the status to reading. 
+	int actual_count = 0;
+	COM1_control_block->oper_status = READING;
+
+	// 4.	Clear the caller's event flag. 
+	*(COM1_control_block->eflag_p) = 0; // is this what it means?
+
+	// 5.	Copy characters from the ring buffer to the requestor's buffer, until the ring buffer is emptied, the requested count has been reached, or a CR (ENTER) code has been found. The copied characters should, of course, be removed from the ring buffer. Either input interrupts or all interrupts should be disabled during the copying. 
+	outb(BASE + INTERRUPT_ENABLE_REGISTER, 0x0); // disable input interrupts
+
+	while(actual_count < *count && ring_buffer_head != ring_buffer_tail) {
+		char next = ring_buffer[ring_buffer_head];
+		ring_buffer[ring_buffer_head] = '\0'; // I don't think this is actually necessary, but it says to do it
+		ring_buffer_head = ring_buffer_head == RING_BUFFER_SIZE - 1 ? 0 : ring_buffer_head + 1;
+
+		if(next == '\n')
+			break;
+
+		actual_count++;
+	}
+
+	outb(BASE + INTERRUPT_ENABLE_REGISTER, 0x1); // reenable input interrupts
+
+	// 6.	If more characters are needed, return. If the block is complete, continue with step 7. 
+	if(actual_count < *count)
+		return;
+
+	// 7.	Reset the DCB status to idle, set the event flag, and return the actual count to the requestor's variable. 
+	COM1_control_block->oper_status = IDLE;
+	*(COM1_control_block->eflag_p) = 1; // again, not sure what it wants here but i think its this
+	*count = actual_count;
+	// TODO: should we be nice and null-terminate before returning? or will that break something
+
+	return 0;
 }
 
 int com_write(char *buf, int *count) {
