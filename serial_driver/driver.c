@@ -35,10 +35,15 @@ typedef struct dcb_t {
 	device_ready_state_t ready_state;
 
 	device_status_t oper_status;
+
+	char *user_buf;
+
+	int *user_count;
 } dcb_t;
 
 const dcb_t *COM1_control_block = NULL;
 
+// TODO: should this be part of the DCB? I think it might
 char ring_buffer[RING_BUFFER_SIZE];
 int ring_buffer_head = 0;
 int ring_buffer_tail = 0;
@@ -78,6 +83,8 @@ int com_open(int *eflag_p, int baud_rate) {
 	COM1_control_block->eflag_p = eflag_p;
 	COM1_control_block->ready_state = OPEN;
 	COM1_control_block->oper_status = IDLE;
+	COM1_control_block->user_buf = NULL;
+	COM1_control_block->user_count = NULL;
 	ring_buffer_head = 0;
 	ring_buffer_tail = 0;
 
@@ -156,7 +163,7 @@ int com_read(char *buf, int *count) {
 	*(COM1_control_block->eflag_p) = 0; // is this what it means?
 
 	// 5.	Copy characters from the ring buffer to the requestor's buffer, until the ring buffer is emptied, the requested count has been reached, or a CR (ENTER) code has been found. The copied characters should, of course, be removed from the ring buffer. Either input interrupts or all interrupts should be disabled during the copying. 
-	outb(BASE + INTERRUPT_ENABLE_REGISTER, 0x0); // disable input interrupts
+	outb(BASE + INTERRUPT_ENABLE_REGISTER, 0x0); // disable input interrupts TODO: this might clear the write interrupt bit and not reset it
 
 	while(actual_count < *count && ring_buffer_head != ring_buffer_tail) {
 		char next = ring_buffer[ring_buffer_head];
@@ -166,6 +173,7 @@ int com_read(char *buf, int *count) {
 		if(next == '\n')
 			break;
 
+		buf[actual_count] = next;
 		actual_count++;
 	}
 
@@ -179,11 +187,41 @@ int com_read(char *buf, int *count) {
 	COM1_control_block->oper_status = IDLE;
 	*(COM1_control_block->eflag_p) = 1; // again, not sure what it wants here but i think its this
 	*count = actual_count;
-	// TODO: should we be nice and null-terminate before returning? or will that break something
+	// TODO: should we be nice and null-terminate the caller's buffer before returning? or will that break something
 
 	return 0;
 }
 
 int com_write(char *buf, int *count) {
+	// 1.	Ensure that the input parameters are valid.
+	if(buf == NULL) {
+		return -402; // invalid buffer address
+	}
+	if(count == NULL || *count <= 0) {
+		return -403; // invalid count address or count value
+	}
 
+	// 2.	Ensure that the port is currently open and idle. 
+	if(COM1_control_block == NULL || COM1_control_block->ready_state != OPEN) {
+		return -401; // serial port not open
+	}
+	if(COM1_control_block->oper_status != IDLE) {
+		return -404; // device busy
+	}
+
+	// 3.	Install the buffer pointer and counters in the DCB, and set the current status to writing. 
+	COM1_control_block->user_buf = buf;
+	COM1_control_block->user_count = count;
+	COM1_control_block->oper_status = WRITING;
+
+	// 4.	Clear the caller's event flag. 
+	*(COM1_control_block->eflag_p) = 0;
+
+	// 5.	Get the first character from the requestor's buffer and store it in the output register. 
+	outb(BASE, buf[0]);
+
+	// 6.	Enable write interrupts by setting bit 1 of the Interrupt Enable register. This must be done by setting the register to the logical or of its previous contents and 0x02.
+	outb(BASE + INTERRUPT_ENABLE_REGISTER, inb(BASE + INTERRUPT_ENABLE_REGISTER) | 0x02);
+
+	return 0;
 }
