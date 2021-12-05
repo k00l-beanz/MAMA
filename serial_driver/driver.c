@@ -86,8 +86,10 @@ int com_open(int *eflag_p, int baud_rate) {
 	COM1_control_block->eflag_p = eflag_p;
 	COM1_control_block->ready_state = OPEN;
 	COM1_control_block->oper_status = IDLE;
-	COM1_control_block->user_buf = NULL;
-	COM1_control_block->user_count = NULL;
+	COM1_control_block->user_read_buf = NULL;
+	COM1_control_block->user_read_count = NULL;
+	COM1_control_block->user_write_buf = NULL;
+	COM1_control_block->user_write_count = NULL;
 	COM1_control_block->ring_buffer_head = 0;
 	COM1_control_block->ring_buffer_tail = 0;
 
