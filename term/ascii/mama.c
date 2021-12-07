@@ -1,7 +1,7 @@
 
 #include "mama.h"
 #include "term/dnt/dnt.h"
-
+/*
 void mama() {
 	printf("         !#QE$fr    #$FG$Aa             \n"
 		   "        3FV$454gv  #W@fdafVE            \n"
@@ -14,11 +14,11 @@ void mama() {
 		   " NVEUI&*(234     0     JFNE#342FJEOj     AE\n"
 		   " asb#*&*@$&*           *(*34hjh3fh34    NAVD@#@!*&&\n");
 }
-
-/*
-void mama() {
-	print("\n░█▀▄▀█ ─█▀▀█ ░█▀▄▀█ ─█▀▀█\n"
-		  "░█░█░█ ░█▄▄█ ░█░█░█ ░█▄▄█\n"
-		  "░█──░█ ░█─░█ ░█──░█ ░█─░█\n\n",80);
-}
 */
+
+void mama() {
+	printf("\n░█▀▄▀█ ─█▀▀█ ░█▀▄▀█ ─█▀▀█\n"
+		  "░█░█░█ ░█▄▄█ ░█░█░█ ░█▄▄█\n"
+		  "░█──░█ ░█─░█ ░█──░█ ░█─░█\n\n");
+}
+

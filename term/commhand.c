@@ -185,13 +185,8 @@ extern pcb_queue_t *priority_queue;
  * @return Returns 0 upon success, -1 upon error
 */
 void commhand() {
-	int four = 1;
-	serial_println("immediately before sys_req WRITE");
-	sys_req(WRITE, DEFAULT_DEVICE, "wow!!!", &four);
-	serial_println("immediately after sys_req WRITE");
-	sys_req(EXIT, DEFAULT_DEVICE, NULL, NULL);
-	// I changed the return type from 'int' to 'void' so I can call
-	// commhand using the dispatcher in kmain.c
+	mama();
+
 	syntax_init();
 
 	char cmd_name[MAX_CMD_NAME_LEN + 1];
@@ -206,7 +201,7 @@ void commhand() {
 	while(running) {
 		/* Prints prompt */
 		display_fg_color(GREEN);
-		print("~--> ", 5);
+		printf("~--> ");
 		display_reset();
 
 		/* Reads in user input */

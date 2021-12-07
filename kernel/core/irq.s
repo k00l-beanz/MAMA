@@ -23,7 +23,6 @@
 [GLOBAL page_fault]
 [GLOBAL reserved]
 [GLOBAL coprocessor]
-[GLOBAL com_interrupt]
 [GLOBAL rtc_isr]
 [GLOBAL sys_call_isr]
 
@@ -45,7 +44,6 @@ extern do_general_protection
 extern do_page_fault
 extern do_reserved
 extern do_coprocessor
-extern com_handle_interrupt
 extern sys_call
 
 ; RTC interrupt handler
@@ -116,10 +114,6 @@ reserved:
 	iret
 coprocessor:
 	call do_coprocessor
-	iret
-
-com_interrupt:
-	call com_handle_interrupt
 	iret
 
 ;;; System call interrupt handler. Pushes all the x86 registers

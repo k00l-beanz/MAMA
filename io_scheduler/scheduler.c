@@ -6,19 +6,24 @@
 iocb_t *COM1_queue;
 
 void io_refresh_queue() {
-	serial_println("top of io_refresh_queue");
+	//serial_println("top of io_refresh_queue");
 	iocb_t *node = COM1_queue;
 	while(node != NULL) {
+		//serial_println("found node");
 		if(node->e_flag) {
+			//serial_println("found eflag");
 			removePCB(node->pcb);
 			node->pcb->pcb_process_state = READY;
 			insertPCB(node->pcb);
+
+			iocb_t *prev = node;
+			node = node->next;
+			io_dequeue(prev);
+			continue;
 		}
-		iocb_t *prev = node;
 		node = node->next;
-		io_dequeue(prev);
 	}
-	if(COM1_control_block != NULL && COM1_control_block->oper_status == DEVICE_IDLE) {
+	if(COM1_control_block != NULL && COM1_control_block->ready_state == OPEN && COM1_control_block->oper_status == DEVICE_IDLE) {
 		com_close();
 	}
 }
@@ -57,6 +62,7 @@ void io_enqueue(iocb_t *control_block) {
 }
 
 void io_dequeue(iocb_t *control_block) {
+	//serial_println("dequeuing");
 	if(control_block == COM1_queue) {
 		COM1_queue = control_block->next;
 		sys_free_mem(control_block);
@@ -79,19 +85,19 @@ void io_dequeue(iocb_t *control_block) {
 
 void io_try_start_next() {
 	if(COM1_control_block == NULL || COM1_control_block->ready_state == CLOSED) {
-		serial_println("try start next: ready for next");
+		//serial_println("try start next: ready for next");
 		iocb_t *next = COM1_queue;
 		if(next != NULL) {
-			serial_println("try start next: COM1 queue not empty");
+			//serial_println("try start next: COM1 queue not empty");
 			com_open(&(next->e_flag), DEFAULT_BAUD_RATE);
-			serial_println("cp 1");
+			//serial_println("cp 1");
 			if(next->type == READ_REQUEST) {
-				serial_println("cp 2");
+				//serial_println("cp 2");
 				com_read(next->buf, next->count);
 			} else {
-				serial_println("cp 3");
+				//serial_println("cp 3");
 				com_write(next->buf, next->count);
 			}
-		} else { serial_println("try start next: COM1 queue empty "); }
-	} else { serial_println("try start next: not ready for next"); }
+		} else { /*serial_println("try start next: COM1 queue empty ");*/ }
+	} else { /*serial_println("try start next: not ready for next");*/ }
 }

@@ -63,20 +63,9 @@ void kpanic(const char * msg) {
  * 
  */
 u32int * sys_call(context * registers) {
-    serial_println("top of sys call");
+    //serial_println("top of sys call");
+    cli();
     io_refresh_queue();
-
-    pcb_t * pcb = NULL;
-
-	// fetch next node to switch to, remove from ready queue
-	pcb_node_t * node = priority_queue -> pcbq_head;
-	while (node != NULL && node -> pcb -> pcb_process_state != READY) {
-		node = node -> pcbn_next_pcb;
-	}
-	if(node != NULL) {
-		pcb = node -> pcb;
-		removePCB(pcb);
-	}
 
     //Is there a currently operating process? 
     if (cop == NULL) {
@@ -113,16 +102,30 @@ u32int * sys_call(context * registers) {
 
     io_try_start_next();
 
-    serial_println("left io_try_start_next");
+    //serial_println("left io_try_start_next");
 
+    pcb_t * pcb = NULL;
+
+    // fetch next node to switch to, remove from ready queue
+    pcb_node_t * node = priority_queue -> pcbq_head;
+    while (node != NULL && node -> pcb -> pcb_process_state != READY) {
+        node = node -> pcbn_next_pcb;
+    }
+    if(node != NULL) {
+        pcb = node -> pcb;
+        removePCB(pcb);
+    }
+    sti();
     // There is a READY pcb
     if (pcb != NULL) {
         cop = pcb;
         cop -> pcb_process_state = RUNNING;
-        serial_println("next PCB to schedule: ");
-        serial_println(pcb->pcb_name);
-        serial_println("about to return from sys_call");
+        //serial_println("next PCB to schedule: ");
+        //serial_println(pcb->pcb_name);
+        //serial_println("about to return from sys_call");
+        
         return (u32int * ) cop -> pcb_stack_top;
     }
+    //serial_println("about to return from sys_call the other way");
     return (u32int * ) global_context;
 }

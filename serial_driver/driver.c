@@ -18,6 +18,9 @@
 #define PIC_END_OF_INTERRUPT_REGISTER 0x20
 #define PIC_SIGNAL_END_OF_INTERRUPT_CODE 0x20
 
+#define INTERRUPT_ID_OUTPUT_READY 0b01
+#define INTERRUPT_ID_INPUT_READY_BIT 4
+
 #define RING_BUFFER_SIZE 100
 
 typedef enum {
@@ -46,6 +49,7 @@ typedef struct dcb_t {
 
 	char *user_write_buf;
 	int *user_write_count;
+	int user_write_progress;
 
 	char ring_buffer[RING_BUFFER_SIZE];
 	int ring_buffer_head;
@@ -54,7 +58,6 @@ typedef struct dcb_t {
 
 dcb_t *COM1_control_block = NULL;
 
-extern void com_interrupt();
 int com_handle_interrupt();
 
 // return codes for all functions are defined by the r6 document
@@ -96,12 +99,13 @@ int com_open(int *eflag_p, int baud_rate) {
 	COM1_control_block->user_read_count = NULL;
 	COM1_control_block->user_write_buf = NULL;
 	COM1_control_block->user_write_count = NULL;
+	COM1_control_block->user_write_progress = 0;
 	COM1_control_block->ring_buffer_head = 0;
 	COM1_control_block->ring_buffer_tail = 0;
 
 	// 3.	Save the address of the current interrupt handler, and install the new handler in the interrupt vector.
 	// TODO: save current address part
-	idt_set_gate(0x30, (u32int)com_interrupt, 0x08, 0x8e);
+	idt_set_gate(0x24, (u32int)com_handle_interrupt, 0x08, 0x8e);
 
 	// 4.	Compute the required baud rate divisor.
 	int baud_rate_divisor = 115200 / (long) baud_rate;
@@ -117,9 +121,9 @@ int com_open(int *eflag_p, int baud_rate) {
 	outb(BASE + LINE_CONTROL_REGISTER, 0x03);
 
 	// 8.	Enable the appropriate level in the PIC mask register.
-	//disable(); // example document had these function calls, not sure if they are needed or what they do
+	cli();
 	outb(PIC_MASK, inb(PIC_MASK) & ~0b10000); // PIC level for COM1 is 4, not sure if this is the right way to set it or not though
-	//enable();
+	sti();
 
 	// 9.	Enable overall serial port interrupts by storing the value 0x08 in the Modem Control register. 
 	outb(BASE + MODEM_CONTROL_REGISTER, 0x08);
@@ -234,17 +238,63 @@ int com_write(char *buf, int *count) {
 	// 5.	Get the first character from the requestor's buffer and store it in the output register. 
 	outb(BASE, buf[0]);
 
+	COM1_control_block->user_write_progress++;
+
 	// 6.	Enable write interrupts by setting bit 1 of the Interrupt Enable register. This must be done by setting the register to the logical or of its previous contents and 0x02.
 	outb(BASE + INTERRUPT_ENABLE_REGISTER, inb(BASE + INTERRUPT_ENABLE_REGISTER) | 0x02);
 
 	return 0;
 }
 
+
+// -------------------------- interrupt handlers --------------------------
+
+int com_handle_interrupt_read() {
+	return 0;
+}
+
+int com_handle_interrupt_write() {
+	if(COM1_control_block == NULL || COM1_control_block->oper_status != DEVICE_WRITING) {
+		return 1;
+	}
+
+	if(COM1_control_block->user_write_progress < *(COM1_control_block->user_write_count)) {
+		// not done
+		outb(BASE, COM1_control_block->user_write_buf[COM1_control_block->user_write_progress]);
+		COM1_control_block->user_write_progress++;
+	} else {
+		// done
+		//serial_println("done");
+		COM1_control_block->oper_status = DEVICE_IDLE;
+		*(COM1_control_block->eflag_p) = 1;
+		outb(BASE + INTERRUPT_ENABLE_REGISTER, inb(BASE + INTERRUPT_ENABLE_REGISTER) & ~0x02);
+	}
+
+	return 0;
+}
+
 int com_handle_interrupt() {
-	int x = 0; int y = 1 / x; (void)y;
+	//serial_println("top of com_handle_interrupt");
+	if(COM1_control_block == NULL || COM1_control_block->ready_state != OPEN) {
+		return 1;
+	}
+	//serial_println("x");
+	//cli();
 	int interrupt_id = inb(BASE + INTERRUPT_IDENTIFICATION_REGISTER);
-	(void)interrupt_id;
+	
+	// was caused by serial port? (bit 0 == 0?)
+	if((interrupt_id & 0b1)) {
+		return 1;
+	}
+
+	if((interrupt_id & 0b0110) >> 1 == INTERRUPT_ID_OUTPUT_READY) {
+		com_handle_interrupt_write();
+	} else {
+		serial_println("some other interrupt");
+	}
 
 	outb(PIC_END_OF_INTERRUPT_REGISTER, PIC_SIGNAL_END_OF_INTERRUPT_CODE);
+	//sti();
+	//serial_println("bottom of com_handle_interrupt");
 	return 0;
 }

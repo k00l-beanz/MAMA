@@ -184,8 +184,8 @@ void idle()
   
   while(1){
 	  (void)count;
-    serial_println("in idle proc");
-    int x = 0; int y = 1 / x; (void)y;
+    //serial_println("in idle proc");
+    //int x = 0; int y = 1 / x; (void)y;
 	//sys_req( WRITE, DEFAULT_DEVICE, msg, &count);
     sys_req(IDLE, DEFAULT_DEVICE, NULL, NULL);
   }
