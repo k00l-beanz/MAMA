@@ -338,4 +338,22 @@ int showAll(char * args);
 */
 int resumeAll(char * p);
 
+/********************************************************/
+/********************* R6 Stuff Here ********************/
+/********************************************************/
+
+/**
+ * Checks whether specified process is a system process or not
+ * 
+ * Checks if the user supplied process name is a system process
+ * or an application.
+ * 
+ * @param name Name of the process
+ * 
+ * @return Returns 1 if the process is a system process, 0 if the process is an application
+ * 
+*/
+int isSystemProcess(char * name);
+
+
 #endif

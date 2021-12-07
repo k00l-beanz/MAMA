@@ -342,6 +342,12 @@ int setPriority(char *args) {
 		return 1;
 	}
 
+	// Cannot change the priority of a system process
+	if (isSystemProcess(name)) {
+		printf("Error: Cannot change the priority of a system process\n");
+		return 1;
+	}
+
 	/* Find PCB */
 	pcb_t * pcb = findPCB(name);
 	if (pcb == NULL) {
@@ -496,6 +502,12 @@ int suspendPCB(char *args) {
 		return 1;
 	}
 
+	// Cannot suspend system processes
+	if (isSystemProcess(pcb_name)) {
+		printf("Error: Cannot suspend a system process\n");
+		return 1;
+	}
+
 	pcb_t *pcb = findPCB(pcb_name);
 	if(pcb == NULL) {
 		printf("Error: PCB not found\n");
@@ -609,6 +621,12 @@ int blockPCB(char *args) {
 		return 1;
 	}
 
+	// Cannot block a system process
+	if (isSystemProcess(pcb_name)) {
+		printf("Error: Cannot block a system process\n");
+		return 1;
+	}
+
 	pcb_t *pcb = findPCB(pcb_name);
 	if(pcb == NULL) {
 		printf("Error: PCB not found\n");
@@ -687,6 +705,18 @@ int resumeAll(char * p) {
 	while (node != NULL) {
 		node->pcb->pcb_process_state = READY;
 		node = node->pcbn_next_pcb;
+	}
+
+	return 0;
+}
+
+/********************************************************/
+/********************* R6 Stuff Here ********************/
+/********************************************************/
+int isSystemProcess(char * name) {
+	// This is a really shit way of preventing System Processes from being messed with but fuck it
+	if ((strcmp("commhand",name) == 0) || (strcmp("idle",name) == 0) || (strcmp("alarms",name) == 0)) {
+		return 1;
 	}
 
 	return 0;

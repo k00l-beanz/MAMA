@@ -78,16 +78,6 @@ cmd_mapping cmd_mappings[MAX_CMD_COUNT] = {
 		""
 	},
 	{
-		"createpcb",
-		&createPCB,
-		""
-	},
-	{
-		"deletepcb",
-		&deletePCB,
-		""
-	},
-	{
 		"showpcb",
 		&showPCB,
 		""
@@ -105,16 +95,6 @@ cmd_mapping cmd_mappings[MAX_CMD_COUNT] = {
 	{
 		"showblockedpcb",
 		&showBlocked,
-		""
-	},
-	{
-		"blockpcb",
-		&blockPCB,
-		""
-	},
-	{
-		"unblockpcb",
-		&unblockPCB,
 		""
 	},
 	{

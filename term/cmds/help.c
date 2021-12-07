@@ -35,14 +35,6 @@ int cmd_help(char *command) {
 		versionHelp();
 		return 1;
 	}
-	else if (strcmp(command, " createpcb") == 0) {
-		createpcbHelp();
-		return 1;
-	}
-	else if (strcmp(command, " deletepcb") == 0) {
-		deletepcbHelp();
-		return 1;
-	}
 	else if (strcmp(command, " showpcb") == 0) {
 		showpcbHelp();
 		return 1;
@@ -57,14 +49,6 @@ int cmd_help(char *command) {
 	}
 	else if (strcmp(command, " showblockedpcb") == 0) {
 		showblockedpcbHelp();
-		return 1;
-	}
-	else if (strcmp(command, " blockpcb") == 0) {
-		blockHelp();
-		return 1;
-	}
-	else if (strcmp(command, " unblockpcb") == 0) {
-		unblockHelp();
 		return 1;
 	}
 	else if (strcmp(command, " setprioritypcb") == 0) {
@@ -139,16 +123,12 @@ void helpList() {
 	print(" ------------ ------------ ------------------ -------------- --------------\n"
 		  " | SYSTEM   | | TIME     | | PCB            | | ALARM      | | HEAP       |\n"
 		  " ------------ ------------ ------------------ -------------- --------------\n"
-		  " | help     | | getdate  | | createpcb      | | setalarm   | | showalloc  |\n"
-		  " | version  | | setdate  | | deletepcb      | | showalarms | | showfree   |\n"
-		  " | shutdown | | gettime  | | showpcb        | | freealarm  | | isempty    |\n"
-		  " | clear    | | settime  | | showallpcb     | -------------- --------------\n"
-		  " | alias    | ------------ | showreadypcb   |\n"
-		  " ------------              | showblockedpcb |\n"
-		  "                           | blockpcb       |\n"
-		  "                           | unblockpcb     |\n"
-		  "                           | setprioritypcb |\n"
-		  "                           | resumepcb      |\n"
+		  " | help     | | getdate  | | showpcb        | | setalarm   | | showalloc  |\n"
+		  " | version  | | setdate  | | showallpcb     | | showalarms | | showfree   |\n"
+		  " | shutdown | | gettime  | | showreadypcb   | | freealarm  | | isempty    |\n"
+		  " | clear    | | settime  | | showblockedpcb | -------------- --------------\n"
+		  " | alias    | ------------ | setprioritypcb |\n"
+		  " ------------              | resumepcb      |\n"
 		  "                           | suspendpcb     |\n"
 		  "                           | resumeallpcb   |\n"
 		  "                           | loadr3         |\n"

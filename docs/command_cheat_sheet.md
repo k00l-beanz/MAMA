@@ -21,10 +21,6 @@ showpcb : showpcb [PCB_NAME]
 showallpcb : showallpcb
 showreadypcb : showreadypcb
 showblockedpcb : showblockedpcb
-createpcb : createpcb [PCB_NAME].[PROCESS_CLASS].[PRIORITY]
-deletepcb : deletepcb [PCB_NAME]
-blockpcb : blockpcb [PCB_NAME]
-unblockpcb : unblockpcb [PCB_NAME]
 resumeallpcb : resumeallpcb
 
 ## R3 + R4 - Dispatching
