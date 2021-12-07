@@ -1,0 +1,64 @@
+\hypertarget{mm_8h_source}{}\doxysection{mm.\+h}
+\label{mm_8h_source}\index{/home/maximillian/Desktop/MAMA/term/memory\_management/mm.h@{/home/maximillian/Desktop/MAMA/term/memory\_management/mm.h}}
+\mbox{\hyperlink{mm_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef MM\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define MM\_H }}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{comment}{/********************************************/}}
+\DoxyCodeLine{5 \textcolor{comment}{/**************** Structures ****************/}}
+\DoxyCodeLine{6 \textcolor{comment}{/********************************************/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{9 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{11     \mbox{\hyperlink{mm_8h_aec39d0c8a59256c82384735722f0d2f0a6a8a5583659fbcdf64186aacaf55cece}{ALLOCATED}},}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{14     \mbox{\hyperlink{mm_8h_aec39d0c8a59256c82384735722f0d2f0acc62d1576546f3245237e1b232d838b6}{FREE}}}
+\DoxyCodeLine{15 \} \mbox{\hyperlink{mm_8h_aec39d0c8a59256c82384735722f0d2f0}{mcb\_state\_e}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{18 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structcmcb__s}{cmcb\_s}} \{ \textcolor{comment}{// This is 52 bytes long}}
+\DoxyCodeLine{20 \textcolor{comment}{}    \mbox{\hyperlink{mm_8h_aec39d0c8a59256c82384735722f0d2f0}{mcb\_state\_e}} \mbox{\hyperlink{structcmcb__s_adbaf8e8e3ac941da4fb8dac8870f7444}{type}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{23     \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{structcmcb__s_a1d4eec417436ad204887bc81e0c832be}{addr}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{26     \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{structcmcb__s_a322c363a171995d93764d1ee25f1dc56}{size}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{char} \mbox{\hyperlink{structcmcb__s_abc04c0d153b4fb320b90edc01ec54645}{name}}[32];}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32     \textcolor{keyword}{struct }\mbox{\hyperlink{structcmcb__s}{cmcb\_s}} * \mbox{\hyperlink{structcmcb__s_a8c15b5c909fd23a72328acba4746ca0e}{next}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{35     \textcolor{keyword}{struct }\mbox{\hyperlink{structcmcb__s}{cmcb\_s}} * \mbox{\hyperlink{structcmcb__s_a7c5d2ee5818a324e8ff1de7d4b18f9af}{prev}};}
+\DoxyCodeLine{36 \} \mbox{\hyperlink{mm_8h_a4066abe86ead3b254b8c5099a9d91bf3}{cmcb\_s}};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{39 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structmcb__queue__s}{mcb\_queue\_s}} \{}
+\DoxyCodeLine{41     \mbox{\hyperlink{structcmcb__s}{cmcb\_s}} * \mbox{\hyperlink{structmcb__queue__s_ad4f19ce1a926898e7156356cf251addc}{mcbq\_head}}; }
+\DoxyCodeLine{42 }
+\DoxyCodeLine{44     \mbox{\hyperlink{mm_8h_aec39d0c8a59256c82384735722f0d2f0}{mcb\_state\_e}} \mbox{\hyperlink{structmcb__queue__s_af561c044bab12f770f53cf6f5dcf1b7f}{mcb\_queue\_type}};}
+\DoxyCodeLine{45 \} \mbox{\hyperlink{mm_8h_a4cea72ce1d1ae4d89f9a2bf741148992}{mcb\_queue\_s}};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{/********************************************/}}
+\DoxyCodeLine{48 \textcolor{comment}{/************ Function Headers **************/}}
+\DoxyCodeLine{49 \textcolor{comment}{/********************************************/}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{63 \textcolor{keywordtype}{int} \mbox{\hyperlink{mm_8h_a59751b566f1cf2e45218b49a6adc4731}{initHeap}}(\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} size);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{75 \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{mm_8h_ac29b5f08753e9d141c41ff15cfa98531}{allocateMemory}}(\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} size);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{89 \textcolor{keywordtype}{int} \mbox{\hyperlink{mm_8h_a99123d697488c57c11140645ae623ef5}{freeMemory}}(\textcolor{keywordtype}{void} * addr);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{98 \textcolor{keywordtype}{int} \mbox{\hyperlink{mm_8h_a67c53677fdbba6f3e63c84978dc61c23}{showAllocated}}(\textcolor{keywordtype}{char} *);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{107 \textcolor{keywordtype}{int} \mbox{\hyperlink{mm_8h_a29fd2ea9da810533ef4601413f62cb8f}{showFree}}(\textcolor{keywordtype}{char} * p);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{118 \textcolor{keywordtype}{int} \mbox{\hyperlink{mm_8h_a653c98c68c558505b75b04c44b7c838e}{isEmpty}}();}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 \textcolor{keywordtype}{void} \mbox{\hyperlink{mm_8h_aa460b00f1852455c7b70a5eeced9fabe}{removeFMCB}}(\mbox{\hyperlink{structcmcb__s}{cmcb\_s}} * mcb);}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{keywordtype}{void} \mbox{\hyperlink{mm_8h_a21288fd30d8412e7ab33d305b6408c47}{removeAMCB}}(\mbox{\hyperlink{structcmcb__s}{cmcb\_s}} * cmcb);}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{keywordtype}{void} \mbox{\hyperlink{mm_8h_ac8eb0721a1430cb5321851e880d6f611}{insertAMCB}}(\mbox{\hyperlink{structcmcb__s}{cmcb\_s}} * mcb);}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \textcolor{keywordtype}{void} \mbox{\hyperlink{mm_8h_ab6eab6ffdb6ac800b7e17ac726b395d6}{insertFMCB}}(\mbox{\hyperlink{structcmcb__s}{cmcb\_s}} * mcb);}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fifo_0',['FIFO',['../pcb_8h.html#ab4997200d0dfc40cf82ea4983950ae64a7795ebef271efe70b28f37deb9a07a83',1,'pcb.h']]]
+  ['end_5fof_5finput_0',['END_OF_INPUT',['../syntax_8h.html#af33280939207bc6f00c4b91581c64e83a0e3733a4d13a591724fae5c6c951c832',1,'syntax.h']]]
 ];

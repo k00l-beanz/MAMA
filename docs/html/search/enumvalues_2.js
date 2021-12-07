@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['default_0',['DEFAULT',['../syntax_8h.html#af33280939207bc6f00c4b91581c64e83a88ec7d5086d2469ba843c7fcceade8a6',1,'syntax.h']]],
-  ['deletable_1',['DELETABLE',['../pcb_8h.html#ab7bf7732db7ec98e16204b291146a924a1cd7ecb6642033844aec110d744548fa',1,'pcb.h']]],
-  ['deletable_5fwhen_5fsuspended_2',['DELETABLE_WHEN_SUSPENDED',['../pcb_8h.html#ab7bf7732db7ec98e16204b291146a924a0925912aff6e501e8e868da6d4bcee4f',1,'pcb.h']]],
-  ['double_5fquote_5fstring_3',['DOUBLE_QUOTE_STRING',['../syntax_8h.html#af33280939207bc6f00c4b91581c64e83ae7db3de1e657bbe2e8259e7ca2d9793c',1,'syntax.h']]],
-  ['double_5fquote_5fstring_5fend_5fquote_4',['DOUBLE_QUOTE_STRING_END_QUOTE',['../syntax_8h.html#af33280939207bc6f00c4b91581c64e83a242f8b0468adf6dc6dd3519ddd37ed04',1,'syntax.h']]]
+  ['closed_0',['CLOSED',['../driver_8c.html#ac6493e472a5de1b34dcca4f84e04678da929f0327e17604ce9713b2a6117bd603',1,'driver.c']]],
+  ['cmd_5fname_1',['CMD_NAME',['../syntax_8h.html#af33280939207bc6f00c4b91581c64e83aeb55efc71570e1830a0070d06af683b4',1,'syntax.h']]],
+  ['cmd_5fname_5for_5fleading_5fwhitespace_2',['CMD_NAME_OR_LEADING_WHITESPACE',['../syntax_8h.html#af33280939207bc6f00c4b91581c64e83a34d0593ff40f9bfd598cf63104c18a96',1,'syntax.h']]],
+  ['cyan_3',['CYAN',['../colorize_8c.html#ab87bacfdad76e61b9412d7124be44c1caafe71cad474c15ce63b300c470eef8cc',1,'CYAN():&#160;colorize.c'],['../colorize_8h.html#ab87bacfdad76e61b9412d7124be44c1caafe71cad474c15ce63b300c470eef8cc',1,'CYAN():&#160;colorize.h']]]
 ];

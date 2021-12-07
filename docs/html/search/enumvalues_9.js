@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['ready_0',['READY',['../pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa6564f2f3e15be06b670547bbcaaf0798',1,'pcb.h']]],
-  ['red_1',['RED',['../colorize_8c.html#ab87bacfdad76e61b9412d7124be44c1caf80f9a890089d211842d59625e561f88',1,'RED():&#160;colorize.c'],['../colorize_8h.html#ab87bacfdad76e61b9412d7124be44c1caf80f9a890089d211842d59625e561f88',1,'RED():&#160;colorize.h']]],
-  ['running_2',['RUNNING',['../pcb_8h.html#a4f8f003be709b151ad2f3ccaaacac31fa1061be6c3fb88d32829cba6f6b2be304',1,'pcb.h']]]
+  ['not_5fdeletable_0',['NOT_DELETABLE',['../pcb_8h.html#ab7bf7732db7ec98e16204b291146a924ab9f55b77742880dc1642e76b459672dd',1,'pcb.h']]]
 ];

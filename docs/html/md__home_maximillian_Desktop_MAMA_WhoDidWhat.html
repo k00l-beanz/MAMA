@@ -79,7 +79,8 @@ $(function() {
  <a class="el" href="args_8c.html">term/args.c</a> <br  />
  <a class="el" href="serial_8h.html#ae1b2b252bdc51efb0b706d25506a0f10" title="Serially poll characters from command line.">polling()</a> <br  />
  <a class="el" href="commhand_8c.html#acf65bd5a16579cc5bf4af7c8c994d28a" title="Displays command line and interprets inputted commands.">commhand()</a> <br  />
-   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
+   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><a class="el" href="commhand_8c.html#aa30a1382f1791f26d399d6bb67f2e4fc">cmd_alias()</a> <br  />
+ <a class="el" href="mm_8c.html#a29fd2ea9da810533ef4601413f62cb8f" title="Shows the addresses and block size of all block in free list.">showFree()</a>   </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Maximillian Campbell   </td><td class="markdownTableBodyNone"><a class="el" href="serial_8h.html#ae1b2b252bdc51efb0b706d25506a0f10" title="Serially poll characters from command line.">polling()</a> <br  />
  <a class="el" href="commhand_8c.html#acf65bd5a16579cc5bf4af7c8c994d28a" title="Displays command line and interprets inputted commands.">commhand()</a> <br  />
@@ -101,7 +102,24 @@ $(function() {
  MAMA.pdf <br  />
  HTML Docs <br  />
  Help Pages <br  />
-   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
+   </td><td class="markdownTableBodyNone">irq.s <br  />
+ <a class="el" href="context_8c.html#a58c8b2ad0ea491a6642e5e1cbd358c89" title="Causes commhand to yield.">yield()</a> <br  />
+ <a class="el" href="context_8c.html#ace6cc1bdb64c3a0f48c1c31ad7757f9d" title="Loads r3 &#39;processes&#39;.">loadr3()</a> <br  />
+ <a class="el" href="system_8c.html#aa59b2cd3cbce56e21a22a3fe0b885ca3" title="Called to start interrupt.">sys_call()</a> <br  />
+ <a class="el" href="context_8c.html#a1a2742df23adc9a212afdab99f08b4e2" title="Stores context on the stack.">dispatcher()</a> <br  />
+ Documentation <br  />
+ Help Pages <br  />
+   </td><td class="markdownTableBodyNone"><br  />
+ createAlarm() <br  />
+ <a class="el" href="dnt_8c.html#a393397cf31fb30d34cff1647fc9239fd" title="Remove alarm from alarms.">freeAlarm()</a> <br  />
+ <a class="el" href="dnt_8c.html#ac69b357094608f64a4fb839cead5ab91" title="Show all alarms.">showAlarms()</a> <br  />
+ <a class="el" href="dnt_8c.html#a21a0d9297fe492ffb1b6823ccfffa24d" title="Alarm process.">dispatchAlarm()</a> <br  />
+ Documentaion <br  />
+ Help Pages <br  />
+   </td><td class="markdownTableBodyNone"><a class="el" href="mm_8c.html#a59751b566f1cf2e45218b49a6adc4731" title="Allocate all memory available for the MPX.">initHeap()</a> <br  />
+ <a class="el" href="mm_8c.html#ac29b5f08753e9d141c41ff15cfa98531" title="Allocate additional memory from the heap.">allocateMemory()</a> <br  />
+ <a class="el" href="mm_8c.html#a99123d697488c57c11140645ae623ef5" title="Free a block of memory.">freeMemory()</a> <br  />
+ Documentation   </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Mohammad Alenezi   </td><td class="markdownTableBodyNone"><a class="el" href="colorize_8c.html#a9ee83136f1105d5ef914c66646b819e3" title="Description: Prints part of the escape sequence needed to switch the foreground or background color t...">print_color_code()</a> <br  />
  <a class="el" href="colorize_8c.html#a714403cfe6bc6d1bb9e61f2bf326d1c4" title="Switches the text color in the terminal so that subsequent text written to the screen will be the spe...">display_fg_color()</a> <br  />
@@ -118,7 +136,9 @@ $(function() {
  Show block processes <br  />
  DeletePCB() <br  />
  BlockPCB() <br  />
-   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
+   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">ShowAllocated() <br  />
+ <a class="el" href="visuals_2clear_8c.html#a8da9870d8488d33189d2cb122bd28e0d">display_clear()</a> <br  />
+   </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Abdullah Alqallaf   </td><td class="markdownTableBodyNone"><a class="el" href="version_8c.html#afb73b149018f578d618dce95005bd0b7" title="Handler for the version command.">cmd_version()</a> <br  />
  VersionOs() <br  />
@@ -129,7 +149,9 @@ $(function() {
  Show ready processes() <br  />
  Show Block Processes() <br  />
  Show PCB() <br  />
-   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
+   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><a class="el" href="mm_8c.html#a63138775900550d3ba772d031df6f2f0">isEmpty()</a> <br  />
+ <a class="el" href="mm_8c.html#a99123d697488c57c11140645ae623ef5" title="Free a block of memory.">freeMemory()</a> <br  />
+   </td><td class="markdownTableBodyNone"></td></tr>
 </table>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

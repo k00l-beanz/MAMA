@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['start_5fseq_0',['START_SEQ',['../colorize_8c.html#a0e263175c08c00143ac9a19616a6169e',1,'colorize.c']]],
-  ['sti_1',['sti',['../system_8h.html#ac5d15f274bc9b1e96230f3d3c60fd1f8',1,'system.h']]],
-  ['syntax_5fcolor_5fcmd_5fname_2',['SYNTAX_COLOR_CMD_NAME',['../syntax__highlight_8h.html#ab0fd78b0e2ff8d9ab306f5c9fed26f3c',1,'syntax_highlight.h']]],
-  ['syntax_5fcolor_5fdefault_3',['SYNTAX_COLOR_DEFAULT',['../syntax__highlight_8h.html#a81ea42ad7ff6d211c86f7435ced03d6a',1,'syntax_highlight.h']]],
-  ['syntax_5fcolor_5fdouble_5fquote_5fstring_4',['SYNTAX_COLOR_DOUBLE_QUOTE_STRING',['../syntax__highlight_8h.html#ae67c604283a21ea5dfdfff6e23ed8661',1,'syntax_highlight.h']]],
-  ['syntax_5fcolor_5fparam_5fname_5',['SYNTAX_COLOR_PARAM_NAME',['../syntax__highlight_8h.html#afccbe35bf8ef95e96c7f1ebbddb9f451',1,'syntax_highlight.h']]],
-  ['syntax_5fcolor_5fparam_5fvalue_6',['SYNTAX_COLOR_PARAM_VALUE',['../syntax__highlight_8h.html#a7e38d369114b0fb029b1b6a86ee76e32',1,'syntax_highlight.h']]],
-  ['syntax_5fcolor_5fsingle_5fquote_5fstring_7',['SYNTAX_COLOR_SINGLE_QUOTE_STRING',['../syntax__highlight_8h.html#ac8954b47e6ceb0c6daba551eb4d3df91',1,'syntax_highlight.h']]]
+  ['rc_5f1_0',['RC_1',['../procsr3_8c.html#a69bb368d802d94815d8480c1196eb868',1,'procsr3.c']]],
+  ['rc_5f2_1',['RC_2',['../procsr3_8c.html#aecb625779f85a782d04475c4fb74ebc5',1,'procsr3.c']]],
+  ['rc_5f3_2',['RC_3',['../procsr3_8c.html#acf180d856b90414b8bed369054fcd763',1,'procsr3.c']]],
+  ['rc_5f4_3',['RC_4',['../procsr3_8c.html#ac76d64b147c7d9537915e51c7dc02bc1',1,'procsr3.c']]],
+  ['rc_5f5_4',['RC_5',['../procsr3_8c.html#acba6a931785dc419ad6337bc9c1a24f8',1,'procsr3.c']]],
+  ['read_5',['READ',['../mpx__supt_8h.html#ada74e7db007a68e763f20c17f2985356',1,'mpx_supt.h']]],
+  ['right_5farrow_6',['RIGHT_ARROW',['../serial_8c.html#a9ed2533108b634266a6261c8f37e4fc0',1,'serial.c']]],
+  ['ring_5fbuffer_5fsize_7',['RING_BUFFER_SIZE',['../driver_8c.html#a779b513296068d2a6186659183ff3c2c',1,'driver.c']]]
 ];

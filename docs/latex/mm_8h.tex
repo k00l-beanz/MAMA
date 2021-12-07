@@ -1,0 +1,209 @@
+\hypertarget{mm_8h}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/term/memory\+\_\+management/mm.h File Reference}
+\label{mm_8h}\index{/home/maximillian/Desktop/MAMA/term/memory\_management/mm.h@{/home/maximillian/Desktop/MAMA/term/memory\_management/mm.h}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcmcb__s}{cmcb\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Complete Memory Control Block (CMBC) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structmcb__queue__s}{mcb\+\_\+queue\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+Master\char`\"{} controller of the MCB queue \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structcmcb__s}{cmcb\+\_\+s}} \mbox{\hyperlink{mm_8h_a4066abe86ead3b254b8c5099a9d91bf3}{cmcb\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Complete Memory Control Block (CMBC) \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structmcb__queue__s}{mcb\+\_\+queue\+\_\+s}} \mbox{\hyperlink{mm_8h_a4cea72ce1d1ae4d89f9a2bf741148992}{mcb\+\_\+queue\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+Master\char`\"{} controller of the MCB queue \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{mm_8h_aec39d0c8a59256c82384735722f0d2f0}{mcb\+\_\+state\+\_\+e}} \{ \mbox{\hyperlink{mm_8h_aec39d0c8a59256c82384735722f0d2f0a6a8a5583659fbcdf64186aacaf55cece}{ALLOCATED}}
+, \mbox{\hyperlink{mm_8h_aec39d0c8a59256c82384735722f0d2f0acc62d1576546f3245237e1b232d838b6}{FREE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Indicates the type of CMCB. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{mm_8h_a59751b566f1cf2e45218b49a6adc4731}{init\+Heap}} (\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} size)
+\begin{DoxyCompactList}\small\item\em Allocate all memory available for the MPX. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} \mbox{\hyperlink{mm_8h_ac29b5f08753e9d141c41ff15cfa98531}{allocate\+Memory}} (\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} size)
+\begin{DoxyCompactList}\small\item\em Allocate additional memory from the heap. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mm_8h_a99123d697488c57c11140645ae623ef5}{free\+Memory}} (void $\ast$addr)
+\begin{DoxyCompactList}\small\item\em Free a block of memory. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mm_8h_a67c53677fdbba6f3e63c84978dc61c23}{show\+Allocated}} (char $\ast$)
+\begin{DoxyCompactList}\small\item\em Shows addresses and block size of all blocks in allocated list. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mm_8h_a29fd2ea9da810533ef4601413f62cb8f}{show\+Free}} (char $\ast$p)
+\begin{DoxyCompactList}\small\item\em Shows the addresses and block size of all block in free list. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mm_8h_a653c98c68c558505b75b04c44b7c838e}{is\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em Does the heap only contain free memory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mm_8h_aa460b00f1852455c7b70a5eeced9fabe}{remove\+FMCB}} (\mbox{\hyperlink{structcmcb__s}{cmcb\+\_\+s}} $\ast$mcb)
+\item 
+void \mbox{\hyperlink{mm_8h_a21288fd30d8412e7ab33d305b6408c47}{remove\+AMCB}} (\mbox{\hyperlink{structcmcb__s}{cmcb\+\_\+s}} $\ast$cmcb)
+\item 
+void \mbox{\hyperlink{mm_8h_ac8eb0721a1430cb5321851e880d6f611}{insert\+AMCB}} (\mbox{\hyperlink{structcmcb__s}{cmcb\+\_\+s}} $\ast$mcb)
+\item 
+void \mbox{\hyperlink{mm_8h_ab6eab6ffdb6ac800b7e17ac726b395d6}{insert\+FMCB}} (\mbox{\hyperlink{structcmcb__s}{cmcb\+\_\+s}} $\ast$mcb)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{mm_8h_a4066abe86ead3b254b8c5099a9d91bf3}\label{mm_8h_a4066abe86ead3b254b8c5099a9d91bf3}} 
+\index{mm.h@{mm.h}!cmcb\_s@{cmcb\_s}}
+\index{cmcb\_s@{cmcb\_s}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{cmcb\_s}{cmcb\_s}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structcmcb__s}{cmcb\+\_\+s}} \mbox{\hyperlink{structcmcb__s}{cmcb\+\_\+s}}}
+
+
+
+Complete Memory Control Block (CMBC) 
+
+\mbox{\Hypertarget{mm_8h_a4cea72ce1d1ae4d89f9a2bf741148992}\label{mm_8h_a4cea72ce1d1ae4d89f9a2bf741148992}} 
+\index{mm.h@{mm.h}!mcb\_queue\_s@{mcb\_queue\_s}}
+\index{mcb\_queue\_s@{mcb\_queue\_s}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{mcb\_queue\_s}{mcb\_queue\_s}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structmcb__queue__s}{mcb\+\_\+queue\+\_\+s}} \mbox{\hyperlink{structmcb__queue__s}{mcb\+\_\+queue\+\_\+s}}}
+
+
+
+\char`\"{}\+Master\char`\"{} controller of the MCB queue 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{mm_8h_aec39d0c8a59256c82384735722f0d2f0}\label{mm_8h_aec39d0c8a59256c82384735722f0d2f0}} 
+\index{mm.h@{mm.h}!mcb\_state\_e@{mcb\_state\_e}}
+\index{mcb\_state\_e@{mcb\_state\_e}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{mcb\_state\_e}{mcb\_state\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mm_8h_aec39d0c8a59256c82384735722f0d2f0}{mcb\+\_\+state\+\_\+e}}}
+
+
+
+Indicates the type of CMCB. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALLOCATED@{ALLOCATED}!mm.h@{mm.h}}\index{mm.h@{mm.h}!ALLOCATED@{ALLOCATED}}}\mbox{\Hypertarget{mm_8h_aec39d0c8a59256c82384735722f0d2f0a6a8a5583659fbcdf64186aacaf55cece}\label{mm_8h_aec39d0c8a59256c82384735722f0d2f0a6a8a5583659fbcdf64186aacaf55cece}} 
+ALLOCATED&Allocated CMCB. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREE@{FREE}!mm.h@{mm.h}}\index{mm.h@{mm.h}!FREE@{FREE}}}\mbox{\Hypertarget{mm_8h_aec39d0c8a59256c82384735722f0d2f0acc62d1576546f3245237e1b232d838b6}\label{mm_8h_aec39d0c8a59256c82384735722f0d2f0acc62d1576546f3245237e1b232d838b6}} 
+FREE&Freed CMCB. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mm_8h_ac29b5f08753e9d141c41ff15cfa98531}\label{mm_8h_ac29b5f08753e9d141c41ff15cfa98531}} 
+\index{mm.h@{mm.h}!allocateMemory@{allocateMemory}}
+\index{allocateMemory@{allocateMemory}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{allocateMemory()}{allocateMemory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}} allocate\+Memory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Allocate additional memory from the heap. 
+
+Allocates additional memory from the heap in a first-\/fit method.
+
+@params size Amount of bytes to be allocated from the heap
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, -\/1 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mm_8h_a99123d697488c57c11140645ae623ef5}\label{mm_8h_a99123d697488c57c11140645ae623ef5}} 
+\index{mm.h@{mm.h}!freeMemory@{freeMemory}}
+\index{freeMemory@{freeMemory}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{freeMemory()}{freeMemory()}}
+{\footnotesize\ttfamily int free\+Memory (\begin{DoxyParamCaption}\item[{void $\ast$}]{addr }\end{DoxyParamCaption})}
+
+
+
+Free a block of memory. 
+
+Frees a particular block of memory that was previously allocated. Searches for the block of memory, removes it from the allocated list and places it into the free list. If there are any adjacent blocks then merge.
+
+@params addr Address of the block that will be free
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success, -\/1 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mm_8h_a59751b566f1cf2e45218b49a6adc4731}\label{mm_8h_a59751b566f1cf2e45218b49a6adc4731}} 
+\index{mm.h@{mm.h}!initHeap@{initHeap}}
+\index{initHeap@{initHeap}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{initHeap()}{initHeap()}}
+{\footnotesize\ttfamily int init\+Heap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{system_8h_a757de76cafbcddaac0d1632902fe4cb8}{u32int}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Allocate all memory available for the MPX. 
+
+Allocates memory for both CMBC and LMCB. This will put a CMCB at the top of the heap and a LMCB at the bottom of the heap, both of type free. This method also intializes the free and allocated lists
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Size that will be allocated for the heap in bytes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success, -\/1 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mm_8h_ac8eb0721a1430cb5321851e880d6f611}\label{mm_8h_ac8eb0721a1430cb5321851e880d6f611}} 
+\index{mm.h@{mm.h}!insertAMCB@{insertAMCB}}
+\index{insertAMCB@{insertAMCB}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{insertAMCB()}{insertAMCB()}}
+{\footnotesize\ttfamily void insert\+AMCB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcmcb__s}{cmcb\+\_\+s}} $\ast$}]{mcb }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mm_8h_ab6eab6ffdb6ac800b7e17ac726b395d6}\label{mm_8h_ab6eab6ffdb6ac800b7e17ac726b395d6}} 
+\index{mm.h@{mm.h}!insertFMCB@{insertFMCB}}
+\index{insertFMCB@{insertFMCB}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{insertFMCB()}{insertFMCB()}}
+{\footnotesize\ttfamily void insert\+FMCB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcmcb__s}{cmcb\+\_\+s}} $\ast$}]{mcb }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mm_8h_a653c98c68c558505b75b04c44b7c838e}\label{mm_8h_a653c98c68c558505b75b04c44b7c838e}} 
+\index{mm.h@{mm.h}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily int is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Does the heap only contain free memory. 
+
+Tells whether the heap contains only free memory (True) or not (false).
+
+\begin{DoxyReturn}{Returns}
+Returns 1 (True) if heap contains only free memory, Return 0 (False) if there is something within the heap. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mm_8h_a21288fd30d8412e7ab33d305b6408c47}\label{mm_8h_a21288fd30d8412e7ab33d305b6408c47}} 
+\index{mm.h@{mm.h}!removeAMCB@{removeAMCB}}
+\index{removeAMCB@{removeAMCB}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{removeAMCB()}{removeAMCB()}}
+{\footnotesize\ttfamily void remove\+AMCB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcmcb__s}{cmcb\+\_\+s}} $\ast$}]{cmcb }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mm_8h_aa460b00f1852455c7b70a5eeced9fabe}\label{mm_8h_aa460b00f1852455c7b70a5eeced9fabe}} 
+\index{mm.h@{mm.h}!removeFMCB@{removeFMCB}}
+\index{removeFMCB@{removeFMCB}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{removeFMCB()}{removeFMCB()}}
+{\footnotesize\ttfamily void remove\+FMCB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcmcb__s}{cmcb\+\_\+s}} $\ast$}]{mcb }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mm_8h_a67c53677fdbba6f3e63c84978dc61c23}\label{mm_8h_a67c53677fdbba6f3e63c84978dc61c23}} 
+\index{mm.h@{mm.h}!showAllocated@{showAllocated}}
+\index{showAllocated@{showAllocated}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{showAllocated()}{showAllocated()}}
+{\footnotesize\ttfamily int show\+Allocated (\begin{DoxyParamCaption}\item[{char $\ast$}]{discard }\end{DoxyParamCaption})}
+
+
+
+Shows addresses and block size of all blocks in allocated list. 
+
+Traverses the allocated list and shows the addresses and the size of the block. Shown in the order of address. \mbox{\Hypertarget{mm_8h_a29fd2ea9da810533ef4601413f62cb8f}\label{mm_8h_a29fd2ea9da810533ef4601413f62cb8f}} 
+\index{mm.h@{mm.h}!showFree@{showFree}}
+\index{showFree@{showFree}!mm.h@{mm.h}}
+\doxysubsubsection{\texorpdfstring{showFree()}{showFree()}}
+{\footnotesize\ttfamily int show\+Free (\begin{DoxyParamCaption}\item[{char $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Shows the addresses and block size of all block in free list. 
+
+Traverses the free list and shows the addresses and the size of the block. Shown in the order of address. 

@@ -3,6 +3,7 @@
 {\ttfamily \#include $<$include/string.\+h$>$}\newline
 {\ttfamily \#include $<$modules/mpx\+\_\+supt.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}visuals/colorize.\+c\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}visuals/clear.\+c\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}history.\+c\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}commhand.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}commands.\+h\char`\"{}}\newline
@@ -14,6 +15,8 @@
 {\ttfamily \#include \char`\"{}ascii/mama.\+c\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}dispatch/context.\+c\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}pcb/pcb.\+c\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memory\+\_\+management/mm.\+c\char`\"{}}\newline
+{\ttfamily \#include $<$term/args.\+h$>$}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,18 +32,22 @@ typedef struct \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} \mbox{\hy
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+int \mbox{\hyperlink{commhand_8c_aa30a1382f1791f26d399d6bb67f2e4fc}{cmd\+\_\+alias}} (char $\ast$)
+\item 
 int \mbox{\hyperlink{commhand_8c_a2f4ba017d1252af62b83584e64cee010}{is\+\_\+name\+\_\+char}} (char)
 \begin{DoxyCompactList}\small\item\em Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{commhand_8c_a2cc0cebdb010b00580b45be948f88261}{extract\+\_\+cmd\+\_\+name}} (char $\ast$, char $\ast$, int $\ast$, int $\ast$)
 \item 
-\mbox{\hyperlink{commhand_8c_a94081df0b3154edd3c47c2ef2f4aadcc}{cmd\+\_\+func\+\_\+t}} \mbox{\hyperlink{commhand_8c_a47c794d5c09edf314e8aa3280b425235}{fetch\+\_\+cmd\+\_\+handler}} (char $\ast$)
+\mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} $\ast$ \mbox{\hyperlink{commhand_8c_af9051ab3cda0cc2a3809e5fc4854c4af}{fetch\+\_\+cmd\+\_\+mapping}} (char $\ast$)
 \item 
 void \mbox{\hyperlink{commhand_8c_acf65bd5a16579cc5bf4af7c8c994d28a}{commhand}} ()
 \begin{DoxyCompactList}\small\item\em Displays command line and interprets inputted commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} \mbox{\hyperlink{commhand_8c_a64ca5586b992ceef209f82007e1874c8}{cmd\+\_\+mappings}} \mbox{[}$\,$\mbox{]}
+\mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} \mbox{\hyperlink{commhand_8c_ab96ef4d1115e0939e6b699afc3dbc830}{cmd\+\_\+mappings}} \mbox{[}\mbox{\hyperlink{commhand_8h_aa25b56d365c20671c046ad64ecabcb4a}{MAX\+\_\+\+CMD\+\_\+\+COUNT}}\mbox{]}
+\item 
+\mbox{\hyperlink{pcb_8h_a58e7d6c4cdd0ff161b6159964b1bb1f5}{pcb\+\_\+queue\+\_\+t}} $\ast$ \mbox{\hyperlink{commhand_8c_ac4c41fbfa755950bed6c67b7c6df9171}{priority\+\_\+queue}}
 \end{DoxyCompactItemize}
 
 
@@ -60,6 +67,12 @@ const \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} \mbox{\hyperlink{c
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{commhand_8c_aa30a1382f1791f26d399d6bb67f2e4fc}\label{commhand_8c_aa30a1382f1791f26d399d6bb67f2e4fc}} 
+\index{commhand.c@{commhand.c}!cmd\_alias@{cmd\_alias}}
+\index{cmd\_alias@{cmd\_alias}!commhand.c@{commhand.c}}
+\doxysubsubsection{\texorpdfstring{cmd\_alias()}{cmd\_alias()}}
+{\footnotesize\ttfamily int cmd\+\_\+alias (\begin{DoxyParamCaption}\item[{char $\ast$}]{arg\+\_\+str }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{commhand_8c_acf65bd5a16579cc5bf4af7c8c994d28a}\label{commhand_8c_acf65bd5a16579cc5bf4af7c8c994d28a}} 
 \index{commhand.c@{commhand.c}!commhand@{commhand}}
 \index{commhand@{commhand}!commhand.c@{commhand.c}}
@@ -81,11 +94,11 @@ Returns 0 upon success, -\/1 upon error
 \doxysubsubsection{\texorpdfstring{extract\_cmd\_name()}{extract\_cmd\_name()}}
 {\footnotesize\ttfamily void extract\+\_\+cmd\+\_\+name (\begin{DoxyParamCaption}\item[{char $\ast$}]{cmd\+\_\+str,  }\item[{char $\ast$}]{cmd\+\_\+name,  }\item[{int $\ast$}]{cmd\+\_\+name\+\_\+len,  }\item[{int $\ast$}]{args\+\_\+start\+\_\+index }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{commhand_8c_a47c794d5c09edf314e8aa3280b425235}\label{commhand_8c_a47c794d5c09edf314e8aa3280b425235}} 
-\index{commhand.c@{commhand.c}!fetch\_cmd\_handler@{fetch\_cmd\_handler}}
-\index{fetch\_cmd\_handler@{fetch\_cmd\_handler}!commhand.c@{commhand.c}}
-\doxysubsubsection{\texorpdfstring{fetch\_cmd\_handler()}{fetch\_cmd\_handler()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{commhand_8c_a94081df0b3154edd3c47c2ef2f4aadcc}{cmd\+\_\+func\+\_\+t}} fetch\+\_\+cmd\+\_\+handler (\begin{DoxyParamCaption}\item[{char $\ast$}]{cmd\+\_\+name }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{commhand_8c_af9051ab3cda0cc2a3809e5fc4854c4af}\label{commhand_8c_af9051ab3cda0cc2a3809e5fc4854c4af}} 
+\index{commhand.c@{commhand.c}!fetch\_cmd\_mapping@{fetch\_cmd\_mapping}}
+\index{fetch\_cmd\_mapping@{fetch\_cmd\_mapping}!commhand.c@{commhand.c}}
+\doxysubsubsection{\texorpdfstring{fetch\_cmd\_mapping()}{fetch\_cmd\_mapping()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} $\ast$ fetch\+\_\+cmd\+\_\+mapping (\begin{DoxyParamCaption}\item[{char $\ast$}]{cmd\+\_\+name }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{commhand_8c_a2f4ba017d1252af62b83584e64cee010}\label{commhand_8c_a2f4ba017d1252af62b83584e64cee010}} 
 \index{commhand.c@{commhand.c}!is\_name\_char@{is\_name\_char}}
@@ -108,9 +121,15 @@ True if the specified character c is valid in an identifier, false otherwise.
 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{commhand_8c_a64ca5586b992ceef209f82007e1874c8}\label{commhand_8c_a64ca5586b992ceef209f82007e1874c8}} 
+\mbox{\Hypertarget{commhand_8c_ab96ef4d1115e0939e6b699afc3dbc830}\label{commhand_8c_ab96ef4d1115e0939e6b699afc3dbc830}} 
 \index{commhand.c@{commhand.c}!cmd\_mappings@{cmd\_mappings}}
 \index{cmd\_mappings@{cmd\_mappings}!commhand.c@{commhand.c}}
 \doxysubsubsection{\texorpdfstring{cmd\_mappings}{cmd\_mappings}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} cmd\+\_\+mappings\mbox{[}$\,$\mbox{]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcmd__mapping}{cmd\+\_\+mapping}} cmd\+\_\+mappings\mbox{[}\mbox{\hyperlink{commhand_8h_aa25b56d365c20671c046ad64ecabcb4a}{MAX\+\_\+\+CMD\+\_\+\+COUNT}}\mbox{]}}
+
+\mbox{\Hypertarget{commhand_8c_ac4c41fbfa755950bed6c67b7c6df9171}\label{commhand_8c_ac4c41fbfa755950bed6c67b7c6df9171}} 
+\index{commhand.c@{commhand.c}!priority\_queue@{priority\_queue}}
+\index{priority\_queue@{priority\_queue}!commhand.c@{commhand.c}}
+\doxysubsubsection{\texorpdfstring{priority\_queue}{priority\_queue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pcb_8h_a58e7d6c4cdd0ff161b6159964b1bb1f5}{pcb\+\_\+queue\+\_\+t}}$\ast$ priority\+\_\+queue\hspace{0.3cm}{\ttfamily [extern]}}
 

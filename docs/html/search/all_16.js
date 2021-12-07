@@ -7,5 +7,6 @@ var searchData=
   ['write_5fgdt_5fptr_4',['write_gdt_ptr',['../tables_8c.html#ab603373c64fb0a6d51482121d0800be4',1,'tables.c']]],
   ['write_5fhist_5fto_5fbuf_5',['write_hist_to_buf',['../history_8c.html#a29bc230f76ab2f176c35703511118f62',1,'history.c']]],
   ['write_5fidt_5fptr_6',['write_idt_ptr',['../tables_8c.html#a77fec66a455d3275b67be5c3d7868555',1,'tables.c']]],
-  ['writeable_7',['writeable',['../structpage__entry.html#a2ea8d7684fe45772b6acba70d46e41d9',1,'page_entry']]]
+  ['writeable_7',['writeable',['../structpage__entry.html#a2ea8d7684fe45772b6acba70d46e41d9',1,'page_entry']]],
+  ['writing_8',['WRITING',['../driver_8c.html#ac099822b2180cb992ef85bdae61720c8ae7eb10d2fdfdd28798102e736c4098e0',1,'driver.c']]]
 ];

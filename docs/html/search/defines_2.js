@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['days_5fin_5fleap_5fyear_0',['DAYS_IN_LEAP_YEAR',['../dnt_8h.html#a05269e1eafff6166976130c476ebf507',1,'dnt.h']]],
-  ['days_5fin_5fyear_1',['DAYS_IN_YEAR',['../dnt_8h.html#a6d40c3278339e38839749bf1704a60cc',1,'dnt.h']]],
-  ['default_5fdevice_2',['DEFAULT_DEVICE',['../mpx__supt_8h.html#a84cb8bbda8042a324f49102bc200cc54',1,'mpx_supt.h']]],
-  ['delete_3',['DELETE',['../serial_8c.html#abbbe5949f3c1f72e439924f8cf503509',1,'serial.c']]],
-  ['down_5farrow_4',['DOWN_ARROW',['../serial_8c.html#a5b1eca6358420b8748a151949d3119fa',1,'serial.c']]]
+  ['cli_0',['cli',['../system_8h.html#a68c330e94fe121eba993e5a5973c3162',1,'system.h']]],
+  ['com1_1',['COM1',['../serial_8h.html#a00dbb3ab1c59e14699be9393693e2248',1,'serial.h']]],
+  ['com2_2',['COM2',['../serial_8h.html#a435e02f194c24c9b0e00d7cd27a1704e',1,'serial.h']]],
+  ['com3_3',['COM3',['../serial_8h.html#abbed02672431595364c5dd35809303a6',1,'serial.h']]],
+  ['com4_4',['COM4',['../serial_8h.html#a595cabb01568ba641574d24546d99c6b',1,'serial.h']]],
+  ['com_5fport_5',['COM_PORT',['../mpx__supt_8h.html#a702309aca6604d528fd1e9aa0879a0c7',1,'mpx_supt.h']]]
 ];

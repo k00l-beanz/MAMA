@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_e04ae2849dfa520b4ee2c9f7e9ff15de.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_d8ae19e325e7e682baaf160c25ea8d2e.html">MAMA</a></li><li class="navelem"><a class="el" href="dir_81368d1c3c7e98235ca50ef9a1b62846.html">term</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_4a1518cd4b67abd82ce2d0f4e4527373.html">term</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -78,6 +78,7 @@ $(function() {
 <div class="textblock"><code>#include &lt;<a class="el" href="string_8h_source.html">include/string.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="mpx__supt_8h_source.html">modules/mpx_supt.h</a>&gt;</code><br />
 <code>#include &quot;<a class="el" href="colorize_8c.html">visuals/colorize.c</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="visuals_2clear_8c.html">visuals/clear.c</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="history_8c.html">history.c</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="commhand_8h_source.html">commhand.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="commands_8h_source.html">commands.h</a>&quot;</code><br />
@@ -89,6 +90,8 @@ $(function() {
 <code>#include &quot;<a class="el" href="mama_8c.html">ascii/mama.c</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="context_8c.html">dispatch/context.c</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pcb_2pcb_8c.html">pcb/pcb.c</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mm_8c.html">memory_management/mm.c</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="args_8h_source.html">term/args.h</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -104,21 +107,25 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aa30a1382f1791f26d399d6bb67f2e4fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#aa30a1382f1791f26d399d6bb67f2e4fc">cmd_alias</a> (char *)</td></tr>
+<tr class="separator:aa30a1382f1791f26d399d6bb67f2e4fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f4ba017d1252af62b83584e64cee010"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#a2f4ba017d1252af62b83584e64cee010">is_name_char</a> (char)</td></tr>
 <tr class="memdesc:a2f4ba017d1252af62b83584e64cee010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether or not the specified character is a valid character in an identifier, such as a command or argument name.  <a href="commhand_8c.html#a2f4ba017d1252af62b83584e64cee010">More...</a><br /></td></tr>
 <tr class="separator:a2f4ba017d1252af62b83584e64cee010"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cc0cebdb010b00580b45be948f88261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#a2cc0cebdb010b00580b45be948f88261">extract_cmd_name</a> (char *, char *, int *, int *)</td></tr>
 <tr class="separator:a2cc0cebdb010b00580b45be948f88261"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47c794d5c09edf314e8aa3280b425235"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commhand_8c.html#a94081df0b3154edd3c47c2ef2f4aadcc">cmd_func_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#a47c794d5c09edf314e8aa3280b425235">fetch_cmd_handler</a> (char *)</td></tr>
-<tr class="separator:a47c794d5c09edf314e8aa3280b425235"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9051ab3cda0cc2a3809e5fc4854c4af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcmd__mapping.html">cmd_mapping</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#af9051ab3cda0cc2a3809e5fc4854c4af">fetch_cmd_mapping</a> (char *)</td></tr>
+<tr class="separator:af9051ab3cda0cc2a3809e5fc4854c4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf65bd5a16579cc5bf4af7c8c994d28a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#acf65bd5a16579cc5bf4af7c8c994d28a">commhand</a> ()</td></tr>
 <tr class="memdesc:acf65bd5a16579cc5bf4af7c8c994d28a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays command line and interprets inputted commands.  <a href="commhand_8c.html#acf65bd5a16579cc5bf4af7c8c994d28a">More...</a><br /></td></tr>
 <tr class="separator:acf65bd5a16579cc5bf4af7c8c994d28a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a64ca5586b992ceef209f82007e1874c8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcmd__mapping.html">cmd_mapping</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#a64ca5586b992ceef209f82007e1874c8">cmd_mappings</a> []</td></tr>
-<tr class="separator:a64ca5586b992ceef209f82007e1874c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab96ef4d1115e0939e6b699afc3dbc830"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcmd__mapping.html">cmd_mapping</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#ab96ef4d1115e0939e6b699afc3dbc830">cmd_mappings</a> [<a class="el" href="commhand_8h.html#aa25b56d365c20671c046ad64ecabcb4a">MAX_CMD_COUNT</a>]</td></tr>
+<tr class="separator:ab96ef4d1115e0939e6b699afc3dbc830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4c41fbfa755950bed6c67b7c6df9171"><td class="memItemLeft" align="right" valign="top"><a class="el" href="pcb_8h.html#a58e7d6c4cdd0ff161b6159964b1bb1f5">pcb_queue_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commhand_8c.html#ac4c41fbfa755950bed6c67b7c6df9171">priority_queue</a></td></tr>
+<tr class="separator:ac4c41fbfa755950bed6c67b7c6df9171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a94081df0b3154edd3c47c2ef2f4aadcc" name="a94081df0b3154edd3c47c2ef2f4aadcc"></a>
@@ -150,6 +157,24 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="aa30a1382f1791f26d399d6bb67f2e4fc" name="aa30a1382f1791f26d399d6bb67f2e4fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa30a1382f1791f26d399d6bb67f2e4fc">&#9670;&nbsp;</a></span>cmd_alias()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cmd_alias </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>arg_str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acf65bd5a16579cc5bf4af7c8c994d28a" name="acf65bd5a16579cc5bf4af7c8c994d28a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf65bd5a16579cc5bf4af7c8c994d28a">&#9670;&nbsp;</a></span>commhand()</h2>
 
@@ -211,14 +236,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a47c794d5c09edf314e8aa3280b425235" name="a47c794d5c09edf314e8aa3280b425235"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47c794d5c09edf314e8aa3280b425235">&#9670;&nbsp;</a></span>fetch_cmd_handler()</h2>
+<a id="af9051ab3cda0cc2a3809e5fc4854c4af" name="af9051ab3cda0cc2a3809e5fc4854c4af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9051ab3cda0cc2a3809e5fc4854c4af">&#9670;&nbsp;</a></span>fetch_cmd_mapping()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="commhand_8c.html#a94081df0b3154edd3c47c2ef2f4aadcc">cmd_func_t</a> fetch_cmd_handler </td>
+          <td class="memname"><a class="el" href="structcmd__mapping.html">cmd_mapping</a> * fetch_cmd_mapping </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>cmd_name</em></td><td>)</td>
@@ -257,16 +282,38 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a64ca5586b992ceef209f82007e1874c8" name="a64ca5586b992ceef209f82007e1874c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64ca5586b992ceef209f82007e1874c8">&#9670;&nbsp;</a></span>cmd_mappings</h2>
+<a id="ab96ef4d1115e0939e6b699afc3dbc830" name="ab96ef4d1115e0939e6b699afc3dbc830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab96ef4d1115e0939e6b699afc3dbc830">&#9670;&nbsp;</a></span>cmd_mappings</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="structcmd__mapping.html">cmd_mapping</a> cmd_mappings[]</td>
+          <td class="memname"><a class="el" href="structcmd__mapping.html">cmd_mapping</a> cmd_mappings[<a class="el" href="commhand_8h.html#aa25b56d365c20671c046ad64ecabcb4a">MAX_CMD_COUNT</a>]</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4c41fbfa755950bed6c67b7c6df9171" name="ac4c41fbfa755950bed6c67b7c6df9171"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4c41fbfa755950bed6c67b7c6df9171">&#9670;&nbsp;</a></span>priority_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="pcb_8h.html#a58e7d6c4cdd0ff161b6159964b1bb1f5">pcb_queue_t</a>* priority_queue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

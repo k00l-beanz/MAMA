@@ -1,0 +1,226 @@
+\hypertarget{driver_8c}{}\doxysection{/home/maximillian/\+Desktop/\+MAMA/serial\+\_\+driver/driver.c File Reference}
+\label{driver_8c}\index{/home/maximillian/Desktop/MAMA/serial\_driver/driver.c@{/home/maximillian/Desktop/MAMA/serial\_driver/driver.c}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdcb__t}{dcb\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{driver_8c_a79bcfb6bde984f42d1124b068a509af7}{BASE}}~\mbox{\hyperlink{serial_8h_a00dbb3ab1c59e14699be9393693e2248}{COM1}}
+\item 
+\#define \mbox{\hyperlink{driver_8c_a8cebc292f6414e39edb5f42fc975ebe1}{DIVISOR\+\_\+\+LATCH\+\_\+\+LOW\+\_\+\+BYTE\+\_\+\+REGISTER}}~0
+\item 
+\#define \mbox{\hyperlink{driver_8c_abc8252ddc5f4ab94c28b17007904100b}{DIVISOR\+\_\+\+LATCH\+\_\+\+HIGH\+\_\+\+BYTE\+\_\+\+REGISTER}}~1
+\item 
+\#define \mbox{\hyperlink{driver_8c_a1fdd05ae98059a34e5793c1bfb82f82e}{INTERRUPT\+\_\+\+ENABLE\+\_\+\+REGISTER}}~1
+\item 
+\#define \mbox{\hyperlink{driver_8c_a31b978688c706f7613e45cd49a78a60f}{INTERRUPT\+\_\+\+IDENTIFICATION\+\_\+\+REGISTER}}~2
+\item 
+\#define \mbox{\hyperlink{driver_8c_acc93c35cd0af684a96993651a976c491}{LINE\+\_\+\+CONTROL\+\_\+\+REGISTER}}~3
+\item 
+\#define \mbox{\hyperlink{driver_8c_aab78587bbffcfcd48cb8a198594e780e}{MODEM\+\_\+\+CONTROL\+\_\+\+REGISTER}}~4
+\item 
+\#define \mbox{\hyperlink{driver_8c_ae5c2ddcda0fc27229c33dade458f09ff}{LINE\+\_\+\+STATUS\+\_\+\+REGISTER}}~5
+\item 
+\#define \mbox{\hyperlink{driver_8c_afee73c7417002c0dc3226d2e313f7c14}{MODEM\+\_\+\+STATUS\+\_\+\+REGISTER}}~6
+\item 
+\#define \mbox{\hyperlink{driver_8c_ae634414710bd7756165b221d6ae7d892}{SCRATCH\+\_\+\+REGISTER}}~7
+\item 
+\#define \mbox{\hyperlink{driver_8c_a89831dd7cb646bfa61461e0b1d91add7}{PIC\+\_\+\+MASK}}~0x21;
+\item 
+\#define \mbox{\hyperlink{driver_8c_a779b513296068d2a6186659183ff3c2c}{RING\+\_\+\+BUFFER\+\_\+\+SIZE}}~100
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structdcb__t}{dcb\+\_\+t}} \mbox{\hyperlink{driver_8c_ad26158921fb8228d3125378dee1b96ff}{dcb\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{driver_8c_ac6493e472a5de1b34dcca4f84e04678d}{device\+\_\+ready\+\_\+state\+\_\+t}} \{ \mbox{\hyperlink{driver_8c_ac6493e472a5de1b34dcca4f84e04678da0e0143636c29971736eab47415868eae}{OPEN}}
+, \mbox{\hyperlink{driver_8c_ac6493e472a5de1b34dcca4f84e04678da929f0327e17604ce9713b2a6117bd603}{CLOSED}}
+ \}
+\item 
+enum \mbox{\hyperlink{driver_8c_ac099822b2180cb992ef85bdae61720c8}{device\+\_\+status\+\_\+t}} \{ \mbox{\hyperlink{driver_8c_ac099822b2180cb992ef85bdae61720c8afd6a0e4343048b10646dd2976cc5ad18}{IDLE}}
+, \mbox{\hyperlink{driver_8c_ac099822b2180cb992ef85bdae61720c8a6c1e47c2556673ca09497ada3062b14c}{READING}}
+, \mbox{\hyperlink{driver_8c_ac099822b2180cb992ef85bdae61720c8ae7eb10d2fdfdd28798102e736c4098e0}{WRITING}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{driver_8c_a61e199cf32c13a7d7c784c5bbff2dae8}{com\+\_\+open}} (int $\ast$eflag\+\_\+p, int baud\+\_\+rate)
+\item 
+int \mbox{\hyperlink{driver_8c_ab31f3276e24ac4f76f5c86ebffb79bd9}{com\+\_\+close}} ()
+\item 
+int \mbox{\hyperlink{driver_8c_add8a8c900dad78c7df33410442d1f14f}{com\+\_\+read}} (char $\ast$buf, int $\ast$count)
+\item 
+int \mbox{\hyperlink{driver_8c_a3c8e3b8f6b6010ce60ff4a6c23a6f05e}{com\+\_\+write}} (char $\ast$buf, int $\ast$count)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structdcb__t}{dcb\+\_\+t}} $\ast$ \mbox{\hyperlink{driver_8c_ac374b5c914dd6666d631d8731fabbb1c}{COM1\+\_\+control\+\_\+block}} = \mbox{\hyperlink{system_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{driver_8c_a79bcfb6bde984f42d1124b068a509af7}\label{driver_8c_a79bcfb6bde984f42d1124b068a509af7}} 
+\index{driver.c@{driver.c}!BASE@{BASE}}
+\index{BASE@{BASE}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{BASE}{BASE}}
+{\footnotesize\ttfamily \#define BASE~\mbox{\hyperlink{serial_8h_a00dbb3ab1c59e14699be9393693e2248}{COM1}}}
+
+\mbox{\Hypertarget{driver_8c_abc8252ddc5f4ab94c28b17007904100b}\label{driver_8c_abc8252ddc5f4ab94c28b17007904100b}} 
+\index{driver.c@{driver.c}!DIVISOR\_LATCH\_HIGH\_BYTE\_REGISTER@{DIVISOR\_LATCH\_HIGH\_BYTE\_REGISTER}}
+\index{DIVISOR\_LATCH\_HIGH\_BYTE\_REGISTER@{DIVISOR\_LATCH\_HIGH\_BYTE\_REGISTER}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{DIVISOR\_LATCH\_HIGH\_BYTE\_REGISTER}{DIVISOR\_LATCH\_HIGH\_BYTE\_REGISTER}}
+{\footnotesize\ttfamily \#define DIVISOR\+\_\+\+LATCH\+\_\+\+HIGH\+\_\+\+BYTE\+\_\+\+REGISTER~1}
+
+\mbox{\Hypertarget{driver_8c_a8cebc292f6414e39edb5f42fc975ebe1}\label{driver_8c_a8cebc292f6414e39edb5f42fc975ebe1}} 
+\index{driver.c@{driver.c}!DIVISOR\_LATCH\_LOW\_BYTE\_REGISTER@{DIVISOR\_LATCH\_LOW\_BYTE\_REGISTER}}
+\index{DIVISOR\_LATCH\_LOW\_BYTE\_REGISTER@{DIVISOR\_LATCH\_LOW\_BYTE\_REGISTER}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{DIVISOR\_LATCH\_LOW\_BYTE\_REGISTER}{DIVISOR\_LATCH\_LOW\_BYTE\_REGISTER}}
+{\footnotesize\ttfamily \#define DIVISOR\+\_\+\+LATCH\+\_\+\+LOW\+\_\+\+BYTE\+\_\+\+REGISTER~0}
+
+\mbox{\Hypertarget{driver_8c_a1fdd05ae98059a34e5793c1bfb82f82e}\label{driver_8c_a1fdd05ae98059a34e5793c1bfb82f82e}} 
+\index{driver.c@{driver.c}!INTERRUPT\_ENABLE\_REGISTER@{INTERRUPT\_ENABLE\_REGISTER}}
+\index{INTERRUPT\_ENABLE\_REGISTER@{INTERRUPT\_ENABLE\_REGISTER}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{INTERRUPT\_ENABLE\_REGISTER}{INTERRUPT\_ENABLE\_REGISTER}}
+{\footnotesize\ttfamily \#define INTERRUPT\+\_\+\+ENABLE\+\_\+\+REGISTER~1}
+
+\mbox{\Hypertarget{driver_8c_a31b978688c706f7613e45cd49a78a60f}\label{driver_8c_a31b978688c706f7613e45cd49a78a60f}} 
+\index{driver.c@{driver.c}!INTERRUPT\_IDENTIFICATION\_REGISTER@{INTERRUPT\_IDENTIFICATION\_REGISTER}}
+\index{INTERRUPT\_IDENTIFICATION\_REGISTER@{INTERRUPT\_IDENTIFICATION\_REGISTER}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{INTERRUPT\_IDENTIFICATION\_REGISTER}{INTERRUPT\_IDENTIFICATION\_REGISTER}}
+{\footnotesize\ttfamily \#define INTERRUPT\+\_\+\+IDENTIFICATION\+\_\+\+REGISTER~2}
+
+\mbox{\Hypertarget{driver_8c_acc93c35cd0af684a96993651a976c491}\label{driver_8c_acc93c35cd0af684a96993651a976c491}} 
+\index{driver.c@{driver.c}!LINE\_CONTROL\_REGISTER@{LINE\_CONTROL\_REGISTER}}
+\index{LINE\_CONTROL\_REGISTER@{LINE\_CONTROL\_REGISTER}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{LINE\_CONTROL\_REGISTER}{LINE\_CONTROL\_REGISTER}}
+{\footnotesize\ttfamily \#define LINE\+\_\+\+CONTROL\+\_\+\+REGISTER~3}
+
+\mbox{\Hypertarget{driver_8c_ae5c2ddcda0fc27229c33dade458f09ff}\label{driver_8c_ae5c2ddcda0fc27229c33dade458f09ff}} 
+\index{driver.c@{driver.c}!LINE\_STATUS\_REGISTER@{LINE\_STATUS\_REGISTER}}
+\index{LINE\_STATUS\_REGISTER@{LINE\_STATUS\_REGISTER}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{LINE\_STATUS\_REGISTER}{LINE\_STATUS\_REGISTER}}
+{\footnotesize\ttfamily \#define LINE\+\_\+\+STATUS\+\_\+\+REGISTER~5}
+
+\mbox{\Hypertarget{driver_8c_aab78587bbffcfcd48cb8a198594e780e}\label{driver_8c_aab78587bbffcfcd48cb8a198594e780e}} 
+\index{driver.c@{driver.c}!MODEM\_CONTROL\_REGISTER@{MODEM\_CONTROL\_REGISTER}}
+\index{MODEM\_CONTROL\_REGISTER@{MODEM\_CONTROL\_REGISTER}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{MODEM\_CONTROL\_REGISTER}{MODEM\_CONTROL\_REGISTER}}
+{\footnotesize\ttfamily \#define MODEM\+\_\+\+CONTROL\+\_\+\+REGISTER~4}
+
+\mbox{\Hypertarget{driver_8c_afee73c7417002c0dc3226d2e313f7c14}\label{driver_8c_afee73c7417002c0dc3226d2e313f7c14}} 
+\index{driver.c@{driver.c}!MODEM\_STATUS\_REGISTER@{MODEM\_STATUS\_REGISTER}}
+\index{MODEM\_STATUS\_REGISTER@{MODEM\_STATUS\_REGISTER}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{MODEM\_STATUS\_REGISTER}{MODEM\_STATUS\_REGISTER}}
+{\footnotesize\ttfamily \#define MODEM\+\_\+\+STATUS\+\_\+\+REGISTER~6}
+
+\mbox{\Hypertarget{driver_8c_a89831dd7cb646bfa61461e0b1d91add7}\label{driver_8c_a89831dd7cb646bfa61461e0b1d91add7}} 
+\index{driver.c@{driver.c}!PIC\_MASK@{PIC\_MASK}}
+\index{PIC\_MASK@{PIC\_MASK}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{PIC\_MASK}{PIC\_MASK}}
+{\footnotesize\ttfamily \#define PIC\+\_\+\+MASK~0x21;}
+
+\mbox{\Hypertarget{driver_8c_a779b513296068d2a6186659183ff3c2c}\label{driver_8c_a779b513296068d2a6186659183ff3c2c}} 
+\index{driver.c@{driver.c}!RING\_BUFFER\_SIZE@{RING\_BUFFER\_SIZE}}
+\index{RING\_BUFFER\_SIZE@{RING\_BUFFER\_SIZE}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{RING\_BUFFER\_SIZE}{RING\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define RING\+\_\+\+BUFFER\+\_\+\+SIZE~100}
+
+\mbox{\Hypertarget{driver_8c_ae634414710bd7756165b221d6ae7d892}\label{driver_8c_ae634414710bd7756165b221d6ae7d892}} 
+\index{driver.c@{driver.c}!SCRATCH\_REGISTER@{SCRATCH\_REGISTER}}
+\index{SCRATCH\_REGISTER@{SCRATCH\_REGISTER}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{SCRATCH\_REGISTER}{SCRATCH\_REGISTER}}
+{\footnotesize\ttfamily \#define SCRATCH\+\_\+\+REGISTER~7}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{driver_8c_ad26158921fb8228d3125378dee1b96ff}\label{driver_8c_ad26158921fb8228d3125378dee1b96ff}} 
+\index{driver.c@{driver.c}!dcb\_t@{dcb\_t}}
+\index{dcb\_t@{dcb\_t}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{dcb\_t}{dcb\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structdcb__t}{dcb\+\_\+t}} \mbox{\hyperlink{structdcb__t}{dcb\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{driver_8c_ac6493e472a5de1b34dcca4f84e04678d}\label{driver_8c_ac6493e472a5de1b34dcca4f84e04678d}} 
+\index{driver.c@{driver.c}!device\_ready\_state\_t@{device\_ready\_state\_t}}
+\index{device\_ready\_state\_t@{device\_ready\_state\_t}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{device\_ready\_state\_t}{device\_ready\_state\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{driver_8c_ac6493e472a5de1b34dcca4f84e04678d}{device\+\_\+ready\+\_\+state\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPEN@{OPEN}!driver.c@{driver.c}}\index{driver.c@{driver.c}!OPEN@{OPEN}}}\mbox{\Hypertarget{driver_8c_ac6493e472a5de1b34dcca4f84e04678da0e0143636c29971736eab47415868eae}\label{driver_8c_ac6493e472a5de1b34dcca4f84e04678da0e0143636c29971736eab47415868eae}} 
+OPEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOSED@{CLOSED}!driver.c@{driver.c}}\index{driver.c@{driver.c}!CLOSED@{CLOSED}}}\mbox{\Hypertarget{driver_8c_ac6493e472a5de1b34dcca4f84e04678da929f0327e17604ce9713b2a6117bd603}\label{driver_8c_ac6493e472a5de1b34dcca4f84e04678da929f0327e17604ce9713b2a6117bd603}} 
+CLOSED&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{driver_8c_ac099822b2180cb992ef85bdae61720c8}\label{driver_8c_ac099822b2180cb992ef85bdae61720c8}} 
+\index{driver.c@{driver.c}!device\_status\_t@{device\_status\_t}}
+\index{device\_status\_t@{device\_status\_t}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{device\_status\_t}{device\_status\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{driver_8c_ac099822b2180cb992ef85bdae61720c8}{device\+\_\+status\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IDLE@{IDLE}!driver.c@{driver.c}}\index{driver.c@{driver.c}!IDLE@{IDLE}}}\mbox{\Hypertarget{driver_8c_ac099822b2180cb992ef85bdae61720c8afd6a0e4343048b10646dd2976cc5ad18}\label{driver_8c_ac099822b2180cb992ef85bdae61720c8afd6a0e4343048b10646dd2976cc5ad18}} 
+IDLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{READING@{READING}!driver.c@{driver.c}}\index{driver.c@{driver.c}!READING@{READING}}}\mbox{\Hypertarget{driver_8c_ac099822b2180cb992ef85bdae61720c8a6c1e47c2556673ca09497ada3062b14c}\label{driver_8c_ac099822b2180cb992ef85bdae61720c8a6c1e47c2556673ca09497ada3062b14c}} 
+READING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WRITING@{WRITING}!driver.c@{driver.c}}\index{driver.c@{driver.c}!WRITING@{WRITING}}}\mbox{\Hypertarget{driver_8c_ac099822b2180cb992ef85bdae61720c8ae7eb10d2fdfdd28798102e736c4098e0}\label{driver_8c_ac099822b2180cb992ef85bdae61720c8ae7eb10d2fdfdd28798102e736c4098e0}} 
+WRITING&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{driver_8c_ab31f3276e24ac4f76f5c86ebffb79bd9}\label{driver_8c_ab31f3276e24ac4f76f5c86ebffb79bd9}} 
+\index{driver.c@{driver.c}!com\_close@{com\_close}}
+\index{com\_close@{com\_close}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{com\_close()}{com\_close()}}
+{\footnotesize\ttfamily int com\+\_\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{driver_8c_a61e199cf32c13a7d7c784c5bbff2dae8}\label{driver_8c_a61e199cf32c13a7d7c784c5bbff2dae8}} 
+\index{driver.c@{driver.c}!com\_open@{com\_open}}
+\index{com\_open@{com\_open}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{com\_open()}{com\_open()}}
+{\footnotesize\ttfamily int com\+\_\+open (\begin{DoxyParamCaption}\item[{int $\ast$}]{eflag\+\_\+p,  }\item[{int}]{baud\+\_\+rate }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{driver_8c_add8a8c900dad78c7df33410442d1f14f}\label{driver_8c_add8a8c900dad78c7df33410442d1f14f}} 
+\index{driver.c@{driver.c}!com\_read@{com\_read}}
+\index{com\_read@{com\_read}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{com\_read()}{com\_read()}}
+{\footnotesize\ttfamily int com\+\_\+read (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{int $\ast$}]{count }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{driver_8c_a3c8e3b8f6b6010ce60ff4a6c23a6f05e}\label{driver_8c_a3c8e3b8f6b6010ce60ff4a6c23a6f05e}} 
+\index{driver.c@{driver.c}!com\_write@{com\_write}}
+\index{com\_write@{com\_write}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{com\_write()}{com\_write()}}
+{\footnotesize\ttfamily int com\+\_\+write (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{int $\ast$}]{count }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{driver_8c_ac374b5c914dd6666d631d8731fabbb1c}\label{driver_8c_ac374b5c914dd6666d631d8731fabbb1c}} 
+\index{driver.c@{driver.c}!COM1\_control\_block@{COM1\_control\_block}}
+\index{COM1\_control\_block@{COM1\_control\_block}!driver.c@{driver.c}}
+\doxysubsubsection{\texorpdfstring{COM1\_control\_block}{COM1\_control\_block}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structdcb__t}{dcb\+\_\+t}}$\ast$ COM1\+\_\+control\+\_\+block = \mbox{\hyperlink{system_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
