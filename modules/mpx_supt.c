@@ -183,7 +183,10 @@ void idle()
 	count = strlen(msg);
   
   while(1){
-	sys_req( WRITE, DEFAULT_DEVICE, msg, &count);
+	  (void)count;
+    serial_println("in idle proc");
+    int x = 0; int y = 1 / x; (void)y;
+	//sys_req( WRITE, DEFAULT_DEVICE, msg, &count);
     sys_req(IDLE, DEFAULT_DEVICE, NULL, NULL);
   }
 }

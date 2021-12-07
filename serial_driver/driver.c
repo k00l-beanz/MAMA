@@ -1,4 +1,5 @@
-// TODO: import the right stuff
+#include <core/io.h>
+#include <core/tables.h>
 
 #define BASE COM1
 
@@ -13,7 +14,9 @@
 #define MODEM_STATUS_REGISTER 6
 #define SCRATCH_REGISTER 7
 
-#define PIC_MASK 0x21;
+#define PIC_MASK 0x21
+#define PIC_END_OF_INTERRUPT_REGISTER 0x20
+#define PIC_SIGNAL_END_OF_INTERRUPT_CODE 0x20
 
 #define RING_BUFFER_SIZE 100
 
@@ -24,11 +27,11 @@ typedef enum {
 } device_ready_state_t;
 
 typedef enum {
-	IDLE,
+	DEVICE_IDLE,
 
-	READING,
+	DEVICE_READING,
 
-	WRITING
+	DEVICE_WRITING
 } device_status_t;
 
 typedef struct dcb_t {
@@ -45,11 +48,14 @@ typedef struct dcb_t {
 	int *user_write_count;
 
 	char ring_buffer[RING_BUFFER_SIZE];
-	int ring_buffer_head = 0;
-	int ring_buffer_tail = 0;
+	int ring_buffer_head;
+	int ring_buffer_tail;
 } dcb_t;
 
-const dcb_t *COM1_control_block = NULL;
+dcb_t *COM1_control_block = NULL;
+
+extern void com_interrupt();
+int com_handle_interrupt();
 
 // return codes for all functions are defined by the r6 document
 
@@ -65,7 +71,7 @@ int com_open(int *eflag_p, int baud_rate) {
 		case 110:
 		case 150:
 		case 300:
-		case 600:   // i dont think this is how youre supposed to program
+		case 600:
 		case 1200:
 		case 2400:
 		case 4800:
@@ -85,7 +91,7 @@ int com_open(int *eflag_p, int baud_rate) {
 	}
 	COM1_control_block->eflag_p = eflag_p;
 	COM1_control_block->ready_state = OPEN;
-	COM1_control_block->oper_status = IDLE;
+	COM1_control_block->oper_status = DEVICE_IDLE;
 	COM1_control_block->user_read_buf = NULL;
 	COM1_control_block->user_read_count = NULL;
 	COM1_control_block->user_write_buf = NULL;
@@ -94,7 +100,8 @@ int com_open(int *eflag_p, int baud_rate) {
 	COM1_control_block->ring_buffer_tail = 0;
 
 	// 3.	Save the address of the current interrupt handler, and install the new handler in the interrupt vector.
-	// TODO: this ^^^
+	// TODO: save current address part
+	idt_set_gate(0x30, (u32int)com_interrupt, 0x08, 0x8e);
 
 	// 4.	Compute the required baud rate divisor.
 	int baud_rate_divisor = 115200 / (long) baud_rate;
@@ -110,9 +117,9 @@ int com_open(int *eflag_p, int baud_rate) {
 	outb(BASE + LINE_CONTROL_REGISTER, 0x03);
 
 	// 8.	Enable the appropriate level in the PIC mask register.
-	disable(); // example document had these function calls, not sure if they are needed or what they do
-	outb(PIC_MASK, inb(PIC_MASK) & ~0b1000); // PIC level for COM1 is 4, not sure if this is the right way to set it or not though
-	enable();
+	//disable(); // example document had these function calls, not sure if they are needed or what they do
+	outb(PIC_MASK, inb(PIC_MASK) & ~0b10000); // PIC level for COM1 is 4, not sure if this is the right way to set it or not though
+	//enable();
 
 	// 9.	Enable overall serial port interrupts by storing the value 0x08 in the Modem Control register. 
 	outb(BASE + MODEM_CONTROL_REGISTER, 0x08);
@@ -158,13 +165,13 @@ int com_read(char *buf, int *count) {
 	if(COM1_control_block == NULL || COM1_control_block->ready_state != OPEN) {
 		return -301; // port not open
 	}
-	if(COM1_control_block->oper_status != IDLE) {
+	if(COM1_control_block->oper_status != DEVICE_IDLE) {
 		return -304; // device busy
 	}
 
 	// 3.	Initialize the input buffer variables (not the ring buffer!) and set the status to reading. 
 	int actual_count = 0;
-	COM1_control_block->oper_status = READING;
+	COM1_control_block->oper_status = DEVICE_READING;
 
 	// 4.	Clear the caller's event flag. 
 	*(COM1_control_block->eflag_p) = 0; // is this what it means?
@@ -188,10 +195,10 @@ int com_read(char *buf, int *count) {
 
 	// 6.	If more characters are needed, return. If the block is complete, continue with step 7. 
 	if(actual_count < *count)
-		return;
+		return 0;
 
 	// 7.	Reset the DCB status to idle, set the event flag, and return the actual count to the requestor's variable. 
-	COM1_control_block->oper_status = IDLE;
+	COM1_control_block->oper_status = DEVICE_IDLE;
 	*(COM1_control_block->eflag_p) = 1; // again, not sure what it wants here but i think its this
 	*count = actual_count;
 	// TODO: should we be nice and null-terminate the caller's buffer before returning? or will that break something
@@ -212,14 +219,14 @@ int com_write(char *buf, int *count) {
 	if(COM1_control_block == NULL || COM1_control_block->ready_state != OPEN) {
 		return -401; // serial port not open
 	}
-	if(COM1_control_block->oper_status != IDLE) {
+	if(COM1_control_block->oper_status != DEVICE_IDLE) {
 		return -404; // device busy
 	}
 
 	// 3.	Install the buffer pointer and counters in the DCB, and set the current status to writing. 
 	COM1_control_block->user_write_buf = buf;
 	COM1_control_block->user_write_count = count;
-	COM1_control_block->oper_status = WRITING;
+	COM1_control_block->oper_status = DEVICE_WRITING;
 
 	// 4.	Clear the caller's event flag. 
 	*(COM1_control_block->eflag_p) = 0;
@@ -230,5 +237,14 @@ int com_write(char *buf, int *count) {
 	// 6.	Enable write interrupts by setting bit 1 of the Interrupt Enable register. This must be done by setting the register to the logical or of its previous contents and 0x02.
 	outb(BASE + INTERRUPT_ENABLE_REGISTER, inb(BASE + INTERRUPT_ENABLE_REGISTER) | 0x02);
 
+	return 0;
+}
+
+int com_handle_interrupt() {
+	int x = 0; int y = 1 / x; (void)y;
+	int interrupt_id = inb(BASE + INTERRUPT_IDENTIFICATION_REGISTER);
+	(void)interrupt_id;
+
+	outb(PIC_END_OF_INTERRUPT_REGISTER, PIC_SIGNAL_END_OF_INTERRUPT_CODE);
 	return 0;
 }

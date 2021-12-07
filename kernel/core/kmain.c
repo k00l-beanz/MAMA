@@ -35,7 +35,7 @@ void kmain(void)
    // char *boot_loader_name = (char*)((long*)mbd)[16];
 
    // ASCII art because we are trying to build a brand
-   mama();
+   //mama();
   
    // 0) Initialize Serial I/O 
    // functions to initialize serial I/O can be found in serial.c
@@ -47,6 +47,9 @@ void kmain(void)
 
    // Memory managers have been written and enabled
    mpx_init(MEM_MODULE);
+
+   // scary
+   mpx_init(IO_MODULE);
 
    // Initialize dynamic memory
    initHeap(50000);
@@ -112,13 +115,15 @@ void kmain(void)
    commhandPCB->pcb_process_state = READY;
    insertPCB(commhandPCB);
 
+  /*
    // Alarm PCB
    pcb_t * alarmPCB = dispatcher("alarms", &dispatchAlarm);
    alarmPCB->pcb_priority = 4;
    alarmPCB->pcb_process_class = 0;
    alarmPCB->pcb_process_state = READY;
    insertPCB(alarmPCB);
-   
+   */
+
    // Idle PCB
    pcb_t * idlePCB = dispatcher("idle",&idle);
    idlePCB->pcb_priority = 1;

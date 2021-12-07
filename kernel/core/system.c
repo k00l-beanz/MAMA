@@ -12,6 +12,8 @@
 
 #include <lib/out.h>
 
+#include <io_scheduler/scheduler.c>
+
 /// Currently operating process
 pcb_t * cop;
 
@@ -61,6 +63,9 @@ void kpanic(const char * msg) {
  * 
  */
 u32int * sys_call(context * registers) {
+    serial_println("top of sys call");
+    io_refresh_queue();
+
     pcb_t * pcb = NULL;
 
 	// fetch next node to switch to, remove from ready queue
@@ -75,8 +80,6 @@ u32int * sys_call(context * registers) {
 
     //Is there a currently operating process? 
     if (cop == NULL) {
-		//printf("first call\n");
-		//showAll(NULL);
         global_context = registers;
     } else {
 		//There is an existing cop 
@@ -92,29 +95,34 @@ u32int * sys_call(context * registers) {
             removePCB(cop);
             freePCB(cop);
 
-            // TODO: cop now points to freed memory, 
-            // using it will result in a use-after-free - does cop need to be set to null here? 
-            // not really sure how any of this stuff works lol
-            // 
-            // I made it NULL to prevent what you mentioned above
             cop = NULL;
-        }
-		
-		//printf("existing cop\n");
-		//showAll(NULL);
+        } else if(params.op_code == READ) {
+            io_enqueue_read(cop, params.buffer_ptr, params.count_ptr);
+            // save cop context, block until I/O request complete
+            cop -> pcb_stack_top = (unsigned char * ) registers;
+            cop -> pcb_process_state = BLOCKED;
+            insertPCB(cop);
+    	} else if(params.op_code == WRITE) {
+            io_enqueue_write(cop, params.buffer_ptr, params.count_ptr);
+            // save cop context, block until I/O request complete
+            cop -> pcb_stack_top = (unsigned char * ) registers;
+            cop -> pcb_process_state = BLOCKED;
+            insertPCB(cop);
+    	}
     }
-	//printf("woo\n");
+
+    io_try_start_next();
+
+    serial_println("left io_try_start_next");
+
     // There is a READY pcb
     if (pcb != NULL) {
-		//printf("woo1\n");
         cop = pcb;
-		//p/rintf("woo2\n");
         cop -> pcb_process_state = RUNNING;
-		//printf("woo3\n");
+        serial_println("next PCB to schedule: ");
+        serial_println(pcb->pcb_name);
+        serial_println("about to return from sys_call");
         return (u32int * ) cop -> pcb_stack_top;
     }
-	//printf("woo4\n");
-	//printf("about to return\n");
-	//showAll(NULL);
     return (u32int * ) global_context;
 }
