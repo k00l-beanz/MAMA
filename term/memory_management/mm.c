@@ -96,7 +96,7 @@ u32int allocateMemory(u32int size) {
 	// Update amount of size remaining in fmcb block, if any
 	ref_size = ref_size - required;
 	if ((ref_size < 1) || (sizeof(cmcb_s) > ref_size)) {
-		serial_println("No room to insert new FMCB");
+		// serial_println("No room to insert new FMCB"); // DEBUG
 		newAMCB->size = newAMCB->size + ref_size; // avoid unused memory with no cmcb being left over in this case
 		return newAMCB->addr;
 	}
