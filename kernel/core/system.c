@@ -127,9 +127,10 @@ u32int * sys_call(context * registers) {
         //serial_println("next PCB to schedule: ");
         //serial_println(pcb->pcb_name);
         //serial_println("about to return from sys_call");
-        
+
         return (u32int * ) cop -> pcb_stack_top;
     }
+
     //serial_println("about to return from sys_call the other way");
     return (u32int * ) global_context;
 }

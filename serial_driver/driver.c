@@ -68,7 +68,6 @@ int com_circular_prev_index(int);
 
 // return codes for all functions are defined by the r6 document
 
-// TODO: disable interrupts at beginning, reenable at end?
 int com_open(int *eflag_p, int baud_rate) {
 	// 1.	Ensure that the parameters are valid, and that the device is not currently open.
 	if(eflag_p == NULL) {
@@ -198,9 +197,9 @@ int com_read(char *buf, int *count) {
 	*(COM1_control_block->eflag_p) = 0;
 
 	// 5.	Copy characters from the ring buffer to the requestor's buffer, until the ring buffer is emptied, the requested count has been reached, or a CR (ENTER) code has been found. The copied characters should, of course, be removed from the ring buffer. Either input interrupts or all interrupts should be disabled during the copying. 
-	int prev_interrupt_enable_reg_value = inb(BASE + INTERRUPT_ENABLE_REGISTER);
-	outb(BASE + INTERRUPT_ENABLE_REGISTER, 0x0); // disable input interrupts TODO: this might clear the write interrupt bit and not reset it
-
+	//int prev_interrupt_enable_reg_value = inb(BASE + INTERRUPT_ENABLE_REGISTER);
+	//outb(BASE + INTERRUPT_ENABLE_REGISTER, 0x0); // disable input interrupts
+	cli();
 
 	while(actual_count < *count && COM1_control_block->ring_buffer_head != COM1_control_block->ring_buffer_tail) {
 		serial_println("using from ring buffer first...");
@@ -215,7 +214,8 @@ int com_read(char *buf, int *count) {
 		actual_count++;
 	}
 
-	outb(BASE + INTERRUPT_ENABLE_REGISTER, prev_interrupt_enable_reg_value); // reenable input interrupts
+	sti();
+	//outb(BASE + INTERRUPT_ENABLE_REGISTER, prev_interrupt_enable_reg_value); // reenable input interrupts
 
 	// 6.	If more characters are needed, return. If the block is complete, continue with step 7. 
 	if(actual_count < *count) {
@@ -226,7 +226,7 @@ int com_read(char *buf, int *count) {
 
 	// 7.	Reset the DCB status to idle, set the event flag, and return the actual count to the requestor's variable. 
 	COM1_control_block->oper_status = DEVICE_IDLE;
-	*(COM1_control_block->eflag_p) = 1; // again, not sure what it wants here but i think its this
+	*(COM1_control_block->eflag_p) = 1;
 	*count = actual_count;
 	COM1_control_block->user_read_buf[actual_count] = '\0';
 
@@ -323,181 +323,17 @@ unsigned int consume_special() {
 }
 
 int com_handle_interrupt_read() {
-	if(COM1_control_block == NULL) {
-		return 1;
-	}
-	if(COM1_control_block->oper_status != DEVICE_READING) {
-		serial_println("sending to ring_buffer");
-		char letter = inb(BASE);
-		switch (letter) {
-				/*Backspace Key */
-				case '\b':
-				case 0x7f:
-					/* 
-					 *	Move index + chars_read back ONLY IF we are not at the
-					 *	start of the line (don't let the user backspace off the screen)
-					 *	this case would also be a buffer underflow.
-					 */
-					if (COM1_control_block->ring_buffer_head != COM1_control_block->ring_buffer_cursor) {
-						for (int i = com_circular_prev_index(COM1_control_block->ring_buffer_cursor); com_circular_next_index(i) != COM1_control_block->ring_buffer_tail; i = com_circular_next_index(i))
-							COM1_control_block->ring_buffer[i] = COM1_control_block->ring_buffer[com_circular_next_index(i)];
-						COM1_control_block->ring_buffer_cursor = com_circular_prev_index(COM1_control_block->ring_buffer_cursor);
-						COM1_control_block->ring_buffer_tail = com_circular_prev_index(COM1_control_block->ring_buffer_tail);
+	//klogv("read interrupt received");
+	//inb(BASE);
+	//return 0;
 
-						// adjust visually
-						outb(COM1, '\b');
-						for (int i = COM1_control_block->ring_buffer_cursor; i != COM1_control_block->ring_buffer_tail; i = com_circular_next_index(i)) {
-							//syntax_handle_char(buffer[i], i);
-							outb(COM1, COM1_control_block->ring_buffer[i]);
-						}
-						outb(COM1, ' ');
-						outb(COM1, '\b');
-						for (int i = COM1_control_block->ring_buffer_cursor; i != COM1_control_block->ring_buffer_tail; i = com_circular_next_index(i))
-							outb(COM1, '\b');
-					}
-					break;
-				/* Everything else */
-				default:
-					// anything else just gets added to buffer and printed
-					if(COM1_control_block->ring_buffer_head != com_circular_prev_index(COM1_control_block->ring_buffer_tail)) {
-						for (int i = COM1_control_block->ring_buffer_tail; i != COM1_control_block->ring_buffer_cursor; i = com_circular_prev_index(i))
-							COM1_control_block->ring_buffer[i] = COM1_control_block->ring_buffer[com_circular_prev_index(i)];
-						COM1_control_block->ring_buffer[COM1_control_block->ring_buffer_cursor] = letter;
-						//syntax_handle_char(letter, index);
-						COM1_control_block->ring_buffer_tail = com_circular_next_index(COM1_control_block->ring_buffer_tail);
-						COM1_control_block->ring_buffer_cursor = com_circular_next_index(COM1_control_block->ring_buffer_cursor);
-						outb(COM1, letter);
-						for (int i = COM1_control_block->ring_buffer_cursor; i < COM1_control_block->ring_buffer_tail; i = com_circular_next_index(i)) {
-							//syntax_handle_char(buffer[i], i);
-							outb(COM1, COM1_control_block->ring_buffer[i]);
-						}
-						for (int i = COM1_control_block->ring_buffer_cursor; i < COM1_control_block->ring_buffer_tail; i = com_circular_next_index(i)) {
-							outb(COM1, '\b');
-						}
-					}
-			}
-		return 0;
-	}
+	char letter = inb(BASE);
+	COM1_control_block->user_read_buf[COM1_control_block->user_write_progress] = letter;
+	COM1_control_block->user_read_progress++;
+	outb(BASE, letter);
 
-	char letter = inb(COM1); /* Holds individual letter */
-	int i;
-	int chars_read = COM1_control_block->user_read_progress;
-	char *buffer = COM1_control_block->user_read_buf;
-	int index = COM1_control_block->user_read_index;
-	int got_newline = 0;
-	switch (letter) {
-		/* Return Key */
-		case '\r':
-		case '\n':
-			/* 
-			 *	Carriage Return (CR) and Line Feed (LF) count as newlines or 'end of input' chars.
-			 *	Null terminate and return, don't add newline to buffer. 
-			 */
-			buffer[chars_read] = '\0';
-			got_newline = 1;
-			break;
-		/*Backspace Key */
-		case '\b':
-		case 0x7f:
-			/* 
-			 *	Move index + chars_read back ONLY IF we are not at the
-			 *	start of the line (don't let the user backspace off the screen)
-			 *	this case would also be a buffer underflow.
-			 */
-			if (index > 0) {
-				for (i = index; i < chars_read; i++)
-					buffer[i - 1] = buffer[i];
-				index--;
-				chars_read--;
-
-				// adjust visually
-				outb(COM1, '\b');
-				for (i = index; i < chars_read; i++) {
-					//syntax_handle_char(buffer[i], i);
-					outb(COM1, buffer[i]);
-				}
-				outb(COM1, ' ');
-				outb(COM1, '\b');
-				for (i = index; i < chars_read; i++)
-					outb(COM1, '\b');
-			}
-			break;
-		/* Special Characters */
-		case '\e':
-			switch (consume_special()) {
-				/* Delete Key */
-				case DELETE:
-					/*
-					 *	Shift all characters in front of the current index back 1 space
-					 *	only attempt to do so if we aren't at the end of the line
-					 */
-					if (index < chars_read) {
-						for (i = index; i < chars_read - 1; i++)
-							buffer[i] = buffer[i + 1];
-						chars_read--;
-
-						/* adjust visually */
-						for (i = index; i < chars_read; i++) {
-							//syntax_handle_char(buffer[i], i);
-							outb(COM1, buffer[i]);
-						}
-						outb(COM1, ' ');
-						outb(COM1, '\b');
-						for (i = index; i < chars_read; i++)
-							outb(COM1, '\b');
-					}
-					break;
-				/* Left Arrow */
-				case LEFT_ARROW:
-					/* Move index to the left if it isn't at the start of the line */
-					if (index > 0) {
-						index--;
-						outb(COM1, '\b');
-					}
-					break;
-				/* Right Arrow */
-				case RIGHT_ARROW:
-					/* Move index to the right if it isn't at the end of the line */
-					if (index < chars_read) {
-						index++;
-						outb(COM1, '\e');
-						outb(COM1, '[');
-						outb(COM1, 'C');
-					}
-					break;
-				/* History with Up and Down arrow keys */
-				case UP_ARROW:
-					//hist_rewind(buffer, &index, &chars_read);
-					break;
-				case DOWN_ARROW:
-					//hist_forward(buffer, &index, &chars_read);
-					break;
-			}
-			break;
-		/* Everything else */
-		default:
-			// anything else just gets added to buffer and printed
-			//for (i = chars_read; i > index; i--)
-			//	buffer[i] = buffer[i - 1];
-			//buffer[index] = letter;
-			//syntax_handle_char(letter, index);
-			outb(COM1, letter);
-			chars_read += 1;
-			index += 1;
-			for (i = index; i < chars_read; i++) {
-				//syntax_handle_char(buffer[i], i);
-				outb(COM1, buffer[i]);
-			}
-			for (i = index; i < chars_read; i++) {
-				outb(COM1, '\b');
-			}
-	}
-
-	COM1_control_block->user_read_progress = chars_read;
-	COM1_control_block->user_read_index = index;
-
-	if(got_newline || COM1_control_block->user_read_progress >= *(COM1_control_block->user_read_count)) {
-		serial_println("here");
+	if(/*got_newline || */COM1_control_block->user_read_progress >= *(COM1_control_block->user_read_count)) {
+		serial_println("got enough characters");
 		*(COM1_control_block->user_read_count) = COM1_control_block->user_read_progress;
 		COM1_control_block->oper_status = DEVICE_IDLE;
 		*(COM1_control_block->eflag_p) = 1;
@@ -544,14 +380,9 @@ int com_handle_interrupt() {
 		com_handle_interrupt_write();
 	}
 	else if((interrupt_id & 0b0110) >> 1 == INTERRUPT_ID_INPUT_READY) {
-		//serial_println("got read interrupt");
-		//if(COM1_control_block->oper_status == DEVICE_READING)
-		//	serial_println("something is reading");
-		//else
-		//	serial_println("something is not reading");
-		outb(BASE, inb(BASE));
-		//inb(BASE);
-		//com_handle_interrupt_read();
+		com_handle_interrupt_read();
+	} else {
+		klogv("got some other interrupt");
 	}
 
 	outb(PIC_END_OF_INTERRUPT_REGISTER, PIC_SIGNAL_END_OF_INTERRUPT_CODE);

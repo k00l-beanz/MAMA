@@ -40,7 +40,7 @@ void COMREAD() {
   int outputCount=0;
   char inputBuffer[100];
   int inputCount=100;
-	
+  
   memset(outputMsg, '\0', sizeof(outputMsg));
   memset(inputBuffer, '\0', sizeof(inputBuffer));
 
@@ -50,7 +50,7 @@ void COMREAD() {
   // write the prompt
   sys_req(WRITE, DEFAULT_DEVICE, outputMsg, &outputCount);
   // we should not need to IDLE
-  //sys_req(IDLE, DEFAULT_DEVICE, NULL, NULL);
+  sys_req(IDLE, DEFAULT_DEVICE, NULL, NULL);
 
   // read the user input
   sys_req(READ, DEFAULT_DEVICE, inputBuffer, &inputCount);

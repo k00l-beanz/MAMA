@@ -193,6 +193,7 @@ void commhand() {
 	mama();
 
 	cmd_test_r6(NULL);
+	//sys_req(EXIT,DEFAULT_DEVICE,NULL,NULL);
 
 	syntax_init();
 

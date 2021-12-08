@@ -27,7 +27,7 @@ void io_enqueue_write(pcb_t *, char *, int *);
 
 void io_enqueue(iocb_t *);
 
-void io_dequeue(iocb_t *);
+void io_dequeue();
 
 void io_try_start_next();
 

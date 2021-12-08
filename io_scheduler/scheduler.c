@@ -16,7 +16,7 @@ void io_refresh_queue() {
 		removePCB(node->pcb);
 		node->pcb->pcb_process_state = READY;
 		insertPCB(node->pcb);
-		io_dequeue(node);
+		io_dequeue();
 	}
 }
 
@@ -53,25 +53,12 @@ void io_enqueue(iocb_t *control_block) {
 	}
 }
 
-void io_dequeue(iocb_t *control_block) {
+void io_dequeue() {
 	//serial_println("dequeuing");
-	if(control_block == COM1_queue) {
-		COM1_queue = control_block->next;
-		sys_free_mem(control_block);
-	}
-	else {
-		iocb_t *prev = COM1_queue;
-		while(prev != NULL && prev->next != control_block)
-			prev = prev->next;
-
-		iocb_t *prev_next = prev->next;
-		if(prev_next == control_block) {
-			prev->next = control_block->next;
-			sys_free_mem(control_block);
-		} else {
-			// error
-			return;
-		}
+	if(COM1_queue != NULL) {
+		iocb_t *old = COM1_queue;
+		COM1_queue = COM1_queue->next;
+		sys_free_mem(old);
 	}
 }
 
