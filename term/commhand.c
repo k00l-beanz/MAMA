@@ -166,6 +166,11 @@ cmd_mapping cmd_mappings[MAX_CMD_COUNT] = {
 		"alias",
 		&cmd_alias,
 		""
+	},
+	{
+		"r6",
+		&cmd_test_r6,
+		""
 	}
 };
 
@@ -187,6 +192,8 @@ extern pcb_queue_t *priority_queue;
 void commhand() {
 	mama();
 
+	cmd_test_r6(NULL);
+
 	syntax_init();
 
 	char cmd_name[MAX_CMD_NAME_LEN + 1];
@@ -202,6 +209,7 @@ void commhand() {
 		/* Prints prompt */
 		display_fg_color(GREEN);
 		printf("~--> ");
+continue;
 		display_reset();
 
 		/* Reads in user input */

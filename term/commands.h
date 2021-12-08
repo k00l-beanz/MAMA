@@ -8,5 +8,6 @@
 #include "cmds/argtest.c"
 #include "cmds/pcb.c"
 #include "cmds/clear.c"
+#include "dispatch/test_procs_r6.c"
 
 #endif

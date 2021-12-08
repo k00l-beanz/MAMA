@@ -12,8 +12,6 @@ typedef struct iocb_t {
 
 	pcb_t *pcb;
 
-	int e_flag;
-
 	char *buf;
 
 	int *count;

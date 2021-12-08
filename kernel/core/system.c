@@ -65,7 +65,9 @@ void kpanic(const char * msg) {
 u32int * sys_call(context * registers) {
     //serial_println("top of sys call");
     cli();
+    //serial_println("checkpoint A");
     io_refresh_queue();
+    //serial_println("checkpoint B");
 
     //Is there a currently operating process? 
     if (cop == NULL) {
@@ -99,6 +101,8 @@ u32int * sys_call(context * registers) {
             insertPCB(cop);
     	}
     }
+
+    //serial_println("checkpoint C");
 
     io_try_start_next();
 

@@ -27,6 +27,16 @@
 #include "term/dnt/dnt.h"
 #include "term/memory_management/mm.h"
 
+#include <serial_driver/driver.h>
+
+#define DEFAULT_BAUD_RATE 1200
+
+int com1_eflag = 0;
+
+int *com1_eflag_ptr() {
+  return &com1_eflag; 
+}
+
 void kmain(void)
 {
    extern uint32_t magic;
@@ -56,7 +66,6 @@ void kmain(void)
    sys_set_malloc(&allocateMemory);
    sys_set_free(&freeMemory);
 
- 
    klogv("Starting MPX boot sequence...");
    klogv("Initialized serial I/O on COM1 device...");
 
@@ -104,6 +113,8 @@ void kmain(void)
 
    init_paging();
 
+   com_open(&com1_eflag, DEFAULT_BAUD_RATE);
+
    // 6) Call YOUR command handler -  interface method
    klogv("Transferring control to commhand...");
    // commhand(); // !!! ENABLE/RE-ENABLE FOR R4 !!!
@@ -134,6 +145,8 @@ void kmain(void)
   
    // yield
    yield();
+   
+   com_close();
 
    // 7) System Shutdown on return from your command handler
    klogv("Starting system shutdown procedure...");

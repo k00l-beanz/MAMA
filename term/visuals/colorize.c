@@ -21,6 +21,7 @@ void print_color_code(enum Color);
  * @param color The color to switch to.
  */
 void display_fg_color(enum Color color) {
+	return;
 	print(START_SEQ, 2);
 	print("3", 1);
 	print_color_code(color);
