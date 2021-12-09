@@ -185,6 +185,8 @@ extern pcb_queue_t *priority_queue;
  * @return Returns 0 upon success, -1 upon error
 */
 void commhand() {
+	mama();
+
 	// I changed the return type from 'int' to 'void' so I can call
 	// commhand using the dispatcher in kmain.c
 	syntax_init();
