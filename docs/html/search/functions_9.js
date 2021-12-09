@@ -12,17 +12,18 @@ var searchData=
   ['initheap_9',['initHeap',['../mm_8c.html#a59751b566f1cf2e45218b49a6adc4731',1,'initHeap(u32int size):&#160;mm.c'],['../mm_8h.html#a59751b566f1cf2e45218b49a6adc4731',1,'initHeap(u32int size):&#160;mm.c']]],
   ['initpcb_10',['initPCB',['../pcb_2pcb_8c.html#a7b0287390f1362a7f0201cf4bdda0683',1,'initPCB():&#160;pcb.c'],['../pcb_8h.html#a7b0287390f1362a7f0201cf4bdda0683',1,'initPCB():&#160;pcb.c']]],
   ['insertamcb_11',['insertAMCB',['../mm_8c.html#ac8eb0721a1430cb5321851e880d6f611',1,'insertAMCB(cmcb_s *mcb):&#160;mm.c'],['../mm_8h.html#ac8eb0721a1430cb5321851e880d6f611',1,'insertAMCB(cmcb_s *mcb):&#160;mm.c']]],
-  ['insertfmcb_12',['insertFMCB',['../mm_8c.html#ab6eab6ffdb6ac800b7e17ac726b395d6',1,'insertFMCB(cmcb_s *mcb):&#160;mm.c'],['../mm_8h.html#ab6eab6ffdb6ac800b7e17ac726b395d6',1,'insertFMCB(cmcb_s *mcb):&#160;mm.c']]],
+  ['insertfmcb_12',['insertFMCB',['../mm_8h.html#ab6eab6ffdb6ac800b7e17ac726b395d6',1,'insertFMCB(cmcb_s *mcb):&#160;mm.c'],['../mm_8c.html#ab6eab6ffdb6ac800b7e17ac726b395d6',1,'insertFMCB(cmcb_s *mcb):&#160;mm.c']]],
   ['insertpcb_13',['insertPCB',['../pcb_2pcb_8c.html#a5a44254d979bac00250baba4f784e273',1,'insertPCB(pcb_t *pcb):&#160;pcb.c'],['../pcb_8h.html#a5a44254d979bac00250baba4f784e273',1,'insertPCB(pcb_t *pcb):&#160;pcb.c']]],
   ['inttodayofweek_14',['intToDayOfWeek',['../dnt_8c.html#a3610dc3b9c692a029fccae0faf859533',1,'intToDayOfWeek(int value):&#160;dnt.c'],['../dnt_8h.html#a3610dc3b9c692a029fccae0faf859533',1,'intToDayOfWeek(int value):&#160;dnt.c']]],
   ['inttomonth_15',['intToMonth',['../dnt_8c.html#ac69caa79c44abf14cb2484e0b4e6c8db',1,'intToMonth(int value):&#160;dnt.c'],['../dnt_8h.html#ac69caa79c44abf14cb2484e0b4e6c8db',1,'intToMonth(int value):&#160;dnt.c']]],
   ['invalid_5fop_16',['invalid_op',['../interrupts_8c.html#a422d8af60b69cc11dbcbb9d89c69756b',1,'interrupts.c']]],
   ['invalid_5ftss_17',['invalid_tss',['../interrupts_8c.html#a972be67f6a5432cc8eab8d27755fb00f',1,'interrupts.c']]],
-  ['is_5fname_5fchar_18',['is_name_char',['../utils_8h.html#a2f4ba017d1252af62b83584e64cee010',1,'is_name_char(char):&#160;utils.c'],['../utils_8c.html#a347a8e5864fe871ff6b10c0052630980',1,'is_name_char(char c):&#160;utils.c'],['../commhand_8c.html#a2f4ba017d1252af62b83584e64cee010',1,'is_name_char(char):&#160;utils.c']]],
+  ['is_5fname_5fchar_18',['is_name_char',['../commhand_8c.html#a2f4ba017d1252af62b83584e64cee010',1,'is_name_char(char):&#160;utils.c'],['../utils_8c.html#a347a8e5864fe871ff6b10c0052630980',1,'is_name_char(char c):&#160;utils.c'],['../utils_8h.html#a2f4ba017d1252af62b83584e64cee010',1,'is_name_char(char):&#160;utils.c']]],
   ['isempty_19',['isEmpty',['../mm_8c.html#a63138775900550d3ba772d031df6f2f0',1,'isEmpty(char *p):&#160;mm.c'],['../mm_8h.html#a653c98c68c558505b75b04c44b7c838e',1,'isEmpty():&#160;mm.h']]],
   ['isemptyhelp_20',['isemptyHelp',['../out_8h.html#ab9ed3f628a2f6cf74fa370c567a78016',1,'isemptyHelp():&#160;help.c'],['../term_2cmds_2help_8c.html#ab9ed3f628a2f6cf74fa370c567a78016',1,'isemptyHelp():&#160;help.c']]],
   ['isr0_21',['isr0',['../interrupts_8c.html#af88eb8e98d943aa0461c01de3cb53493',1,'interrupts.c']]],
   ['isspace_22',['isspace',['../string_8h.html#a0f3d37d605e9e6d4fc1853ff9d4b91bf',1,'isspace(const char *c):&#160;string.c'],['../string_8c.html#a0f3d37d605e9e6d4fc1853ff9d4b91bf',1,'isspace(const char *c):&#160;string.c']]],
-  ['itoa_23',['itoa',['../string_8h.html#aacdd10d7ae02287ad7aa56699c35603c',1,'itoa(int i):&#160;string.c'],['../string_8c.html#a4421b3b56ef0c8d301e35e23ba17f9d5',1,'itoa(int value):&#160;string.c']]],
-  ['itobcd_24',['ItoBCD',['../dnt_8c.html#aa556d0707a7942a589bd20f0f229b0cb',1,'ItoBCD(unsigned int value):&#160;dnt.c'],['../dnt_8h.html#aa556d0707a7942a589bd20f0f229b0cb',1,'ItoBCD(unsigned int value):&#160;dnt.c']]]
+  ['issystemprocess_23',['isSystemProcess',['../pcb_2pcb_8c.html#a3c7fd2f90425c12f1f6787f887f8d1f0',1,'isSystemProcess(char *name):&#160;pcb.c'],['../pcb_8h.html#a3c7fd2f90425c12f1f6787f887f8d1f0',1,'isSystemProcess(char *name):&#160;pcb.c']]],
+  ['itoa_24',['itoa',['../string_8h.html#aacdd10d7ae02287ad7aa56699c35603c',1,'itoa(int i):&#160;string.c'],['../string_8c.html#a4421b3b56ef0c8d301e35e23ba17f9d5',1,'itoa(int value):&#160;string.c']]],
+  ['itobcd_25',['ItoBCD',['../dnt_8c.html#aa556d0707a7942a589bd20f0f229b0cb',1,'ItoBCD(unsigned int value):&#160;dnt.c'],['../dnt_8h.html#aa556d0707a7942a589bd20f0f229b0cb',1,'ItoBCD(unsigned int value):&#160;dnt.c']]]
 ];

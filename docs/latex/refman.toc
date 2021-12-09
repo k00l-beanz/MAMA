@@ -813,156 +813,158 @@
 \contentsline {subsubsection}{\numberline {6.70.1.6}freePCB()}{168}{subsubsection.6.70.1.6}%
 \contentsline {subsubsection}{\numberline {6.70.1.7}initPCB()}{168}{subsubsection.6.70.1.7}%
 \contentsline {subsubsection}{\numberline {6.70.1.8}insertPCB()}{169}{subsubsection.6.70.1.8}%
-\contentsline {subsubsection}{\numberline {6.70.1.9}removePCB()}{170}{subsubsection.6.70.1.9}%
-\contentsline {subsubsection}{\numberline {6.70.1.10}resumeAll()}{170}{subsubsection.6.70.1.10}%
-\contentsline {subsubsection}{\numberline {6.70.1.11}resumePCB()}{171}{subsubsection.6.70.1.11}%
-\contentsline {subsubsection}{\numberline {6.70.1.12}setPriority()}{171}{subsubsection.6.70.1.12}%
-\contentsline {subsubsection}{\numberline {6.70.1.13}setupPCB()}{171}{subsubsection.6.70.1.13}%
-\contentsline {subsubsection}{\numberline {6.70.1.14}showAll()}{172}{subsubsection.6.70.1.14}%
-\contentsline {subsubsection}{\numberline {6.70.1.15}showBlocked()}{172}{subsubsection.6.70.1.15}%
-\contentsline {subsubsection}{\numberline {6.70.1.16}showPCB()}{172}{subsubsection.6.70.1.16}%
-\contentsline {subsubsection}{\numberline {6.70.1.17}showReady()}{173}{subsubsection.6.70.1.17}%
-\contentsline {subsubsection}{\numberline {6.70.1.18}suspendPCB()}{173}{subsubsection.6.70.1.18}%
-\contentsline {subsubsection}{\numberline {6.70.1.19}unblockPCB()}{173}{subsubsection.6.70.1.19}%
+\contentsline {subsubsection}{\numberline {6.70.1.9}isSystemProcess()}{170}{subsubsection.6.70.1.9}%
+\contentsline {subsubsection}{\numberline {6.70.1.10}removePCB()}{170}{subsubsection.6.70.1.10}%
+\contentsline {subsubsection}{\numberline {6.70.1.11}resumeAll()}{171}{subsubsection.6.70.1.11}%
+\contentsline {subsubsection}{\numberline {6.70.1.12}resumePCB()}{171}{subsubsection.6.70.1.12}%
+\contentsline {subsubsection}{\numberline {6.70.1.13}setPriority()}{171}{subsubsection.6.70.1.13}%
+\contentsline {subsubsection}{\numberline {6.70.1.14}setupPCB()}{172}{subsubsection.6.70.1.14}%
+\contentsline {subsubsection}{\numberline {6.70.1.15}showAll()}{172}{subsubsection.6.70.1.15}%
+\contentsline {subsubsection}{\numberline {6.70.1.16}showBlocked()}{173}{subsubsection.6.70.1.16}%
+\contentsline {subsubsection}{\numberline {6.70.1.17}showPCB()}{173}{subsubsection.6.70.1.17}%
+\contentsline {subsubsection}{\numberline {6.70.1.18}showReady()}{173}{subsubsection.6.70.1.18}%
+\contentsline {subsubsection}{\numberline {6.70.1.19}suspendPCB()}{173}{subsubsection.6.70.1.19}%
+\contentsline {subsubsection}{\numberline {6.70.1.20}unblockPCB()}{174}{subsubsection.6.70.1.20}%
 \contentsline {subsection}{\numberline {6.70.2}Variable Documentation}{174}{subsection.6.70.2}%
 \contentsline {subsubsection}{\numberline {6.70.2.1}f\_queue}{174}{subsubsection.6.70.2.1}%
 \contentsline {subsubsection}{\numberline {6.70.2.2}fifo\_queue}{174}{subsubsection.6.70.2.2}%
-\contentsline {subsubsection}{\numberline {6.70.2.3}p\_queue}{174}{subsubsection.6.70.2.3}%
-\contentsline {subsubsection}{\numberline {6.70.2.4}priority\_queue}{174}{subsubsection.6.70.2.4}%
-\contentsline {section}{\numberline {6.71}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/pcb/pcb.h File Reference}{174}{section.6.71}%
+\contentsline {subsubsection}{\numberline {6.70.2.3}p\_queue}{175}{subsubsection.6.70.2.3}%
+\contentsline {subsubsection}{\numberline {6.70.2.4}priority\_queue}{175}{subsubsection.6.70.2.4}%
+\contentsline {section}{\numberline {6.71}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/pcb/pcb.h File Reference}{175}{section.6.71}%
 \contentsline {subsection}{\numberline {6.71.1}Macro Definition Documentation}{176}{subsection.6.71.1}%
-\contentsline {subsubsection}{\numberline {6.71.1.1}MAX\_NAME\_SIZE}{176}{subsubsection.6.71.1.1}%
-\contentsline {subsubsection}{\numberline {6.71.1.2}MAX\_PRIORITY}{176}{subsubsection.6.71.1.2}%
-\contentsline {subsubsection}{\numberline {6.71.1.3}MAX\_STACK\_SIZE}{176}{subsubsection.6.71.1.3}%
+\contentsline {subsubsection}{\numberline {6.71.1.1}MAX\_NAME\_SIZE}{177}{subsubsection.6.71.1.1}%
+\contentsline {subsubsection}{\numberline {6.71.1.2}MAX\_PRIORITY}{177}{subsubsection.6.71.1.2}%
+\contentsline {subsubsection}{\numberline {6.71.1.3}MAX\_STACK\_SIZE}{177}{subsubsection.6.71.1.3}%
 \contentsline {subsubsection}{\numberline {6.71.1.4}MIN\_PRIORITY}{177}{subsubsection.6.71.1.4}%
 \contentsline {subsection}{\numberline {6.71.2}Typedef Documentation}{177}{subsection.6.71.2}%
 \contentsline {subsubsection}{\numberline {6.71.2.1}pcb\_node\_t}{177}{subsubsection.6.71.2.1}%
 \contentsline {subsubsection}{\numberline {6.71.2.2}pcb\_queue\_t}{177}{subsubsection.6.71.2.2}%
 \contentsline {subsection}{\numberline {6.71.3}Enumeration Type Documentation}{177}{subsection.6.71.3}%
 \contentsline {subsubsection}{\numberline {6.71.3.1}p\_protection\_mode\_t}{177}{subsubsection.6.71.3.1}%
-\contentsline {subsubsection}{\numberline {6.71.3.2}p\_state\_t}{177}{subsubsection.6.71.3.2}%
+\contentsline {subsubsection}{\numberline {6.71.3.2}p\_state\_t}{178}{subsubsection.6.71.3.2}%
 \contentsline {subsubsection}{\numberline {6.71.3.3}pcb\_queue\_order\_t}{178}{subsubsection.6.71.3.3}%
 \contentsline {subsection}{\numberline {6.71.4}Function Documentation}{178}{subsection.6.71.4}%
 \contentsline {subsubsection}{\numberline {6.71.4.1}allocatePCB()}{178}{subsubsection.6.71.4.1}%
-\contentsline {subsubsection}{\numberline {6.71.4.2}blockPCB()}{178}{subsubsection.6.71.4.2}%
+\contentsline {subsubsection}{\numberline {6.71.4.2}blockPCB()}{179}{subsubsection.6.71.4.2}%
 \contentsline {subsubsection}{\numberline {6.71.4.3}createPCB()}{179}{subsubsection.6.71.4.3}%
 \contentsline {subsubsection}{\numberline {6.71.4.4}deletePCB()}{179}{subsubsection.6.71.4.4}%
-\contentsline {subsubsection}{\numberline {6.71.4.5}findPCB()}{180}{subsubsection.6.71.4.5}%
-\contentsline {subsubsection}{\numberline {6.71.4.6}freePCB()}{180}{subsubsection.6.71.4.6}%
-\contentsline {subsubsection}{\numberline {6.71.4.7}initPCB()}{180}{subsubsection.6.71.4.7}%
-\contentsline {subsubsection}{\numberline {6.71.4.8}insertPCB()}{181}{subsubsection.6.71.4.8}%
-\contentsline {subsubsection}{\numberline {6.71.4.9}removePCB()}{182}{subsubsection.6.71.4.9}%
-\contentsline {subsubsection}{\numberline {6.71.4.10}resumeAll()}{182}{subsubsection.6.71.4.10}%
-\contentsline {subsubsection}{\numberline {6.71.4.11}resumePCB()}{183}{subsubsection.6.71.4.11}%
-\contentsline {subsubsection}{\numberline {6.71.4.12}setPriority()}{183}{subsubsection.6.71.4.12}%
-\contentsline {subsubsection}{\numberline {6.71.4.13}setupPCB()}{183}{subsubsection.6.71.4.13}%
-\contentsline {subsubsection}{\numberline {6.71.4.14}showAll()}{184}{subsubsection.6.71.4.14}%
-\contentsline {subsubsection}{\numberline {6.71.4.15}showBlocked()}{184}{subsubsection.6.71.4.15}%
-\contentsline {subsubsection}{\numberline {6.71.4.16}showPCB()}{184}{subsubsection.6.71.4.16}%
-\contentsline {subsubsection}{\numberline {6.71.4.17}showReady()}{185}{subsubsection.6.71.4.17}%
-\contentsline {subsubsection}{\numberline {6.71.4.18}suspendPCB()}{185}{subsubsection.6.71.4.18}%
-\contentsline {subsubsection}{\numberline {6.71.4.19}unblockPCB()}{185}{subsubsection.6.71.4.19}%
-\contentsline {section}{\numberline {6.72}pcb.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{186}{section.6.72}%
-\contentsline {section}{\numberline {6.73}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/syntax.c File Reference}{187}{section.6.73}%
+\contentsline {subsubsection}{\numberline {6.71.4.5}findPCB()}{181}{subsubsection.6.71.4.5}%
+\contentsline {subsubsection}{\numberline {6.71.4.6}freePCB()}{181}{subsubsection.6.71.4.6}%
+\contentsline {subsubsection}{\numberline {6.71.4.7}initPCB()}{182}{subsubsection.6.71.4.7}%
+\contentsline {subsubsection}{\numberline {6.71.4.8}insertPCB()}{182}{subsubsection.6.71.4.8}%
+\contentsline {subsubsection}{\numberline {6.71.4.9}isSystemProcess()}{182}{subsubsection.6.71.4.9}%
+\contentsline {subsubsection}{\numberline {6.71.4.10}removePCB()}{183}{subsubsection.6.71.4.10}%
+\contentsline {subsubsection}{\numberline {6.71.4.11}resumeAll()}{183}{subsubsection.6.71.4.11}%
+\contentsline {subsubsection}{\numberline {6.71.4.12}resumePCB()}{183}{subsubsection.6.71.4.12}%
+\contentsline {subsubsection}{\numberline {6.71.4.13}setPriority()}{184}{subsubsection.6.71.4.13}%
+\contentsline {subsubsection}{\numberline {6.71.4.14}setupPCB()}{184}{subsubsection.6.71.4.14}%
+\contentsline {subsubsection}{\numberline {6.71.4.15}showAll()}{185}{subsubsection.6.71.4.15}%
+\contentsline {subsubsection}{\numberline {6.71.4.16}showBlocked()}{185}{subsubsection.6.71.4.16}%
+\contentsline {subsubsection}{\numberline {6.71.4.17}showPCB()}{185}{subsubsection.6.71.4.17}%
+\contentsline {subsubsection}{\numberline {6.71.4.18}showReady()}{185}{subsubsection.6.71.4.18}%
+\contentsline {subsubsection}{\numberline {6.71.4.19}suspendPCB()}{186}{subsubsection.6.71.4.19}%
+\contentsline {subsubsection}{\numberline {6.71.4.20}unblockPCB()}{186}{subsubsection.6.71.4.20}%
+\contentsline {section}{\numberline {6.72}pcb.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{187}{section.6.72}%
+\contentsline {section}{\numberline {6.73}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/syntax.c File Reference}{188}{section.6.73}%
 \contentsline {subsection}{\numberline {6.73.1}Function Documentation}{188}{subsection.6.73.1}%
-\contentsline {subsubsection}{\numberline {6.73.1.1}changes\_state()}{188}{subsubsection.6.73.1.1}%
-\contentsline {subsubsection}{\numberline {6.73.1.2}get\_state()}{188}{subsubsection.6.73.1.2}%
-\contentsline {section}{\numberline {6.74}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/syntax.h File Reference}{188}{section.6.74}%
-\contentsline {subsection}{\numberline {6.74.1}Enumeration Type Documentation}{188}{subsection.6.74.1}%
-\contentsline {subsubsection}{\numberline {6.74.1.1}SyntaxState}{188}{subsubsection.6.74.1.1}%
-\contentsline {subsection}{\numberline {6.74.2}Function Documentation}{189}{subsection.6.74.2}%
-\contentsline {subsubsection}{\numberline {6.74.2.1}changes\_state()}{189}{subsubsection.6.74.2.1}%
-\contentsline {subsubsection}{\numberline {6.74.2.2}get\_state()}{189}{subsubsection.6.74.2.2}%
-\contentsline {section}{\numberline {6.75}syntax.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{189}{section.6.75}%
-\contentsline {section}{\numberline {6.76}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/utils.c File Reference}{189}{section.6.76}%
-\contentsline {subsection}{\numberline {6.76.1}Function Documentation}{190}{subsection.6.76.1}%
-\contentsline {subsubsection}{\numberline {6.76.1.1}is\_name\_char()}{190}{subsubsection.6.76.1.1}%
-\contentsline {subsubsection}{\numberline {6.76.1.2}skip\_ws()}{190}{subsubsection.6.76.1.2}%
-\contentsline {section}{\numberline {6.77}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/utils.h File Reference}{190}{section.6.77}%
-\contentsline {subsection}{\numberline {6.77.1}Function Documentation}{190}{subsection.6.77.1}%
-\contentsline {subsubsection}{\numberline {6.77.1.1}is\_name\_char()}{191}{subsubsection.6.77.1.1}%
-\contentsline {subsubsection}{\numberline {6.77.1.2}skip\_ws()}{191}{subsubsection.6.77.1.2}%
-\contentsline {section}{\numberline {6.78}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{191}{section.6.78}%
-\contentsline {section}{\numberline {6.79}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/cmds/clear.c File Reference}{191}{section.6.79}%
-\contentsline {subsection}{\numberline {6.79.1}Function Documentation}{192}{subsection.6.79.1}%
-\contentsline {subsubsection}{\numberline {6.79.1.1}cmd\_clear()}{192}{subsubsection.6.79.1.1}%
-\contentsline {section}{\numberline {6.80}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/clear.c File Reference}{192}{section.6.80}%
-\contentsline {subsection}{\numberline {6.80.1}Function Documentation}{192}{subsection.6.80.1}%
-\contentsline {subsubsection}{\numberline {6.80.1.1}display\_clear()}{192}{subsubsection.6.80.1.1}%
-\contentsline {section}{\numberline {6.81}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/clear.h File Reference}{192}{section.6.81}%
-\contentsline {subsection}{\numberline {6.81.1}Function Documentation}{192}{subsection.6.81.1}%
-\contentsline {subsubsection}{\numberline {6.81.1.1}display\_clear()}{192}{subsubsection.6.81.1.1}%
-\contentsline {section}{\numberline {6.82}clear.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{193}{section.6.82}%
-\contentsline {section}{\numberline {6.83}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/colorize.c File Reference}{193}{section.6.83}%
-\contentsline {subsection}{\numberline {6.83.1}Macro Definition Documentation}{193}{subsection.6.83.1}%
-\contentsline {subsubsection}{\numberline {6.83.1.1}START\_SEQ}{193}{subsubsection.6.83.1.1}%
-\contentsline {subsection}{\numberline {6.83.2}Enumeration Type Documentation}{194}{subsection.6.83.2}%
-\contentsline {subsubsection}{\numberline {6.83.2.1}Color}{194}{subsubsection.6.83.2.1}%
-\contentsline {subsection}{\numberline {6.83.3}Function Documentation}{195}{subsection.6.83.3}%
-\contentsline {subsubsection}{\numberline {6.83.3.1}display\_bg\_color()}{195}{subsubsection.6.83.3.1}%
-\contentsline {subsubsection}{\numberline {6.83.3.2}display\_fg\_color()}{195}{subsubsection.6.83.3.2}%
-\contentsline {subsubsection}{\numberline {6.83.3.3}display\_italicize()}{196}{subsubsection.6.83.3.3}%
-\contentsline {subsubsection}{\numberline {6.83.3.4}display\_reset()}{196}{subsubsection.6.83.3.4}%
-\contentsline {subsubsection}{\numberline {6.83.3.5}print\_color\_code()}{196}{subsubsection.6.83.3.5}%
-\contentsline {section}{\numberline {6.84}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/colorize.h File Reference}{196}{section.6.84}%
-\contentsline {subsection}{\numberline {6.84.1}Enumeration Type Documentation}{197}{subsection.6.84.1}%
-\contentsline {subsubsection}{\numberline {6.84.1.1}Color}{197}{subsubsection.6.84.1.1}%
-\contentsline {subsection}{\numberline {6.84.2}Function Documentation}{197}{subsection.6.84.2}%
-\contentsline {subsubsection}{\numberline {6.84.2.1}display\_bg\_color()}{197}{subsubsection.6.84.2.1}%
-\contentsline {subsubsection}{\numberline {6.84.2.2}display\_fg\_color()}{198}{subsubsection.6.84.2.2}%
-\contentsline {subsubsection}{\numberline {6.84.2.3}display\_italicize()}{198}{subsubsection.6.84.2.3}%
-\contentsline {subsubsection}{\numberline {6.84.2.4}display\_reset()}{198}{subsubsection.6.84.2.4}%
-\contentsline {section}{\numberline {6.85}colorize.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{198}{section.6.85}%
-\contentsline {section}{\numberline {6.86}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/cursor.c File Reference}{199}{section.6.86}%
-\contentsline {subsection}{\numberline {6.86.1}Function Documentation}{199}{subsection.6.86.1}%
-\contentsline {subsubsection}{\numberline {6.86.1.1}cursor\_down()}{199}{subsubsection.6.86.1.1}%
-\contentsline {subsubsection}{\numberline {6.86.1.2}cursor\_left()}{199}{subsubsection.6.86.1.2}%
-\contentsline {subsubsection}{\numberline {6.86.1.3}cursor\_return()}{200}{subsubsection.6.86.1.3}%
-\contentsline {subsubsection}{\numberline {6.86.1.4}cursor\_right()}{200}{subsubsection.6.86.1.4}%
-\contentsline {subsubsection}{\numberline {6.86.1.5}cursor\_up()}{200}{subsubsection.6.86.1.5}%
-\contentsline {section}{\numberline {6.87}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/cursor.h File Reference}{200}{section.6.87}%
-\contentsline {subsection}{\numberline {6.87.1}Function Documentation}{201}{subsection.6.87.1}%
-\contentsline {subsubsection}{\numberline {6.87.1.1}cursor\_down()}{201}{subsubsection.6.87.1.1}%
-\contentsline {subsubsection}{\numberline {6.87.1.2}cursor\_left()}{201}{subsubsection.6.87.1.2}%
-\contentsline {subsubsection}{\numberline {6.87.1.3}cursor\_return()}{201}{subsubsection.6.87.1.3}%
-\contentsline {subsubsection}{\numberline {6.87.1.4}cursor\_right()}{201}{subsubsection.6.87.1.4}%
-\contentsline {subsubsection}{\numberline {6.87.1.5}cursor\_up()}{202}{subsubsection.6.87.1.5}%
-\contentsline {section}{\numberline {6.88}cursor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{202}{section.6.88}%
-\contentsline {section}{\numberline {6.89}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/hints.c File Reference}{202}{section.6.89}%
-\contentsline {subsection}{\numberline {6.89.1}Function Documentation}{202}{subsection.6.89.1}%
-\contentsline {subsubsection}{\numberline {6.89.1.1}hint\_under\_prompt()}{203}{subsubsection.6.89.1.1}%
-\contentsline {section}{\numberline {6.90}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/hints.h File Reference}{203}{section.6.90}%
-\contentsline {subsection}{\numberline {6.90.1}Function Documentation}{203}{subsection.6.90.1}%
-\contentsline {subsubsection}{\numberline {6.90.1.1}hint\_under\_prompt()}{203}{subsubsection.6.90.1.1}%
-\contentsline {section}{\numberline {6.91}hints.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{204}{section.6.91}%
-\contentsline {section}{\numberline {6.92}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/syntax\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}highlight.c File Reference}{204}{section.6.92}%
-\contentsline {subsection}{\numberline {6.92.1}Function Documentation}{205}{subsection.6.92.1}%
-\contentsline {subsubsection}{\numberline {6.92.1.1}color\_for()}{205}{subsubsection.6.92.1.1}%
-\contentsline {subsubsection}{\numberline {6.92.1.2}get\_state\_at()}{205}{subsubsection.6.92.1.2}%
-\contentsline {subsubsection}{\numberline {6.92.1.3}switch\_to()}{205}{subsubsection.6.92.1.3}%
-\contentsline {subsubsection}{\numberline {6.92.1.4}syntax\_disable\_highlighting()}{206}{subsubsection.6.92.1.4}%
-\contentsline {subsubsection}{\numberline {6.92.1.5}syntax\_enable\_highlighting()}{206}{subsubsection.6.92.1.5}%
-\contentsline {subsubsection}{\numberline {6.92.1.6}syntax\_handle\_char()}{206}{subsubsection.6.92.1.6}%
-\contentsline {subsubsection}{\numberline {6.92.1.7}syntax\_init()}{206}{subsubsection.6.92.1.7}%
-\contentsline {subsection}{\numberline {6.92.2}Variable Documentation}{207}{subsection.6.92.2}%
-\contentsline {subsubsection}{\numberline {6.92.2.1}enabled}{207}{subsubsection.6.92.2.1}%
-\contentsline {subsubsection}{\numberline {6.92.2.2}newest\_switch}{207}{subsubsection.6.92.2.2}%
-\contentsline {subsubsection}{\numberline {6.92.2.3}states}{207}{subsubsection.6.92.2.3}%
-\contentsline {subsubsection}{\numberline {6.92.2.4}switch\_indexes}{207}{subsubsection.6.92.2.4}%
-\contentsline {section}{\numberline {6.93}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/syntax\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}highlight.h File Reference}{207}{section.6.93}%
-\contentsline {subsection}{\numberline {6.93.1}Macro Definition Documentation}{208}{subsection.6.93.1}%
-\contentsline {subsubsection}{\numberline {6.93.1.1}MAX\_SYNTAX\_SWITCHES}{208}{subsubsection.6.93.1.1}%
-\contentsline {subsubsection}{\numberline {6.93.1.2}SYNTAX\_COLOR\_CMD\_NAME}{208}{subsubsection.6.93.1.2}%
-\contentsline {subsubsection}{\numberline {6.93.1.3}SYNTAX\_COLOR\_DEFAULT}{208}{subsubsection.6.93.1.3}%
-\contentsline {subsubsection}{\numberline {6.93.1.4}SYNTAX\_COLOR\_DOUBLE\_QUOTE\_STRING}{208}{subsubsection.6.93.1.4}%
-\contentsline {subsubsection}{\numberline {6.93.1.5}SYNTAX\_COLOR\_PARAM\_NAME}{208}{subsubsection.6.93.1.5}%
-\contentsline {subsubsection}{\numberline {6.93.1.6}SYNTAX\_COLOR\_PARAM\_VALUE}{209}{subsubsection.6.93.1.6}%
-\contentsline {subsubsection}{\numberline {6.93.1.7}SYNTAX\_COLOR\_SINGLE\_QUOTE\_STRING}{209}{subsubsection.6.93.1.7}%
-\contentsline {subsection}{\numberline {6.93.2}Function Documentation}{209}{subsection.6.93.2}%
-\contentsline {subsubsection}{\numberline {6.93.2.1}syntax\_disable\_highlighting()}{209}{subsubsection.6.93.2.1}%
-\contentsline {subsubsection}{\numberline {6.93.2.2}syntax\_enable\_highlighting()}{209}{subsubsection.6.93.2.2}%
-\contentsline {subsubsection}{\numberline {6.93.2.3}syntax\_handle\_char()}{209}{subsubsection.6.93.2.3}%
-\contentsline {subsubsection}{\numberline {6.93.2.4}syntax\_init()}{210}{subsubsection.6.93.2.4}%
-\contentsline {section}{\numberline {6.94}syntax\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}highlight.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{210}{section.6.94}%
-\contentsline {section}{\numberline {6.95}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Who\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Did\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}What.md File Reference}{210}{section.6.95}%
-\contentsline {chapter}{Index}{211}{section*.140}%
+\contentsline {subsubsection}{\numberline {6.73.1.1}changes\_state()}{189}{subsubsection.6.73.1.1}%
+\contentsline {subsubsection}{\numberline {6.73.1.2}get\_state()}{189}{subsubsection.6.73.1.2}%
+\contentsline {section}{\numberline {6.74}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/syntax.h File Reference}{189}{section.6.74}%
+\contentsline {subsection}{\numberline {6.74.1}Enumeration Type Documentation}{189}{subsection.6.74.1}%
+\contentsline {subsubsection}{\numberline {6.74.1.1}SyntaxState}{189}{subsubsection.6.74.1.1}%
+\contentsline {subsection}{\numberline {6.74.2}Function Documentation}{190}{subsection.6.74.2}%
+\contentsline {subsubsection}{\numberline {6.74.2.1}changes\_state()}{190}{subsubsection.6.74.2.1}%
+\contentsline {subsubsection}{\numberline {6.74.2.2}get\_state()}{190}{subsubsection.6.74.2.2}%
+\contentsline {section}{\numberline {6.75}syntax.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{190}{section.6.75}%
+\contentsline {section}{\numberline {6.76}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/utils.c File Reference}{190}{section.6.76}%
+\contentsline {subsection}{\numberline {6.76.1}Function Documentation}{191}{subsection.6.76.1}%
+\contentsline {subsubsection}{\numberline {6.76.1.1}is\_name\_char()}{191}{subsubsection.6.76.1.1}%
+\contentsline {subsubsection}{\numberline {6.76.1.2}skip\_ws()}{191}{subsubsection.6.76.1.2}%
+\contentsline {section}{\numberline {6.77}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/utils.h File Reference}{191}{section.6.77}%
+\contentsline {subsection}{\numberline {6.77.1}Function Documentation}{191}{subsection.6.77.1}%
+\contentsline {subsubsection}{\numberline {6.77.1.1}is\_name\_char()}{192}{subsubsection.6.77.1.1}%
+\contentsline {subsubsection}{\numberline {6.77.1.2}skip\_ws()}{192}{subsubsection.6.77.1.2}%
+\contentsline {section}{\numberline {6.78}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{192}{section.6.78}%
+\contentsline {section}{\numberline {6.79}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/cmds/clear.c File Reference}{192}{section.6.79}%
+\contentsline {subsection}{\numberline {6.79.1}Function Documentation}{193}{subsection.6.79.1}%
+\contentsline {subsubsection}{\numberline {6.79.1.1}cmd\_clear()}{193}{subsubsection.6.79.1.1}%
+\contentsline {section}{\numberline {6.80}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/clear.c File Reference}{193}{section.6.80}%
+\contentsline {subsection}{\numberline {6.80.1}Function Documentation}{193}{subsection.6.80.1}%
+\contentsline {subsubsection}{\numberline {6.80.1.1}display\_clear()}{193}{subsubsection.6.80.1.1}%
+\contentsline {section}{\numberline {6.81}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/clear.h File Reference}{193}{section.6.81}%
+\contentsline {subsection}{\numberline {6.81.1}Function Documentation}{193}{subsection.6.81.1}%
+\contentsline {subsubsection}{\numberline {6.81.1.1}display\_clear()}{193}{subsubsection.6.81.1.1}%
+\contentsline {section}{\numberline {6.82}clear.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{194}{section.6.82}%
+\contentsline {section}{\numberline {6.83}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/colorize.c File Reference}{194}{section.6.83}%
+\contentsline {subsection}{\numberline {6.83.1}Macro Definition Documentation}{194}{subsection.6.83.1}%
+\contentsline {subsubsection}{\numberline {6.83.1.1}START\_SEQ}{194}{subsubsection.6.83.1.1}%
+\contentsline {subsection}{\numberline {6.83.2}Enumeration Type Documentation}{195}{subsection.6.83.2}%
+\contentsline {subsubsection}{\numberline {6.83.2.1}Color}{195}{subsubsection.6.83.2.1}%
+\contentsline {subsection}{\numberline {6.83.3}Function Documentation}{196}{subsection.6.83.3}%
+\contentsline {subsubsection}{\numberline {6.83.3.1}display\_bg\_color()}{196}{subsubsection.6.83.3.1}%
+\contentsline {subsubsection}{\numberline {6.83.3.2}display\_fg\_color()}{196}{subsubsection.6.83.3.2}%
+\contentsline {subsubsection}{\numberline {6.83.3.3}display\_italicize()}{197}{subsubsection.6.83.3.3}%
+\contentsline {subsubsection}{\numberline {6.83.3.4}display\_reset()}{197}{subsubsection.6.83.3.4}%
+\contentsline {subsubsection}{\numberline {6.83.3.5}print\_color\_code()}{197}{subsubsection.6.83.3.5}%
+\contentsline {section}{\numberline {6.84}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/colorize.h File Reference}{197}{section.6.84}%
+\contentsline {subsection}{\numberline {6.84.1}Enumeration Type Documentation}{198}{subsection.6.84.1}%
+\contentsline {subsubsection}{\numberline {6.84.1.1}Color}{198}{subsubsection.6.84.1.1}%
+\contentsline {subsection}{\numberline {6.84.2}Function Documentation}{198}{subsection.6.84.2}%
+\contentsline {subsubsection}{\numberline {6.84.2.1}display\_bg\_color()}{198}{subsubsection.6.84.2.1}%
+\contentsline {subsubsection}{\numberline {6.84.2.2}display\_fg\_color()}{199}{subsubsection.6.84.2.2}%
+\contentsline {subsubsection}{\numberline {6.84.2.3}display\_italicize()}{199}{subsubsection.6.84.2.3}%
+\contentsline {subsubsection}{\numberline {6.84.2.4}display\_reset()}{199}{subsubsection.6.84.2.4}%
+\contentsline {section}{\numberline {6.85}colorize.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{199}{section.6.85}%
+\contentsline {section}{\numberline {6.86}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/cursor.c File Reference}{200}{section.6.86}%
+\contentsline {subsection}{\numberline {6.86.1}Function Documentation}{200}{subsection.6.86.1}%
+\contentsline {subsubsection}{\numberline {6.86.1.1}cursor\_down()}{200}{subsubsection.6.86.1.1}%
+\contentsline {subsubsection}{\numberline {6.86.1.2}cursor\_left()}{200}{subsubsection.6.86.1.2}%
+\contentsline {subsubsection}{\numberline {6.86.1.3}cursor\_return()}{201}{subsubsection.6.86.1.3}%
+\contentsline {subsubsection}{\numberline {6.86.1.4}cursor\_right()}{201}{subsubsection.6.86.1.4}%
+\contentsline {subsubsection}{\numberline {6.86.1.5}cursor\_up()}{201}{subsubsection.6.86.1.5}%
+\contentsline {section}{\numberline {6.87}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/cursor.h File Reference}{201}{section.6.87}%
+\contentsline {subsection}{\numberline {6.87.1}Function Documentation}{202}{subsection.6.87.1}%
+\contentsline {subsubsection}{\numberline {6.87.1.1}cursor\_down()}{202}{subsubsection.6.87.1.1}%
+\contentsline {subsubsection}{\numberline {6.87.1.2}cursor\_left()}{202}{subsubsection.6.87.1.2}%
+\contentsline {subsubsection}{\numberline {6.87.1.3}cursor\_return()}{202}{subsubsection.6.87.1.3}%
+\contentsline {subsubsection}{\numberline {6.87.1.4}cursor\_right()}{202}{subsubsection.6.87.1.4}%
+\contentsline {subsubsection}{\numberline {6.87.1.5}cursor\_up()}{203}{subsubsection.6.87.1.5}%
+\contentsline {section}{\numberline {6.88}cursor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{203}{section.6.88}%
+\contentsline {section}{\numberline {6.89}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/hints.c File Reference}{203}{section.6.89}%
+\contentsline {subsection}{\numberline {6.89.1}Function Documentation}{203}{subsection.6.89.1}%
+\contentsline {subsubsection}{\numberline {6.89.1.1}hint\_under\_prompt()}{204}{subsubsection.6.89.1.1}%
+\contentsline {section}{\numberline {6.90}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/hints.h File Reference}{204}{section.6.90}%
+\contentsline {subsection}{\numberline {6.90.1}Function Documentation}{204}{subsection.6.90.1}%
+\contentsline {subsubsection}{\numberline {6.90.1.1}hint\_under\_prompt()}{204}{subsubsection.6.90.1.1}%
+\contentsline {section}{\numberline {6.91}hints.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{205}{section.6.91}%
+\contentsline {section}{\numberline {6.92}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/syntax\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}highlight.c File Reference}{205}{section.6.92}%
+\contentsline {subsection}{\numberline {6.92.1}Function Documentation}{206}{subsection.6.92.1}%
+\contentsline {subsubsection}{\numberline {6.92.1.1}color\_for()}{206}{subsubsection.6.92.1.1}%
+\contentsline {subsubsection}{\numberline {6.92.1.2}get\_state\_at()}{206}{subsubsection.6.92.1.2}%
+\contentsline {subsubsection}{\numberline {6.92.1.3}switch\_to()}{206}{subsubsection.6.92.1.3}%
+\contentsline {subsubsection}{\numberline {6.92.1.4}syntax\_disable\_highlighting()}{207}{subsubsection.6.92.1.4}%
+\contentsline {subsubsection}{\numberline {6.92.1.5}syntax\_enable\_highlighting()}{207}{subsubsection.6.92.1.5}%
+\contentsline {subsubsection}{\numberline {6.92.1.6}syntax\_handle\_char()}{207}{subsubsection.6.92.1.6}%
+\contentsline {subsubsection}{\numberline {6.92.1.7}syntax\_init()}{207}{subsubsection.6.92.1.7}%
+\contentsline {subsection}{\numberline {6.92.2}Variable Documentation}{208}{subsection.6.92.2}%
+\contentsline {subsubsection}{\numberline {6.92.2.1}enabled}{208}{subsubsection.6.92.2.1}%
+\contentsline {subsubsection}{\numberline {6.92.2.2}newest\_switch}{208}{subsubsection.6.92.2.2}%
+\contentsline {subsubsection}{\numberline {6.92.2.3}states}{208}{subsubsection.6.92.2.3}%
+\contentsline {subsubsection}{\numberline {6.92.2.4}switch\_indexes}{208}{subsubsection.6.92.2.4}%
+\contentsline {section}{\numberline {6.93}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/term/visuals/syntax\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}highlight.h File Reference}{208}{section.6.93}%
+\contentsline {subsection}{\numberline {6.93.1}Macro Definition Documentation}{209}{subsection.6.93.1}%
+\contentsline {subsubsection}{\numberline {6.93.1.1}MAX\_SYNTAX\_SWITCHES}{209}{subsubsection.6.93.1.1}%
+\contentsline {subsubsection}{\numberline {6.93.1.2}SYNTAX\_COLOR\_CMD\_NAME}{209}{subsubsection.6.93.1.2}%
+\contentsline {subsubsection}{\numberline {6.93.1.3}SYNTAX\_COLOR\_DEFAULT}{209}{subsubsection.6.93.1.3}%
+\contentsline {subsubsection}{\numberline {6.93.1.4}SYNTAX\_COLOR\_DOUBLE\_QUOTE\_STRING}{209}{subsubsection.6.93.1.4}%
+\contentsline {subsubsection}{\numberline {6.93.1.5}SYNTAX\_COLOR\_PARAM\_NAME}{209}{subsubsection.6.93.1.5}%
+\contentsline {subsubsection}{\numberline {6.93.1.6}SYNTAX\_COLOR\_PARAM\_VALUE}{210}{subsubsection.6.93.1.6}%
+\contentsline {subsubsection}{\numberline {6.93.1.7}SYNTAX\_COLOR\_SINGLE\_QUOTE\_STRING}{210}{subsubsection.6.93.1.7}%
+\contentsline {subsection}{\numberline {6.93.2}Function Documentation}{210}{subsection.6.93.2}%
+\contentsline {subsubsection}{\numberline {6.93.2.1}syntax\_disable\_highlighting()}{210}{subsubsection.6.93.2.1}%
+\contentsline {subsubsection}{\numberline {6.93.2.2}syntax\_enable\_highlighting()}{210}{subsubsection.6.93.2.2}%
+\contentsline {subsubsection}{\numberline {6.93.2.3}syntax\_handle\_char()}{210}{subsubsection.6.93.2.3}%
+\contentsline {subsubsection}{\numberline {6.93.2.4}syntax\_init()}{211}{subsubsection.6.93.2.4}%
+\contentsline {section}{\numberline {6.94}syntax\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}highlight.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{211}{section.6.94}%
+\contentsline {section}{\numberline {6.95}/home/maximillian/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MAMA/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Who\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Did\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}What.md File Reference}{211}{section.6.95}%
+\contentsline {chapter}{Index}{213}{section*.140}%

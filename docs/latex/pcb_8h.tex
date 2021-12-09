@@ -88,7 +88,9 @@ int \mbox{\hyperlink{pcb_8h_ace2e002e42c2ce2929436e767ba30f5d}{show\+Blocked}} (
 int \mbox{\hyperlink{pcb_8h_a265523e034df978d83da7bb1f0ed209f}{show\+All}} (char $\ast$args)
 \begin{DoxyCompactList}\small\item\em Show all PCBs. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pcb_8h_ac036527aaa2149438637e19a4d877de9}{resume\+All}} (char $\ast$p)
-\begin{DoxyCompactList}\small\item\em Resume all suspended processes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Resume all suspended processes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{pcb_8h_a3c7fd2f90425c12f1f6787f887f8d1f0}{is\+System\+Process}} (char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Checks whether specified process is a system process or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -381,6 +383,26 @@ Inserts a PCB into the appropriate queue
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 0 on success, 1 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pcb_8h_a3c7fd2f90425c12f1f6787f887f8d1f0}\label{pcb_8h_a3c7fd2f90425c12f1f6787f887f8d1f0}} 
+\index{pcb.h@{pcb.h}!isSystemProcess@{isSystemProcess}}
+\index{isSystemProcess@{isSystemProcess}!pcb.h@{pcb.h}}
+\doxysubsubsection{\texorpdfstring{isSystemProcess()}{isSystemProcess()}}
+{\footnotesize\ttfamily int is\+System\+Process (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Checks whether specified process is a system process or not. 
+
+Checks if the user supplied process name is a system process or an application.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the process\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1 if the process is a system process, 0 if the process is an application 
 \end{DoxyReturn}
 \mbox{\Hypertarget{pcb_8h_a699935a9f062569a0ca42dd52171813b}\label{pcb_8h_a699935a9f062569a0ca42dd52171813b}} 
 \index{pcb.h@{pcb.h}!removePCB@{removePCB}}

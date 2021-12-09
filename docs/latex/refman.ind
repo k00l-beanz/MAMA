@@ -1,7 +1,7 @@
 \begin{theindex}
 
   \item {/home/maximillian/Desktop/MAMA/README.md}, \hyperpage{98}
-  \item {/home/maximillian/Desktop/MAMA/WhoDidWhat.md}, \hyperpage{210}
+  \item {/home/maximillian/Desktop/MAMA/WhoDidWhat.md}, \hyperpage{211}
   \item {/home/maximillian/Desktop/MAMA/help.c}, \hyperpage{108}
   \item {/home/maximillian/Desktop/MAMA/include/core/asm.h}, 
 		\hyperpage{35}
@@ -57,7 +57,7 @@
   \item {/home/maximillian/Desktop/MAMA/term/cmds/argtest.c}, 
 		\hyperpage{107}
   \item {/home/maximillian/Desktop/MAMA/term/cmds/clear.c}, 
-		\hyperpage{191}
+		\hyperpage{192}
   \item {/home/maximillian/Desktop/MAMA/term/cmds/echo.c}, 
 		\hyperpage{107}
   \item {/home/maximillian/Desktop/MAMA/term/cmds/help.c}, 
@@ -97,33 +97,33 @@
   \item {/home/maximillian/Desktop/MAMA/term/pcb/pcb.c}, 
 		\hyperpage{165}
   \item {/home/maximillian/Desktop/MAMA/term/pcb/pcb.h}, 
-		\hyperpage{174}, \hyperpage{186}
-  \item {/home/maximillian/Desktop/MAMA/term/syntax.c}, \hyperpage{187}
+		\hyperpage{175}, \hyperpage{187}
+  \item {/home/maximillian/Desktop/MAMA/term/syntax.c}, \hyperpage{188}
   \item {/home/maximillian/Desktop/MAMA/term/syntax.h}, 
-		\hyperpage{188, 189}
-  \item {/home/maximillian/Desktop/MAMA/term/utils.c}, \hyperpage{189}
+		\hyperpage{189, 190}
+  \item {/home/maximillian/Desktop/MAMA/term/utils.c}, \hyperpage{190}
   \item {/home/maximillian/Desktop/MAMA/term/utils.h}, 
-		\hyperpage{190, 191}
+		\hyperpage{191, 192}
   \item {/home/maximillian/Desktop/MAMA/term/visuals/clear.c}, 
-		\hyperpage{192}
-  \item {/home/maximillian/Desktop/MAMA/term/visuals/clear.h}, 
-		\hyperpage{192, 193}
-  \item {/home/maximillian/Desktop/MAMA/term/visuals/colorize.c}, 
 		\hyperpage{193}
+  \item {/home/maximillian/Desktop/MAMA/term/visuals/clear.h}, 
+		\hyperpage{193, 194}
+  \item {/home/maximillian/Desktop/MAMA/term/visuals/colorize.c}, 
+		\hyperpage{194}
   \item {/home/maximillian/Desktop/MAMA/term/visuals/colorize.h}, 
-		\hyperpage{196}, \hyperpage{198}
+		\hyperpage{197}, \hyperpage{199}
   \item {/home/maximillian/Desktop/MAMA/term/visuals/cursor.c}, 
-		\hyperpage{199}
+		\hyperpage{200}
   \item {/home/maximillian/Desktop/MAMA/term/visuals/cursor.h}, 
-		\hyperpage{200}, \hyperpage{202}
+		\hyperpage{201}, \hyperpage{203}
   \item {/home/maximillian/Desktop/MAMA/term/visuals/hints.c}, 
-		\hyperpage{202}
+		\hyperpage{203}
   \item {/home/maximillian/Desktop/MAMA/term/visuals/hints.h}, 
-		\hyperpage{203, 204}
+		\hyperpage{204, 205}
   \item {/home/maximillian/Desktop/MAMA/term/visuals/syntax\_highlight.c}, 
-		\hyperpage{204}
+		\hyperpage{205}
   \item {/home/maximillian/Desktop/MAMA/term/visuals/syntax\_highlight.h}, 
-		\hyperpage{207}, \hyperpage{210}
+		\hyperpage{208}, \hyperpage{211}
   \item {\_\_attribute\_\_}
     \subitem {tables.h}, \hyperpage{41}
   \item {\_\_end}
@@ -213,8 +213,8 @@
     \subitem {dnt.c}, \hyperpage{134}
     \subitem {dnt.h}, \hyperpage{144}
   \item {BLACK}
-    \subitem {colorize.c}, \hyperpage{195}
-    \subitem {colorize.h}, \hyperpage{197}
+    \subitem {colorize.c}, \hyperpage{196}
+    \subitem {colorize.h}, \hyperpage{198}
   \item {block}
     \subitem {index\_entry}, \hyperpage{23}
   \item {BLOCKED}
@@ -224,10 +224,10 @@
     \subitem {out.h}, \hyperpage{81}
   \item {blockPCB}
     \subitem {pcb.c}, \hyperpage{166}
-    \subitem {pcb.h}, \hyperpage{178}
+    \subitem {pcb.h}, \hyperpage{179}
   \item {BLUE}
-    \subitem {colorize.c}, \hyperpage{195}
-    \subitem {colorize.h}, \hyperpage{197}
+    \subitem {colorize.c}, \hyperpage{196}
+    \subitem {colorize.h}, \hyperpage{198}
   \item {bounds}
     \subitem {interrupts.c}, \hyperpage{59}
   \item {breakpoint}
@@ -241,16 +241,16 @@
     \subitem {paging.c}, \hyperpage{77}
   \item {changes\_state}
     \subitem {syntax.c}, \hyperpage{188}
-    \subitem {syntax.h}, \hyperpage{189}
+    \subitem {syntax.h}, \hyperpage{190}
   \item {circular\_next\_index}
     \subitem {history.c}, \hyperpage{152}
   \item {circular\_prev\_index}
     \subitem {history.c}, \hyperpage{153}
   \item {clear.c}
-    \subitem {cmd\_clear}, \hyperpage{192}
-    \subitem {display\_clear}, \hyperpage{192}
+    \subitem {cmd\_clear}, \hyperpage{193}
+    \subitem {display\_clear}, \hyperpage{193}
   \item {clear.h}
-    \subitem {display\_clear}, \hyperpage{192}
+    \subitem {display\_clear}, \hyperpage{193}
   \item {clear\_bit}
     \subitem {paging.c}, \hyperpage{76}
     \subitem {paging.h}, \hyperpage{48}
@@ -274,7 +274,7 @@
   \item {cmd\_argtest}
     \subitem {argtest.c}, \hyperpage{107}
   \item {cmd\_clear}
-    \subitem {clear.c}, \hyperpage{192}
+    \subitem {clear.c}, \hyperpage{193}
   \item {cmd\_echo}
     \subitem {echo.c}, \hyperpage{108}
   \item {cmd\_func\_t}
@@ -292,50 +292,50 @@
   \item {cmd\_mappings}
     \subitem {commhand.c}, \hyperpage{121}
   \item {CMD\_NAME}
-    \subitem {syntax.h}, \hyperpage{188}
+    \subitem {syntax.h}, \hyperpage{189}
   \item {cmd\_name}
     \subitem {cmd\_mapping}, \hyperpage{11}
   \item {CMD\_NAME\_OR\_LEADING\_WHITESPACE}
-    \subitem {syntax.h}, \hyperpage{188}
+    \subitem {syntax.h}, \hyperpage{189}
   \item {cmd\_shutdown}
     \subitem {shutdown.c}, \hyperpage{117}
   \item {cmd\_version}
     \subitem {version.c}, \hyperpage{118}
   \item {Color}
-    \subitem {colorize.c}, \hyperpage{194}
-    \subitem {colorize.h}, \hyperpage{197}
+    \subitem {colorize.c}, \hyperpage{195}
+    \subitem {colorize.h}, \hyperpage{198}
   \item {color\_for}
-    \subitem {syntax\_highlight.c}, \hyperpage{205}
+    \subitem {syntax\_highlight.c}, \hyperpage{206}
   \item {colorize.c}
-    \subitem {BLACK}, \hyperpage{195}
-    \subitem {BLUE}, \hyperpage{195}
-    \subitem {Color}, \hyperpage{194}
-    \subitem {CYAN}, \hyperpage{195}
-    \subitem {display\_bg\_color}, \hyperpage{195}
-    \subitem {display\_fg\_color}, \hyperpage{195}
-    \subitem {display\_italicize}, \hyperpage{196}
-    \subitem {display\_reset}, \hyperpage{196}
-    \subitem {GREEN}, \hyperpage{195}
-    \subitem {MAGENTA}, \hyperpage{195}
-    \subitem {print\_color\_code}, \hyperpage{196}
-    \subitem {RED}, \hyperpage{195}
-    \subitem {START\_SEQ}, \hyperpage{193}
-    \subitem {WHITE}, \hyperpage{195}
-    \subitem {YELLOW}, \hyperpage{195}
+    \subitem {BLACK}, \hyperpage{196}
+    \subitem {BLUE}, \hyperpage{196}
+    \subitem {Color}, \hyperpage{195}
+    \subitem {CYAN}, \hyperpage{196}
+    \subitem {display\_bg\_color}, \hyperpage{196}
+    \subitem {display\_fg\_color}, \hyperpage{196}
+    \subitem {display\_italicize}, \hyperpage{197}
+    \subitem {display\_reset}, \hyperpage{197}
+    \subitem {GREEN}, \hyperpage{196}
+    \subitem {MAGENTA}, \hyperpage{196}
+    \subitem {print\_color\_code}, \hyperpage{197}
+    \subitem {RED}, \hyperpage{196}
+    \subitem {START\_SEQ}, \hyperpage{194}
+    \subitem {WHITE}, \hyperpage{196}
+    \subitem {YELLOW}, \hyperpage{196}
   \item {colorize.h}
-    \subitem {BLACK}, \hyperpage{197}
-    \subitem {BLUE}, \hyperpage{197}
-    \subitem {Color}, \hyperpage{197}
-    \subitem {CYAN}, \hyperpage{197}
-    \subitem {display\_bg\_color}, \hyperpage{197}
-    \subitem {display\_fg\_color}, \hyperpage{198}
-    \subitem {display\_italicize}, \hyperpage{198}
-    \subitem {display\_reset}, \hyperpage{198}
-    \subitem {GREEN}, \hyperpage{197}
-    \subitem {MAGENTA}, \hyperpage{197}
-    \subitem {RED}, \hyperpage{197}
-    \subitem {WHITE}, \hyperpage{197}
-    \subitem {YELLOW}, \hyperpage{197}
+    \subitem {BLACK}, \hyperpage{198}
+    \subitem {BLUE}, \hyperpage{198}
+    \subitem {Color}, \hyperpage{198}
+    \subitem {CYAN}, \hyperpage{198}
+    \subitem {display\_bg\_color}, \hyperpage{198}
+    \subitem {display\_fg\_color}, \hyperpage{199}
+    \subitem {display\_italicize}, \hyperpage{199}
+    \subitem {display\_reset}, \hyperpage{199}
+    \subitem {GREEN}, \hyperpage{198}
+    \subitem {MAGENTA}, \hyperpage{198}
+    \subitem {RED}, \hyperpage{198}
+    \subitem {WHITE}, \hyperpage{198}
+    \subitem {YELLOW}, \hyperpage{198}
   \item {COM1}
     \subitem {serial.h}, \hyperpage{38}
   \item {COM1\_control\_block}
@@ -440,35 +440,35 @@
     \subitem {dnt.c}, \hyperpage{134}
     \subitem {dnt.h}, \hyperpage{145}
   \item {cursor.c}
-    \subitem {cursor\_down}, \hyperpage{199}
-    \subitem {cursor\_left}, \hyperpage{199}
-    \subitem {cursor\_return}, \hyperpage{200}
-    \subitem {cursor\_right}, \hyperpage{200}
-    \subitem {cursor\_up}, \hyperpage{200}
-  \item {cursor.h}
-    \subitem {cursor\_down}, \hyperpage{201}
-    \subitem {cursor\_left}, \hyperpage{201}
+    \subitem {cursor\_down}, \hyperpage{200}
+    \subitem {cursor\_left}, \hyperpage{200}
     \subitem {cursor\_return}, \hyperpage{201}
     \subitem {cursor\_right}, \hyperpage{201}
-    \subitem {cursor\_up}, \hyperpage{202}
+    \subitem {cursor\_up}, \hyperpage{201}
+  \item {cursor.h}
+    \subitem {cursor\_down}, \hyperpage{202}
+    \subitem {cursor\_left}, \hyperpage{202}
+    \subitem {cursor\_return}, \hyperpage{202}
+    \subitem {cursor\_right}, \hyperpage{202}
+    \subitem {cursor\_up}, \hyperpage{203}
   \item {cursor\_down}
-    \subitem {cursor.c}, \hyperpage{199}
-    \subitem {cursor.h}, \hyperpage{201}
-  \item {cursor\_left}
-    \subitem {cursor.c}, \hyperpage{199}
-    \subitem {cursor.h}, \hyperpage{201}
-  \item {cursor\_return}
-    \subitem {cursor.c}, \hyperpage{200}
-    \subitem {cursor.h}, \hyperpage{201}
-  \item {cursor\_right}
-    \subitem {cursor.c}, \hyperpage{200}
-    \subitem {cursor.h}, \hyperpage{201}
-  \item {cursor\_up}
     \subitem {cursor.c}, \hyperpage{200}
     \subitem {cursor.h}, \hyperpage{202}
+  \item {cursor\_left}
+    \subitem {cursor.c}, \hyperpage{200}
+    \subitem {cursor.h}, \hyperpage{202}
+  \item {cursor\_return}
+    \subitem {cursor.c}, \hyperpage{201}
+    \subitem {cursor.h}, \hyperpage{202}
+  \item {cursor\_right}
+    \subitem {cursor.c}, \hyperpage{201}
+    \subitem {cursor.h}, \hyperpage{202}
+  \item {cursor\_up}
+    \subitem {cursor.c}, \hyperpage{201}
+    \subitem {cursor.h}, \hyperpage{203}
   \item {CYAN}
-    \subitem {colorize.c}, \hyperpage{195}
-    \subitem {colorize.h}, \hyperpage{197}
+    \subitem {colorize.c}, \hyperpage{196}
+    \subitem {colorize.h}, \hyperpage{198}
 
   \indexspace
 
@@ -509,15 +509,15 @@
   \item {debug}
     \subitem {interrupts.c}, \hyperpage{60}
   \item {DEFAULT}
-    \subitem {syntax.h}, \hyperpage{188}
+    \subitem {syntax.h}, \hyperpage{189}
   \item {default\_args}
     \subitem {cmd\_mapping}, \hyperpage{11}
   \item {DEFAULT\_DEVICE}
     \subitem {mpx\_supt.h}, \hyperpage{93}
   \item {DELETABLE}
-    \subitem {pcb.h}, \hyperpage{177}
+    \subitem {pcb.h}, \hyperpage{178}
   \item {DELETABLE\_WHEN\_SUSPENDED}
-    \subitem {pcb.h}, \hyperpage{177}
+    \subitem {pcb.h}, \hyperpage{178}
   \item {DELETE}
     \subitem {serial.c}, \hyperpage{66}
   \item {deletePCB}
@@ -543,20 +543,20 @@
     \subitem {context.c}, \hyperpage{124}
     \subitem {context.h}, \hyperpage{126}
   \item {display\_bg\_color}
-    \subitem {colorize.c}, \hyperpage{195}
-    \subitem {colorize.h}, \hyperpage{197}
+    \subitem {colorize.c}, \hyperpage{196}
+    \subitem {colorize.h}, \hyperpage{198}
   \item {display\_clear}
-    \subitem {clear.c}, \hyperpage{192}
-    \subitem {clear.h}, \hyperpage{192}
+    \subitem {clear.c}, \hyperpage{193}
+    \subitem {clear.h}, \hyperpage{193}
   \item {display\_fg\_color}
-    \subitem {colorize.c}, \hyperpage{195}
-    \subitem {colorize.h}, \hyperpage{198}
+    \subitem {colorize.c}, \hyperpage{196}
+    \subitem {colorize.h}, \hyperpage{199}
   \item {display\_italicize}
-    \subitem {colorize.c}, \hyperpage{196}
-    \subitem {colorize.h}, \hyperpage{198}
+    \subitem {colorize.c}, \hyperpage{197}
+    \subitem {colorize.h}, \hyperpage{199}
   \item {display\_reset}
-    \subitem {colorize.c}, \hyperpage{196}
-    \subitem {colorize.h}, \hyperpage{198}
+    \subitem {colorize.c}, \hyperpage{197}
+    \subitem {colorize.h}, \hyperpage{199}
   \item {divide\_error}
     \subitem {interrupts.c}, \hyperpage{60}
   \item {DIVISOR\_LATCH\_HIGH\_BYTE\_REGISTER}
@@ -655,9 +655,9 @@
   \item {double\_fault}
     \subitem {interrupts.c}, \hyperpage{62}
   \item {DOUBLE\_QUOTE\_STRING}
-    \subitem {syntax.h}, \hyperpage{188}
+    \subitem {syntax.h}, \hyperpage{189}
   \item {DOUBLE\_QUOTE\_STRING\_END\_QUOTE}
-    \subitem {syntax.h}, \hyperpage{188}
+    \subitem {syntax.h}, \hyperpage{189}
   \item {DOWN\_ARROW}
     \subitem {serial.c}, \hyperpage{66}
   \item {driver.c}
@@ -714,11 +714,11 @@
   \item {empty}
     \subitem {index\_entry}, \hyperpage{24}
   \item {enabled}
-    \subitem {syntax\_highlight.c}, \hyperpage{207}
+    \subitem {syntax\_highlight.c}, \hyperpage{208}
   \item {end}
     \subitem {heap.c}, \hyperpage{75}
   \item {END\_OF\_INPUT}
-    \subitem {syntax.h}, \hyperpage{188}
+    \subitem {syntax.h}, \hyperpage{189}
   \item {EPOCH\_FIRST\_DAY\_OF\_WEEK\_OF\_YEAR}
     \subitem {dnt.h}, \hyperpage{142}
   \item {EPOCH\_FIRST\_DAY\_OF\_YEAR}
@@ -766,7 +766,7 @@
     \subitem {paging.c}, \hyperpage{76}
   \item {findPCB}
     \subitem {pcb.c}, \hyperpage{167}
-    \subitem {pcb.h}, \hyperpage{179}
+    \subitem {pcb.h}, \hyperpage{181}
   \item {first\_free}
     \subitem {paging.h}, \hyperpage{48}
   \item {flag}
@@ -801,7 +801,7 @@
     \subitem {mm.h}, \hyperpage{162}
   \item {freePCB}
     \subitem {pcb.c}, \hyperpage{168}
-    \subitem {pcb.h}, \hyperpage{180}
+    \subitem {pcb.h}, \hyperpage{181}
   \item {fs}
     \subitem {context}, \hyperpage{14}
 
@@ -837,10 +837,10 @@
     \subitem {paging.c}, \hyperpage{76}
     \subitem {paging.h}, \hyperpage{49}
   \item {get\_state}
-    \subitem {syntax.c}, \hyperpage{188}
-    \subitem {syntax.h}, \hyperpage{189}
+    \subitem {syntax.c}, \hyperpage{189}
+    \subitem {syntax.h}, \hyperpage{190}
   \item {get\_state\_at}
-    \subitem {syntax\_highlight.c}, \hyperpage{205}
+    \subitem {syntax\_highlight.c}, \hyperpage{206}
   \item {get\_token}
     \subitem {args.c}, \hyperpage{103}
   \item {getdate}
@@ -858,8 +858,8 @@
   \item {global\_context}
     \subitem {system.c}, \hyperpage{70}
   \item {GREEN}
-    \subitem {colorize.c}, \hyperpage{195}
-    \subitem {colorize.h}, \hyperpage{197}
+    \subitem {colorize.c}, \hyperpage{196}
+    \subitem {colorize.h}, \hyperpage{198}
   \item {gs}
     \subitem {context}, \hyperpage{14}
 
@@ -937,12 +937,12 @@
     \subitem {help.c}, \hyperpage{109}, \hyperpage{113}
     \subitem {out.h}, \hyperpage{82}
   \item {hint\_under\_prompt}
-    \subitem {hints.c}, \hyperpage{202}
-    \subitem {hints.h}, \hyperpage{203}
+    \subitem {hints.c}, \hyperpage{203}
+    \subitem {hints.h}, \hyperpage{204}
   \item {hints.c}
-    \subitem {hint\_under\_prompt}, \hyperpage{202}
-  \item {hints.h}
     \subitem {hint\_under\_prompt}, \hyperpage{203}
+  \item {hints.h}
+    \subitem {hint\_under\_prompt}, \hyperpage{204}
   \item {hist\_discard\_last\_frame}
     \subitem {history.c}, \hyperpage{153}
   \item {hist\_forward}
@@ -1040,7 +1040,7 @@
     \subitem {mm.h}, \hyperpage{162}
   \item {initPCB}
     \subitem {pcb.c}, \hyperpage{168}
-    \subitem {pcb.h}, \hyperpage{180}
+    \subitem {pcb.h}, \hyperpage{181}
   \item {insertAMCB}
     \subitem {mm.c}, \hyperpage{158}
     \subitem {mm.h}, \hyperpage{163}
@@ -1049,7 +1049,7 @@
     \subitem {mm.h}, \hyperpage{163}
   \item {insertPCB}
     \subitem {pcb.c}, \hyperpage{168}
-    \subitem {pcb.h}, \hyperpage{180}
+    \subitem {pcb.h}, \hyperpage{182}
   \item {INTERRUPT\_ENABLE\_REGISTER}
     \subitem {driver.c}, \hyperpage{99}
   \item {INTERRUPT\_IDENTIFICATION\_REGISTER}
@@ -1131,8 +1131,8 @@
     \subitem {system.h}, \hyperpage{55}
   \item {is\_name\_char}
     \subitem {commhand.c}, \hyperpage{120}
-    \subitem {utils.c}, \hyperpage{190}
-    \subitem {utils.h}, \hyperpage{190}
+    \subitem {utils.c}, \hyperpage{191}
+    \subitem {utils.h}, \hyperpage{191}
   \item {isEmpty}
     \subitem {mm.c}, \hyperpage{158}
     \subitem {mm.h}, \hyperpage{163}
@@ -1144,6 +1144,9 @@
   \item {isspace}
     \subitem {string.c}, \hyperpage{88}
     \subitem {string.h}, \hyperpage{51}
+  \item {isSystemProcess}
+    \subitem {pcb.c}, \hyperpage{170}
+    \subitem {pcb.h}, \hyperpage{182}
   \item {itoa}
     \subitem {string.c}, \hyperpage{88}
     \subitem {string.h}, \hyperpage{51}
@@ -1211,8 +1214,8 @@
   \indexspace
 
   \item {MAGENTA}
-    \subitem {colorize.c}, \hyperpage{195}
-    \subitem {colorize.h}, \hyperpage{197}
+    \subitem {colorize.c}, \hyperpage{196}
+    \subitem {colorize.h}, \hyperpage{198}
   \item {make\_heap}
     \subitem {heap.c}, \hyperpage{74}
     \subitem {heap.h}, \hyperpage{46}
@@ -1254,15 +1257,15 @@
   \item {MAX\_PARSE\_STACK\_SIZE}
     \subitem {args.c}, \hyperpage{103}
   \item {MAX\_PRIORITY}
-    \subitem {pcb.h}, \hyperpage{176}
+    \subitem {pcb.h}, \hyperpage{177}
   \item {MAX\_SECONDS}
     \subitem {dnt.h}, \hyperpage{143}
   \item {max\_size}
     \subitem {heap}, \hyperpage{21}
   \item {MAX\_STACK\_SIZE}
-    \subitem {pcb.h}, \hyperpage{176}
+    \subitem {pcb.h}, \hyperpage{177}
   \item {MAX\_SYNTAX\_SWITCHES}
-    \subitem {syntax\_highlight.h}, \hyperpage{208}
+    \subitem {syntax\_highlight.h}, \hyperpage{209}
   \item {MAX\_YEAR}
     \subitem {dnt.h}, \hyperpage{144}
   \item {mcb\_queue\_s}, \hyperpage{25}
@@ -1293,7 +1296,7 @@
   \item {MIN\_MONTH}
     \subitem {dnt.h}, \hyperpage{144}
   \item {MIN\_PRIORITY}
-    \subitem {pcb.h}, \hyperpage{176}
+    \subitem {pcb.h}, \hyperpage{177}
   \item {min\_size}
     \subitem {heap}, \hyperpage{21}
   \item {MIN\_YEAR}
@@ -1419,7 +1422,7 @@
     \subitem {paging.c}, \hyperpage{77}
     \subitem {paging.h}, \hyperpage{49}
   \item {newest\_switch}
-    \subitem {syntax\_highlight.c}, \hyperpage{207}
+    \subitem {syntax\_highlight.c}, \hyperpage{208}
   \item {next}
     \subitem {cmcb\_s}, \hyperpage{10}
   \item {next\_unnamed\_arg}
@@ -1435,7 +1438,7 @@
   \item {nop}
     \subitem {system.h}, \hyperpage{55}
   \item {NOT\_DELETABLE}
-    \subitem {pcb.h}, \hyperpage{177}
+    \subitem {pcb.h}, \hyperpage{178}
   \item {NULL}
     \subitem {system.h}, \hyperpage{55}
 
@@ -1501,7 +1504,7 @@
   \item {p\_queue}
     \subitem {pcb.c}, \hyperpage{174}
   \item {p\_state\_t}
-    \subitem {pcb.h}, \hyperpage{177}
+    \subitem {pcb.h}, \hyperpage{178}
   \item {page\_dir}, \hyperpage{25}
     \subitem {tables}, \hyperpage{26}
     \subitem {tables\_phys}, \hyperpage{26}
@@ -1556,9 +1559,9 @@
     \subitem {device\_id}, \hyperpage{28}
     \subitem {op\_code}, \hyperpage{28}
   \item {PARAM\_NAME}
-    \subitem {syntax.h}, \hyperpage{188}
+    \subitem {syntax.h}, \hyperpage{189}
   \item {PARAM\_VALUE}
-    \subitem {syntax.h}, \hyperpage{188}
+    \subitem {syntax.h}, \hyperpage{189}
   \item {params}
     \subitem {mpx\_supt.c}, \hyperpage{92}
     \subitem {system.c}, \hyperpage{70}
@@ -1590,58 +1593,60 @@
     \subitem {freePCB}, \hyperpage{168}
     \subitem {initPCB}, \hyperpage{168}
     \subitem {insertPCB}, \hyperpage{168}
+    \subitem {isSystemProcess}, \hyperpage{170}
     \subitem {p\_queue}, \hyperpage{174}
-    \subitem {priority\_queue}, \hyperpage{174}
+    \subitem {priority\_queue}, \hyperpage{175}
     \subitem {removePCB}, \hyperpage{170}
     \subitem {resumeAll}, \hyperpage{170}
-    \subitem {resumePCB}, \hyperpage{170}
+    \subitem {resumePCB}, \hyperpage{171}
     \subitem {setPriority}, \hyperpage{171}
-    \subitem {setupPCB}, \hyperpage{171}
+    \subitem {setupPCB}, \hyperpage{172}
     \subitem {showAll}, \hyperpage{172}
     \subitem {showBlocked}, \hyperpage{172}
-    \subitem {showPCB}, \hyperpage{172}
+    \subitem {showPCB}, \hyperpage{173}
     \subitem {showReady}, \hyperpage{173}
     \subitem {suspendPCB}, \hyperpage{173}
-    \subitem {unblockPCB}, \hyperpage{173}
+    \subitem {unblockPCB}, \hyperpage{174}
   \item {pcb.h}
     \subitem {allocatePCB}, \hyperpage{178}
     \subitem {BLOCKED}, \hyperpage{178}
-    \subitem {blockPCB}, \hyperpage{178}
+    \subitem {blockPCB}, \hyperpage{179}
     \subitem {createPCB}, \hyperpage{179}
-    \subitem {DELETABLE}, \hyperpage{177}
-    \subitem {DELETABLE\_WHEN\_SUSPENDED}, \hyperpage{177}
+    \subitem {DELETABLE}, \hyperpage{178}
+    \subitem {DELETABLE\_WHEN\_SUSPENDED}, \hyperpage{178}
     \subitem {deletePCB}, \hyperpage{179}
     \subitem {FIFO}, \hyperpage{178}
-    \subitem {findPCB}, \hyperpage{179}
-    \subitem {freePCB}, \hyperpage{180}
-    \subitem {initPCB}, \hyperpage{180}
-    \subitem {insertPCB}, \hyperpage{180}
+    \subitem {findPCB}, \hyperpage{181}
+    \subitem {freePCB}, \hyperpage{181}
+    \subitem {initPCB}, \hyperpage{181}
+    \subitem {insertPCB}, \hyperpage{182}
+    \subitem {isSystemProcess}, \hyperpage{182}
     \subitem {MAX\_NAME\_SIZE}, \hyperpage{176}
-    \subitem {MAX\_PRIORITY}, \hyperpage{176}
-    \subitem {MAX\_STACK\_SIZE}, \hyperpage{176}
-    \subitem {MIN\_PRIORITY}, \hyperpage{176}
-    \subitem {NOT\_DELETABLE}, \hyperpage{177}
+    \subitem {MAX\_PRIORITY}, \hyperpage{177}
+    \subitem {MAX\_STACK\_SIZE}, \hyperpage{177}
+    \subitem {MIN\_PRIORITY}, \hyperpage{177}
+    \subitem {NOT\_DELETABLE}, \hyperpage{178}
     \subitem {p\_protection\_mode\_t}, \hyperpage{177}
-    \subitem {p\_state\_t}, \hyperpage{177}
+    \subitem {p\_state\_t}, \hyperpage{178}
     \subitem {pcb\_node\_t}, \hyperpage{177}
     \subitem {pcb\_queue\_order\_t}, \hyperpage{178}
     \subitem {pcb\_queue\_t}, \hyperpage{177}
     \subitem {PRIORITY}, \hyperpage{178}
     \subitem {READY}, \hyperpage{178}
     \subitem {removePCB}, \hyperpage{182}
-    \subitem {resumeAll}, \hyperpage{182}
-    \subitem {resumePCB}, \hyperpage{182}
+    \subitem {resumeAll}, \hyperpage{183}
+    \subitem {resumePCB}, \hyperpage{183}
     \subitem {RUNNING}, \hyperpage{178}
-    \subitem {setPriority}, \hyperpage{183}
-    \subitem {setupPCB}, \hyperpage{183}
+    \subitem {setPriority}, \hyperpage{184}
+    \subitem {setupPCB}, \hyperpage{184}
     \subitem {showAll}, \hyperpage{184}
-    \subitem {showBlocked}, \hyperpage{184}
-    \subitem {showPCB}, \hyperpage{184}
+    \subitem {showBlocked}, \hyperpage{185}
+    \subitem {showPCB}, \hyperpage{185}
     \subitem {showReady}, \hyperpage{185}
     \subitem {SUSPENDED\_BLOCKED}, \hyperpage{178}
     \subitem {SUSPENDED\_READY}, \hyperpage{178}
-    \subitem {suspendPCB}, \hyperpage{185}
-    \subitem {unblockPCB}, \hyperpage{185}
+    \subitem {suspendPCB}, \hyperpage{186}
+    \subitem {unblockPCB}, \hyperpage{186}
   \item {pcb\_name}
     \subitem {pcb\_t}, \hyperpage{33}
   \item {pcb\_node\_t}, \hyperpage{30}
@@ -1708,7 +1713,7 @@
     \subitem {out.c}, \hyperpage{78}
     \subitem {out.h}, \hyperpage{83}
   \item {print\_color\_code}
-    \subitem {colorize.c}, \hyperpage{196}
+    \subitem {colorize.c}, \hyperpage{197}
   \item {printc}
     \subitem {out.c}, \hyperpage{78}
     \subitem {out.h}, \hyperpage{83}
@@ -1722,7 +1727,7 @@
     \subitem {pcb.h}, \hyperpage{178}
   \item {priority\_queue}
     \subitem {commhand.c}, \hyperpage{121}
-    \subitem {pcb.c}, \hyperpage{174}
+    \subitem {pcb.c}, \hyperpage{175}
     \subitem {system.c}, \hyperpage{70}
   \item {proc1}
     \subitem {procsr3.c}, \hyperpage{129}
@@ -1798,8 +1803,8 @@
   \item {ready\_state}
     \subitem {dcb\_t}, \hyperpage{16}
   \item {RED}
-    \subitem {colorize.c}, \hyperpage{195}
-    \subitem {colorize.h}, \hyperpage{197}
+    \subitem {colorize.c}, \hyperpage{196}
+    \subitem {colorize.h}, \hyperpage{198}
   \item {removeAMCB}
     \subitem {mm.c}, \hyperpage{159}
     \subitem {mm.h}, \hyperpage{163}
@@ -1814,7 +1819,7 @@
     \subitem {page\_entry}, \hyperpage{27}
   \item {resumeAll}
     \subitem {pcb.c}, \hyperpage{170}
-    \subitem {pcb.h}, \hyperpage{182}
+    \subitem {pcb.h}, \hyperpage{183}
   \item {resumeallHelp}
     \subitem {help.c}, \hyperpage{114}
     \subitem {out.h}, \hyperpage{84}
@@ -1822,8 +1827,8 @@
     \subitem {help.c}, \hyperpage{114}
     \subitem {out.h}, \hyperpage{84}
   \item {resumePCB}
-    \subitem {pcb.c}, \hyperpage{170}
-    \subitem {pcb.h}, \hyperpage{182}
+    \subitem {pcb.c}, \hyperpage{171}
+    \subitem {pcb.h}, \hyperpage{183}
   \item {RIGHT\_ARROW}
     \subitem {serial.c}, \hyperpage{67}
   \item {ring\_buffer}
@@ -1910,7 +1915,7 @@
     \subitem {dnt.h}, \hyperpage{149}
   \item {setPriority}
     \subitem {pcb.c}, \hyperpage{171}
-    \subitem {pcb.h}, \hyperpage{183}
+    \subitem {pcb.h}, \hyperpage{184}
   \item {setpriorityHelp}
     \subitem {help.c}, \hyperpage{114}
     \subitem {out.h}, \hyperpage{84}
@@ -1924,8 +1929,8 @@
     \subitem {dnt.c}, \hyperpage{139}
     \subitem {dnt.h}, \hyperpage{150}
   \item {setupPCB}
-    \subitem {pcb.c}, \hyperpage{171}
-    \subitem {pcb.h}, \hyperpage{183}
+    \subitem {pcb.c}, \hyperpage{172}
+    \subitem {pcb.h}, \hyperpage{184}
   \item {showAlarms}
     \subitem {dnt.c}, \hyperpage{139}
     \subitem {dnt.h}, \hyperpage{151}
@@ -1946,7 +1951,7 @@
     \subitem {out.h}, \hyperpage{85}
   \item {showBlocked}
     \subitem {pcb.c}, \hyperpage{172}
-    \subitem {pcb.h}, \hyperpage{184}
+    \subitem {pcb.h}, \hyperpage{185}
   \item {showblockedpcbHelp}
     \subitem {help.c}, \hyperpage{115}
     \subitem {out.h}, \hyperpage{85}
@@ -1957,8 +1962,8 @@
     \subitem {help.c}, \hyperpage{115}
     \subitem {out.h}, \hyperpage{85}
   \item {showPCB}
-    \subitem {pcb.c}, \hyperpage{172}
-    \subitem {pcb.h}, \hyperpage{184}
+    \subitem {pcb.c}, \hyperpage{173}
+    \subitem {pcb.h}, \hyperpage{185}
   \item {showpcbHelp}
     \subitem {help.c}, \hyperpage{115}
     \subitem {out.h}, \hyperpage{86}
@@ -1974,9 +1979,9 @@
     \subitem {help.c}, \hyperpage{110}, \hyperpage{116}
     \subitem {out.h}, \hyperpage{86}
   \item {SINGLE\_QUOTE\_STRING}
-    \subitem {syntax.h}, \hyperpage{188}
+    \subitem {syntax.h}, \hyperpage{189}
   \item {SINGLE\_QUOTE\_STRING\_END\_QUOTE}
-    \subitem {syntax.h}, \hyperpage{188}
+    \subitem {syntax.h}, \hyperpage{189}
   \item {size}
     \subitem {cmcb\_s}, \hyperpage{10}
     \subitem {header}, \hyperpage{20}
@@ -1984,8 +1989,8 @@
   \item {size\_t}
     \subitem {system.h}, \hyperpage{56}
   \item {skip\_ws}
-    \subitem {utils.c}, \hyperpage{190}
-    \subitem {utils.h}, \hyperpage{191}
+    \subitem {utils.c}, \hyperpage{191}
+    \subitem {utils.h}, \hyperpage{192}
   \item {sselect}
     \subitem {idt\_entry\_struct}, \hyperpage{22}
     \subitem {tables.h}, \hyperpage{43}
@@ -2004,9 +2009,9 @@
   \item {start\_addr}
     \subitem {mm.c}, \hyperpage{160}
   \item {START\_SEQ}
-    \subitem {colorize.c}, \hyperpage{193}
+    \subitem {colorize.c}, \hyperpage{194}
   \item {states}
-    \subitem {syntax\_highlight.c}, \hyperpage{207}
+    \subitem {syntax\_highlight.c}, \hyperpage{208}
   \item {sti}
     \subitem {system.h}, \hyperpage{55}
   \item {strcat}
@@ -2057,78 +2062,78 @@
     \subitem {out.h}, \hyperpage{86}
   \item {suspendPCB}
     \subitem {pcb.c}, \hyperpage{173}
-    \subitem {pcb.h}, \hyperpage{185}
+    \subitem {pcb.h}, \hyperpage{186}
   \item {switch\_indexes}
-    \subitem {syntax\_highlight.c}, \hyperpage{207}
+    \subitem {syntax\_highlight.c}, \hyperpage{208}
   \item {switch\_to}
-    \subitem {syntax\_highlight.c}, \hyperpage{205}
+    \subitem {syntax\_highlight.c}, \hyperpage{206}
   \item {syntax.c}
     \subitem {changes\_state}, \hyperpage{188}
-    \subitem {get\_state}, \hyperpage{188}
-  \item {syntax.h}
-    \subitem {changes\_state}, \hyperpage{189}
-    \subitem {CMD\_NAME}, \hyperpage{188}
-    \subitem {CMD\_NAME\_OR\_LEADING\_WHITESPACE}, \hyperpage{188}
-    \subitem {DEFAULT}, \hyperpage{188}
-    \subitem {DOUBLE\_QUOTE\_STRING}, \hyperpage{188}
-    \subitem {DOUBLE\_QUOTE\_STRING\_END\_QUOTE}, \hyperpage{188}
-    \subitem {END\_OF\_INPUT}, \hyperpage{188}
     \subitem {get\_state}, \hyperpage{189}
-    \subitem {PARAM\_NAME}, \hyperpage{188}
-    \subitem {PARAM\_VALUE}, \hyperpage{188}
-    \subitem {SINGLE\_QUOTE\_STRING}, \hyperpage{188}
-    \subitem {SINGLE\_QUOTE\_STRING\_END\_QUOTE}, \hyperpage{188}
-    \subitem {SyntaxState}, \hyperpage{188}
+  \item {syntax.h}
+    \subitem {changes\_state}, \hyperpage{190}
+    \subitem {CMD\_NAME}, \hyperpage{189}
+    \subitem {CMD\_NAME\_OR\_LEADING\_WHITESPACE}, \hyperpage{189}
+    \subitem {DEFAULT}, \hyperpage{189}
+    \subitem {DOUBLE\_QUOTE\_STRING}, \hyperpage{189}
+    \subitem {DOUBLE\_QUOTE\_STRING\_END\_QUOTE}, \hyperpage{189}
+    \subitem {END\_OF\_INPUT}, \hyperpage{189}
+    \subitem {get\_state}, \hyperpage{190}
+    \subitem {PARAM\_NAME}, \hyperpage{189}
+    \subitem {PARAM\_VALUE}, \hyperpage{189}
+    \subitem {SINGLE\_QUOTE\_STRING}, \hyperpage{189}
+    \subitem {SINGLE\_QUOTE\_STRING\_END\_QUOTE}, \hyperpage{189}
+    \subitem {SyntaxState}, \hyperpage{189}
   \item {SYNTAX\_COLOR\_CMD\_NAME}
-    \subitem {syntax\_highlight.h}, \hyperpage{208}
+    \subitem {syntax\_highlight.h}, \hyperpage{209}
   \item {SYNTAX\_COLOR\_DEFAULT}
-    \subitem {syntax\_highlight.h}, \hyperpage{208}
+    \subitem {syntax\_highlight.h}, \hyperpage{209}
   \item {SYNTAX\_COLOR\_DOUBLE\_QUOTE\_STRING}
-    \subitem {syntax\_highlight.h}, \hyperpage{208}
+    \subitem {syntax\_highlight.h}, \hyperpage{209}
   \item {SYNTAX\_COLOR\_PARAM\_NAME}
-    \subitem {syntax\_highlight.h}, \hyperpage{208}
+    \subitem {syntax\_highlight.h}, \hyperpage{209}
   \item {SYNTAX\_COLOR\_PARAM\_VALUE}
-    \subitem {syntax\_highlight.h}, \hyperpage{208}
+    \subitem {syntax\_highlight.h}, \hyperpage{209}
   \item {SYNTAX\_COLOR\_SINGLE\_QUOTE\_STRING}
-    \subitem {syntax\_highlight.h}, \hyperpage{209}
+    \subitem {syntax\_highlight.h}, \hyperpage{210}
   \item {syntax\_disable\_highlighting}
-    \subitem {syntax\_highlight.c}, \hyperpage{206}
-    \subitem {syntax\_highlight.h}, \hyperpage{209}
+    \subitem {syntax\_highlight.c}, \hyperpage{207}
+    \subitem {syntax\_highlight.h}, \hyperpage{210}
   \item {syntax\_enable\_highlighting}
-    \subitem {syntax\_highlight.c}, \hyperpage{206}
-    \subitem {syntax\_highlight.h}, \hyperpage{209}
+    \subitem {syntax\_highlight.c}, \hyperpage{207}
+    \subitem {syntax\_highlight.h}, \hyperpage{210}
   \item {syntax\_handle\_char}
-    \subitem {syntax\_highlight.c}, \hyperpage{206}
-    \subitem {syntax\_highlight.h}, \hyperpage{209}
+    \subitem {syntax\_highlight.c}, \hyperpage{207}
+    \subitem {syntax\_highlight.h}, \hyperpage{210}
   \item {syntax\_highlight.c}
-    \subitem {color\_for}, \hyperpage{205}
-    \subitem {enabled}, \hyperpage{207}
-    \subitem {get\_state\_at}, \hyperpage{205}
-    \subitem {newest\_switch}, \hyperpage{207}
-    \subitem {states}, \hyperpage{207}
-    \subitem {switch\_indexes}, \hyperpage{207}
-    \subitem {switch\_to}, \hyperpage{205}
-    \subitem {syntax\_disable\_highlighting}, \hyperpage{206}
-    \subitem {syntax\_enable\_highlighting}, \hyperpage{206}
-    \subitem {syntax\_handle\_char}, \hyperpage{206}
-    \subitem {syntax\_init}, \hyperpage{206}
+    \subitem {color\_for}, \hyperpage{206}
+    \subitem {enabled}, \hyperpage{208}
+    \subitem {get\_state\_at}, \hyperpage{206}
+    \subitem {newest\_switch}, \hyperpage{208}
+    \subitem {states}, \hyperpage{208}
+    \subitem {switch\_indexes}, \hyperpage{208}
+    \subitem {switch\_to}, \hyperpage{206}
+    \subitem {syntax\_disable\_highlighting}, \hyperpage{207}
+    \subitem {syntax\_enable\_highlighting}, \hyperpage{207}
+    \subitem {syntax\_handle\_char}, \hyperpage{207}
+    \subitem {syntax\_init}, \hyperpage{207}
   \item {syntax\_highlight.h}
-    \subitem {MAX\_SYNTAX\_SWITCHES}, \hyperpage{208}
-    \subitem {SYNTAX\_COLOR\_CMD\_NAME}, \hyperpage{208}
-    \subitem {SYNTAX\_COLOR\_DEFAULT}, \hyperpage{208}
-    \subitem {SYNTAX\_COLOR\_DOUBLE\_QUOTE\_STRING}, \hyperpage{208}
-    \subitem {SYNTAX\_COLOR\_PARAM\_NAME}, \hyperpage{208}
-    \subitem {SYNTAX\_COLOR\_PARAM\_VALUE}, \hyperpage{208}
-    \subitem {SYNTAX\_COLOR\_SINGLE\_QUOTE\_STRING}, \hyperpage{209}
-    \subitem {syntax\_disable\_highlighting}, \hyperpage{209}
-    \subitem {syntax\_enable\_highlighting}, \hyperpage{209}
-    \subitem {syntax\_handle\_char}, \hyperpage{209}
-    \subitem {syntax\_init}, \hyperpage{209}
+    \subitem {MAX\_SYNTAX\_SWITCHES}, \hyperpage{209}
+    \subitem {SYNTAX\_COLOR\_CMD\_NAME}, \hyperpage{209}
+    \subitem {SYNTAX\_COLOR\_DEFAULT}, \hyperpage{209}
+    \subitem {SYNTAX\_COLOR\_DOUBLE\_QUOTE\_STRING}, \hyperpage{209}
+    \subitem {SYNTAX\_COLOR\_PARAM\_NAME}, \hyperpage{209}
+    \subitem {SYNTAX\_COLOR\_PARAM\_VALUE}, \hyperpage{209}
+    \subitem {SYNTAX\_COLOR\_SINGLE\_QUOTE\_STRING}, \hyperpage{210}
+    \subitem {syntax\_disable\_highlighting}, \hyperpage{210}
+    \subitem {syntax\_enable\_highlighting}, \hyperpage{210}
+    \subitem {syntax\_handle\_char}, \hyperpage{210}
+    \subitem {syntax\_init}, \hyperpage{210}
   \item {syntax\_init}
-    \subitem {syntax\_highlight.c}, \hyperpage{206}
-    \subitem {syntax\_highlight.h}, \hyperpage{209}
+    \subitem {syntax\_highlight.c}, \hyperpage{207}
+    \subitem {syntax\_highlight.h}, \hyperpage{210}
   \item {SyntaxState}
-    \subitem {syntax.h}, \hyperpage{188}
+    \subitem {syntax.h}, \hyperpage{189}
   \item {sys\_alloc\_mem}
     \subitem {mpx\_supt.c}, \hyperpage{91}
     \subitem {mpx\_supt.h}, \hyperpage{96}
@@ -2229,8 +2234,8 @@
     \subitem {help.c}, \hyperpage{116}
     \subitem {out.h}, \hyperpage{86}
   \item {unblockPCB}
-    \subitem {pcb.c}, \hyperpage{173}
-    \subitem {pcb.h}, \hyperpage{185}
+    \subitem {pcb.c}, \hyperpage{174}
+    \subitem {pcb.h}, \hyperpage{186}
   \item {unnamed\_arg\_count}
     \subitem {parsed\_args}, \hyperpage{30}
   \item {unnamed\_args}
@@ -2250,11 +2255,11 @@
   \item {usermode}
     \subitem {page\_entry}, \hyperpage{27}
   \item {utils.c}
-    \subitem {is\_name\_char}, \hyperpage{190}
-    \subitem {skip\_ws}, \hyperpage{190}
-  \item {utils.h}
-    \subitem {is\_name\_char}, \hyperpage{190}
+    \subitem {is\_name\_char}, \hyperpage{191}
     \subitem {skip\_ws}, \hyperpage{191}
+  \item {utils.h}
+    \subitem {is\_name\_char}, \hyperpage{191}
+    \subitem {skip\_ws}, \hyperpage{192}
 
   \indexspace
 
@@ -2271,8 +2276,8 @@
   \indexspace
 
   \item {WHITE}
-    \subitem {colorize.c}, \hyperpage{195}
-    \subitem {colorize.h}, \hyperpage{197}
+    \subitem {colorize.c}, \hyperpage{196}
+    \subitem {colorize.h}, \hyperpage{198}
   \item {WRITE}
     \subitem {mpx\_supt.h}, \hyperpage{95}
   \item {write\_gdt\_ptr}
@@ -2291,8 +2296,8 @@
   \item {year}
     \subitem {date\_time}, \hyperpage{15}
   \item {YELLOW}
-    \subitem {colorize.c}, \hyperpage{195}
-    \subitem {colorize.h}, \hyperpage{197}
+    \subitem {colorize.c}, \hyperpage{196}
+    \subitem {colorize.h}, \hyperpage{198}
   \item {yield}
     \subitem {context.c}, \hyperpage{124}
     \subitem {context.h}, \hyperpage{127}
