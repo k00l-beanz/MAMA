@@ -209,7 +209,10 @@ void commhand() {
 	while(running) {
 		/* Prints prompt */
 		display_fg_color(GREEN);
-		printf("~--> ");
+		printf("~--> This is commhand. Commhand is disabled in this branch; it only prints this prompt over and over and won't ask for input, how sad.\n");
+		//cli();
+		//showFree(NULL);
+		//sti();
 continue;
 		display_reset();
 

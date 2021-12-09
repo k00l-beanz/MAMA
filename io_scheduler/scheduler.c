@@ -75,9 +75,11 @@ void io_try_start_next() {
 			if(next->type == READ_REQUEST) {
 				//serial_println("cp 2");
 				com_read(next->buf, next->count);
-			} else {
+			} else if(next->type == WRITE_REQUEST) {
 				//serial_println("cp 3");
 				com_write(next->buf, next->count);
+			} else {
+				kpanic("bad I/O request type");
 			}
 		} else { /*serial_println("try start next: COM1 queue empty ");*/ }
 	} else { /*serial_println("try start next: not ready for next");*/ }

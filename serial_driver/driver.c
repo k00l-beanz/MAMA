@@ -61,6 +61,8 @@ typedef struct dcb_t {
 
 dcb_t *COM1_control_block = NULL;
 
+//u32int original_interrupt_handler;
+
 int com_handle_interrupt();
 
 int com_circular_next_index(int);
@@ -114,6 +116,7 @@ int com_open(int *eflag_p, int baud_rate) {
 	// 3.	Save the address of the current interrupt handler, and install the new handler in the interrupt vector.
 	// TODO: save current address part
 	cli();
+	//original_interrupt_handler = idt_get_gate(0x24);
 	idt_set_gate(0x24, (u32int)com_handle_interrupt, 0x08, 0x8e);
 
 	// 4.	Compute the required baud rate divisor.
@@ -163,7 +166,7 @@ int com_close() {
 	outb(BASE + INTERRUPT_ENABLE_REGISTER, 0x0);
 
 	// 5.	Restore the original saved interrupt vector. 
-	// TODO
+	//idt_set_gate(0x24, original_interrupt_handler, 0x08, 0x8e);
 
 	return 0;
 }
@@ -199,10 +202,10 @@ int com_read(char *buf, int *count) {
 	// 5.	Copy characters from the ring buffer to the requestor's buffer, until the ring buffer is emptied, the requested count has been reached, or a CR (ENTER) code has been found. The copied characters should, of course, be removed from the ring buffer. Either input interrupts or all interrupts should be disabled during the copying. 
 	//int prev_interrupt_enable_reg_value = inb(BASE + INTERRUPT_ENABLE_REGISTER);
 	//outb(BASE + INTERRUPT_ENABLE_REGISTER, 0x0); // disable input interrupts
-	cli();
+	//cli();
 
 	while(actual_count < *count && COM1_control_block->ring_buffer_head != COM1_control_block->ring_buffer_tail) {
-		serial_println("using from ring buffer first...");
+		//serial_println("using from ring buffer first...");
 		char next = COM1_control_block->ring_buffer[COM1_control_block->ring_buffer_head];
 		COM1_control_block->ring_buffer[COM1_control_block->ring_buffer_head] = '\0'; // I don't think this is actually necessary, but it says to do it
 		COM1_control_block->ring_buffer_head = com_circular_next_index(COM1_control_block->ring_buffer_head);
@@ -214,7 +217,7 @@ int com_read(char *buf, int *count) {
 		actual_count++;
 	}
 
-	sti();
+	//sti();
 	//outb(BASE + INTERRUPT_ENABLE_REGISTER, prev_interrupt_enable_reg_value); // reenable input interrupts
 
 	// 6.	If more characters are needed, return. If the block is complete, continue with step 7. 
@@ -332,8 +335,7 @@ int com_handle_interrupt_read() {
 	COM1_control_block->user_read_progress++;
 	outb(BASE, letter);
 
-	if(/*got_newline || */COM1_control_block->user_read_progress >= *(COM1_control_block->user_read_count)) {
-		serial_println("got enough characters");
+	if(letter == '\r' || letter == '\n' || COM1_control_block->user_read_progress >= *(COM1_control_block->user_read_count)) {
 		*(COM1_control_block->user_read_count) = COM1_control_block->user_read_progress;
 		COM1_control_block->oper_status = DEVICE_IDLE;
 		*(COM1_control_block->eflag_p) = 1;

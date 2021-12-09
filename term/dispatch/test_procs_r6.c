@@ -138,7 +138,7 @@ int cmd_test_r6(char *args) {
   pcb->pcb_priority = 4;
   pcb->pcb_process_class = 0;
   pcb->pcb_process_state = READY;
-  insertPCB(pcb);
+  //insertPCB(pcb);
 	pcb = dispatcher("IOCOM", &IOCOM);
   pcb->pcb_priority = 4;
   pcb->pcb_process_class = 0;
