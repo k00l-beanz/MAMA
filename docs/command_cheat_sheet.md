@@ -5,7 +5,7 @@ help : help [COMMAND] <br>
 version : version <br>
 shutdown : shutdown <br>
 clear <br>
-alias : alias [ALIAS] [COMMAND] <br>
+alias : alias [ALIAS] [COMMAND] or alias [ALIAS] [COMMAND] -a "default arguments" <br>
 
 ## R1 - The User Interface
 getdate : getdate <br>
